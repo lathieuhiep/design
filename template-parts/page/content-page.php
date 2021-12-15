@@ -1,0 +1,13 @@
+<div class="container">
+    <?php while ( have_posts() ) : the_post(); ?>
+        <div class="site-page-content">
+            <?php
+            the_content();
+            getDesign_link_page();
+            ?>
+        </div>
+    <?php
+        getDesign_comment_form();
+    endwhile;
+    ?>
+</div>
