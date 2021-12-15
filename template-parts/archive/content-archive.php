@@ -2,7 +2,7 @@
 global $getDesign_options;
 
 $getDesign_opt_blog_sidebar_archive = $getDesign_options['getDesign_opt_blog_sidebar_archive'] ?? 'right';
-$getDesign_class_col_content = getDesign_col_use_sidebar($getDesign_opt_blog_sidebar_archive, 'getdesign-sidebar-main');
+$getDesign_class_col_content = getDesign_col_use_sidebar($getDesign_opt_blog_sidebar_archive, 'getDesign_sidebar_main');
 $getDesign_opt_blog_per_row = $getDesign_options['getDesign_opt_blog_per_row'] ?? 3;
 ?>
 

@@ -106,17 +106,6 @@ foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $g
 	require $getDesign_file_widgets;
 }
 
-if ( class_exists( 'Woocommerce' ) ) :
-	/*
-	 * Required: Woocommerce
-	 */
-    require get_parent_theme_file_path( '/extension/woocommerce/woo-scripts.php' );
-	require get_parent_theme_file_path( '/extension/woocommerce/woo-quick-view.php' );
-	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-hooks.php' );
-	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-functions.php' );
-
-endif;
-
 /**
  * Required: Register Sidebar
  */

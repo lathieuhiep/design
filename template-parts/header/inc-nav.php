@@ -50,20 +50,7 @@ $getDesign_opt_logo_image_id    =   $getDesign_options['getDesign_opt_logo_image
                         </ul>
 
                     <?php endif; ?>
-
                 </div>
-
-                <?php if ( class_exists('Woocommerce') ) : ?>
-
-                    <div class="shop-cart-view d-flex align-items-center">
-                        <?php
-                        do_action( 'getDesign_woo_shopping_cart' );
-
-                        the_widget( 'WC_Widget_Cart', '' );
-                        ?>
-                    </div>
-
-                <?php endif; ?>
             </div>
         </div>
     </div>

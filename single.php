@@ -5,7 +5,7 @@ global $getDesign_options;
 
 $getDesign_opt_single_post_sidebar = $getDesign_options['getDesign_opt_single_post_sidebar'] ?? 'right';
 
-$getDesign_class_col_content = getDesign_col_use_sidebar( $getDesign_opt_single_post_sidebar, 'getdesign-sidebar-main' );
+$getDesign_class_col_content = getDesign_col_use_sidebar( $getDesign_opt_single_post_sidebar, 'getDesign_sidebar_main' );
 
 get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
 ?>

@@ -507,65 +507,6 @@ Redux::set_section($getDesign_opt_name, array(
 ));
 /* End Social Network */
 
-/* Start Shop */
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_shop',
-    'title' => esc_html__('Shop', 'getdesign'),
-    'desc' => esc_html__('Settings WooCommerce', 'getdesign'),
-    'customizer_width' => '400px',
-    'icon' => 'el el-shopping-cart',
-    'fields' => array(
-
-        array(
-            'id' => 'getDesign_opt_shop_limit',
-            'type' => 'slider',
-            'title' => esc_html__('Product Limit Page Shop', 'getdesign'),
-            'min' => 1,
-            'step' => 1,
-            'max' => 250,
-            'default' => 12,
-            'display_value' => 'text'
-        ),
-
-        array(
-            'id' => 'getDesign_opt_shop_per_row',
-            'type' => 'select',
-            'title' => esc_html__('Products Per Row', 'getdesign'),
-            'default' => 4,
-            'options' => array(
-                3 => '3 Column',
-                4 => '4 Column',
-                5 => '5 Column',
-            )
-        ),
-
-        array(
-            'id' => 'getDesign_opt_shop_sidebar',
-            'type' => 'image_select',
-            'title' => esc_html__('Sidebar Shop', 'getdesign'),
-            'default' => 'left',
-            'options' => array(
-                'hide' => array(
-                    'alt' => 'None Sidebar',
-                    'img' => ReduxFramework::$_url . 'assets/img/1col.png'
-                ),
-
-                'left' => array(
-                    'alt' => 'Sidebar Left',
-                    'img' => ReduxFramework::$_url . 'assets/img/2cl.png'
-                ),
-
-                'right' => array(
-                    'alt' => 'Sidebar Right',
-                    'img' => ReduxFramework::$_url . 'assets/img/2cr.png'
-                ),
-
-            ),
-        ),
-    )
-));
-/* End Shop */
-
 /* Start Typography Options */
 Redux::set_section($getDesign_opt_name, array(
     'id' => 'getDesign_opt_typography',
