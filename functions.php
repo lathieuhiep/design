@@ -109,6 +109,8 @@ foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $g
 /**
  * Required: post type
  */
+require get_parent_theme_file_path( '/extension/post-type/course.php' );
+require get_parent_theme_file_path( '/extension/post-type/student-product.php' );
 require get_parent_theme_file_path( '/extension/post-type/testimonial.php' );
 
 /**

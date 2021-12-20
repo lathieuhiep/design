@@ -5,23 +5,23 @@
 *---------------------------------------------------------------------
 */
 
-add_action('init', 'getDesign_create_testimonial', 10);
+add_action('init', 'getDesign_create_course', 10);
 
-function getDesign_create_testimonial() {
+function getDesign_create_course() {
 
 	/* Start post type template */
 	$labels = array(
-		'name'                  =>  _x( 'Testimonial', 'post type general name', 'getdesign' ),
-		'singular_name'         =>  _x( 'Testimonial', 'post type singular name', 'getdesign' ),
-		'menu_name'             =>  _x( 'Testimonials', 'admin menu', 'getdesign' ),
-		'name_admin_bar'        =>  _x( 'Testimonial', 'add new on admin bar', 'getdesign' ),
-		'add_new'               =>  _x( 'Add new', 'Testimonial', 'getdesign' ),
+		'name'                  =>  _x( 'Course', 'post type general name', 'getdesign' ),
+		'singular_name'         =>  _x( 'Course', 'post type singular name', 'getdesign' ),
+		'menu_name'             =>  _x( 'Courses', 'admin menu', 'getdesign' ),
+		'name_admin_bar'        =>  _x( 'Course', 'add new on admin bar', 'getdesign' ),
+		'add_new'               =>  _x( 'Add new', 'Course', 'getdesign' ),
 		'add_new_item'          =>  esc_html__( 'Add new', 'getdesign' ),
 		'edit_item'             =>  esc_html__( 'Edit', 'getdesign' ),
 		'new_item'              =>  esc_html__( 'New', 'getdesign' ),
 		'view_item'             =>  esc_html__( 'View', 'getdesign' ),
-		'all_items'             =>  esc_html__( 'All Testimonials', 'getdesign' ),
-		'search_items'          =>  esc_html__( 'Search Testimonials', 'getdesign' ),
+		'all_items'             =>  esc_html__( 'All Courses', 'getdesign' ),
+		'search_items'          =>  esc_html__( 'Search Courses', 'getdesign' ),
 		'not_found'             =>  esc_html__( 'Not Found', 'getdesign' ),
 		'not_found_in_trash'    =>  esc_html__( 'Not Found In Trash', 'getdesign' ),
 		'parent_item_colon'     =>  ''
@@ -29,20 +29,20 @@ function getDesign_create_testimonial() {
 
 	$args = array(
 		'labels'             => $labels,
-		'public'             => false,
+		'public'             => true,
 		'show_ui'            => true,
 		'show_in_menu'       => true,
 		'query_var'          => true,
-		'menu_icon'          => 'dashicons-testimonial',
+		'menu_icon'          => 'dashicons-welcome-learn-more',
 		'capability_type'    => 'post',
-		'rewrite'            => array('slug' => 'testimonial' ),
+		'rewrite'            => array('slug' => 'khoa-hoc' ),
 		'has_archive'        => true,
 		'hierarchical'       => true,
 		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
 	);
 
-	register_post_type('design_testimonial', $args );
+	register_post_type('design_course', $args );
 	/* End post type template */
 
 }
