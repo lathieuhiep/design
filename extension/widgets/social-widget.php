@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-class getDesign_social_widget extends WP_Widget {
+class design_social_widget extends WP_Widget {
 
 	/**
 	 * Widget setup.
@@ -15,12 +15,12 @@ class getDesign_social_widget extends WP_Widget {
 
     public function __construct() {
 
-        $getDesign_social_widget_ops = array(
-            'classname'     =>  'getDesign_social_widget',
+        $design_social_widget_ops = array(
+            'classname'     =>  'design_social_widget',
             'description'   =>  'A widget that displays your social icons',
         );
 
-        parent::__construct( 'getDesign_social_widget', 'Basic Theme: Social Icons', $getDesign_social_widget_ops );
+        parent::__construct( 'design_social_widget', 'Basic Theme: Social Icons', $design_social_widget_ops );
 
     }
 
@@ -41,7 +41,7 @@ class getDesign_social_widget extends WP_Widget {
     ?>
 		
         <div class="social-widget social-network-toTopFromBottom">
-            <?php getDesign_get_social_url(); ?>
+            <?php design_get_social_url(); ?>
         </div>
 
     <?php
@@ -65,14 +65,14 @@ class getDesign_social_widget extends WP_Widget {
 		<!-- Widget Title: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>">
-                <?php esc_html_e( 'Title:', 'getdesign' ); ?>
+                <?php esc_html_e( 'Title:', 'design' ); ?>
             </label>
 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:90%;" />
 		</p>
 		
 		<p>
-            <?php esc_html_e( 'Note: Set your social links in the getdesign Options', 'getdesign' ); ?>
+            <?php esc_html_e( 'Note: Set your social links in the design Options', 'design' ); ?>
         </p>
 
 	<?php
@@ -98,8 +98,8 @@ class getDesign_social_widget extends WP_Widget {
 }
 
 // Register social widget
-function getDesign_social_widget_register() {
-    register_widget( 'getDesign_social_widget' );
+function design_social_widget_register() {
+    register_widget( 'design_social_widget' );
 }
 
-add_action( 'widgets_init', 'getDesign_social_widget_register' );
+add_action( 'widgets_init', 'design_social_widget_register' );

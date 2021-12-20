@@ -1,9 +1,9 @@
 <?php
-global $getDesign_options;
+global $design_options;
 
-$getDesign_opt_single_post_share = $getDesign_options['getDesign_opt_single_post_share'] ?? true;
-$getDesign_opt_single_related_show = $getDesign_options['getDesign_opt_single_related_show'] ?? true;
-$type_image = rwmb_meta( 'getDesign_meta_box_post_select_image' );
+$design_opt_single_post_share = $design_options['design_opt_single_post_share'] ?? true;
+$design_opt_single_related_show = $design_options['design_opt_single_related_show'] ?? true;
+$type_image = rwmb_meta( 'design_meta_box_post_select_image' );
 ?>
 
 <div id="post-<?php the_ID() ?>" <?php post_class( 'site-post-single-item' ); ?>>
@@ -20,13 +20,13 @@ $type_image = rwmb_meta( 'getDesign_meta_box_post_select_image' );
             <?php the_title(); ?>
         </h2>
 
-        <?php getDesign_post_meta(); ?>
+        <?php design_post_meta(); ?>
 
         <div class="site-post-excerpt">
             <?php
             the_content();
 
-            getDesign_link_page();
+            design_link_page();
             ?>
         </div>
 
@@ -36,7 +36,7 @@ $type_image = rwmb_meta( 'getDesign_meta_box_post_select_image' );
 
                 <p class="site-post-category">
                     <?php
-                    esc_html_e('Category: ','getdesign');
+                    esc_html_e('Category: ','design');
                     the_category( ' ' );
                     ?>
                 </p>
@@ -51,7 +51,7 @@ $type_image = rwmb_meta( 'getDesign_meta_box_post_select_image' );
 
                 <p class="site-post-tag">
                     <?php
-                    esc_html_e( 'Tag: ','getdesign' );
+                    esc_html_e( 'Tag: ','design' );
                     the_tags('',' ');
                     ?>
                 </p>
@@ -63,17 +63,17 @@ $type_image = rwmb_meta( 'getDesign_meta_box_post_select_image' );
 
     <?php
 
-    if ( $getDesign_opt_single_post_share ) :
-        getDesign_post_share();
+    if ( $design_opt_single_post_share ) :
+        design_post_share();
     endif;
 
     ?>
 </div>
 
 <?php
-getDesign_comment_form();
+design_comment_form();
 
-if ( $getDesign_opt_single_related_show ) :
+if ( $design_opt_single_related_show ) :
     get_template_part( 'template-parts/post/inc','related-post' );
 endif;
 

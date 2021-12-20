@@ -4,18 +4,18 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class getDesign_widget_slides extends Widget_Base {
+class design_widget_slides extends Widget_Base {
 
     public function get_categories() {
-        return array( 'getDesign_widgets' );
+        return array( 'design_widgets' );
     }
 
     public function get_name() {
-        return 'getdesign-slides';
+        return 'design-slides';
     }
 
     public function get_title() {
-        return esc_html__( 'Slides Theme', 'getdesign' );
+        return esc_html__( 'Slides Theme', 'design' );
     }
 
     public function get_icon() {
@@ -23,14 +23,14 @@ class getDesign_widget_slides extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['getdesign-elementor-custom'];
+        return ['design-elementor-custom'];
     }
 
     protected function _register_controls() {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Slides', 'getdesign' ),
+                'label' => esc_html__( 'Slides', 'design' ),
             ]
         );
 
@@ -38,12 +38,12 @@ class getDesign_widget_slides extends Widget_Base {
 
         $repeater->start_controls_tabs( 'slides_repeater' );
 
-        $repeater->start_controls_tab( 'background', [ 'label' => esc_html__( 'Background', 'getdesign' ) ] );
+        $repeater->start_controls_tab( 'background', [ 'label' => esc_html__( 'Background', 'design' ) ] );
 
         $repeater->add_control(
             'slides_image',
             [
-                'label'     =>  esc_html__( 'Image', 'getdesign' ),
+                'label'     =>  esc_html__( 'Image', 'design' ),
                 'type'      =>  Controls_Manager::MEDIA,
                 'default'   =>  [
                     'url'   =>  Utils::get_placeholder_image_src(),
@@ -57,13 +57,13 @@ class getDesign_widget_slides extends Widget_Base {
         $repeater->add_control(
             'background_size',
             [
-                'label'     =>  esc_html__( 'Size', 'getdesign' ),
+                'label'     =>  esc_html__( 'Size', 'design' ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'cover',
                 'options'   =>  [
-                    'cover'     =>  esc_html__( 'Cover', 'getdesign' ),
-                    'contain'   =>  esc_html__( 'Contain', 'getdesign' ),
-                    'auto'      =>  esc_html__( 'Auto', 'getdesign' ),
+                    'cover'     =>  esc_html__( 'Cover', 'design' ),
+                    'contain'   =>  esc_html__( 'Contain', 'design' ),
+                    'auto'      =>  esc_html__( 'Auto', 'design' ),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} .element-slides__item--bg' => 'background-size: {{VALUE}}',
@@ -83,7 +83,7 @@ class getDesign_widget_slides extends Widget_Base {
         $repeater->add_control(
             'background_overlay',
             [
-                'label' => esc_html__( 'Background Overlay', 'getdesign' ),
+                'label' => esc_html__( 'Background Overlay', 'design' ),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
                 'separator' => 'before',
@@ -102,7 +102,7 @@ class getDesign_widget_slides extends Widget_Base {
         $repeater->add_control(
             'background_overlay_color',
             [
-                'label' => esc_html__( 'Color', 'getdesign' ),
+                'label' => esc_html__( 'Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(0,0,0,0.5)',
                 'conditions' => [
@@ -121,14 +121,14 @@ class getDesign_widget_slides extends Widget_Base {
 
         $repeater->end_controls_tab();
 
-        $repeater->start_controls_tab( 'content', [ 'label' => esc_html__( 'Content', 'getdesign' ) ] );
+        $repeater->start_controls_tab( 'content', [ 'label' => esc_html__( 'Content', 'design' ) ] );
 
         $repeater->add_control(
             'heading',
             [
-                'label' => esc_html__( 'Title & Description', 'getdesign' ),
+                'label' => esc_html__( 'Title & Description', 'design' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Slide Heading', 'getdesign' ),
+                'default' => esc_html__( 'Slide Heading', 'design' ),
                 'label_block' => true,
             ]
         );
@@ -136,9 +136,9 @@ class getDesign_widget_slides extends Widget_Base {
         $repeater->add_control(
             'description',
             [
-                'label' => esc_html__( 'Description', 'getdesign' ),
+                'label' => esc_html__( 'Description', 'design' ),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'getdesign' ),
+                'default' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'design' ),
                 'show_label' => false,
             ]
         );
@@ -146,32 +146,32 @@ class getDesign_widget_slides extends Widget_Base {
         $repeater->add_control(
             'button_text',
             [
-                'label' => esc_html__( 'Button Text', 'getdesign' ),
+                'label' => esc_html__( 'Button Text', 'design' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Click Here', 'getdesign' ),
+                'default' => esc_html__( 'Click Here', 'design' ),
             ]
         );
 
         $repeater->add_control(
             'link',
             [
-                'label'         =>  esc_html__( 'Link', 'getdesign' ),
+                'label'         =>  esc_html__( 'Link', 'design' ),
                 'type'          =>  Controls_Manager::URL,
                 'label_block'   =>  true,
                 'default'       =>  [
                     'is_external'   =>  'true',
                 ],
-                'placeholder'   =>  esc_html__( 'https://your-link.com', 'getdesign' ),
+                'placeholder'   =>  esc_html__( 'https://your-link.com', 'design' ),
             ]
         );
 
 	    $repeater->add_control(
 		    'show_content',
 		    [
-			    'label'         => esc_html__( 'Show Content', 'getdesign' ),
+			    'label'         => esc_html__( 'Show Content', 'design' ),
 			    'type'          => Controls_Manager::SWITCHER,
-			    'label_on'      => esc_html__( 'Show', 'getdesign' ),
-			    'label_off'     => esc_html__( 'Hide', 'getdesign' ),
+			    'label_on'      => esc_html__( 'Show', 'design' ),
+			    'label_off'     => esc_html__( 'Hide', 'design' ),
 			    'return_value'  => 'yes',
 			    'default'       => 'yes',
 		    ]
@@ -179,34 +179,34 @@ class getDesign_widget_slides extends Widget_Base {
 
         $repeater->end_controls_tab();
 
-        $repeater->start_controls_tab( 'style', [ 'label' => esc_html__( 'Style', 'getdesign' ) ] );
+        $repeater->start_controls_tab( 'style', [ 'label' => esc_html__( 'Style', 'design' ) ] );
 
         $repeater->add_control(
             'custom_style',
             [
-                'label' => esc_html__( 'Custom', 'getdesign' ),
+                'label' => esc_html__( 'Custom', 'design' ),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => esc_html__( 'Set custom style that will only affect this specific slide.', 'getdesign' ),
+                'description' => esc_html__( 'Set custom style that will only affect this specific slide.', 'design' ),
             ]
         );
 
         $repeater->add_control(
             'horizontal_position',
             [
-                'label' => esc_html__( 'Horizontal Position', 'getdesign' ),
+                'label' => esc_html__( 'Horizontal Position', 'design' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'getdesign' ),
+                        'title' => esc_html__( 'Left', 'design' ),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'getdesign' ),
+                        'title' => esc_html__( 'Center', 'design' ),
                         'icon' => 'eicon-h-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'getdesign' ),
+                        'title' => esc_html__( 'Right', 'design' ),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -232,20 +232,20 @@ class getDesign_widget_slides extends Widget_Base {
         $repeater->add_control(
             'vertical_position',
             [
-                'label' => esc_html__( 'Vertical Position', 'getdesign' ),
+                'label' => esc_html__( 'Vertical Position', 'design' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'top' => [
-                        'title' => esc_html__( 'Top', 'getdesign' ),
+                        'title' => esc_html__( 'Top', 'design' ),
                         'icon' => 'eicon-v-align-top',
                     ],
                     'middle' => [
-                        'title' => esc_html__( 'Middle', 'getdesign' ),
+                        'title' => esc_html__( 'Middle', 'design' ),
                         'icon' => 'eicon-v-align-middle',
                     ],
                     'bottom' => [
-                        'title' => esc_html__( 'Bottom', 'getdesign' ),
+                        'title' => esc_html__( 'Bottom', 'design' ),
                         'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
@@ -271,20 +271,20 @@ class getDesign_widget_slides extends Widget_Base {
         $repeater->add_control(
             'text_align',
             [
-                'label' => esc_html__( 'Text Align', 'getdesign' ),
+                'label' => esc_html__( 'Text Align', 'design' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'getdesign' ),
+                        'title' =>  esc_html__( 'Left', 'design' ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'getdesign' ),
+                        'title' =>  esc_html__( 'Center', 'design' ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'getdesign' ),
+                        'title' =>  esc_html__( 'Right', 'design' ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
                 ],
@@ -309,20 +309,20 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'slides_list',
             [
-                'label'     =>  esc_html__( 'Slides', 'getdesign' ),
+                'label'     =>  esc_html__( 'Slides', 'design' ),
                 'type'      =>  Controls_Manager::REPEATER,
                 'fields'    => $repeater->get_controls(),
                 'default'   =>  [
                     [
-                        'heading' => esc_html__( 'Slider 1 Heading', 'getdesign' ),
-                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'getdesign' ),
-                        'button_text' => esc_html__( 'Click Here', 'getdesign' ),
+                        'heading' => esc_html__( 'Slider 1 Heading', 'design' ),
+                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'design' ),
+                        'button_text' => esc_html__( 'Click Here', 'design' ),
                         'link' => '#'
                     ],
                     [
-                        'heading' => esc_html__( 'Slider 2 Heading', 'getdesign' ),
-                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'getdesign' ),
-                        'button_text' => esc_html__( 'Click Here', 'getdesign' ),
+                        'heading' => esc_html__( 'Slider 2 Heading', 'design' ),
+                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'design' ),
+                        'button_text' => esc_html__( 'Click Here', 'design' ),
                         'link' => '#'
                     ],
                 ],
@@ -333,7 +333,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_responsive_control(
             'slides_height',
             [
-                'label' => esc_html__( 'Height', 'getdesign' ),
+                'label' => esc_html__( 'Height', 'design' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -361,7 +361,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_slider_options',
             [
-                'label' => esc_html__( 'Slider Options', 'getdesign' ),
+                'label' => esc_html__( 'Slider Options', 'design' ),
                 'tab' => Controls_Manager::SECTION
             ]
         );
@@ -370,9 +370,9 @@ class getDesign_widget_slides extends Widget_Base {
             'loop',
             [
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label'         =>  esc_html__('Loop Slider ?', 'getdesign'),
-                'label_off'     =>  esc_html__('No', 'getdesign'),
-                'label_on'      =>  esc_html__('Yes', 'getdesign'),
+                'label'         =>  esc_html__('Loop Slider ?', 'design'),
+                'label_off'     =>  esc_html__('No', 'design'),
+                'label_on'      =>  esc_html__('Yes', 'design'),
                 'return_value'  =>  'yes',
                 'default'       =>  'yes',
             ]
@@ -381,10 +381,10 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'autoplay',
             [
-                'label'         => esc_html__('Autoplay?', 'getdesign'),
+                'label'         => esc_html__('Autoplay?', 'design'),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_off'     => esc_html__('No', 'getdesign'),
-                'label_on'      => esc_html__('Yes', 'getdesign'),
+                'label_off'     => esc_html__('No', 'design'),
+                'label_on'      => esc_html__('Yes', 'design'),
                 'return_value'  => 'yes',
                 'default'       => 'no',
             ]
@@ -393,10 +393,10 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'nav',
             [
-                'label'         => esc_html__('nav Slider', 'getdesign'),
+                'label'         => esc_html__('nav Slider', 'design'),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_on'      => esc_html__('Yes', 'getdesign'),
-                'label_off'     => esc_html__('No', 'getdesign'),
+                'label_on'      => esc_html__('Yes', 'design'),
+                'label_off'     => esc_html__('No', 'design'),
                 'return_value'  => 'yes',
                 'default'       => 'yes',
             ]
@@ -405,10 +405,10 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'dots',
             [
-                'label'         => esc_html__('Dots Slider', 'getdesign'),
+                'label'         => esc_html__('Dots Slider', 'design'),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_on'      => esc_html__('Yes', 'getdesign'),
-                'label_off'     => esc_html__('No', 'getdesign'),
+                'label_on'      => esc_html__('Yes', 'design'),
+                'label_off'     => esc_html__('No', 'design'),
                 'return_value'  => 'yes',
                 'default'       => 'no',
             ]
@@ -419,7 +419,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_slides',
             [
-                'label' => esc_html__( 'Slides', 'getdesign' ),
+                'label' => esc_html__( 'Slides', 'design' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -427,7 +427,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_responsive_control(
             'content_max_width',
             [
-                'label' => esc_html__( 'Content Width', 'getdesign' ),
+                'label' => esc_html__( 'Content Width', 'design' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -459,7 +459,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_responsive_control(
             'slides_padding',
             [
-                'label' => esc_html__( 'Padding', 'getdesign' ),
+                'label' => esc_html__( 'Padding', 'design' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -471,21 +471,21 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'slides_horizontal_position',
             [
-                'label' => esc_html__( 'Horizontal Position', 'getdesign' ),
+                'label' => esc_html__( 'Horizontal Position', 'design' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'default' => 'center',
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'getdesign' ),
+                        'title' => esc_html__( 'Left', 'design' ),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'getdesign' ),
+                        'title' => esc_html__( 'Center', 'design' ),
                         'icon' => 'eicon-h-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'getdesign' ),
+                        'title' => esc_html__( 'Right', 'design' ),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -496,21 +496,21 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'slides_vertical_position',
             [
-                'label' => esc_html__( 'Vertical Position', 'getdesign' ),
+                'label' => esc_html__( 'Vertical Position', 'design' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'default' => 'middle',
                 'options' => [
                     'top' => [
-                        'title' => esc_html__( 'Top', 'getdesign' ),
+                        'title' => esc_html__( 'Top', 'design' ),
                         'icon' => 'eicon-v-align-top',
                     ],
                     'middle' => [
-                        'title' => esc_html__( 'Middle', 'getdesign' ),
+                        'title' => esc_html__( 'Middle', 'design' ),
                         'icon' => 'eicon-v-align-middle',
                     ],
                     'bottom' => [
-                        'title' => esc_html__( 'Bottom', 'getdesign' ),
+                        'title' => esc_html__( 'Bottom', 'design' ),
                         'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
@@ -521,22 +521,22 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'slides_text_align',
             [
-                'label' => esc_html__( 'Text Align', 'getdesign' ),
+                'label' => esc_html__( 'Text Align', 'design' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'getdesign' ),
+                        'title' =>  esc_html__( 'Left', 'design' ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
 
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'getdesign' ),
+                        'title' =>  esc_html__( 'Center', 'design' ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
 
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'getdesign' ),
+                        'title' =>  esc_html__( 'Right', 'design' ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
                 ],
@@ -552,7 +552,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_title',
             [
-                'label' => esc_html__( 'Title', 'getdesign' ),
+                'label' => esc_html__( 'Title', 'design' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -560,7 +560,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'heading_spacing',
             [
-                'label' => esc_html__( 'Spacing', 'getdesign' ),
+                'label' => esc_html__( 'Spacing', 'design' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -577,7 +577,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'heading_color',
             [
-                'label' => esc_html__( 'Text Color', 'getdesign' ),
+                'label' => esc_html__( 'Text Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--heading' => 'color: {{VALUE}}',
@@ -599,7 +599,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_description',
             [
-                'label' => esc_html__( 'Description', 'getdesign' ),
+                'label' => esc_html__( 'Description', 'design' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -607,7 +607,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'description_spacing',
             [
-                'label' => esc_html__( 'Spacing', 'getdesign' ),
+                'label' => esc_html__( 'Spacing', 'design' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -624,7 +624,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'description_color',
             [
-                'label' => esc_html__( 'Text Color', 'getdesign' ),
+                'label' => esc_html__( 'Text Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--description' => 'color: {{VALUE}}',
@@ -646,14 +646,14 @@ class getDesign_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_button',
             [
-                'label' => esc_html__( 'Button', 'getdesign' ),
+                'label' => esc_html__( 'Button', 'design' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control( 'button_color',
             [
-                'label' => esc_html__( 'Text Color', 'getdesign' ),
+                'label' => esc_html__( 'Text Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link, {{WRAPPER}} .element-slides__item .element-slides__item--link a' => 'color: {{VALUE}}; border-color: {{VALUE}}',
@@ -672,7 +672,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'button_border_width',
             [
-                'label' => esc_html__( 'Border Width', 'getdesign' ),
+                'label' => esc_html__( 'Border Width', 'design' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -689,7 +689,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'button_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'getdesign' ),
+                'label' => esc_html__( 'Border Radius', 'design' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -706,12 +706,12 @@ class getDesign_widget_slides extends Widget_Base {
 
         $this->start_controls_tabs( 'button_tabs' );
 
-        $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'getdesign' ) ] );
+        $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'design' ) ] );
 
         $this->add_control(
             'button_text_color',
             [
-                'label' => esc_html__( 'Text Color', 'getdesign' ),
+                'label' => esc_html__( 'Text Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link, {{WRAPPER}} .element-slides__item .element-slides__item--link a' => 'color: {{VALUE}};',
@@ -722,7 +722,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'button_background_color',
             [
-                'label' => esc_html__( 'Background Color', 'getdesign' ),
+                'label' => esc_html__( 'Background Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link' => 'background-color: {{VALUE}};',
@@ -733,7 +733,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'button_border_color',
             [
-                'label' => esc_html__( 'Border Color', 'getdesign' ),
+                'label' => esc_html__( 'Border Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link' => 'border-color: {{VALUE}};',
@@ -743,12 +743,12 @@ class getDesign_widget_slides extends Widget_Base {
 
         $this->end_controls_tab();
 
-        $this->start_controls_tab( 'hover', [ 'label' => esc_html__( 'Hover', 'getdesign' ) ] );
+        $this->start_controls_tab( 'hover', [ 'label' => esc_html__( 'Hover', 'design' ) ] );
 
         $this->add_control(
             'button_hover_text_color',
             [
-                'label' => esc_html__( 'Text Color', 'getdesign' ),
+                'label' => esc_html__( 'Text Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover, {{WRAPPER}} .element-slides__item .element-slides__item--link a:hover' => 'color: {{VALUE}};',
@@ -759,7 +759,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'button_hover_background_color',
             [
-                'label' => esc_html__( 'Background Color', 'getdesign' ),
+                'label' => esc_html__( 'Background Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover' => 'background-color: {{VALUE}};',
@@ -770,7 +770,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'button_hover_border_color',
             [
-                'label' => esc_html__( 'Border Color', 'getdesign' ),
+                'label' => esc_html__( 'Border Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover' => 'border-color: {{VALUE}};',
@@ -787,7 +787,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_navigation',
             [
-                'label' => esc_html__( 'Navigation', 'getdesign' ),
+                'label' => esc_html__( 'Navigation', 'design' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'conditions' => [
                     'relation' => 'or',
@@ -808,7 +808,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'heading_style_arrows',
             [
-                'label' => esc_html__( 'Arrows', 'getdesign' ),
+                'label' => esc_html__( 'Arrows', 'design' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'conditions' => [
@@ -825,7 +825,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'arrows_size',
             [
-                'label' => esc_html__( 'Arrows Size', 'getdesign' ),
+                'label' => esc_html__( 'Arrows Size', 'design' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -850,7 +850,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'arrows_color',
             [
-                'label' => esc_html__( 'Arrows Color', 'getdesign' ),
+                'label' => esc_html__( 'Arrows Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-nav button i.fa' => 'color: {{VALUE}};',
@@ -869,7 +869,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'arrows_color_hover',
             [
-                'label' => esc_html__( 'Arrows Color Hover', 'getdesign' ),
+                'label' => esc_html__( 'Arrows Color Hover', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-nav button i.fa:hover' => 'color: {{VALUE}};',
@@ -888,7 +888,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'heading_style_dots',
             [
-                'label' => esc_html__( 'Dots', 'getdesign' ),
+                'label' => esc_html__( 'Dots', 'design' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'conditions' => [
@@ -905,7 +905,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'dots_size',
             [
-                'label' => esc_html__( 'Dots Size', 'getdesign' ),
+                'label' => esc_html__( 'Dots Size', 'design' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -930,7 +930,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'dots_color',
             [
-                'label' => esc_html__( 'Dots Color', 'getdesign' ),
+                'label' => esc_html__( 'Dots Color', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}};',
@@ -949,7 +949,7 @@ class getDesign_widget_slides extends Widget_Base {
         $this->add_control(
             'dots_color_hover',
             [
-                'label' => esc_html__( 'Dots Color Hover', 'getdesign' ),
+                'label' => esc_html__( 'Dots Color Hover', 'design' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot.active span, {{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}};',
@@ -988,7 +988,7 @@ class getDesign_widget_slides extends Widget_Base {
             <?php
 
             foreach ( $settings['slides_list'] as $item ) :
-                $getDesign_slides_link         =   $item['link'];
+                $design_slides_link         =   $item['link'];
 
             ?>
 
@@ -1019,8 +1019,8 @@ class getDesign_widget_slides extends Widget_Base {
 
                                 <?php if ( !empty( $item['button_text'] ) ) : ?>
                                     <div class="element-slides__item--link">
-                                        <?php if ( !empty( $getDesign_slides_link['url'] ) ) : ?>
-                                            <a href="<?php echo esc_url( $getDesign_slides_link['url'] ); ?>" <?php echo ( $getDesign_slides_link['is_external'] ? 'target="_blank"' : '' ); ?>>
+                                        <?php if ( !empty( $design_slides_link['url'] ) ) : ?>
+                                            <a href="<?php echo esc_url( $design_slides_link['url'] ); ?>" <?php echo ( $design_slides_link['is_external'] ? 'target="_blank"' : '' ); ?>>
                                                 <?php echo esc_html( $item['button_text'] ); ?>
                                             </a>
                                         <?php
@@ -1114,4 +1114,4 @@ class getDesign_widget_slides extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new getDesign_widget_slides );
+Plugin::instance()->widgets_manager->register_widget_type( new design_widget_slides );

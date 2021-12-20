@@ -4,18 +4,18 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class getDesign_widget_post_grid extends Widget_Base {
+class design_widget_post_grid extends Widget_Base {
 
     public function get_categories() {
-        return array( 'getDesign_widgets' );
+        return array( 'design_widgets' );
     }
 
     public function get_name() {
-        return 'getdesign-post-grid';
+        return 'design-post-grid';
     }
 
     public function get_title() {
-        return esc_html__( 'Posts Grid', 'getdesign' );
+        return esc_html__( 'Posts Grid', 'design' );
     }
 
     public function get_icon() {
@@ -28,7 +28,7 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->start_controls_section(
             'content_query',
             [
-                'label' => esc_html__( 'Query', 'getdesign' ),
+                'label' => esc_html__( 'Query', 'design' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -36,9 +36,9 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'select_cat',
             [
-                'label'         =>  esc_html__( 'Select Category', 'getdesign' ),
+                'label'         =>  esc_html__( 'Select Category', 'design' ),
                 'type'          =>  Controls_Manager::SELECT2,
-                'options'       =>  getDesign_check_get_cat( 'category' ),
+                'options'       =>  design_check_get_cat( 'category' ),
                 'multiple'      =>  true,
                 'label_block'   =>  true
             ]
@@ -47,7 +47,7 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'limit',
             [
-                'label'     =>  esc_html__( 'Number of Posts', 'getdesign' ),
+                'label'     =>  esc_html__( 'Number of Posts', 'design' ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  6,
                 'min'       =>  1,
@@ -59,15 +59,15 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'order_by',
             [
-                'label'     =>  esc_html__( 'Order By', 'getdesign' ),
+                'label'     =>  esc_html__( 'Order By', 'design' ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'id',
                 'options'   =>  [
-                    'id'            =>  esc_html__( 'Post ID', 'getdesign' ),
-                    'author'        =>  esc_html__( 'Post Author', 'getdesign' ),
-                    'title'         =>  esc_html__( 'Title', 'getdesign' ),
-                    'date'          =>  esc_html__( 'Date', 'getdesign' ),
-                    'rand'          =>  esc_html__( 'Random', 'getdesign' ),
+                    'id'            =>  esc_html__( 'Post ID', 'design' ),
+                    'author'        =>  esc_html__( 'Post Author', 'design' ),
+                    'title'         =>  esc_html__( 'Title', 'design' ),
+                    'date'          =>  esc_html__( 'Date', 'design' ),
+                    'rand'          =>  esc_html__( 'Random', 'design' ),
                 ],
             ]
         );
@@ -75,12 +75,12 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'order',
             [
-                'label'     =>  esc_html__( 'Order', 'getdesign' ),
+                'label'     =>  esc_html__( 'Order', 'design' ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'ASC',
                 'options'   =>  [
-                    'ASC'   =>  esc_html__( 'Ascending', 'getdesign' ),
-                    'DESC'  =>  esc_html__( 'Descending', 'getdesign' ),
+                    'ASC'   =>  esc_html__( 'Ascending', 'design' ),
+                    'DESC'  =>  esc_html__( 'Descending', 'design' ),
                 ],
             ]
         );
@@ -91,7 +91,7 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->start_controls_section(
             'content_layout',
             [
-                'label' => esc_html__( 'Layout Settings', 'getdesign' ),
+                'label' => esc_html__( 'Layout Settings', 'design' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -99,14 +99,14 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'column_number',
             [
-                'label'     =>  esc_html__( 'Column', 'getdesign' ),
+                'label'     =>  esc_html__( 'Column', 'design' ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  3,
                 'options'   =>  [
-                    1   =>  esc_html__( '1 Column', 'getdesign' ),
-                    2   =>  esc_html__( '2 Column', 'getdesign' ),
-                    3   =>  esc_html__( '3 Column', 'getdesign' ),
-                    4   =>  esc_html__( '4 Column', 'getdesign' ),
+                    1   =>  esc_html__( '1 Column', 'design' ),
+                    2   =>  esc_html__( '2 Column', 'design' ),
+                    3   =>  esc_html__( '3 Column', 'design' ),
+                    4   =>  esc_html__( '4 Column', 'design' ),
                 ],
             ]
         );
@@ -114,16 +114,16 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'show_excerpt',
             [
-                'label'     =>  esc_html__( 'Show excerpt', 'getdesign' ),
+                'label'     =>  esc_html__( 'Show excerpt', 'design' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'show' => [
-                        'title' =>  esc_html__( 'Yes', 'getdesign' ),
+                        'title' =>  esc_html__( 'Yes', 'design' ),
                         'icon'  =>  'eicon-check',
                     ],
 
                     'hide' => [
-                        'title' =>  esc_html__( 'No', 'getdesign' ),
+                        'title' =>  esc_html__( 'No', 'design' ),
                         'icon'  =>  'eicon-ban',
                     ]
                 ],
@@ -134,7 +134,7 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'excerpt_length',
             [
-                'label'     =>  esc_html__( 'Excerpt Words', 'getdesign' ),
+                'label'     =>  esc_html__( 'Excerpt Words', 'design' ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  '10',
                 'condition' =>  [
@@ -149,7 +149,7 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->start_controls_section(
             'style_title',
             [
-                'label' => esc_html__( 'Title', 'getdesign' ),
+                'label' => esc_html__( 'Title', 'design' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -157,7 +157,7 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'title_color',
             [
-                'label'     =>  esc_html__( 'Color', 'getdesign' ),
+                'label'     =>  esc_html__( 'Color', 'design' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -169,7 +169,7 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'title_color_hover',
             [
-                'label'     =>  esc_html__( 'Color Hover', 'getdesign' ),
+                'label'     =>  esc_html__( 'Color Hover', 'design' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -189,23 +189,23 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'title_alignment',
             [
-                'label'     =>  esc_html__( 'Title Alignment', 'getdesign' ),
+                'label'     =>  esc_html__( 'Title Alignment', 'design' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'getdesign' ),
+                        'title' =>  esc_html__( 'Left', 'design' ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'getdesign' ),
+                        'title' =>  esc_html__( 'Center', 'design' ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'getdesign' ),
+                        'title' =>  esc_html__( 'Right', 'design' ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
                     'justify'=> [
-                        'title' =>  esc_html__( 'Justified', 'getdesign' ),
+                        'title' =>  esc_html__( 'Justified', 'design' ),
                         'icon'  =>  'eicon-text-align-justify',
                     ],
                 ],
@@ -222,7 +222,7 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->start_controls_section(
             'style_excerpt',
             [
-                'label' => esc_html__( 'Excerpt', 'getdesign' ),
+                'label' => esc_html__( 'Excerpt', 'design' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' =>  [
                     'show_excerpt' => 'show',
@@ -233,7 +233,7 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'excerpt_color',
             [
-                'label'     =>  esc_html__( 'Color', 'getdesign' ),
+                'label'     =>  esc_html__( 'Color', 'design' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -253,26 +253,26 @@ class getDesign_widget_post_grid extends Widget_Base {
         $this->add_control(
             'excerpt_alignment',
             [
-                'label'     =>  esc_html__( 'Excerpt Alignment', 'getdesign' ),
+                'label'     =>  esc_html__( 'Excerpt Alignment', 'design' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'getdesign' ),
+                        'title' =>  esc_html__( 'Left', 'design' ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
 
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'getdesign' ),
+                        'title' =>  esc_html__( 'Center', 'design' ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
 
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'getdesign' ),
+                        'title' =>  esc_html__( 'Right', 'design' ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
 
                     'justify'=> [
-                        'title' =>  esc_html__( 'Justified', 'getdesign' ),
+                        'title' =>  esc_html__( 'Justified', 'design' ),
                         'icon'  =>  'eicon-text-align-justify',
                     ],
                 ],
@@ -366,4 +366,4 @@ class getDesign_widget_post_grid extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new getDesign_widget_post_grid );
+Plugin::instance()->widgets_manager->register_widget_type( new design_widget_post_grid );

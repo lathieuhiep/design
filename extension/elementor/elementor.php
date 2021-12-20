@@ -2,7 +2,7 @@
 
 namespace Elementor;
 
-final class getDesign_plugin_elementor_widgets {
+final class design_plugin_elementor_widgets {
 
     private static $_instance = null;
 
@@ -37,9 +37,9 @@ final class getDesign_plugin_elementor_widgets {
     public function init_category() {
 
         Plugin::instance()->elements_manager->add_category(
-            'getDesign_widgets',
+            'design_widgets',
             [
-                'title' => esc_html__( 'Basic Theme Widgets', 'getdesign' ),
+                'title' => esc_html__( 'Basic Theme Widgets', 'design' ),
                 'icon'  => 'icon-goes-here'
             ]
         );
@@ -66,9 +66,9 @@ final class getDesign_plugin_elementor_widgets {
     }
 
     public function init_script() {
-        wp_register_script( 'getdesign-elementor-custom', get_theme_file_uri( '/assets/js/elementor-custom.js' ), array(), '1.0.0', true );
+        wp_register_script( 'design-elementor-custom', get_theme_file_uri( '/assets/js/elementor-custom.js' ), array(), '1.0.0', true );
     }
 
 }
 
-getDesign_plugin_elementor_widgets::instance();
+design_plugin_elementor_widgets::instance();

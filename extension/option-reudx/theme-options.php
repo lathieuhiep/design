@@ -8,28 +8,28 @@ if (!class_exists('Redux')) {
 
 
 // This is your option name where all the Redux data is stored.
-$getDesign_opt_name = "getDesign_options";
+$design_opt_name = "design_options";
 
 /**
  * ---> SET ARGUMENTS
  * All the possible arguments for Redux.
  * */
 
-$getDesign_theme = wp_get_theme(); // For use with some settings. Not necessary.
+$design_theme = wp_get_theme(); // For use with some settings. Not necessary.
 
-$getDesign_opt_args = array(
-    'opt_name' => $getDesign_opt_name,
+$design_opt_args = array(
+    'opt_name' => $design_opt_name,
     // This is where your data is stored in the database and also becomes your global variable name.
-    'display_name' => $getDesign_theme->get('Name'),
+    'display_name' => $design_theme->get('Name'),
     // Name that appears at the top of your panel
-    'display_version' => $getDesign_theme->get('Version'),
+    'display_version' => $design_theme->get('Version'),
     // Version that appears at the top of your panel
     'menu_type' => 'menu',
     //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
     'allow_sub_menu' => false,
     // Show the sections below the admin menu item or not
-    'menu_title' => $getDesign_theme->get('Name') . esc_html__(' Options', 'getdesign'),
-    'page_title' => $getDesign_theme->get('Name') . esc_html__(' Options', 'getdesign'),
+    'menu_title' => $design_theme->get('Name') . esc_html__(' Options', 'design'),
+    'page_title' => $design_theme->get('Name') . esc_html__(' Options', 'design'),
     // You will need to generate a Google API key to use this feature.
     // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
     'google_api_key' => '',
@@ -121,7 +121,7 @@ $getDesign_opt_args = array(
         ),
     )
 );
-Redux::set_args($getDesign_opt_name, $getDesign_opt_args);
+Redux::set_args($design_opt_name, $design_opt_args);
 /*
  * ---> END ARGUMENTS
  */
@@ -130,23 +130,23 @@ Redux::set_args($getDesign_opt_name, $getDesign_opt_args);
  * ---> START HELP TABS
  */
 
-$getDesign_opt_tabs = array(
+$design_opt_tabs = array(
     array(
         'id' => 'redux-help-tab-1',
-        'title' => esc_html__('Theme Information 1', 'getdesign'),
-        'content' => esc_html__('<p>This is the tab content, HTML is allowed.</p>', 'getdesign')
+        'title' => esc_html__('Theme Information 1', 'design'),
+        'content' => esc_html__('<p>This is the tab content, HTML is allowed.</p>', 'design')
     ),
     array(
         'id' => 'redux-help-tab-2',
-        'title' => esc_html__('Theme Information 2', 'getdesign'),
-        'content' => esc_html__('<p>This is the tab content, HTML is allowed.</p>', 'getdesign')
+        'title' => esc_html__('Theme Information 2', 'design'),
+        'content' => esc_html__('<p>This is the tab content, HTML is allowed.</p>', 'design')
     )
 );
-Redux::set_help_tab($getDesign_opt_name, $getDesign_opt_tabs);
+Redux::set_help_tab($design_opt_name, $design_opt_tabs);
 
 // Set the help sidebar
-$getDesign_opt_content = esc_html__('<p>This is the sidebar content, HTML is allowed.</p>', 'getdesign');
-Redux::set_help_sidebar($getDesign_opt_name, $getDesign_opt_content);
+$design_opt_content = esc_html__('<p>This is the sidebar content, HTML is allowed.</p>', 'design');
+Redux::set_help_sidebar($design_opt_name, $design_opt_content);
 
 
 /*
@@ -161,9 +161,9 @@ Redux::set_help_sidebar($getDesign_opt_name, $getDesign_opt_content);
 
 // -> START option background
 
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_setting',
-    'title' => $getDesign_theme->get('Name') . ' ' . $getDesign_theme->get('Version'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_setting',
+    'title' => $design_theme->get('Name') . ' ' . $design_theme->get('Version'),
     'customizer_width' => '400px',
     'icon' => '',
 ));
@@ -172,82 +172,82 @@ Redux::set_section($getDesign_opt_name, array(
 
 /* Start General Options */
 
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_general',
-    'title' => esc_html__('General Options', 'getdesign'),
-    'desc' => esc_html__('General all config', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_general',
+    'title' => esc_html__('General Options', 'design'),
+    'desc' => esc_html__('General all config', 'design'),
     'customizer_width' => '400px',
     'icon' => 'el el-th-large',
     'fields' => array(
         array(
-            'id' => 'getDesign_opt_backtotop_show',
+            'id' => 'design_opt_backtotop_show',
             'type' => 'switch',
-            'title' => esc_html__('Back To Top On/Off', 'getdesign'),
+            'title' => esc_html__('Back To Top On/Off', 'design'),
             'default' => true,
         ),
     )
 ));
 
 // Favicon Config
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_favicon',
-    'title' => esc_html__('Favicon', 'getdesign'),
-    'desc' => esc_html__('', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_favicon',
+    'title' => esc_html__('Favicon', 'design'),
+    'desc' => esc_html__('', 'design'),
     'subsection' => true,
     'fields' => array(
         array(
-            'id' => 'getDesign_opt_favicon_upload',
+            'id' => 'design_opt_favicon_upload',
             'type' => 'media',
             'url' => true,
-            'title' => esc_html__('Upload Favicon Image', 'getdesign'),
-            'subtitle' => esc_html__('Favicon image for your website', 'getdesign'),
-            'desc' => esc_html__('', 'getdesign'),
+            'title' => esc_html__('Upload Favicon Image', 'design'),
+            'subtitle' => esc_html__('Favicon image for your website', 'design'),
+            'desc' => esc_html__('', 'design'),
             'default' => false,
         ),
     )
 ));
 
 //Loading config
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_loading',
-    'title' => esc_html__('Loading config', 'getdesign'),
-    'desc' => esc_html__('', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_loading',
+    'title' => esc_html__('Loading config', 'design'),
+    'desc' => esc_html__('', 'design'),
     'subsection' => true,
     'fields' => array(
         array(
-            'id' => 'getDesign_opt_loading_show',
+            'id' => 'design_opt_loading_show',
             'type' => 'switch',
-            'title' => esc_html__('Loading On/Off', 'getdesign'),
+            'title' => esc_html__('Loading On/Off', 'design'),
             'default' => false,
         ),
 
         array(
-            'id' => 'getDesign_opt_loading_image',
+            'id' => 'design_opt_loading_image',
             'type' => 'media',
             'url' => true,
-            'title' => esc_html__('Upload image loading', 'getdesign'),
-            'subtitle' => esc_html__('Upload image .gif', 'getdesign'),
+            'title' => esc_html__('Upload image loading', 'design'),
+            'subtitle' => esc_html__('Upload image .gif', 'design'),
             'default' => '',
-            'required' => array('getDesign_opt_loading_show', '=', true),
+            'required' => array('design_opt_loading_show', '=', true),
         ),
     )
 ));
 
 //Background Options
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_background',
-    'title' => esc_html__('Background', 'getdesign'),
-    'desc' => esc_html__('Background all config', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_background',
+    'title' => esc_html__('Background', 'design'),
+    'desc' => esc_html__('Background all config', 'design'),
     'customizer_width' => '400px',
     'subsection' => true,
     'fields' => array(
         array(
-            'id' => 'getDesign_opt_background_body',
+            'id' => 'design_opt_background_body',
             'output' => 'body',
             'type' => 'background',
             'clone' => 'true',
-            'title' => esc_html__('Body background', 'getdesign'),
-            'subtitle' => esc_html__('Body background with image, color, etc.', 'getdesign'),
+            'title' => esc_html__('Body background', 'design'),
+            'subtitle' => esc_html__('Body background with image, color, etc.', 'design'),
             'hint' => array(
                 'content' => 'This is a <b>hint</b> tool-tip for the text field.<br/><br/>Add any HTML based text you like here.',
             )
@@ -258,38 +258,38 @@ Redux::set_section($getDesign_opt_name, array(
 /* End General Options */
 
 /* Start Header Options */
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_header',
-    'title' => esc_html__('Header Options', 'getdesign'),
-    'desc' => esc_html__('Header all config', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_header',
+    'title' => esc_html__('Header Options', 'design'),
+    'desc' => esc_html__('Header all config', 'design'),
     'customizer_width' => '400px',
     'icon' => 'el el-arrow-up',
 ));
 
 //Logo Config
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_logo',
-    'title' => esc_html__('Logo', 'getdesign'),
-    'desc' => esc_html__('', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_logo',
+    'title' => esc_html__('Logo', 'design'),
+    'desc' => esc_html__('', 'design'),
     'subsection' => true,
     'fields' => array(
 
         array(
-            'id' => 'getDesign_opt_logo_image',
+            'id' => 'design_opt_logo_image',
             'type' => 'media',
             'url' => true,
-            'title' => esc_html__('Upload logo', 'getdesign'),
-            'subtitle' => esc_html__('logo image for your website', 'getdesign'),
-            'desc' => esc_html__('', 'getdesign'),
+            'title' => esc_html__('Upload logo', 'design'),
+            'subtitle' => esc_html__('logo image for your website', 'design'),
+            'desc' => esc_html__('', 'design'),
             'default' => false,
         ),
 
         array(
-            'id' => 'getDesign_opt_logo_size',
+            'id' => 'design_opt_logo_size',
             'type' => 'dimensions',
             'units' => array('em', 'px', '%'),
-            'title' => esc_html__('Set width/height for logo', 'getdesign'),
-            'subtitle' => esc_html__('', 'getdesign'),
+            'title' => esc_html__('Set width/height for logo', 'design'),
+            'subtitle' => esc_html__('', 'design'),
             'units_extended' => 'true',
             'default' => array(
                 'width' => '',
@@ -299,13 +299,13 @@ Redux::set_section($getDesign_opt_name, array(
         ),
 
         array(
-            'id' => 'getDesign_opt_nav_sticky',
+            'id' => 'design_opt_nav_sticky',
             'type' => 'select',
-            'title' => esc_html__('Sticky Menu', 'getdesign'),
+            'title' => esc_html__('Sticky Menu', 'design'),
             'default' => 1,
             'options' => array(
-                1 => esc_html__('Yes', 'getdesign'),
-                2 => esc_html__('No', 'getdesign')
+                1 => esc_html__('Yes', 'design'),
+                2 => esc_html__('No', 'design')
             )
         ),
 
@@ -314,60 +314,60 @@ Redux::set_section($getDesign_opt_name, array(
 /* End Header Options */
 
 // Contact us options
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_contact_us',
-    'title' => esc_html__('Contact us', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_contact_us',
+    'title' => esc_html__('Contact us', 'design'),
     'icon' => 'el el-inbox',
     'fields' => array(
         array(
-            'id' => 'getDesign_opt_contact_us_show',
+            'id' => 'design_opt_contact_us_show',
             'type' => 'switch',
-            'title' => esc_html__('Show contact us', 'getdesign'),
-            'on' => esc_html__('Yes', 'getdesign'),
-            'off' => esc_html__('No', 'getdesign'),
+            'title' => esc_html__('Show contact us', 'design'),
+            'on' => esc_html__('Yes', 'design'),
+            'off' => esc_html__('No', 'design'),
             'default' => true,
         ),
 
         array(
-            'id' => 'getDesign_opt_contact_us_address',
+            'id' => 'design_opt_contact_us_address',
             'type' => 'text',
-            'title' => esc_html__('Address', 'getdesign'),
+            'title' => esc_html__('Address', 'design'),
             'default' => '988782, Our Street, S State',
-            'required' => array('getDesign_opt_contact_us_show', '=', true),
+            'required' => array('design_opt_contact_us_show', '=', true),
         ),
 
         array(
-            'id' => 'getDesign_opt_contact_us_mail',
+            'id' => 'design_opt_contact_us_mail',
             'type' => 'text',
-            'title' => esc_html__('Mail', 'getdesign'),
+            'title' => esc_html__('Mail', 'design'),
             'default' => 'info@domain.com',
-            'required' => array('getDesign_opt_contact_us_show', '=', true),
+            'required' => array('design_opt_contact_us_show', '=', true),
         ),
 
         array(
-            'id' => 'getDesign_opt_contact_us_phone',
+            'id' => 'design_opt_contact_us_phone',
             'type' => 'text',
-            'title' => esc_html__('Phone', 'getdesign'),
+            'title' => esc_html__('Phone', 'design'),
             'default' => '+1 234 567 186',
-            'required' => array('getDesign_opt_contact_us_show', '=', true),
+            'required' => array('design_opt_contact_us_show', '=', true),
         ),
 
     )
 ));
 
 /* Start Blog Option */
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_blog',
-    'title' => esc_html__('Blog', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_blog',
+    'title' => esc_html__('Blog', 'design'),
     'customizer_width' => '400px',
     'icon' => 'el el-blogger',
     'fields' => array(
 
         array(
-            'id' => 'getDesign_opt_blog_sidebar_archive',
+            'id' => 'design_opt_blog_sidebar_archive',
             'type' => 'image_select',
-            'title' => esc_html__('Sidebar Archive', 'getdesign'),
-            'desc' => esc_html__('Use for archive, index, page search', 'getdesign'),
+            'title' => esc_html__('Sidebar Archive', 'design'),
+            'desc' => esc_html__('Use for archive, index, page search', 'design'),
             'default' => 'right',
             'options' => array(
                 'hide' => array(
@@ -389,9 +389,9 @@ Redux::set_section($getDesign_opt_name, array(
         ),
 
         array(
-            'id' => 'getDesign_opt_blog_per_row',
+            'id' => 'design_opt_blog_per_row',
             'type' => 'select',
-            'title' => esc_html__('Blog Per Row', 'getdesign'),
+            'title' => esc_html__('Blog Per Row', 'design'),
             'default' => 2,
             'options' => array(
                 2 => '2 Column',
@@ -403,17 +403,17 @@ Redux::set_section($getDesign_opt_name, array(
     )
 ));
 
-Redux::set_section($getDesign_opt_name, array(
-    'title' => esc_html__('Single Post', 'getdesign'),
-    'id' => 'getDesign_opt_single_post',
-    'desc' => esc_html__('', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'title' => esc_html__('Single Post', 'design'),
+    'id' => 'design_opt_single_post',
+    'desc' => esc_html__('', 'design'),
     'subsection' => true,
     'fields' => array(
 
         array(
-            'id' => 'getDesign_opt_single_post_sidebar',
+            'id' => 'design_opt_single_post_sidebar',
             'type' => 'image_select',
-            'title' => esc_html__('Sidebar Single', 'getdesign'),
+            'title' => esc_html__('Sidebar Single', 'design'),
             'default' => 'right',
             'options' => array(
                 'hide' => array(
@@ -435,32 +435,32 @@ Redux::set_section($getDesign_opt_name, array(
         ),
 
         array(
-            'id' => 'getDesign_opt_single_post_share',
+            'id' => 'design_opt_single_post_share',
             'type' => 'switch',
-            'title' => esc_html__('Show Share Post', 'getdesign'),
-            'on' => esc_html__('Yes', 'getdesign'),
-            'off' => esc_html__('No', 'getdesign'),
+            'title' => esc_html__('Show Share Post', 'design'),
+            'on' => esc_html__('Yes', 'design'),
+            'off' => esc_html__('No', 'design'),
             'default' => true,
         ),
 
         array(
-            'id' => 'getDesign_opt_single_related_show',
+            'id' => 'design_opt_single_related_show',
             'type' => 'switch',
-            'title' => esc_html__('Show Related Post', 'getdesign'),
-            'on' => esc_html__('Yes', 'getdesign'),
-            'off' => esc_html__('No', 'getdesign'),
+            'title' => esc_html__('Show Related Post', 'design'),
+            'on' => esc_html__('Yes', 'design'),
+            'off' => esc_html__('No', 'design'),
             'default' => true,
         ),
 
         array(
-            'id' => 'getDesign_opt_single_related_limit',
+            'id' => 'design_opt_single_related_limit',
             'type' => 'slider',
-            'title' => esc_html__('Related Post Limit', 'getdesign'),
+            'title' => esc_html__('Related Post Limit', 'design'),
             'min' => 1,
             'step' => 1,
             'max' => 250,
             'default' => 3,
-            'required' => array('getDesign_opt_single_related_show', '=', true),
+            'required' => array('design_opt_single_related_show', '=', true),
         ),
 
     )
@@ -468,38 +468,38 @@ Redux::set_section($getDesign_opt_name, array(
 /* End Blog Option */
 
 /* Start Social Network */
-Redux::set_section($getDesign_opt_name, array(
-    'title' => esc_html__('Social Network', 'getdesign'),
-    'id' => 'getDesign_opt_social_network',
+Redux::set_section($design_opt_name, array(
+    'title' => esc_html__('Social Network', 'design'),
+    'id' => 'design_opt_social_network',
     'customizer_width' => '400px',
     'icon' => 'el el-globe-alt',
     'fields' => array(
 
         array(
-            'id' => 'getDesign_opt_social_network_facebook',
+            'id' => 'design_opt_social_network_facebook',
             'type' => 'text',
-            'title' => esc_html__('Facebook', 'getdesign'),
+            'title' => esc_html__('Facebook', 'design'),
             'default' => '#',
         ),
 
         array(
-            'id' => 'getDesign_opt_social_network_youtube',
+            'id' => 'design_opt_social_network_youtube',
             'type' => 'text',
-            'title' => esc_html__('Youtube', 'getdesign'),
+            'title' => esc_html__('Youtube', 'design'),
             'default' => '#',
         ),
 
         array(
-            'id' => 'getDesign_opt_social_network_twitter',
+            'id' => 'design_opt_social_network_twitter',
             'type' => 'text',
-            'title' => esc_html__('Twitter', 'getdesign'),
+            'title' => esc_html__('Twitter', 'design'),
             'default' => '#',
         ),
 
         array(
-            'id' => 'getDesign_opt_social_network_instagram',
+            'id' => 'design_opt_social_network_instagram',
             'type' => 'text',
-            'title' => esc_html__('Instagram', 'getdesign'),
+            'title' => esc_html__('Instagram', 'design'),
             'default' => '#',
         ),
 
@@ -508,28 +508,28 @@ Redux::set_section($getDesign_opt_name, array(
 /* End Social Network */
 
 /* Start Typography Options */
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_typography',
-    'title' => esc_html__('Typography', 'getdesign'),
-    'desc' => esc_html__('Typography all config', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_typography',
+    'title' => esc_html__('Typography', 'design'),
+    'desc' => esc_html__('Typography all config', 'design'),
     'customizer_width' => '400px',
     'icon' => 'el el-fontsize'
 ));
 
 // Body font
-Redux::set_section($getDesign_opt_name, array(
-    'title' => esc_html__('Body Typography', 'getdesign'),
-    'id' => 'getDesign_opt_typography_body',
-    'desc' => esc_html__('', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'title' => esc_html__('Body Typography', 'design'),
+    'id' => 'design_opt_typography_body',
+    'desc' => esc_html__('', 'design'),
     'subsection' => true,
     'fields' => array(
 
         array(
-            'id' => 'getDesign_opt_typography_body_font',
+            'id' => 'design_opt_typography_body_font',
             'type' => 'typography',
             'output' => array('body'),
-            'title' => esc_html__('Body Font', 'getdesign'),
-            'subtitle' => esc_html__('Specify the body font properties.', 'getdesign'),
+            'title' => esc_html__('Body Font', 'design'),
+            'subtitle' => esc_html__('Specify the body font properties.', 'design'),
             'google' => true,
             'default' => array(
                 'color' => '',
@@ -540,28 +540,28 @@ Redux::set_section($getDesign_opt_name, array(
         ),
 
         array(
-            'id' => 'getDesign_opt_link_color',
+            'id' => 'design_opt_link_color',
             'type' => 'link_color',
             'output' => array('a'),
-            'title' => esc_html__('Link Color', 'getdesign'),
-            'subtitle' => esc_html__('Controls the color of all text links.', 'getdesign'),
+            'title' => esc_html__('Link Color', 'design'),
+            'subtitle' => esc_html__('Controls the color of all text links.', 'design'),
             'default' => ''
         ),
     )
 ));
 
 // Header font
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_custom_typography',
-    'title' => esc_html__('Custom Typography', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_custom_typography',
+    'title' => esc_html__('Custom Typography', 'design'),
     'subsection' => true,
     'fields' => array(
 
         array(
-            'id' => 'getDesign_opt_custom_typography_1',
+            'id' => 'design_opt_custom_typography_1',
             'type' => 'typography',
-            'title' => esc_html__('Custom 1 Typography', 'getdesign'),
-            'subtitle' => esc_html__('These settings control the typography for all Custom 1.', 'getdesign'),
+            'title' => esc_html__('Custom 1 Typography', 'design'),
+            'subtitle' => esc_html__('These settings control the typography for all Custom 1.', 'design'),
             'google' => true,
             'default' => array(
                 'font-size' => '',
@@ -573,18 +573,18 @@ Redux::set_section($getDesign_opt_name, array(
 
         //selector custom typo 1
         array(
-            'id' => 'getDesign_opt_custom_typography_1_selector',
+            'id' => 'design_opt_custom_typography_1_selector',
             'type' => 'textarea',
-            'title' => esc_html__('Selectors 1', 'getdesign'),
-            'desc' => esc_html__('Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'getdesign'),
+            'title' => esc_html__('Selectors 1', 'design'),
+            'desc' => esc_html__('Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'design'),
             'default' => ''
         ),
 
         array(
-            'id' => 'getDesign_opt_custom_typography_2',
+            'id' => 'design_opt_custom_typography_2',
             'type' => 'typography',
-            'title' => esc_html__('Custom 2 Typography', 'getdesign'),
-            'subtitle' => esc_html__('These settings control the typography for all Custom 2.', 'getdesign'),
+            'title' => esc_html__('Custom 2 Typography', 'design'),
+            'subtitle' => esc_html__('These settings control the typography for all Custom 2.', 'design'),
             'google' => true,
             'default' => array(
                 'font-size' => '',
@@ -596,18 +596,18 @@ Redux::set_section($getDesign_opt_name, array(
 
         //selector custom typo 2
         array(
-            'id' => 'getDesign_opt_custom_typography_2_selector',
+            'id' => 'design_opt_custom_typography_2_selector',
             'type' => 'textarea',
-            'title' => esc_html__('Selectors 2', 'getdesign'),
-            'desc' => esc_html__('Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'getdesign'),
+            'title' => esc_html__('Selectors 2', 'design'),
+            'desc' => esc_html__('Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'design'),
             'default' => ''
         ),
 
         array(
-            'id' => 'getDesign_opt_custom_typography_3',
+            'id' => 'design_opt_custom_typography_3',
             'type' => 'typography',
-            'title' => esc_html__('Custom 3 Typography', 'getdesign'),
-            'subtitle' => esc_html__('These settings control the typography for all Custom 3.', 'getdesign'),
+            'title' => esc_html__('Custom 3 Typography', 'design'),
+            'subtitle' => esc_html__('These settings control the typography for all Custom 3.', 'design'),
             'google' => true,
             'default' => array(
                 'font-size' => '',
@@ -620,10 +620,10 @@ Redux::set_section($getDesign_opt_name, array(
 
         //selector custom typo 3
         array(
-            'id' => 'getDesign_opt_custom_typography_3_selector',
+            'id' => 'design_opt_custom_typography_3_selector',
             'type' => 'textarea',
-            'title' => esc_html__('Selectors 3', 'getdesign'),
-            'desc' => esc_html__('Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'getdesign'),
+            'title' => esc_html__('Selectors 3', 'design'),
+            'desc' => esc_html__('Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'design'),
             'default' => ''
         ),
 
@@ -633,34 +633,34 @@ Redux::set_section($getDesign_opt_name, array(
 /* End Typography Options */
 
 /* Start 404 Options */
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_404',
-    'title' => esc_html__('404 Options', 'getdesign'),
-    'desc' => esc_html__('404 page all config', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_404',
+    'title' => esc_html__('404 Options', 'design'),
+    'desc' => esc_html__('404 page all config', 'design'),
     'customizer_width' => '400px',
     'icon' => 'el el-warning-sign',
     'fields' => array(
 
         array(
-            'id' => 'getDesign_opt_404_background',
+            'id' => 'design_opt_404_background',
             'type' => 'media',
             'url' => true,
-            'title' => esc_html__('404 Background', 'getdesign'),
+            'title' => esc_html__('404 Background', 'design'),
             'default' => false,
         ),
 
         array(
-            'id' => 'getDesign_opt_404_title',
+            'id' => 'design_opt_404_title',
             'type' => 'text',
-            'title' => esc_html__('404 Title', 'getdesign'),
+            'title' => esc_html__('404 Title', 'design'),
             'default' => 'Awww...Do Not Cry',
         ),
 
         array(
-            'id' => 'getDesign_opt_404_editor',
+            'id' => 'design_opt_404_editor',
             'type' => 'editor',
-            'title' => esc_html__('404 Content', 'getdesign'),
-            'default' => esc_html__('It is just a 404 Error! What you are looking for may have been misplaced in Long Term Memory.', 'getdesign'),
+            'title' => esc_html__('404 Content', 'design'),
+            'default' => esc_html__('It is just a 404 Error! What you are looking for may have been misplaced in Long Term Memory.', 'design'),
             'args' => array(
                 'wpautop' => false,
                 'media_buttons' => false,
@@ -675,25 +675,25 @@ Redux::set_section($getDesign_opt_name, array(
 /* End 404 Options */
 
 /* Start Footer Options */
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_footer',
-    'title' => esc_html__('Footer Options', 'getdesign'),
-    'desc' => esc_html__('Footer all config', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_footer',
+    'title' => esc_html__('Footer Options', 'design'),
+    'desc' => esc_html__('Footer all config', 'design'),
     'customizer_width' => '400px',
     'icon' => 'el el-arrow-down'
 ));
 
 // Footer Sidebar Multi Column
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_footer_sidebar_multi_column',
-    'title' => esc_html__('Sidebar Footer Multi Column', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_footer_sidebar_multi_column',
+    'title' => esc_html__('Sidebar Footer Multi Column', 'design'),
     'subsection' => true,
     'fields' => array(
         array(
-            'id' => 'getDesign_opt_footer_multi_column',
+            'id' => 'design_opt_footer_multi_column',
             'type' => 'image_select',
-            'title' => esc_html__('Number of Footer Columns', 'getdesign'),
-            'subtitle' => esc_html__('Controls the number of columns in the footer', 'getdesign'),
+            'title' => esc_html__('Number of Footer Columns', 'design'),
+            'subtitle' => esc_html__('Controls the number of columns in the footer', 'design'),
             'default' => 4,
             'options' => array(
                 0 => array(
@@ -724,76 +724,76 @@ Redux::set_section($getDesign_opt_name, array(
         ),
 
         array(
-            'id' => 'getDesign_opt_footer_multi_column_1',
+            'id' => 'design_opt_footer_multi_column_1',
             'type' => 'slider',
-            'title' => esc_html__('Column width 1', 'getdesign'),
-            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'getdesign'),
-            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'getdesign'),
+            'title' => esc_html__('Column width 1', 'design'),
+            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'design'),
+            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'design'),
             'default' => 3,
             'min' => 1,
             'step' => 1,
             'max' => 12,
             'display_value' => 'label',
             'required' => array(
-                array('getDesign_opt_footer_multi_column', 'equals', '1', '2', '3', '4'),
-                array('getDesign_opt_footer_multi_column', '!=', '0'),
+                array('design_opt_footer_multi_column', 'equals', '1', '2', '3', '4'),
+                array('design_opt_footer_multi_column', '!=', '0'),
             )
         ),
 
         array(
-            'id' => 'getDesign_opt_footer_multi_column_2',
+            'id' => 'design_opt_footer_multi_column_2',
             'type' => 'slider',
-            'title' => esc_html__('Column width 2', 'getdesign'),
-            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'getdesign'),
-            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'getdesign'),
+            'title' => esc_html__('Column width 2', 'design'),
+            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'design'),
+            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'design'),
             'default' => 3,
             'min' => 1,
             'step' => 1,
             'max' => 12,
             'display_value' => 'label',
             'required' => array(
-                array('getDesign_opt_footer_multi_column', 'equals', '2', '3', '4'),
-                array('getDesign_opt_footer_multi_column', '!=', '1'),
-                array('getDesign_opt_footer_multi_column', '!=', '0'),
+                array('design_opt_footer_multi_column', 'equals', '2', '3', '4'),
+                array('design_opt_footer_multi_column', '!=', '1'),
+                array('design_opt_footer_multi_column', '!=', '0'),
             )
         ),
 
         array(
-            'id' => 'getDesign_opt_footer_multi_column_3',
+            'id' => 'design_opt_footer_multi_column_3',
             'type' => 'slider',
-            'title' => esc_html__('Column width 3', 'getdesign'),
-            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'getdesign'),
-            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'getdesign'),
+            'title' => esc_html__('Column width 3', 'design'),
+            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'design'),
+            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'design'),
             'default' => 3,
             'min' => 1,
             'step' => 1,
             'max' => 12,
             'display_value' => 'label',
             'required' => array(
-                array('getDesign_opt_footer_multi_column', 'equals', '3', '4'),
-                array('getDesign_opt_footer_multi_column', '!=', '1'),
-                array('getDesign_opt_footer_multi_column', '!=', '2'),
-                array('getDesign_opt_footer_multi_column', '!=', '0'),
+                array('design_opt_footer_multi_column', 'equals', '3', '4'),
+                array('design_opt_footer_multi_column', '!=', '1'),
+                array('design_opt_footer_multi_column', '!=', '2'),
+                array('design_opt_footer_multi_column', '!=', '0'),
             )
         ),
 
         array(
-            'id' => 'getDesign_opt_footer_multi_column_4',
+            'id' => 'design_opt_footer_multi_column_4',
             'type' => 'slider',
-            'title' => esc_html__('Column width 4', 'getdesign'),
-            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'getdesign'),
-            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'getdesign'),
+            'title' => esc_html__('Column width 4', 'design'),
+            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'design'),
+            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'design'),
             'default' => 3,
             'min' => 1,
             'step' => 1,
             'max' => 12,
             'display_value' => 'label',
             'required' => array(
-                array('getDesign_opt_footer_multi_column', 'equals', '4'),
-                array('getDesign_opt_footer_multi_column', '!=', '1'),
-                array('getDesign_opt_footer_multi_column', '!=', '2'),
-                array('getDesign_opt_footer_multi_column', '!=', '3'),
-                array('getDesign_opt_footer_multi_column', '!=', '0'),
+                array('design_opt_footer_multi_column', 'equals', '4'),
+                array('design_opt_footer_multi_column', '!=', '1'),
+                array('design_opt_footer_multi_column', '!=', '2'),
+                array('design_opt_footer_multi_column', '!=', '3'),
+                array('design_opt_footer_multi_column', '!=', '0'),
             )
         ),
     )
@@ -801,16 +801,16 @@ Redux::set_section($getDesign_opt_name, array(
 ));
 
 //Copyright
-Redux::set_section($getDesign_opt_name, array(
-    'id' => 'getDesign_opt_footer_copyright',
-    'title' => esc_html__('Copyright', 'getdesign'),
-    'desc' => esc_html__('', 'getdesign'),
+Redux::set_section($design_opt_name, array(
+    'id' => 'design_opt_footer_copyright',
+    'title' => esc_html__('Copyright', 'design'),
+    'desc' => esc_html__('', 'design'),
     'subsection' => true,
     'fields' => array(
         array(
-            'id' => 'getDesign_opt_footer_copyright_editor',
+            'id' => 'design_opt_footer_copyright_editor',
             'type' => 'editor',
-            'title' => esc_html__('Enter content copyright', 'getdesign'),
+            'title' => esc_html__('Enter content copyright', 'design'),
             'full_width' => true,
             'default' => 'Copyright &amp; DiepLK',
             'args' => array(

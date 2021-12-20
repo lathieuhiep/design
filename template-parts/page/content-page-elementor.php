@@ -2,7 +2,7 @@
     <div class="site-page-content">
         <?php
         the_content();
-        getDesign_link_page();
+        design_link_page();
         ?>
     </div>
 <?php endwhile; ?>

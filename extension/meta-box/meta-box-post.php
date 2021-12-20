@@ -1,13 +1,13 @@
 <?php
 
-add_filter('rwmb_meta_boxes', 'getDesign_register_meta_boxes');
+add_filter('rwmb_meta_boxes', 'design_register_meta_boxes');
 
-function getDesign_register_meta_boxes($getDesign_meta_boxes)
+function design_register_meta_boxes($design_meta_boxes)
 {
 
-    $getDesign_meta_boxes[] = array(
-        'id' => 'getDesign_meta_box_post',
-        'title' => esc_html__('Post Format', 'getdesign'),
+    $design_meta_boxes[] = array(
+        'id' => 'design_meta_box_post',
+        'title' => esc_html__('Post Format', 'design'),
         'post_types' => array('post'),
         'context' => 'normal',
         'priority' => 'high',
@@ -15,7 +15,7 @@ function getDesign_register_meta_boxes($getDesign_meta_boxes)
 
             array(
                 'name' => 'Select Type Image',
-                'id' => 'getDesign_meta_box_post_select_image',
+                'id' => 'design_meta_box_post_select_image',
                 'type' => 'select',
                 'options' => array(
                     'featured_image' => 'Featured image',
@@ -24,7 +24,7 @@ function getDesign_register_meta_boxes($getDesign_meta_boxes)
             ),
 
             array(
-                'id' => 'getDesign_meta_box_post_gallery',
+                'id' => 'design_meta_box_post_gallery',
                 'name' => 'Gallery',
                 'type' => 'image_advanced',
                 'force_delete' => false,
@@ -33,7 +33,7 @@ function getDesign_register_meta_boxes($getDesign_meta_boxes)
             ),
 
             array(
-                'id' => 'getDesign_meta_box_post_video',
+                'id' => 'design_meta_box_post_video',
                 'name' => 'Video Or Audio',
                 'type' => 'oembed',
             ),
@@ -41,5 +41,5 @@ function getDesign_register_meta_boxes($getDesign_meta_boxes)
         )
     );
 
-    return $getDesign_meta_boxes;
+    return $design_meta_boxes;
 }

@@ -4,18 +4,18 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class getDesign_widget_about_text extends Widget_Base {
+class design_widget_about_text extends Widget_Base {
 
     public function get_categories() {
-        return array( 'getDesign_widgets' );
+        return array( 'design_widgets' );
     }
 
     public function get_name() {
-        return 'getdesign-about-text';
+        return 'design-about-text';
     }
 
     public function get_title() {
-        return esc_html__( 'About Text', 'getdesign' );
+        return esc_html__( 'About Text', 'design' );
     }
 
     public function get_icon() {
@@ -28,7 +28,7 @@ class getDesign_widget_about_text extends Widget_Base {
         $this->start_controls_section(
             'content_heading',
             [
-                'label' => __( 'Heading', 'getdesign' ),
+                'label' => __( 'Heading', 'design' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -36,9 +36,9 @@ class getDesign_widget_about_text extends Widget_Base {
         $this->add_control(
             'heading',
             [
-                'label'         =>  esc_html__( 'Heading', 'getdesign' ),
+                'label'         =>  esc_html__( 'Heading', 'design' ),
                 'type'          =>  Controls_Manager::TEXT,
-                'default'       =>  esc_html__( 'Heading About Text', 'getdesign' ),
+                'default'       =>  esc_html__( 'Heading About Text', 'design' ),
                 'label_block'   =>  true
             ]
         );
@@ -49,7 +49,7 @@ class getDesign_widget_about_text extends Widget_Base {
         $this->start_controls_section(
             'content_description',
             [
-                'label' => __( 'description', 'getdesign' ),
+                'label' => __( 'description', 'design' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -57,9 +57,9 @@ class getDesign_widget_about_text extends Widget_Base {
         $this->add_control(
             'description',
             [
-                'label'     =>  esc_html__( 'Description', 'getdesign' ),
+                'label'     =>  esc_html__( 'Description', 'design' ),
                 'type'      =>  Controls_Manager::WYSIWYG,
-                'default'   =>  esc_html__( 'Default description', 'getdesign' ),
+                'default'   =>  esc_html__( 'Default description', 'design' ),
             ]
         );
 
@@ -69,7 +69,7 @@ class getDesign_widget_about_text extends Widget_Base {
         $this->start_controls_section(
             'style_heading',
             [
-                'label' => esc_html__( 'Heading', 'getdesign' ),
+                'label' => esc_html__( 'Heading', 'design' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -77,26 +77,26 @@ class getDesign_widget_about_text extends Widget_Base {
         $this->add_control(
             'align',
             [
-                'label'     =>  esc_html__( 'Alignment Title', 'getdesign' ),
+                'label'     =>  esc_html__( 'Alignment Title', 'design' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'getdesign' ),
+                        'title' =>  esc_html__( 'Left', 'design' ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
 
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'getdesign' ),
+                        'title' =>  esc_html__( 'Center', 'design' ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
 
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'getdesign' ),
+                        'title' =>  esc_html__( 'Right', 'design' ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
 
                     'justify'=> [
-                        'title' =>  esc_html__( 'Justified', 'getdesign' ),
+                        'title' =>  esc_html__( 'Justified', 'design' ),
                         'icon'  =>  'eicon-text-align-justify',
                     ],
                 ],
@@ -109,7 +109,7 @@ class getDesign_widget_about_text extends Widget_Base {
         $this->add_control(
             'heading_color',
             [
-                'label'     =>  __( 'Color', 'getdesign' ),
+                'label'     =>  __( 'Color', 'design' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'selectors' =>  [
                     '{{WRAPPER}} .element-about-text__title' => 'color: {{VALUE}}',
@@ -121,7 +121,7 @@ class getDesign_widget_about_text extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'heading_typography',
-                'label' => __( 'Typography', 'getdesign' ),
+                'label' => __( 'Typography', 'design' ),
                 'selector' => '{{WRAPPER}} .element-about-text__title',
             ]
         );
@@ -132,7 +132,7 @@ class getDesign_widget_about_text extends Widget_Base {
         $this->start_controls_section(
             'style_description',
             [
-                'label' => esc_html__( 'Description', 'getdesign' ),
+                'label' => esc_html__( 'Description', 'design' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -140,7 +140,7 @@ class getDesign_widget_about_text extends Widget_Base {
         $this->add_control(
             'description_color',
             [
-                'label'     =>  __( 'Color', 'getdesign' ),
+                'label'     =>  __( 'Color', 'design' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'selectors' =>  [
                     '{{WRAPPER}} .element-about-text__description' => 'color: {{VALUE}}',
@@ -152,7 +152,7 @@ class getDesign_widget_about_text extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'description_typography',
-                'label' => __( 'Typography', 'getdesign' ),
+                'label' => __( 'Typography', 'design' ),
                 'selector' => '{{WRAPPER}} .element-about-text__description',
             ]
         );
@@ -205,4 +205,4 @@ class getDesign_widget_about_text extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new getDesign_widget_about_text );
+Plugin::instance()->widgets_manager->register_widget_type( new design_widget_about_text );

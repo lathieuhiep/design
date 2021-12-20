@@ -4,18 +4,18 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class getDesign_widget_testimonial_slider extends Widget_Base {
+class design_widget_testimonial_slider extends Widget_Base {
 
     public function get_categories() {
-        return array( 'getDesign_widgets' );
+        return array( 'design_widgets' );
     }
 
     public function get_name() {
-        return 'getdesign-testimonial-slider';
+        return 'design-testimonial-slider';
     }
 
     public function get_title() {
-        return esc_html__( 'Testimonial Slider', 'getdesign' );
+        return esc_html__( 'Testimonial Slider', 'design' );
     }
 
     public function get_icon() {
@@ -23,7 +23,7 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['getdesign-elementor-custom'];
+        return ['design-elementor-custom'];
     }
 
     protected function _register_controls() {
@@ -32,7 +32,7 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
         $this->start_controls_section(
             'content_testimonial',
             [
-                'label' => __( 'Content', 'getdesign' ),
+                'label' => __( 'Content', 'design' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -41,9 +41,9 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
 
         $repeater->add_control(
             'list_title', [
-                'label' => esc_html__( 'Name', 'getdesign' ),
+                'label' => esc_html__( 'Name', 'design' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'John Doe' , 'getdesign' ),
+                'default' => esc_html__( 'John Doe' , 'design' ),
                 'label_block' => true,
             ]
         );
@@ -51,9 +51,9 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
         $repeater->add_control(
             'list_position',
             [
-                'label'         =>  esc_html__( 'Position', 'getdesign' ),
+                'label'         =>  esc_html__( 'Position', 'design' ),
                 'type'          =>  Controls_Manager::TEXT,
-                'default'       =>  esc_html__( 'Codetic', 'getdesign' ),
+                'default'       =>  esc_html__( 'Codetic', 'design' ),
                 'label_block'   =>  true
             ]
         );
@@ -61,7 +61,7 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
         $repeater->add_control(
             'list_image',
             [
-                'label' => esc_html__( 'Choose Image', 'getdesign' ),
+                'label' => esc_html__( 'Choose Image', 'design' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -72,26 +72,26 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
         $repeater->add_control(
             'list_description',
             [
-                'label' => esc_html__( 'Description', 'getdesign' ),
+                'label' => esc_html__( 'Description', 'design' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 10,
-                'default' => esc_html__( 'GEMs are robotics algorithm for modules that built & optimized for NVIDIA AGX Data should underlie every business decision. Data should underlie every business Yet too often some very down the certain routes.', 'getdesign' ),
-                'placeholder' => esc_html__( 'Type your description here', 'getdesign' ),
+                'default' => esc_html__( 'GEMs are robotics algorithm for modules that built & optimized for NVIDIA AGX Data should underlie every business decision. Data should underlie every business Yet too often some very down the certain routes.', 'design' ),
+                'placeholder' => esc_html__( 'Type your description here', 'design' ),
             ]
         );
 
         $this->add_control(
             'list',
             [
-                'label' => esc_html__( 'List', 'getdesign' ),
+                'label' => esc_html__( 'List', 'design' ),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'list_title' => __( 'Title #1', 'getdesign' ),
+                        'list_title' => __( 'Title #1', 'design' ),
                     ],
                     [
-                        'list_title' => __( 'Title #2', 'getdesign' ),
+                        'list_title' => __( 'Title #2', 'design' ),
                     ],
                 ],
                 'title_field' => '{{{ list_title }}}',
@@ -104,7 +104,7 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
         $this->start_controls_section(
             'content_additional_options',
             [
-                'label' => __( 'Additional Options', 'getdesign' ),
+                'label' => __( 'Additional Options', 'design' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -113,9 +113,9 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
             'loop',
             [
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label'         =>  esc_html__('Loop Slider ?', 'getdesign'),
-                'label_off'     =>  esc_html__('No', 'getdesign'),
-                'label_on'      =>  esc_html__('Yes', 'getdesign'),
+                'label'         =>  esc_html__('Loop Slider ?', 'design'),
+                'label_off'     =>  esc_html__('No', 'design'),
+                'label_on'      =>  esc_html__('Yes', 'design'),
                 'return_value'  =>  'yes',
                 'default'       =>  'yes',
             ]
@@ -124,10 +124,10 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
         $this->add_control(
             'autoplay',
             [
-                'label'         =>  esc_html__('Autoplay?', 'getdesign'),
+                'label'         =>  esc_html__('Autoplay?', 'design'),
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label_off'     =>  esc_html__('No', 'getdesign'),
-                'label_on'      =>  esc_html__('Yes', 'getdesign'),
+                'label_off'     =>  esc_html__('No', 'design'),
+                'label_on'      =>  esc_html__('Yes', 'design'),
                 'return_value'  =>  'yes',
                 'default'       =>  'no',
             ]
@@ -136,10 +136,10 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
         $this->add_control(
             'nav',
             [
-                'label'         =>  esc_html__('Nav Slider', 'getdesign'),
+                'label'         =>  esc_html__('Nav Slider', 'design'),
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label_on'      =>  esc_html__('Yes', 'getdesign'),
-                'label_off'     =>  esc_html__('No', 'getdesign'),
+                'label_on'      =>  esc_html__('Yes', 'design'),
+                'label_off'     =>  esc_html__('No', 'design'),
                 'return_value'  =>  'yes',
                 'default'       =>  'yes',
             ]
@@ -148,10 +148,10 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
         $this->add_control(
             'dots',
             [
-                'label'         =>  esc_html__('Dots Slider', 'getdesign'),
+                'label'         =>  esc_html__('Dots Slider', 'design'),
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label_on'      =>  esc_html__('Yes', 'getdesign'),
-                'label_off'     =>  esc_html__('No', 'getdesign'),
+                'label_on'      =>  esc_html__('Yes', 'design'),
+                'label_off'     =>  esc_html__('No', 'design'),
                 'return_value'  =>  'yes',
                 'default'       =>  'yes',
             ]
@@ -215,4 +215,4 @@ class getDesign_widget_testimonial_slider extends Widget_Base {
     }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new getDesign_widget_testimonial_slider );
+Plugin::instance()->widgets_manager->register_widget_type( new design_widget_testimonial_slider );

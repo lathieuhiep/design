@@ -7,9 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  *constants
  */
-if ( ! function_exists( 'getDesign_setup' ) ):
+if ( ! function_exists( 'design_setup' ) ):
 
-	function getDesign_setup() {
+	function design_setup() {
 
 		/**
 		 * Set the content width based on the theme's design and stylesheet.
@@ -23,7 +23,7 @@ if ( ! function_exists( 'getDesign_setup' ) ):
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 */
-		load_theme_textdomain( 'getdesign', get_parent_theme_file_path( '/languages' ) );
+		load_theme_textdomain( 'design', get_parent_theme_file_path( '/languages' ) );
 
 		/**
 		 * Set up theme defaults and registers support for various WordPress features.
@@ -54,7 +54,7 @@ if ( ! function_exists( 'getDesign_setup' ) ):
 		add_theme_support( 'post-formats', array( 'gallery', 'video', 'audio' ) );
 	}
 
-	add_action( 'after_setup_theme', 'getDesign_setup' );
+	add_action( 'after_setup_theme', 'design_setup' );
 
 endif;
 
@@ -102,8 +102,8 @@ if ( did_action( 'elementor/loaded' ) ) :
 endif;
 
 /* Require Widgets */
-foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $getDesign_file_widgets ) {
-	require $getDesign_file_widgets;
+foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $design_file_widgets ) {
+	require $design_file_widgets;
 }
 
 /**
@@ -128,8 +128,8 @@ require get_parent_theme_file_path( '/includes/theme-scripts.php' );
 * Walker for the main menu
 *
 */
-add_filter( 'walker_nav_menu_start_el', 'getDesign_add_arrow',10,4);
-function getDesign_add_arrow( $output, $item, $depth, $args ){
+add_filter( 'walker_nav_menu_start_el', 'design_add_arrow',10,4);
+function design_add_arrow( $output, $item, $depth, $args ){
 	if('primary' == $args->theme_location && $depth >= 0 ){
 		if (in_array("menu-item-has-children", $item->classes)) {
 			$output .='<span class="sub-menu-toggle"></span>';
@@ -140,39 +140,39 @@ function getDesign_add_arrow( $output, $item, $depth, $args ){
 }
 
 /* callback comment list */
-function getDesign_comments( $getDesign_comment, $getDesign_comment_args, $getDesign_comment_depth ) {
+function design_comments( $design_comment, $design_comment_args, $design_comment_depth ) {
 
-	if ( 'div' === $getDesign_comment_args['style'] ) :
+	if ( 'div' === $design_comment_args['style'] ) :
 
-		$getDesign_comment_tag       = 'div';
-		$getDesign_comment_add_below = 'comment';
+		$design_comment_tag       = 'div';
+		$design_comment_add_below = 'comment';
 
 	else :
 
-		$getDesign_comment_tag       = 'li';
-		$getDesign_comment_add_below = 'div-comment';
+		$design_comment_tag       = 'li';
+		$design_comment_add_below = 'div-comment';
 
 	endif;
 
 	?>
-    <<?php echo $getDesign_comment_tag ?><?php comment_class( empty( $getDesign_comment_args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+    <<?php echo $design_comment_tag ?><?php comment_class( empty( $design_comment_args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
 
-	<?php if ( 'div' != $getDesign_comment_args['style'] ) : ?>
+	<?php if ( 'div' != $design_comment_args['style'] ) : ?>
 
         <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
 
 	<?php endif; ?>
 
     <div class="comment-author vcard">
-		<?php if ( $getDesign_comment_args['avatar_size'] != 0 ) {
-			echo get_avatar( $getDesign_comment, $getDesign_comment_args['avatar_size'] );
+		<?php if ( $design_comment_args['avatar_size'] != 0 ) {
+			echo get_avatar( $design_comment, $design_comment_args['avatar_size'] );
 		} ?>
 
     </div>
 
-	<?php if ( $getDesign_comment->comment_approved == '0' ) : ?>
+	<?php if ( $design_comment->comment_approved == '0' ) : ?>
         <em class="comment-awaiting-moderation">
-			<?php esc_html_e( 'Your comment is awaiting moderation.', 'getdesign' ); ?>
+			<?php esc_html_e( 'Your comment is awaiting moderation.', 'design' ); ?>
         </em>
 	<?php endif; ?>
 
@@ -185,12 +185,12 @@ function getDesign_comments( $getDesign_comment, $getDesign_comment_args, $getDe
                 <?php comment_date(); ?>
             </span>
 
-			<?php edit_comment_link( esc_html__( 'Edit ', 'getdesign' ) ); ?>
+			<?php edit_comment_link( esc_html__( 'Edit ', 'design' ) ); ?>
 
-			<?php comment_reply_link( array_merge( $getDesign_comment_args, array(
-				'add_below' => $getDesign_comment_add_below,
-				'depth'     => $getDesign_comment_depth,
-				'max_depth' => $getDesign_comment_args['max_depth']
+			<?php comment_reply_link( array_merge( $design_comment_args, array(
+				'add_below' => $design_comment_add_below,
+				'depth'     => $design_comment_depth,
+				'max_depth' => $design_comment_args['max_depth']
 			) ) ); ?>
 
         </div>
@@ -200,7 +200,7 @@ function getDesign_comments( $getDesign_comment, $getDesign_comment_args, $getDe
         </div>
     </div>
 
-	<?php if ( 'div' != $getDesign_comment_args['style'] ) : ?>
+	<?php if ( 'div' != $design_comment_args['style'] ) : ?>
         </div>
 	<?php endif; ?>
 
@@ -213,25 +213,25 @@ function getDesign_comments( $getDesign_comment, $getDesign_comment_args, $getDe
  * Content Nav
  */
 
-if ( ! function_exists( 'getDesign_comment_nav' ) ) :
+if ( ! function_exists( 'design_comment_nav' ) ) :
 
-	function getDesign_comment_nav() {
+	function design_comment_nav() {
 		// Are there comments to navigate through?
 		if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 
 			?>
             <nav class="navigation comment-navigation">
                 <h2 class="screen-reader-text">
-					<?php esc_html_e( 'Comment navigation', 'getdesign' ); ?>
+					<?php esc_html_e( 'Comment navigation', 'design' ); ?>
                 </h2>
 
                 <div class="nav-links">
 					<?php
-					if ( $prev_link = get_previous_comments_link( esc_html__( 'Older Comments', 'getdesign' ) ) ) :
+					if ( $prev_link = get_previous_comments_link( esc_html__( 'Older Comments', 'design' ) ) ) :
 						printf( '<div class="nav-previous">%s</div>', $prev_link );
 					endif;
 
-					if ( $next_link = get_next_comments_link( esc_html__( 'Newer Comments', 'getdesign' ) ) ) :
+					if ( $next_link = get_next_comments_link( esc_html__( 'Newer Comments', 'design' ) ) ) :
 						printf( '<div class="nav-next">%s</div>', $next_link );
 					endif;
 					?>
@@ -245,20 +245,20 @@ if ( ! function_exists( 'getDesign_comment_nav' ) ) :
 endif;
 
 /* Start Social Network */
-function getDesign_get_social_url() {
+function design_get_social_url() {
 
-	global $getDesign_options;
-	$getDesign_opt_social_networks = getDesign_get_social_network();
+	global $design_options;
+	$design_opt_social_networks = design_get_social_network();
 
-	foreach ( $getDesign_opt_social_networks as $getDesign_social ) :
-		$getDesign_social_url = $getDesign_options[ 'getDesign_opt_social_network_' . $getDesign_social['id'] ] ?? '#';
+	foreach ( $design_opt_social_networks as $design_social ) :
+		$design_social_url = $design_options[ 'design_opt_social_network_' . $design_social['id'] ] ?? '#';
 
-		if ( $getDesign_social_url ) :
+		if ( $design_social_url ) :
 			?>
 
-            <div class="social-network-item item-<?php echo esc_attr( $getDesign_social['id'] ); ?>">
-                <a href="<?php echo esc_url( $getDesign_social_url ); ?>">
-                    <i class="<?php echo esc_attr( $getDesign_social['icon'] ); ?>" aria-hidden="true"></i>
+            <div class="social-network-item item-<?php echo esc_attr( $design_social['id'] ); ?>">
+                <a href="<?php echo esc_url( $design_social_url ); ?>">
+                    <i class="<?php echo esc_attr( $design_social['icon'] ); ?>" aria-hidden="true"></i>
                 </a>
             </div>
 
@@ -268,7 +268,7 @@ function getDesign_get_social_url() {
 	endforeach;
 }
 
-function getDesign_get_social_network(): array
+function design_get_social_network(): array
 {
 	return array(
 		array( 'id' => 'facebook', 'icon' => 'fab fa-facebook-f' ),
@@ -281,38 +281,38 @@ function getDesign_get_social_network(): array
 /* End Social Network */
 
 /* Start pagination */
-function getDesign_pagination() {
+function design_pagination() {
 
 	the_posts_pagination( array(
 		'type'               => 'list',
 		'mid_size'           => 2,
-		'prev_text'          => esc_html__( 'Previous', 'getdesign' ),
-		'next_text'          => esc_html__( 'Next', 'getdesign' ),
+		'prev_text'          => esc_html__( 'Previous', 'design' ),
+		'next_text'          => esc_html__( 'Next', 'design' ),
 		'screen_reader_text' => '&nbsp;',
 	) );
 
 }
 
 // pagination nav query
-function getDesign_paging_nav_query( $getDesign_querry ) {
+function design_paging_nav_query( $design_querry ) {
 
-	$getDesign_pagination_args = array(
+	$design_pagination_args = array(
 
-		'prev_text' => '<i class="fa fa-angle-double-left"></i>' . esc_html__( ' Previous', 'getdesign' ),
-		'next_text' => esc_html__( 'Next', 'getdesign' ) . '<i class="fa fa-angle-double-right"></i>',
+		'prev_text' => '<i class="fa fa-angle-double-left"></i>' . esc_html__( ' Previous', 'design' ),
+		'next_text' => esc_html__( 'Next', 'design' ) . '<i class="fa fa-angle-double-right"></i>',
 		'current'   => max( 1, get_query_var( 'paged' ) ),
-		'total'     => $getDesign_querry->max_num_pages,
+		'total'     => $design_querry->max_num_pages,
 		'type'      => 'list',
 
 	);
 
-	$getDesign_paginate_links = paginate_links( $getDesign_pagination_args );
+	$design_paginate_links = paginate_links( $design_pagination_args );
 
-	if ( $getDesign_paginate_links ) :
+	if ( $design_paginate_links ) :
 
 		?>
         <nav class="pagination">
-			<?php echo $getDesign_paginate_links; ?>
+			<?php echo $design_paginate_links; ?>
         </nav>
 
 	<?php
@@ -323,17 +323,17 @@ function getDesign_paging_nav_query( $getDesign_querry ) {
 /* End pagination */
 
 // Sanitize Pagination
-add_action( 'navigation_markup_template', 'getDesign_sanitize_pagination' );
-function getDesign_sanitize_pagination( $getDesign_content ) {
+add_action( 'navigation_markup_template', 'design_sanitize_pagination' );
+function design_sanitize_pagination( $design_content ) {
 	// Remove role attribute
-	$getDesign_content = str_replace( 'role="navigation"', '', $getDesign_content );
+	$design_content = str_replace( 'role="navigation"', '', $design_content );
 
 	// Remove h2 tag
-    return preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $getDesign_content );
+    return preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $design_content );
 }
 
 /* Start Get col global */
-function getDesign_col_use_sidebar( $option_sidebar, $active_sidebar ): string
+function design_col_use_sidebar( $option_sidebar, $active_sidebar ): string
 {
 
 	if ( $option_sidebar != 'hide' && is_active_sidebar( $active_sidebar ) ):
@@ -352,7 +352,7 @@ function getDesign_col_use_sidebar( $option_sidebar, $active_sidebar ): string
 	return $class_col_content;
 }
 
-function getDesign_col_sidebar(): string
+function design_col_sidebar(): string
 {
     return 'col-12 col-md-4 col-lg-3';
 }
@@ -360,12 +360,12 @@ function getDesign_col_sidebar(): string
 /* End Get col global */
 
 /* Start Post Meta */
-function getDesign_post_meta() {
+function design_post_meta() {
 	?>
 
     <div class="site-post-meta">
         <span class="site-post-author">
-            <?php esc_html_e( 'Author:', 'getdesign' ); ?>
+            <?php esc_html_e( 'Author:', 'design' ); ?>
 
             <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
                 <?php the_author(); ?>
@@ -373,13 +373,13 @@ function getDesign_post_meta() {
         </span>
 
         <span class="site-post-date">
-            <?php esc_html_e( 'Post date: ', 'getdesign' );
+            <?php esc_html_e( 'Post date: ', 'design' );
             the_date(); ?>
         </span>
 
         <span class="site-post-comments">
             <?php
-            comments_popup_link( '0 ' . esc_html__( 'Comment', 'getdesign' ), '1 ' . esc_html__( 'Comment', 'getdesign' ), '% ' . esc_html__( 'Comments', 'getdesign' ) );
+            comments_popup_link( '0 ' . esc_html__( 'Comment', 'design' ), '1 ' . esc_html__( 'Comment', 'design' ), '% ' . esc_html__( 'Comments', 'design' ) );
             ?>
         </span>
     </div>
@@ -390,10 +390,10 @@ function getDesign_post_meta() {
 /* End Post Meta */
 
 /* Start Link Pages */
-function getDesign_link_page() {
+function design_link_page() {
 
 	wp_link_pages( array(
-		'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'getdesign' ),
+		'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'design' ),
 		'after'       => '</div>',
 		'link_before' => '<span class="page-number">',
 		'link_after'  => '</span>',
@@ -404,7 +404,7 @@ function getDesign_link_page() {
 /* End Link Pages */
 
 /* Start comment */
-function getDesign_comment_form() {
+function design_comment_form() {
 
 	if ( comments_open() || get_comments_number() ) :
 		?>
@@ -418,7 +418,7 @@ function getDesign_comment_form() {
 /* End comment */
 
 /* Start get Category check box */
-function getDesign_check_get_cat( $type_taxonomy ): array
+function design_check_get_cat( $type_taxonomy ): array
 {
 	$cat_check = array();
 	$category  = get_terms(
@@ -442,7 +442,7 @@ function getDesign_check_get_cat( $type_taxonomy ): array
 /**
  *Start share
  */
-function getDesign_post_share() {
+function design_post_share() {
 
 	?>
     <div class="site-post-share">
@@ -452,7 +452,7 @@ function getDesign_post_share() {
 
 }
 
-function getDesign_opengraph() {
+function design_opengraph() {
 	global $post;
 
 	if ( is_single() ) :
@@ -485,7 +485,7 @@ function getDesign_opengraph() {
 	endif;
 }
 
-add_action( 'wp_head', 'getDesign_opengraph', 5 );
+add_action( 'wp_head', 'design_opengraph', 5 );
 /* End opengraph */
 
 /**
@@ -494,10 +494,10 @@ add_action( 'wp_head', 'getDesign_opengraph', 5 );
  *
  * @param object $query The main WordPress query.
  */
-function getDesign_include_custom_post_types_in_search_results( $query ) {
+function design_include_custom_post_types_in_search_results( $query ) {
 	if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
 		$query->set( 'post_type', array( 'post' ) );
 	}
 }
-add_action( 'pre_get_posts', 'getDesign_include_custom_post_types_in_search_results' );
+add_action( 'pre_get_posts', 'design_include_custom_post_types_in_search_results' );
 

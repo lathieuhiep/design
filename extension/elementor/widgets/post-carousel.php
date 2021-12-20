@@ -6,18 +6,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 use Elementor\Core\Schemes;
 
-class getDesign_widget_post_carousel extends Widget_Base {
+class design_widget_post_carousel extends Widget_Base {
 
     public function get_categories() {
-        return array( 'getDesign_widgets' );
+        return array( 'design_widgets' );
     }
 
     public function get_name() {
-        return 'getdesign-post-carousel';
+        return 'design-post-carousel';
     }
 
     public function get_title() {
-        return esc_html__( 'Posts Carousel', 'getdesign' );
+        return esc_html__( 'Posts Carousel', 'design' );
     }
 
     public function get_icon() {
@@ -25,7 +25,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['getdesign-elementor-custom'];
+        return ['design-elementor-custom'];
     }
 
     protected function _register_controls() {
@@ -34,7 +34,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->start_controls_section(
             'content_query',
             [
-                'label' => esc_html__( 'Query', 'getdesign' ),
+                'label' => esc_html__( 'Query', 'design' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -42,9 +42,9 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->add_control(
             'select_cat',
             [
-                'label'         =>  esc_html__( 'Select Category', 'getdesign' ),
+                'label'         =>  esc_html__( 'Select Category', 'design' ),
                 'type'          =>  Controls_Manager::SELECT2,
-                'options'       =>  getDesign_check_get_cat( 'category' ),
+                'options'       =>  design_check_get_cat( 'category' ),
                 'multiple'      =>  true,
                 'label_block'   =>  true
             ]
@@ -53,7 +53,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->add_control(
             'limit',
             [
-                'label'     =>  esc_html__( 'Number of Posts', 'getdesign' ),
+                'label'     =>  esc_html__( 'Number of Posts', 'design' ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  6,
                 'min'       =>  1,
@@ -65,14 +65,14 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->add_control(
             'order_by',
             [
-                'label'     =>  esc_html__( 'Order By', 'getdesign' ),
+                'label'     =>  esc_html__( 'Order By', 'design' ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'id',
                 'options'   =>  [
-                    'id'    =>  esc_html__( 'Post ID', 'getdesign' ),
-                    'title' =>  esc_html__( 'Title', 'getdesign' ),
-                    'date'  =>  esc_html__( 'Date', 'getdesign' ),
-                    'rand'  =>  esc_html__( 'Random', 'getdesign' ),
+                    'id'    =>  esc_html__( 'Post ID', 'design' ),
+                    'title' =>  esc_html__( 'Title', 'design' ),
+                    'date'  =>  esc_html__( 'Date', 'design' ),
+                    'rand'  =>  esc_html__( 'Random', 'design' ),
                 ],
             ]
         );
@@ -80,12 +80,12 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->add_control(
             'order',
             [
-                'label'     =>  esc_html__( 'Order', 'getdesign' ),
+                'label'     =>  esc_html__( 'Order', 'design' ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'ASC',
                 'options'   =>  [
-                    'ASC'   =>  esc_html__( 'Ascending', 'getdesign' ),
-                    'DESC'  =>  esc_html__( 'Descending', 'getdesign' ),
+                    'ASC'   =>  esc_html__( 'Ascending', 'design' ),
+                    'DESC'  =>  esc_html__( 'Descending', 'design' ),
                 ],
             ]
         );
@@ -93,16 +93,16 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->add_control(
             'show_excerpt',
             [
-                'label'     =>  esc_html__( 'Show excerpt', 'getdesign' ),
+                'label'     =>  esc_html__( 'Show excerpt', 'design' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'show' => [
-                        'title' =>  esc_html__( 'Yes', 'getdesign' ),
+                        'title' =>  esc_html__( 'Yes', 'design' ),
                         'icon'  =>  'eicon-check',
                     ],
 
                     'hide' => [
-                        'title' =>  esc_html__( 'No', 'getdesign' ),
+                        'title' =>  esc_html__( 'No', 'design' ),
                         'icon'  =>  'eicon-ban',
                     ],
                 ],
@@ -113,7 +113,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->add_control(
             'excerpt_length',
             [
-                'label'     =>  esc_html__( 'Excerpt Words', 'getdesign' ),
+                'label'     =>  esc_html__( 'Excerpt Words', 'design' ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  '10',
                 'condition' =>  [
@@ -128,7 +128,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->start_controls_section(
             'content_additional_options',
             [
-                'label' => esc_html__( 'Additional Options', 'getdesign' ),
+                'label' => esc_html__( 'Additional Options', 'design' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -137,9 +137,9 @@ class getDesign_widget_post_carousel extends Widget_Base {
 		    'loop',
 		    [
 			    'type'          =>  Controls_Manager::SWITCHER,
-			    'label'         =>  esc_html__('Loop Slider ?', 'getdesign'),
-			    'label_off'     =>  esc_html__('No', 'getdesign'),
-			    'label_on'      =>  esc_html__('Yes', 'getdesign'),
+			    'label'         =>  esc_html__('Loop Slider ?', 'design'),
+			    'label_off'     =>  esc_html__('No', 'design'),
+			    'label_on'      =>  esc_html__('Yes', 'design'),
 			    'return_value'  =>  'yes',
 			    'default'       =>  'yes',
 		    ]
@@ -148,10 +148,10 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'autoplay',
 		    [
-			    'label'         =>  esc_html__('Autoplay?', 'getdesign'),
+			    'label'         =>  esc_html__('Autoplay?', 'design'),
 			    'type'          =>  Controls_Manager::SWITCHER,
-			    'label_off'     =>  esc_html__('No', 'getdesign'),
-			    'label_on'      =>  esc_html__('Yes', 'getdesign'),
+			    'label_off'     =>  esc_html__('No', 'design'),
+			    'label_on'      =>  esc_html__('Yes', 'design'),
 			    'return_value'  =>  'yes',
 			    'default'       =>  'no',
 		    ]
@@ -160,10 +160,10 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'nav',
 		    [
-			    'label'         =>  esc_html__('Nav Slider', 'getdesign'),
+			    'label'         =>  esc_html__('Nav Slider', 'design'),
 			    'type'          =>  Controls_Manager::SWITCHER,
-			    'label_on'      =>  esc_html__('Yes', 'getdesign'),
-			    'label_off'     =>  esc_html__('No', 'getdesign'),
+			    'label_on'      =>  esc_html__('Yes', 'design'),
+			    'label_off'     =>  esc_html__('No', 'design'),
 			    'return_value'  =>  'yes',
 			    'default'       =>  'yes',
 		    ]
@@ -172,10 +172,10 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'dots',
 		    [
-			    'label'         =>  esc_html__('Dots Slider', 'getdesign'),
+			    'label'         =>  esc_html__('Dots Slider', 'design'),
 			    'type'          =>  Controls_Manager::SWITCHER,
-			    'label_on'      =>  esc_html__('Yes', 'getdesign'),
-			    'label_off'     =>  esc_html__('No', 'getdesign'),
+			    'label_on'      =>  esc_html__('Yes', 'design'),
+			    'label_off'     =>  esc_html__('No', 'design'),
 			    'return_value'  =>  'yes',
 			    'default'       =>  'yes',
 		    ]
@@ -184,7 +184,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'margin_item',
 		    [
-			    'label'     =>  esc_html__( 'Space Between Item', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Space Between Item', 'design' ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  30,
 			    'min'       =>  0,
@@ -196,7 +196,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'min_width_1200',
 		    [
-			    'label'     =>  esc_html__( 'Min Width 1200px', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Min Width 1200px', 'design' ),
 			    'type'      =>  Controls_Manager::HEADING,
 			    'separator' =>  'before',
 		    ]
@@ -205,7 +205,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'item',
 		    [
-			    'label'     =>  esc_html__( 'Number of Item', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Number of Item', 'design' ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  3,
 			    'min'       =>  1,
@@ -217,7 +217,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'min_width_992',
 		    [
-			    'label'     =>  esc_html__( 'Min Width 992px', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Min Width 992px', 'design' ),
 			    'type'      =>  Controls_Manager::HEADING,
 			    'separator' =>  'before',
 		    ]
@@ -226,7 +226,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'item_992',
 		    [
-			    'label'     =>  esc_html__( 'Number of Item', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Number of Item', 'design' ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  2,
 			    'min'       =>  1,
@@ -238,7 +238,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'min_width_768',
 		    [
-			    'label'     =>  esc_html__( 'Min Width 768px', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Min Width 768px', 'design' ),
 			    'type'      =>  Controls_Manager::HEADING,
 			    'separator' =>  'before',
 		    ]
@@ -247,7 +247,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'item_768',
 		    [
-			    'label'     =>  esc_html__( 'Number of Item', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Number of Item', 'design' ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  2,
 			    'min'       =>  1,
@@ -259,7 +259,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'min_width_568',
 		    [
-			    'label'     =>  esc_html__( 'Min Width 568px', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Min Width 568px', 'design' ),
 			    'type'      =>  Controls_Manager::HEADING,
 			    'separator' =>  'before',
 		    ]
@@ -268,7 +268,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'item_568',
 		    [
-			    'label'     =>  esc_html__( 'Number of Item', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Number of Item', 'design' ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  2,
 			    'min'       =>  1,
@@ -280,7 +280,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'margin_item_568',
 		    [
-			    'label'     =>  esc_html__( 'Space Between Item', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Space Between Item', 'design' ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  15,
 			    'min'       =>  0,
@@ -292,7 +292,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'max_width_567',
 		    [
-			    'label'     =>  esc_html__( 'Max Width 567px', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Max Width 567px', 'design' ),
 			    'type'      =>  Controls_Manager::HEADING,
 			    'separator' =>  'before',
 		    ]
@@ -301,7 +301,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'item_567',
 		    [
-			    'label'     =>  esc_html__( 'Number of Item', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Number of Item', 'design' ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  1,
 			    'min'       =>  1,
@@ -313,7 +313,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
 	    $this->add_control(
 		    'margin_item_567',
 		    [
-			    'label'     =>  esc_html__( 'Space Between Item', 'getdesign' ),
+			    'label'     =>  esc_html__( 'Space Between Item', 'design' ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  0,
 			    'min'       =>  0,
@@ -328,7 +328,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->start_controls_section(
             'style_title',
             [
-                'label' => esc_html__( 'Title', 'getdesign' ),
+                'label' => esc_html__( 'Title', 'design' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -336,7 +336,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->add_control(
             'title_color',
             [
-                'label'     =>  esc_html__( 'Color', 'getdesign' ),
+                'label'     =>  esc_html__( 'Color', 'design' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -348,7 +348,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->add_control(
             'title_color_hover',
             [
-                'label'     =>  esc_html__( 'Color Hover', 'getdesign' ),
+                'label'     =>  esc_html__( 'Color Hover', 'design' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -368,26 +368,26 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->add_control(
             'title_alignment',
             [
-                'label'     =>  esc_html__( 'Title Alignment', 'getdesign' ),
+                'label'     =>  esc_html__( 'Title Alignment', 'design' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'getdesign' ),
+                        'title' =>  esc_html__( 'Left', 'design' ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
 
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'getdesign' ),
+                        'title' =>  esc_html__( 'Center', 'design' ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
 
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'getdesign' ),
+                        'title' =>  esc_html__( 'Right', 'design' ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
 
                     'justify'=> [
-                        'title' =>  esc_html__( 'Justified', 'getdesign' ),
+                        'title' =>  esc_html__( 'Justified', 'design' ),
                         'icon'  =>  'eicon-text-align-justify',
                     ],
                 ],
@@ -404,7 +404,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->start_controls_section(
             'style_excerpt',
             [
-                'label' => esc_html__( 'Excerpt', 'getdesign' ),
+                'label' => esc_html__( 'Excerpt', 'design' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' =>  [
                     'show_excerpt' => 'show',
@@ -415,7 +415,7 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->add_control(
             'excerpt_color',
             [
-                'label'     =>  esc_html__( 'Color', 'getdesign' ),
+                'label'     =>  esc_html__( 'Color', 'design' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -435,26 +435,26 @@ class getDesign_widget_post_carousel extends Widget_Base {
         $this->add_control(
             'excerpt_alignment',
             [
-                'label'     =>  esc_html__( 'Excerpt Alignment', 'getdesign' ),
+                'label'     =>  esc_html__( 'Excerpt Alignment', 'design' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'getdesign' ),
+                        'title' =>  esc_html__( 'Left', 'design' ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
 
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'getdesign' ),
+                        'title' =>  esc_html__( 'Center', 'design' ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
 
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'getdesign' ),
+                        'title' =>  esc_html__( 'Right', 'design' ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
 
                     'justify'=> [
-                        'title' =>  esc_html__( 'Justified', 'getdesign' ),
+                        'title' =>  esc_html__( 'Justified', 'design' ),
                         'icon'  =>  'eicon-text-align-justify',
                     ],
                 ],
@@ -577,4 +577,4 @@ class getDesign_widget_post_carousel extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new getDesign_widget_post_carousel );
+Plugin::instance()->widgets_manager->register_widget_type( new design_widget_post_carousel );

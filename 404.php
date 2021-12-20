@@ -1,11 +1,11 @@
 <?php
 get_header();
 
-global $getDesign_options;
+global $design_options;
 
-$getDesign_title = $getDesign_options['getDesign_opt_404_title'];
-$getDesign_content = $getDesign_options['getDesign_opt_404_editor'];
-$getDesign_background = $getDesign_options['getDesign_opt_404_background']['id'];
+$design_title = $design_options['design_opt_404_title'];
+$design_content = $design_options['design_opt_404_editor'];
+$design_background = $design_options['design_opt_404_background']['id'];
 
 ?>
 
@@ -15,8 +15,8 @@ $getDesign_background = $getDesign_options['getDesign_opt_404_background']['id']
             <div class="col-md-6">
                 <figure class="site-error__image404">
                     <?php
-                    if( !empty( $getDesign_background ) ):
-                        echo wp_get_attachment_image( $getDesign_background, 'full' );
+                    if( !empty( $design_background ) ):
+                        echo wp_get_attachment_image( $design_background, 'full' );
                     else:
                         echo'<img src="'.esc_url( get_theme_file_uri( '/assets/images/404.jpg' ) ).'" alt="'.get_bloginfo('title').'" />';
                     endif;
@@ -27,33 +27,33 @@ $getDesign_background = $getDesign_options['getDesign_opt_404_background']['id']
             <div class="col-md-6">
                 <h1 class="site-title-404">
                     <?php
-                    if ( $getDesign_title != '' ):
-                        echo esc_html( $getDesign_title );
+                    if ( $design_title != '' ):
+                        echo esc_html( $design_title );
                     else:
-                        esc_html_e( 'Awww...Do Not Cry', 'getdesign' );
+                        esc_html_e( 'Awww...Do Not Cry', 'design' );
                     endif;
                     ?>
                 </h1>
 
                 <div id="site-error-content">
                     <?php
-                    if ( $getDesign_content != '' ) :
-                        echo wp_kses_post( $getDesign_content );
+                    if ( $design_content != '' ) :
+                        echo wp_kses_post( $design_content );
                     else:
                     ?>
                         <p>
-                            <?php esc_html_e( 'It is just a 404 Error!', 'getdesign' ); ?>
+                            <?php esc_html_e( 'It is just a 404 Error!', 'design' ); ?>
                             <br />
-                            <?php esc_html_e( 'What you are looking for may have been misplaced', 'getdesign' ); ?>
+                            <?php esc_html_e( 'What you are looking for may have been misplaced', 'design' ); ?>
                             <br />
-                            <?php esc_html_e( 'in Long Term Memory.', 'getdesign' ); ?>
+                            <?php esc_html_e( 'in Long Term Memory.', 'design' ); ?>
                         </p>
                     <?php endif; ?>
                 </div>
 
                 <div id="site-error-back-home">
-                    <a href="<?php echo esc_url( get_home_url('/') ); ?>" title="<?php echo esc_html__('Go to the Home Page', 'getdesign'); ?>">
-                        <?php esc_html_e('Go to the Home Page', 'getdesign'); ?>
+                    <a href="<?php echo esc_url( get_home_url('/') ); ?>" title="<?php echo esc_html__('Go to the Home Page', 'design'); ?>">
+                        <?php esc_html_e('Go to the Home Page', 'design'); ?>
                     </a>
                 </div>
             </div>

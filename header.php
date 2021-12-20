@@ -11,8 +11,8 @@
 
 <!--Include Loading Template-->
 <?php
-global $getDesign_options;
-$backtotop = $getDesign_options ['getDesign_opt_backtotop_show'] ?? true;
+global $design_options;
+$backtotop = $design_options ['design_opt_backtotop_show'] ?? true;
 
 get_template_part('template-parts/inc','loading');
 get_template_part('template-parts/header/inc','header');

@@ -2,45 +2,45 @@
 /**
  * Register Sidebar
  */
-add_action( 'widgets_init', 'getDesign_widgets_init');
+add_action( 'widgets_init', 'design_widgets_init');
 
-function getDesign_widgets_init() {
+function design_widgets_init() {
 
-	$getDesign_widgets_arr  =   array(
+	$design_widgets_arr  =   array(
 
-		'getDesign_sidebar_main'    =>  array(
-			'name'              =>  esc_html__( 'Sidebar Main', 'getdesign' ),
-			'description'       =>  esc_html__( 'Display sidebar right or left on all page.', 'getdesign' )
+		'design_sidebar_main'    =>  array(
+			'name'              =>  esc_html__( 'Sidebar Main', 'design' ),
+			'description'       =>  esc_html__( 'Display sidebar right or left on all page.', 'design' )
 		),
 
-		'getDesign_sidebar_footer_multi_column_1'   =>  array(
-			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 1', 'getdesign' ),
-			'description'       =>  esc_html__('Display footer column 1 on all page.', 'getdesign' )
+		'design_sidebar_footer_multi_column_1'   =>  array(
+			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 1', 'design' ),
+			'description'       =>  esc_html__('Display footer column 1 on all page.', 'design' )
 		),
 
-		'getDesign_sidebar_footer_multi_column_2'   =>  array(
-			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 2', 'getdesign' ),
-			'description'       =>  esc_html__('Display footer column 2 on all page.', 'getdesign' )
+		'design_sidebar_footer_multi_column_2'   =>  array(
+			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 2', 'design' ),
+			'description'       =>  esc_html__('Display footer column 2 on all page.', 'design' )
 		),
 
-		'getDesign_sidebar_footer_multi_column_3'   =>  array(
-			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 3', 'getdesign' ),
-			'description'       =>  esc_html__('Display footer column 3 on all page.', 'getdesign' )
+		'design_sidebar_footer_multi_column_3'   =>  array(
+			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 3', 'design' ),
+			'description'       =>  esc_html__('Display footer column 3 on all page.', 'design' )
 		),
 
-		'getDesign_sidebar_footer_multi_column_4'   =>  array(
-			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 4', 'getdesign' ),
-			'description'       =>  esc_html__('Display footer column 4 on all page.', 'getdesign' )
+		'design_sidebar_footer_multi_column_4'   =>  array(
+			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 4', 'design' ),
+			'description'       =>  esc_html__('Display footer column 4 on all page.', 'design' )
 		)
 
 	);
 
-	foreach ( $getDesign_widgets_arr as $getDesign_widgets_id => $getDesign_widgets_value ) :
+	foreach ( $design_widgets_arr as $design_widgets_id => $design_widgets_value ) :
 
 		register_sidebar( array(
-			'name'          =>  esc_attr( $getDesign_widgets_value['name'] ),
-			'id'            =>  esc_attr( $getDesign_widgets_id ),
-			'description'   =>  esc_attr( $getDesign_widgets_value['description'] ),
+			'name'          =>  esc_attr( $design_widgets_value['name'] ),
+			'id'            =>  esc_attr( $design_widgets_id ),
+			'description'   =>  esc_attr( $design_widgets_value['description'] ),
 			'before_widget' =>  '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  =>  '</section>',
 			'before_title'  =>  '<h2 class="widget-title">',

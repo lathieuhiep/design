@@ -12,13 +12,13 @@
     $( window ).on( 'elementor/frontend/init', function() {
 
         /* Element slider */
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/getdesign-slides.default', ElementCarouselSlider );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/design-slides.default', ElementCarouselSlider );
 
         /* Element post carousel */
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/getdesign-post-carousel.default', ElementCarouselSlider );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/design-post-carousel.default', ElementCarouselSlider );
 
         /* Element testimonial slider */
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/getdesign-testimonial-slider.default', ElementCarouselSlider );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/design-testimonial-slider.default', ElementCarouselSlider );
 
     } );
 

@@ -1,9 +1,9 @@
 <?php
-global $getDesign_options;
+global $design_options;
 
-$multi_column = $getDesign_options ["getDesign_opt_footer_multi_column"];
+$multi_column = $design_options ["design_opt_footer_multi_column"];
 
-if( is_active_sidebar( 'getDesign_sidebar_footer_multi_column_1' ) || is_active_sidebar( 'getDesign_sidebar_footer_multi_column_2' ) || is_active_sidebar( 'getDesign_sidebar_footer_multi_column_3' ) || is_active_sidebar( 'getDesign_sidebar_footer_multi_column_4' ) ) :
+if( is_active_sidebar( 'design_sidebar_footer_multi_column_1' ) || is_active_sidebar( 'design_sidebar_footer_multi_column_2' ) || is_active_sidebar( 'design_sidebar_footer_multi_column_3' ) || is_active_sidebar( 'design_sidebar_footer_multi_column_4' ) ) :
 
 ?>
 
@@ -13,14 +13,14 @@ if( is_active_sidebar( 'getDesign_sidebar_footer_multi_column_1' ) || is_active_
                 <?php
                 for( $i = 0; $i < $multi_column; $i++ ):
                     $j = $i +1;
-                    $getDesign_col = $getDesign_options ["getDesign_opt_footer_multi_column_" . $j];
+                    $design_col = $design_options ["design_opt_footer_multi_column_" . $j];
 
-                    if( is_active_sidebar( 'getDesign_sidebar_footer_multi_column_'.$j ) ):
+                    if( is_active_sidebar( 'design_sidebar_footer_multi_column_'.$j ) ):
                 ?>
 
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-<?php echo esc_attr( $getDesign_col ); ?>">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-<?php echo esc_attr( $design_col ); ?>">
 
-                        <?php dynamic_sidebar( 'getDesign_sidebar_footer_multi_column_'.$j ); ?>
+                        <?php dynamic_sidebar( 'design_sidebar_footer_multi_column_'.$j ); ?>
 
                     </div>
 

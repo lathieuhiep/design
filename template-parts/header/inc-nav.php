@@ -1,8 +1,8 @@
 <?php
-global $getDesign_options;
+global $design_options;
 
-$nav_top_sticky   =   $getDesign_options['getDesign_opt_nav_sticky'] ?? 1;
-$getDesign_opt_logo_image_id    =   $getDesign_options['getDesign_opt_logo_image']['id'];
+$nav_top_sticky   =   $design_options['design_opt_nav_sticky'] ?? 1;
+$design_opt_logo_image_id    =   $design_options['design_opt_logo_image']['id'];
 ?>
 
 <nav id="site-navigation" class="main-navigation<?php echo esc_attr( $nav_top_sticky == 1 ? ' active-sticky-nav' : '' ); ?>">
@@ -12,8 +12,8 @@ $getDesign_opt_logo_image_id    =   $getDesign_options['getDesign_opt_logo_image
                 <div class="site-logo d-flex align-items-center">
                     <a href="<?php echo esc_url( get_home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
                         <?php
-                            if ( !empty( $getDesign_opt_logo_image_id ) ) :
-                                echo wp_get_attachment_image( $getDesign_opt_logo_image_id, 'full' );
+                            if ( !empty( $design_opt_logo_image_id ) ) :
+                                echo wp_get_attachment_image( $design_opt_logo_image_id, 'full' );
                             else :
                                 echo'<img class="logo-default" src="'.esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ).'" alt="'.get_bloginfo('title').'" />';
                             endif;
@@ -44,7 +44,7 @@ $getDesign_opt_logo_image_id    =   $getDesign_options['getDesign_opt_logo_image
                         <ul class="main-menu">
                             <li>
                                 <a href="<?php echo get_admin_url().'/nav-menus.php'; ?>">
-                                    <?php esc_html_e( 'ADD TO MENU','getdesign' ); ?>
+                                    <?php esc_html_e( 'ADD TO MENU','design' ); ?>
                                 </a>
                             </li>
                         </ul>

@@ -6,18 +6,18 @@
     */
     if( !is_admin() ):
 
-        add_action( 'wp_head','getDesign_config_theme' );
+        add_action( 'wp_head','design_config_theme' );
 
-        function getDesign_config_theme() {
+        function design_config_theme() {
 
             if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) :
 
-                    global $getDesign_options;
-                    $getDesign_favicon = $getDesign_options['getDesign_opt_favicon_upload']['url'];
+                    global $design_options;
+                    $design_favicon = $design_options['design_opt_favicon_upload']['url'];
 
-                    if( $getDesign_favicon != '' ) :
+                    if( $design_favicon != '' ) :
 
-                        echo '<link rel="shortcut icon" href="' . esc_url( $getDesign_favicon ) . '" type="image/x-icon" />';
+                        echo '<link rel="shortcut icon" href="' . esc_url( $design_favicon ) . '" type="image/x-icon" />';
 
                     endif;
 
@@ -32,24 +32,24 @@
          * @see wp_add_inline_style()
          */
 
-        add_action( 'wp_enqueue_scripts', 'getDesign_custom_css', 99 );
+        add_action( 'wp_enqueue_scripts', 'design_custom_css', 99 );
 
-        function getDesign_custom_css() {
+        function design_custom_css() {
 
-            global $getDesign_options;
+            global $design_options;
 
-            $getDesign_typo_selecter_1   =   $getDesign_options['getDesign_opt_custom_typography_1_selector'];
+            $design_typo_selecter_1   =   $design_options['design_opt_custom_typography_1_selector'];
 
-            $getDesign_typo1_font_family   =   $getDesign_options['getDesign_opt_custom_typography_1']['font-family'];
+            $design_typo1_font_family   =   $design_options['design_opt_custom_typography_1']['font-family'];
 
-            $getDesign_css_style = '';
+            $design_css_style = '';
 
-            if ( $getDesign_typo1_font_family != '' ) :
-                $getDesign_css_style .= ' '.esc_attr( $getDesign_typo_selecter_1 ).' { font-family: '.balanceTags( $getDesign_typo1_font_family, true ).' }';
+            if ( $design_typo1_font_family != '' ) :
+                $design_css_style .= ' '.esc_attr( $design_typo_selecter_1 ).' { font-family: '.balanceTags( $design_typo1_font_family, true ).' }';
             endif;
 
-            if ( $getDesign_css_style != '' ) :
-                wp_add_inline_style( 'getdesign-style', $getDesign_css_style );
+            if ( $design_css_style != '' ) :
+                wp_add_inline_style( 'design-style', $design_css_style );
             endif;
 
         }

@@ -1,14 +1,14 @@
 <?php
-global $getDesign_options;
+global $design_options;
 
-$getDesign_copyright = $getDesign_options ['getDesign_opt_footer_copyright_editor'] ?? 'Copyright &amp; DiepLK';
+$design_copyright = $design_options ['design_opt_footer_copyright_editor'] ?? 'Copyright &amp; DiepLK';
 ?>
 
 <div class="site-footer__copyright">
     <div class="container">
         <div class="site-copyright-menu d-flex align-items-center">
             <div class="site-copyright">
-                <?php echo wp_kses_post( $getDesign_copyright ); ?>
+                <?php echo wp_kses_post( $design_copyright ); ?>
             </div>
 
             <div class="site-footer__menu">
@@ -30,7 +30,7 @@ $getDesign_copyright = $getDesign_options ['getDesign_opt_footer_copyright_edito
                         <ul class="main-menu">
                             <li>
                                 <a href="<?php echo get_admin_url().'/nav-menus.php'; ?>">
-                                    <?php esc_html_e( 'ADD TO MENU','getdesign' ); ?>
+                                    <?php esc_html_e( 'ADD TO MENU','design' ); ?>
                                 </a>
                             </li>
                         </ul>

@@ -1,15 +1,15 @@
 <?php
-global $getDesign_options;
+global $design_options;
 
-$getDesign_opt_blog_sidebar_archive = $getDesign_options['getDesign_opt_blog_sidebar_archive'] ?? 'right';
-$getDesign_class_col_content = getDesign_col_use_sidebar($getDesign_opt_blog_sidebar_archive, 'getDesign_sidebar_main');
-$getDesign_opt_blog_per_row = $getDesign_options['getDesign_opt_blog_per_row'] ?? 3;
+$design_opt_blog_sidebar_archive = $design_options['design_opt_blog_sidebar_archive'] ?? 'right';
+$design_class_col_content = design_col_use_sidebar($design_opt_blog_sidebar_archive, 'design_sidebar_main');
+$design_opt_blog_per_row = $design_options['design_opt_blog_per_row'] ?? 3;
 ?>
 
 <div class="site-container site-blog">
     <div class="container">
         <div class="row">
-            <div class="<?php echo esc_attr($getDesign_class_col_content); ?>">
+            <div class="<?php echo esc_attr($design_class_col_content); ?>">
                 <div class="site-post-content">
                     <?php if (have_posts()) : ?>
                         <div class="row">
@@ -17,7 +17,7 @@ $getDesign_opt_blog_per_row = $getDesign_options['getDesign_opt_blog_per_row'] ?
                             <?php while (have_posts()) : the_post(); ?>
 
                                 <div id="post-<?php the_ID(); ?>"
-                                     class="site-post-item col-12 col-md-6 col-lg-<?php echo esc_attr(12 / $getDesign_opt_blog_per_row); ?>">
+                                     class="site-post-item col-12 col-md-6 col-lg-<?php echo esc_attr(12 / $design_opt_blog_per_row); ?>">
                                     <div class="site-post-content">
                                         <h2 class="site-post-title">
                                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
@@ -34,7 +34,7 @@ $getDesign_opt_blog_per_row = $getDesign_options['getDesign_opt_blog_per_row'] ?
                                         <?php
                                         get_template_part('template-parts/post/content', 'image');
 
-                                        getDesign_post_meta();
+                                        design_post_meta();
                                         ?>
 
                                         <div class="site-post-excerpt">
@@ -49,10 +49,10 @@ $getDesign_opt_blog_per_row = $getDesign_options['getDesign_opt_blog_per_row'] ?
                                             </p>
 
                                             <a href="<?php the_permalink(); ?>" class="text-read-more">
-                                                <?php esc_html_e('Read more', 'getdesign'); ?>
+                                                <?php esc_html_e('Read more', 'design'); ?>
                                             </a>
 
-                                            <?php getDesign_link_page(); ?>
+                                            <?php design_link_page(); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@ $getDesign_opt_blog_per_row = $getDesign_options['getDesign_opt_blog_per_row'] ?
                         </div>
 
                         <?php
-                        getDesign_pagination();
+                        design_pagination();
 
                     else:
 
@@ -76,7 +76,7 @@ $getDesign_opt_blog_per_row = $getDesign_options['getDesign_opt_blog_per_row'] ?
             </div>
 
             <?php
-            if ($getDesign_opt_blog_sidebar_archive !== 'hide') :
+            if ($design_opt_blog_sidebar_archive !== 'hide') :
                 get_sidebar();
             endif;
             ?>

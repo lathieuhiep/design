@@ -1,7 +1,7 @@
 <?php
-global $getDesign_options;
+global $design_options;
 
-$limit = $getDesign_options ['getDesign_opt_single_related_limit'] ?? 3;
+$limit = $design_options ['design_opt_single_related_limit'] ?? 3;
 $list_cate = get_the_terms(get_the_ID(), 'category');
 
 if (!empty($list_cate)):
@@ -24,7 +24,7 @@ if (!empty($list_cate)):
 
         <div class="site-single-post-related">
             <h3 class="title">
-                <?php esc_html_e('Related Post', 'getdesign'); ?>
+                <?php esc_html_e('Related Post', 'design'); ?>
             </h3>
 
             <div class="row">

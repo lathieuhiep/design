@@ -1,12 +1,12 @@
 <?php
-global $getDesign_options;
+global $design_options;
 
-$contact_us_show_hide = $getDesign_options['getDesign_opt_contact_us_show'] ?? true;
+$contact_us_show_hide = $design_options['design_opt_contact_us_show'] ?? true;
 
 if ( $contact_us_show_hide ) :
-$contact_us_address   =   $getDesign_options['getDesign_opt_contact_us_address'] ?? '988782, Our Street, S State';
-$contact_us_mail      =   $getDesign_options['getDesign_opt_contact_us_mail'] ?? 'info@domain.com';
-$contact_us_phone     =   $getDesign_options['getDesign_opt_contact_us_phone'] ?? '+1 234 567 186';
+$contact_us_address   =   $design_options['design_opt_contact_us_address'] ?? '988782, Our Street, S State';
+$contact_us_mail      =   $design_options['design_opt_contact_us_mail'] ?? 'info@domain.com';
+$contact_us_phone     =   $design_options['design_opt_contact_us_phone'] ?? '+1 234 567 186';
 
 ?>
 <div class="contact-us">
@@ -31,7 +31,7 @@ $contact_us_phone     =   $getDesign_options['getDesign_opt_contact_us_phone'] ?
 
             <div class="col-12 col-md-12 col-lg-5 d-none d-lg-block">
                 <div class="contact-us__social-network social-network-toTopFromBottom d-lg-flex justify-content-lg-end">
-                    <?php getDesign_get_social_url(); ?>
+                    <?php design_get_social_url(); ?>
                 </div>
             </div>
         </div>

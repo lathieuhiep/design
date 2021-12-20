@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-class getDesign_recent_post_widget extends WP_Widget {
+class design_recent_post_widget extends WP_Widget {
 
     /**
      * Widget setup.
@@ -16,11 +16,11 @@ class getDesign_recent_post_widget extends WP_Widget {
     public function __construct() {
 
         $widget_ops = array(
-            'classname'     =>  'getDesign_recent_post_widget',
-            'description'   =>  esc_html__( 'A widget show post', 'getdesign' ),
+            'classname'     =>  'design_recent_post_widget',
+            'description'   =>  esc_html__( 'A widget show post', 'design' ),
         );
 
-        parent::__construct( 'getDesign_recent_post_widget', 'Basic Theme: Recent Post', $widget_ops );
+        parent::__construct( 'design_recent_post_widget', 'Basic Theme: Recent Post', $widget_ops );
 
     }
 
@@ -141,7 +141,7 @@ class getDesign_recent_post_widget extends WP_Widget {
         <!-- Widget Title: Text Input -->
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
-                <?php esc_html_e( 'Title:', 'getdesign' ); ?>
+                <?php esc_html_e( 'Title:', 'design' ); ?>
             </label>
 
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" />
@@ -150,13 +150,13 @@ class getDesign_recent_post_widget extends WP_Widget {
         <!-- Start Select Event Cat -->
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'select_cat' ) ); ?>">
-                <?php esc_attr_e( 'Select Categories:', 'getdesign' ); ?>
+                <?php esc_attr_e( 'Select Categories:', 'design' ); ?>
             </label>
 
             <select id="<?php echo esc_attr( $this->get_field_id( 'select_cat' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'select_cat' ) ) . '[]'; ?>" class="widefat" size="10" multiple>
 
                 <option value="0" <?php echo ( in_array( 0, $select_cat ) ? 'selected="selected"' : '' ); ?>>
-                    <?php esc_html_e( 'All Category', 'getdesign' ); ?>
+                    <?php esc_html_e( 'All Category', 'design' ); ?>
                 </option>
 
                 <?php
@@ -179,16 +179,16 @@ class getDesign_recent_post_widget extends WP_Widget {
         <!-- Start Order -->
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'order' ) ); ?>">
-                <?php esc_html_e( 'Order:', 'getdesign' ); ?>
+                <?php esc_html_e( 'Order:', 'design' ); ?>
             </label>
 
             <select id="<?php echo esc_attr( $this->get_field_id( 'order' ) ); ?>" name="<?php echo $this->get_field_name('order') ?>" class="widefat">
                 <option value="ASC" <?php echo ( $order == 'ASC' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'ASC', 'getdesign' ); ?>
+                    <?php esc_html_e( 'ASC', 'design' ); ?>
                 </option>
 
                 <option value="DESC" <?php echo ( $order == 'DESC' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'DESC', 'getdesign' ); ?>
+                    <?php esc_html_e( 'DESC', 'design' ); ?>
                 </option>
             </select>
         </p>
@@ -196,24 +196,24 @@ class getDesign_recent_post_widget extends WP_Widget {
         <!-- Start OrderBy -->
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'order_by' ) ); ?>">
-                <?php esc_html_e( 'Order:', 'getdesign' ); ?>
+                <?php esc_html_e( 'Order:', 'design' ); ?>
             </label>
 
             <select id="<?php echo esc_attr( $this->get_field_id( 'order_by' ) ); ?>" name="<?php echo $this->get_field_name('order_by') ?>" class="widefat">
                 <option value="ID" <?php echo ( $order_by == 'ID' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'ID', 'getdesign' ); ?>
+                    <?php esc_html_e( 'ID', 'design' ); ?>
                 </option>
 
                 <option value="date" <?php echo ( $order_by == 'date' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'Date', 'getdesign' ); ?>
+                    <?php esc_html_e( 'Date', 'design' ); ?>
                 </option>
 
                 <option value="title" <?php echo ( $order_by == 'title' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'Title', 'getdesign' ); ?>
+                    <?php esc_html_e( 'Title', 'design' ); ?>
                 </option>
 
                 <option value="rand" <?php echo ( $order_by == 'rand' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'Rand', 'getdesign' ); ?>
+                    <?php esc_html_e( 'Rand', 'design' ); ?>
                 </option>
             </select>
         </p>
@@ -221,7 +221,7 @@ class getDesign_recent_post_widget extends WP_Widget {
         <!-- Start Number Post Show -->
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>">
-                <?php esc_html_e( 'Number of posts to show:', 'getdesign' ); ?>
+                <?php esc_html_e( 'Number of posts to show:', 'design' ); ?>
             </label>
 
             <input id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" class="tiny-text" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="number" step="1" min="1" value="<?php echo esc_attr( $number ); ?>" size="3" />
@@ -254,8 +254,8 @@ class getDesign_recent_post_widget extends WP_Widget {
 }
 
 // Register widget
-function getDesign_recent_post_widget_register() {
-    register_widget( 'getDesign_recent_post_widget' );
+function design_recent_post_widget_register() {
+    register_widget( 'design_recent_post_widget' );
 }
 
-add_action( 'widgets_init', 'getDesign_recent_post_widget_register' );
+add_action( 'widgets_init', 'design_recent_post_widget_register' );
