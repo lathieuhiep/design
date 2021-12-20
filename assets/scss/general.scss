@@ -1,3 +1,33 @@
+@font-face {
+  font-family: SFProDisplay;
+  font-weight: 300;
+  src: url('fonts/SFProDisplay/SF-Pro-Display-Thin.otf');
+}
+
+@font-face {
+  font-family: SFProDisplay;
+  font-weight: 400;
+  src: url('fonts/SFProDisplay/SF-Pro-Display-Regular.otf');
+}
+
+@font-face {
+  font-family: SFProDisplay;
+  font-weight: 500;
+  src: url('fonts/SFProDisplay/SF-Pro-Display-Medium.otf');
+}
+
+@font-face {
+  font-family: SFProDisplay;
+  font-weight: 600;
+  src: url('fonts/SFProDisplay/SF-Pro-Display-Semibold.otf');
+}
+
+@font-face {
+  font-family: SFProDisplay;
+  font-weight: 700;
+  src: url('fonts/SFProDisplay/SF-Pro-Display-Bold.otf');
+}
+
 * {
   outline: none !important;
 }
@@ -10,10 +40,10 @@ body {
   min-height: 100vh;
   line-height: 1.8em;
   overflow-x: hidden;
-  font-size: $font-size-primary;
+  font-size: 15px;
+  font-weight: 400;
   color: $color-primary;
-  font-family: $font-family-text;
-  font-weight: $font-weight-regular;
+  font-family: $font-family;
   word-break: break-word;
   @include flexbox();
   @include flex-direction(column);
@@ -21,36 +51,6 @@ body {
 
 .sticky-footer {
   flex: 1 0 auto;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 15px;
-  font-weight: $font-weight-bold;
-  color: $color-title;
-}
-
-h1 {
-  font-size: 36px;
-}
-
-h2 {
-  font-size: 30px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-h4 {
-  font-size: 20px;
-}
-
-h5 {
-  font-size: 18px;
-}
-
-h6 {
-  font-size: 16px;
 }
 
 a {

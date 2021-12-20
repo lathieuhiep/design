@@ -107,6 +107,11 @@ foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $g
 }
 
 /**
+ * Required: post type
+ */
+require get_parent_theme_file_path( '/extension/post-type/testimonial.php' );
+
+/**
  * Required: Register Sidebar
  */
 require get_parent_theme_file_path( '/includes/register-sidebar.php' );
@@ -115,11 +120,6 @@ require get_parent_theme_file_path( '/includes/register-sidebar.php' );
  * Required: Theme Scripts
  */
 require get_parent_theme_file_path( '/includes/theme-scripts.php' );
-
-/**
- * Show full editor
- */
-
 
 /*
 *
