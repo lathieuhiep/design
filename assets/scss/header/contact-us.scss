@@ -1,22 +1,71 @@
-.contact-us {
-  line-height: 32px;
-  border-bottom: 1px solid #eee;
-
-  span {
-    display: inline-block;
-    padding-left: 7px;
-    padding-right: 12px;
-
-    i.fa {
-      margin-right: 5px;
-    }
+.site-header {
+  .alert {
+    color: #ffffff;
+    font-size: 14px;
+    padding: 0.4rem 0;
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: $background-primary;
   }
 
-  &__social-network {
-    .social-network-item {
-      margin: 0;
-      width: 30px;
-      text-align: center;
+  .contact-us {
+    border: 1px solid #E9E9E9;
+    padding: 0.2rem 0;
+
+    .phone {
+      font-weight: 700;
+      font-size: 16px;
+      color: $color-title;
+      text-transform: uppercase;
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          a {
+            color: $color-second;
+
+            &:hover {
+              color: $color-title;
+            }
+          }
+
+          &:not(:last-child) {
+            &:after {
+              position: relative;
+              top: -2px;
+              content: "/";
+              margin-right: 5px;
+              margin-left: 3px;
+              color: $color-second;
+            }
+          }
+        }
+      }
+    }
+
+    .fanpage {
+      font-size: 14px;
+
+      .text {
+        display: inline-block;
+        margin-right: 15px;
+      }
+
+      a {
+        padding: 0 12px;
+        color: #ffffff;
+        display: inline-block;
+        border-radius: 3px;
+        background: linear-gradient(180deg, #01ACFF 0%, #0170FF 100%);
+
+        i {
+          font-size: 13px;
+          margin-right: 8px;
+        }
+      }
     }
   }
 }

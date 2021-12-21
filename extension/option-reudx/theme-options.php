@@ -266,6 +266,22 @@ Redux::set_section($design_opt_name, array(
     'icon' => 'el el-arrow-up',
 ));
 
+// Alert
+Redux::set_section($design_opt_name, array(
+	'id' => 'design_opt_alert',
+	'title' => esc_html__('Alert', 'design'),
+	'desc' => esc_html__('', 'design'),
+	'subsection' => true,
+	'fields' => array(
+		array(
+			'id' => 'design_opt_alert_text',
+			'type' => 'text',
+			'title' => esc_html__('Alert', 'design'),
+			'default' => ''
+		),
+	)
+));
+
 //Logo Config
 Redux::set_section($design_opt_name, array(
     'id' => 'design_opt_logo',
@@ -329,24 +345,16 @@ Redux::set_section($design_opt_name, array(
         ),
 
         array(
-            'id' => 'design_opt_contact_us_address',
+            'id' => 'design_opt_contact_us_fanpage',
             'type' => 'text',
-            'title' => esc_html__('Address', 'design'),
-            'default' => '988782, Our Street, S State',
-            'required' => array('design_opt_contact_us_show', '=', true),
-        ),
-
-        array(
-            'id' => 'design_opt_contact_us_mail',
-            'type' => 'text',
-            'title' => esc_html__('Mail', 'design'),
-            'default' => 'info@domain.com',
+            'title' => esc_html__('Link Fanpage', 'design'),
+            'default' => 'https://www.facebook.com/khoahocuxui',
             'required' => array('design_opt_contact_us_show', '=', true),
         ),
 
         array(
             'id' => 'design_opt_contact_us_phone',
-            'type' => 'text',
+            'type' => 'multi_text',
             'title' => esc_html__('Phone', 'design'),
             'default' => '+1 234 567 186',
             'required' => array('design_opt_contact_us_show', '=', true),

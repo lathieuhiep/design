@@ -4,37 +4,44 @@ global $design_options;
 $contact_us_show_hide = $design_options['design_opt_contact_us_show'] ?? true;
 
 if ( $contact_us_show_hide ) :
-$contact_us_address   =   $design_options['design_opt_contact_us_address'] ?? '988782, Our Street, S State';
-$contact_us_mail      =   $design_options['design_opt_contact_us_mail'] ?? 'info@domain.com';
-$contact_us_phone     =   $design_options['design_opt_contact_us_phone'] ?? '+1 234 567 186';
+$link = $design_options['design_opt_contact_us_fanpage'] ?? '';
+$phones = $design_options['design_opt_contact_us_phone'] ?? '';
 
 ?>
 <div class="contact-us">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-7">
-                 <span>
-                    <i class="fas fa-map-marker" aria-hidden="true"></i>
-                    <?php echo esc_html( $contact_us_address ); ?>
-                </span>
+    <div class="container d-flex justify-content-between">
+        <?php if ( $phones ) : ?>
 
-                <span>
-                    <i class="fas fa-envelope"></i>
-                    <?php echo esc_html( $contact_us_mail ); ?>
-                </span>
+        <div class="phone d-flex">
+            <span><?php esc_html_e('Gọi Ngay:', 'design'); ?>&nbsp;</span>
 
-                <span>
-                    <i class="fas fa-mobile-alt"></i>
-                    <?php echo esc_html( $contact_us_phone ); ?>
-                </span>
-            </div>
-
-            <div class="col-12 col-md-12 col-lg-5 d-none d-lg-block">
-                <div class="contact-us__social-network social-network-toTopFromBottom d-lg-flex justify-content-lg-end">
-                    <?php design_get_social_url(); ?>
-                </div>
-            </div>
+            <ul class="d-flex">
+                <?php foreach ( $phones as $phone ) : ?>
+                <li>
+                    <a href="tel:<?php echo esc_attr( $phone ); ?>">
+	                    <?php echo esc_html( $phone ); ?>
+                    </a>
+                </li>
+                <?php endforeach; ?>
+            </ul>
         </div>
+
+        <?php
+        endif;
+
+        if ( $link ) :
+        ?>
+
+        <div class="fanpage">
+            <span class="text"><?php esc_html_e('Theo dõi chúng tôi trên'); ?></span>
+
+            <a href="<?php echo esc_url( $link ); ?>" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+                <span><?php esc_html_e('Fanpage', 'design'); ?></span>
+            </a>
+        </div>
+
+        <?php endif; ?>
     </div>
 </div>
 

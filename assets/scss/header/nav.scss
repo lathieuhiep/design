@@ -34,7 +34,9 @@
   > ul {
     > li {
       > a {
-        padding: 0 15px;
+        padding: 0 12px;
+        color: $color-title;
+        font-weight: 600;
       }
     }
   }
@@ -49,6 +51,7 @@
       a {
         text-shadow: none;
         display: block;
+        font-size: 14px;
 
         &:hover {
           background-color: transparent;
@@ -123,5 +126,29 @@
     font-family: 'Font Awesome 5 Free', serif;
     font-style: normal;
     font-weight: 900;
+  }
+}
+
+.btn-advice {
+  margin-left: 7.75rem;
+
+  &__box {
+    padding: 14px 24px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 1em;
+    border-radius: 3px;
+    background-color: $background-primary;
+    @include transition();
+
+    &:hover {
+      background-color: $background-hover;
+    }
+
+    span {
+      display: inline-block;
+      margin-left: 9px;
+    }
   }
 }
