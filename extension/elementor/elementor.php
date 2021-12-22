@@ -53,7 +53,8 @@ final class design_plugin_elementor_widgets {
             'post-grid',
             'post-carousel',
             'slides',
-            'testimonial-slider'
+            'testimonial-slider',
+	        'button-modal-form'
         ];
         
         foreach ( $build_widgets_filename as $widget_filename ) :

@@ -6,7 +6,7 @@
   border: 1px solid $border-color;
   height: auto;
   padding: 9px 10px;
-  @include border-radius(3px);
+  @include border-radius();
   @include box-shadow(none);
 }
 
@@ -16,7 +16,7 @@
   padding: 9px 10px;
   border: none;
   cursor: pointer;
-  @include border-radius(3px);
+  @include border-radius();
   @include transition();
 }
 
@@ -30,7 +30,8 @@
   .widget-title {
     text-transform: uppercase;
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 700;
   }
 
   ul {
@@ -220,6 +221,60 @@
         display: table;
         clear: both;
         content: "";
+      }
+    }
+
+    .tnp-subscription {
+      position: relative;
+      margin: 0;
+
+      br {
+        display: none;
+      }
+
+      input[type="email"] {
+        font-size: 14px;
+        color: #B1B1B1;
+        background-color: #ffffff;
+        border-color: transparent;
+        @include border-radius();
+        @include box-shadow(0px 0px 30px rgba(0, 0, 0, 0.05));
+      }
+
+      .tnp-field-button {
+        position: absolute;
+        margin: 0;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 100%;
+        color: #ffffff;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        background-color: $background-primary;
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(center);
+        @include transition();
+
+        &:after {
+          content:"\f054";
+          font-weight: 900;
+          font-family: "Font Awesome 5 Free", serif;
+        }
+
+        &:hover {
+          background-color: $background-hover;
+        }
+
+        input {
+          padding: 0;
+          width: 100%;
+          height: 100%;
+          font-size: 0;
+          border-color: transparent;
+          background-color: transparent;
+        }
       }
     }
   }
