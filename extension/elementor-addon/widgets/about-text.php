@@ -1,10 +1,14 @@
 <?php
 
-namespace Elementor;
+use Elementor\Group_Control_Typography;
+use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
-class design_widget_about_text extends Widget_Base {
+class Design_Elementor_Addon_About_Text extends Widget_Base {
 
     public function get_categories() {
         return array( 'design_widgets' );
@@ -22,7 +26,7 @@ class design_widget_about_text extends Widget_Base {
         return 'eicon-text-area';
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
         // Content heading
         $this->start_controls_section(
@@ -118,7 +122,7 @@ class design_widget_about_text extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
+	        Group_Control_Typography::get_type(),
             [
                 'name' => 'heading_typography',
                 'label' => __( 'Typography', 'design' ),
@@ -149,7 +153,7 @@ class design_widget_about_text extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
+	        Group_Control_Typography::get_type(),
             [
                 'name' => 'description_typography',
                 'label' => __( 'Typography', 'design' ),
@@ -183,7 +187,7 @@ class design_widget_about_text extends Widget_Base {
 
     }
 
-    protected function _content_template() {
+    protected function content_template() {
 
         ?>
         <div class="element-about-text">
@@ -204,5 +208,3 @@ class design_widget_about_text extends Widget_Base {
     }
 
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new design_widget_about_text );
