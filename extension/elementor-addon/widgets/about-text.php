@@ -32,7 +32,7 @@ class Design_Elementor_Addon_About_Text extends Widget_Base {
         $this->start_controls_section(
             'content_heading',
             [
-                'label' => __( 'Heading', 'design' ),
+                'label' => esc_html__( 'Heading', 'design' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );

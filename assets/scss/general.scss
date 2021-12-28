@@ -94,6 +94,12 @@ pre {
   margin-bottom: 30px;
 }
 
+.btn {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
 .nav {
   > li {
     > a {

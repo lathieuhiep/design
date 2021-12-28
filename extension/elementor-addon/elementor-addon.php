@@ -18,6 +18,7 @@ function design_register_widget_elementor_addon( $widgets_manager ) {
 
 	// include add on
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/about-text.php' );
+	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/button-modal-form.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/post-carousel.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/post-grid.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/slides.php' );
@@ -25,6 +26,7 @@ function design_register_widget_elementor_addon( $widgets_manager ) {
 
 	// register add on
 	$widgets_manager->register( new \Design_Elementor_Addon_About_Text() );
+	$widgets_manager->register( new \Design_Elementor_Addon_Button_Modal_Form() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Post_Carousel() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Post_Grid() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Slides() );

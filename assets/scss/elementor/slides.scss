@@ -1,5 +1,61 @@
+/* Slider */
+
 .element-slides {
   position: relative;
+
+  &__item {
+    position: relative;
+
+    .element-slides__item--bg {
+      min-width: 100%;
+      min-height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .element-slides__item--inner,
+    .element-slides__item--overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .element-slides__item--inner {
+      padding: 50px;
+      @include flexbox();
+    }
+
+    .element-slides__item--heading {
+      font-size: 30px;
+      margin-bottom: 30px;
+      color: #ffffff;
+    }
+
+    .element-slides__item--description {
+      font-size: 17px;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+
+    .element-slides__item--link {
+      display: inline-block;
+      font-size: 15px;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-style: solid;
+      border-width: 2px;
+      border-color: #ffffff;
+      border-radius: 3px;
+      @include transition();
+
+      a {
+        display: block;
+        color: #ffffff;
+      }
+    }
+  }
 
   &.owl-carousel {
     .owl-nav {
@@ -54,60 +110,6 @@
           }
         }
       }
-    }
-  }
-}
-
-.element-slides__item {
-  position: relative;
-
-  .element-slides__item--bg {
-    min-width: 100%;
-    min-height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  .element-slides__item--inner,
-  .element-slides__item--overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  .element-slides__item--inner {
-    padding: 50px;
-    @include flexbox();
-  }
-
-  .element-slides__item--heading {
-    font-size: 30px;
-    margin-bottom: 30px;
-    color: #ffffff;
-  }
-
-  .element-slides__item--description {
-    font-size: 17px;
-    color: #ffffff;
-    margin-bottom: 30px;
-  }
-
-  .element-slides__item--link {
-    display: inline-block;
-    font-size: 15px;
-    color: #ffffff;
-    padding: 12px 24px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #ffffff;
-    border-radius: 3px;
-    @include transition();
-
-    a {
-      display: block;
-      color: #ffffff;
     }
   }
 }
