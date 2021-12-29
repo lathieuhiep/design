@@ -40,8 +40,7 @@ gulp.task('sass-library-theme', function () {
 gulp.task('compress-js', function () {
     return gulp.src( [
         './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-        './node_modules/owl.carousel/dist/owl.carousel.js',
-        './node_modules/select2/dist/js/select2.js',
+        './node_modules/owl.carousel/dist/owl.carousel.js'
     ],  { allowEmpty: true } )
         .pipe(concat('library.min.js'))
         .pipe(uglify())
