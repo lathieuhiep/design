@@ -29,9 +29,21 @@
   }
 
   .modal {
+    .modal-content {
+      padding: 28px 40px;
+    }
+
     .modal-header {
+      margin-bottom: 16px;
+      padding: 0;
       border-bottom-width: 0;
       @include align-items(flex-start);
+
+      .modal-title {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
 
       .btn-close {
         font-size: 16px;
@@ -45,8 +57,31 @@
         }
       }
     }
+
+    .modal-body {
+      padding: 0;
+
+      .action-btn {
+        position: relative;
+
+        .wpcf7-submit {
+          display: block;
+          width: 100%;
+        }
+
+        .wpcf7-spinner {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: 0;
+          @include transform(translateX(-50%) translateY(-50%));
+        }
+      }
+    }
+
     .modal-footer {
       text-align: center;
+      border-top-width: 0;
       @include justify-content(center);
 
       a {

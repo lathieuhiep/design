@@ -22,6 +22,10 @@ class Design_Elementor_Addon_Button_Modal_Form extends \Elementor\Widget_Base {
 		return 'eicon-button';
 	}
 
+	public function get_script_depends() {
+		return ['design-elementor-custom'];
+	}
+
 	protected function register_controls() {
 
         // button section

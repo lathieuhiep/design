@@ -1,12 +1,10 @@
 (function ($) {
 
     /* Start Carousel slider */
-    let ElementCarouselSlider   =   function( $scope, $ ) {
-
-        let element_slides = $scope.find( '.custom-owl-carousel' );
+    const ElementCarouselSlider = function( $scope, $ ) {
+        const element_slides = $scope.find( '.custom-owl-carousel' );
 
         $( document ).general_owlCarousel_custom( element_slides );
-
     };
 
     $( window ).on( 'elementor/frontend/init', function() {
