@@ -1,0 +1,39 @@
+/* Carousel Images */
+.element-carousel-images {
+  .item {
+    position: relative;
+    overflow: hidden;
+    @include border-radius(8px);
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      @include transition();
+    }
+
+    &__link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &:hover {
+      &:before {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  .owl-carousel {
+    .owl-dots {
+      margin-top: 18px;
+    }
+  }
+}

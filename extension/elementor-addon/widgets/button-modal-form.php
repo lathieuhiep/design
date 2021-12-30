@@ -49,12 +49,64 @@ class Design_Elementor_Addon_Button_Modal_Form extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
+			'show_modal',
+			[
+				'label'         =>  esc_html__('Show Modal', 'design'),
+				'type'          =>  Controls_Manager::SWITCHER,
+				'label_on'      =>  esc_html__('Yes', 'design'),
+				'label_off'     =>  esc_html__('No', 'design'),
+				'return_value'  =>  'yes',
+				'default'       =>  'yes',
+			]
+		);
+
+        $this->add_control(
+			'multimodal',
+			[
+				'label'         =>  esc_html__('Multimodal', 'design'),
+				'type'          =>  Controls_Manager::SWITCHER,
+				'label_on'      =>  esc_html__('Yes', 'design'),
+				'label_off'     =>  esc_html__('No', 'design'),
+				'return_value'  =>  'yes',
+				'default'       =>  'yes',
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'show_modal',
+							'value' => 'yes',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
 			'shortcode',
 			[
 				'label' => esc_html__( 'Enter your shortcode', 'design' ),
 				'type' => Controls_Manager::TEXTAREA,
 				'rows' => 5,
 				'placeholder' => '[contact-form-7 id="123" title="Sign up for school"]',
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'show_modal',
+							'value' => 'yes',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'show_note',
+			[
+				'label'         =>  esc_html__('Show Note', 'design'),
+				'type'          =>  Controls_Manager::SWITCHER,
+				'label_on'      =>  esc_html__('Yes', 'design'),
+				'label_off'     =>  esc_html__('No', 'design'),
+				'return_value'  =>  'yes',
+				'default'       =>  'yes',
 			]
 		);
 
@@ -85,26 +137,39 @@ class Design_Elementor_Addon_Button_Modal_Form extends \Elementor\Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$id_int = substr( $this->get_id_int(), 0, 3 );
+        $id_modal = 'btn-modal-form';
+
+        if ( $settings['show_modal'] && $settings['multimodal'] ) :
+	        $id_int = substr( $this->get_id_int(), 0, 3 );
+	        $id_modal = 'btn-modal-form-' . $id_int;
+        endif;
+
 	?>
 
 		<div class="element-btn-modal-form">
-			<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#btn-modal-form-<?php echo esc_attr( $id_int ); ?>">
+			<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#<?php echo esc_attr( $id_modal ); ?>">
 				<?php echo esc_html( $settings['text'] ); ?>
                 <i class="fas fa-arrow-right"></i>
 			</button>
 
-            <div class="note">
-                <span class="note__label">
-                    <?php esc_html_e('Lưu ý:', 'design'); ?>
-                </span>
+            <?php if ( $settings['show_note'] ) : ?>
+                <div class="note">
+                    <span class="note__label">
+                        <?php esc_html_e('Lưu ý:', 'design'); ?>
+                    </span>
 
-                <span class="note__text">
-                    <?php echo esc_html( $settings['note'] ); ?>
-                </span>
-            </div>
+                    <span class="note__text">
+                        <?php echo esc_html( $settings['note'] ); ?>
+                    </span>
+                </div>
+            <?php
 
-            <div class="modal fade" id="btn-modal-form-<?php echo esc_attr( $id_int ); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            endif;
+
+            if ( $settings['show_modal'] ) :
+            ?>
+
+            <div class="modal fade" id="<?php echo esc_attr( $id_modal ); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -137,6 +202,8 @@ class Design_Elementor_Addon_Button_Modal_Form extends \Elementor\Widget_Base {
                     </div>
                 </div>
             </div>
+
+            <?php endif; ?>
 		</div>
 	<?php
     }

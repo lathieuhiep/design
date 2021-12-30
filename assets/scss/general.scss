@@ -284,9 +284,9 @@ pre {
 
       span {
         display: block;
-        width: 10px;
-        height: 10px;
-        background-color: #000000;
+        width: 8px;
+        height: 8px;
+        background-color: $background-second;
         @include border-radius(50%);
         @include transition(all 0.2s ease-in-out);
       }
@@ -294,7 +294,7 @@ pre {
       &.active,
       &:hover {
         span {
-          background-color: $background-hover;
+          background-color: $background-second-hover;
         }
       }
     }
