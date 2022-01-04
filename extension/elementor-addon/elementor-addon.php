@@ -24,6 +24,7 @@ function design_register_widget_elementor_addon( $widgets_manager ) {
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/slides.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/testimonial-slider.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/carousel-images.php' );
+	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/course-grid.php' );
 
 	// register add on
 	$widgets_manager->register( new \Design_Elementor_Addon_About_Text() );
@@ -33,6 +34,7 @@ function design_register_widget_elementor_addon( $widgets_manager ) {
 	$widgets_manager->register( new \Design_Elementor_Addon_Slides() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Testimonial_Slider() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Carousel_Images() );
+	$widgets_manager->register( new \Design_Elementor_Addon_Course_Grid() );
 
 }
 add_action( 'elementor/widgets/register', 'design_register_widget_elementor_addon' );

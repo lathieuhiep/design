@@ -319,3 +319,12 @@ pre {
     border-bottom: 1px solid #eeeeee;
   }
 }
+
+/* Reset Elementor */
+.elementor-widget-text-editor {
+  ul {
+    padding-left: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}

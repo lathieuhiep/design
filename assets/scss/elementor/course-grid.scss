@@ -1,0 +1,57 @@
+/* Course Grid */
+.element-course-grid {
+  .col {
+    margin-bottom: 30px;
+  }
+
+  .item {
+    &__thumbnail {
+      margin-bottom: 18px;
+      overflow: hidden;
+      @include border-radius();
+    }
+
+    &__title {
+      font-size: 14px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+
+      a {
+        font-weight: 700;
+        color: #000000;
+
+        &:hover {
+          color: $color-hover;
+        }
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+      color: #000000;
+
+      li {
+        .price {
+          color: $color-second;
+        }
+      }
+    }
+
+    &__link {
+      display: inline-block;
+      font-size: 12px;
+      line-height: 1.2em;
+      color: $color-second;
+      padding: 6px 10px;
+      border: 1px solid $border-color;
+      @include border-radius(2px);
+
+      &:hover {
+        color: #ffffff;
+        background-color: $background-primary;
+      }
+    }
+  }
+}
