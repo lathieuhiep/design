@@ -39,7 +39,7 @@ function design_create_testimonial() {
 		'has_archive'        => true,
 		'hierarchical'       => true,
 		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+		'supports'           => array( 'title', 'editor', 'thumbnail' ),
 	);
 
 	register_post_type('design_testimonial', $args );

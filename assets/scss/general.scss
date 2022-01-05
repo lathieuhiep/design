@@ -117,6 +117,16 @@ pre {
   }
 }
 
+.custom-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.custom-col {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 #site-loadding {
   position: fixed;
   top: 0;

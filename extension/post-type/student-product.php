@@ -39,7 +39,7 @@ function design_create_student_product() {
 		'has_archive'        => true,
 		'hierarchical'       => true,
 		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
+		'supports'           => array( 'title', 'editor', 'thumbnail' ),
 	);
 
 	register_post_type('student_product', $args );

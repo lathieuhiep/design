@@ -82,6 +82,8 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
 	 */
 	require get_parent_theme_file_path( '/extension/meta-box/meta-box-post.php' );
 	require get_parent_theme_file_path( '/extension/meta-box/meta-box-course.php' );
+	require get_parent_theme_file_path( '/extension/meta-box/meta-box-student-product.php' );
+	require get_parent_theme_file_path( '/extension/meta-box/meta-box-testimonial.php' );
 
 }
 
