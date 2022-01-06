@@ -38,7 +38,7 @@ html {
 
 body {
   min-height: 100vh;
-  line-height: 1.6em;
+  line-height: 1.4em;
   overflow-x: hidden;
   font-size: 14px;
   font-weight: 400;
@@ -51,6 +51,34 @@ body {
 
 .sticky-footer {
   flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $color-title;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
 }
 
 a {
@@ -326,7 +354,27 @@ pre {
 .breadcrumbs {
   .breadcrumbs-col {
     padding: 15px 0;
-    border-bottom: 1px solid #eeeeee;
+    color: #9F9F9F;
+
+    > span {
+      color: $color-primary;
+
+      &:not(:last-child) {
+        margin-right: 6px;
+      }
+
+      &:not(:first-child) {
+        margin-left: 6px;
+      }
+    }
+
+    a {
+      color: #9F9F9F;
+
+      &:hover {
+        color: $color-hover;
+      }
+    }
   }
 }
 

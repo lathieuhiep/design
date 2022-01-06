@@ -15,8 +15,8 @@
         /* Element post carousel */
         elementorFrontend.hooks.addAction( 'frontend/element_ready/design-post-carousel.default', ElementCarouselSlider );
 
-        /* Element testimonial slider */
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/design-testimonial-slider.default', ElementCarouselSlider );
+        /* Element testimonial carousel */
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/design-testimonial-carousel.default', ElementCarouselSlider );
 
         /* Element carousel images */
         elementorFrontend.hooks.addAction( 'frontend/element_ready/design-carousel-images.default', ElementCarouselSlider );

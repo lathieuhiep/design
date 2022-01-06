@@ -1,10 +1,9 @@
 <?php
 
-use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
-class Design_Elementor_Addon_Button_Modal_Form extends \Elementor\Widget_Base {
+class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 
 	public function get_categories() {
 		return array( 'design_widgets' );
@@ -133,6 +132,44 @@ class Design_Elementor_Addon_Button_Modal_Form extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
+		// Style
+		$this->start_controls_section(
+			'section_style',
+			[
+				'label' => esc_html__( 'Style', 'design' ),
+				'tab' => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_control(
+			'align',
+			[
+				'label'     =>  esc_html__( 'Alignment', 'design' ),
+				'type'      =>  Controls_Manager::CHOOSE,
+				'options'   =>  [
+					'left'  =>  [
+						'title' =>  esc_html__( 'Left', 'design' ),
+						'icon'  =>  'eicon-text-align-left',
+					],
+
+					'center' => [
+						'title' =>  esc_html__( 'Center', 'design' ),
+						'icon'  =>  'eicon-text-align-center',
+					],
+
+					'right' => [
+						'title' =>  esc_html__( 'Right', 'design' ),
+						'icon'  =>  'eicon-text-align-right',
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .element-btn-modal-form .btn-box' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
     }
 
 	protected function render() {
@@ -147,27 +184,26 @@ class Design_Elementor_Addon_Button_Modal_Form extends \Elementor\Widget_Base {
 	?>
 
 		<div class="element-btn-modal-form">
-			<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#<?php echo esc_attr( $id_modal ); ?>">
-				<?php echo esc_html( $settings['text'] ); ?>
-                <i class="fas fa-arrow-right"></i>
-			</button>
+            <div class="btn-box">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#<?php echo esc_attr( $id_modal ); ?>">
+		            <?php echo esc_html( $settings['text'] ); ?>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
 
-            <?php if ( $settings['show_note'] ) : ?>
-                <div class="note">
+		        <?php if ( $settings['show_note'] ) : ?>
+                    <div class="note">
                     <span class="note__label">
                         <?php esc_html_e('Lưu ý:', 'design'); ?>
                     </span>
 
-                    <span class="note__text">
+                        <span class="note__text">
                         <?php echo esc_html( $settings['note'] ); ?>
                     </span>
-                </div>
-            <?php
+                    </div>
+                <?php endif; ?>
+            </div>
 
-            endif;
-
-            if ( $settings['show_modal'] ) :
-            ?>
+            <?php if ( $settings['show_modal'] ) :?>
 
             <div class="modal fade" id="<?php echo esc_attr( $id_modal ); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">

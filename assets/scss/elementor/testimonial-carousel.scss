@@ -1,0 +1,24 @@
+/* Testimonial Carousel */
+.element-testimonial-carousel {
+  .item {
+    &__info {
+      margin-bottom: 21px;
+      @include flexbox();
+      @include align-items(center);
+
+      .avatar {
+        width: 80px;
+        margin-right: 16px;
+        @include flex(0 0 auto);
+      }
+
+      .student {
+        @include flex(1);
+
+        .name {
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}
