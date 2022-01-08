@@ -11,7 +11,7 @@ function design_create_course() {
 
 	/* Start post type template */
 	$labels = array(
-		'name'                  =>  _x( 'Course', 'post type general name', 'design' ),
+		'name'                  =>  _x( 'Khóa học', 'post type general name', 'design' ),
 		'singular_name'         =>  _x( 'Course', 'post type singular name', 'design' ),
 		'menu_name'             =>  _x( 'Courses', 'admin menu', 'design' ),
 		'name_admin_bar'        =>  _x( 'Course', 'add new on admin bar', 'design' ),

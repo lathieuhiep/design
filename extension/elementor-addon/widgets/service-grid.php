@@ -7,18 +7,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Design_Elementor_Addon_Course_Grid extends Widget_Base {
+class Design_Elementor_Addon_Service_Grid extends Widget_Base {
 
 	public function get_categories() {
 		return array( 'design_widgets' );
 	}
 
 	public function get_name() {
-		return 'design-post-grid';
+		return 'design-service-grid';
 	}
 
 	public function get_title() {
-		return esc_html__( 'Courses Grid', 'design' );
+		return esc_html__( 'Service Grid', 'design' );
 	}
 
 	public function get_icon() {
@@ -41,7 +41,7 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Limit', 'design' ),
 				'type'    => Controls_Manager::NUMBER,
-				'default' => 4,
+				'default' => 3,
 				'min'     => 1,
 				'max'     => 100,
 				'step'    => 1,
@@ -92,7 +92,7 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Column', 'design' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 4,
+				'default' => 3,
 				'options' => [
 					1 => esc_html__( '1 Column', 'design' ),
 					2 => esc_html__( '2 Column', 'design' ),
@@ -115,7 +115,7 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 
 		// Query
 		$args = array(
-			'post_type'      => 'design_course',
+			'post_type'      => 'design_service',
 			'posts_per_page' => $limit_post,
 			'orderby'        => $order_by_post,
 			'order'          => $order_post,
@@ -127,25 +127,17 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 
 			?>
 
-            <div class="element-course-grid">
+            <div class="element-service-grid">
                 <div class="row row-cols-<?php echo esc_attr( $settings['column_number'] ); ?>">
 					<?php
 					while ( $query->have_posts() ):
 						$query->the_post();
-
-						$study_time = rwmb_meta( 'design_meta_box_course_study_time' );
-						$study_form = rwmb_meta( 'design_meta_box_course_study_form' );
-						$number_lessons = rwmb_meta( 'design_meta_box_course_number_lessons' );
-						$tuition = rwmb_meta( 'design_meta_box_course_tuition' );
-
-						?>
+                    ?>
 
                         <div class="col">
                             <div class="item">
                                 <div class="item__thumbnail">
-                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-										<?php the_post_thumbnail( 'large' ); ?>
-                                    </a>
+	                                <?php the_post_thumbnail( 'large' ); ?>
                                 </div>
 
                                 <h2 class="item__title">
@@ -154,36 +146,15 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
                                     </a>
                                 </h2>
 
-                                <ul class="item__info">
-                                    <li>
-                                        <strong><?php esc_html_e( 'Thời gian học' ); ?>:</strong>
-                                        <span><?php echo esc_html( $study_time ); ?></span>
-                                    </li>
+                                <div class="item__excerpt">
+                                    <?php the_excerpt(); ?>
+                                </div>
 
-                                    <li>
-                                        <strong><?php esc_html_e( 'Hình thức' ); ?>:</strong>
-                                        <span><?php echo esc_html( $study_form ); ?></span>
-                                    </li>
-
-                                    <li>
-                                        <strong><?php esc_html_e( 'Số buổi trong tuần' ); ?>:</strong>
-                                        <span><?php echo esc_html( $number_lessons ); ?></span>
-                                    </li>
-
-                                    <li>
-                                        <strong><?php esc_html_e( 'Học phí' ); ?>:</strong>
-
-                                        <?php if ( $tuition ) : ?>
-                                        <span class="price">
-                                            <?php echo esc_html( number_format( $tuition, 0, '', '.' ) ); ?>&nbsp;vnd
-                                        </span>
-                                        <?php endif; ?>
-                                    </li>
-                                </ul>
-
-                                <a class="item__link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-		                            <?php esc_html_e('Xem chi tiết', 'design'); ?>
-                                </a>
+                                <div class="item__action">
+                                    <a class="link-box" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+		                                <?php esc_html_e('Xem chi tiết', 'design'); ?>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 

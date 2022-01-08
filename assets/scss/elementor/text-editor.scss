@@ -1,0 +1,27 @@
+/* Text Editor */
+.element-text-editor {
+  font-size: 15px;
+
+  h5 {
+    margin-bottom: 6px;
+  }
+
+  p {
+    &:after {
+      display: table;
+      clear: both;
+      content: "";
+    }
+
+    img {
+      &.alignleft {
+        margin: 2px 8px 0 0;
+      }
+    }
+  }
+
+  ul {
+    margin-bottom: 16px;
+    padding-left: 20px;
+  }
+}

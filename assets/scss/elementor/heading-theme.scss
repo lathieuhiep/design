@@ -1,0 +1,33 @@
+/* Heading Theme */
+.element-heading-theme {
+  .heading {
+    position: relative;
+    padding-left: 26px;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+
+    &:before {
+      position: absolute;
+      content: '';
+      width: 18px;
+      height: 18px;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      border: 2px solid $border-color;
+      background-color: #ffffff;
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 8px;
+      height: 8px;
+      top: 5px;
+      left: 5px;
+      border-radius: 50%;
+      background-color: $background-primary;
+    }
+  }
+}

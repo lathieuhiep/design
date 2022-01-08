@@ -65,7 +65,7 @@ class Design_Elementor_Addon_Post_Grid extends Widget_Base {
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'id',
                 'options'   =>  [
-                    'id'            =>  esc_html__( 'Post ID', 'design' ),
+                    'id'            =>  esc_html__( 'ID', 'design' ),
                     'author'        =>  esc_html__( 'Post Author', 'design' ),
                     'title'         =>  esc_html__( 'Title', 'design' ),
                     'date'          =>  esc_html__( 'Date', 'design' ),

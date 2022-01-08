@@ -40,7 +40,7 @@ body {
   min-height: 100vh;
   line-height: 1.4em;
   overflow-x: hidden;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   color: $color-primary;
   font-family: $font-family;
@@ -384,5 +384,19 @@ pre {
     padding-left: 16px;
     margin-top: 16px;
     margin-bottom: 16px;
+  }
+}
+
+.link-box {
+  font-size: 12px;
+  color: $color-second;
+  padding: 6px 16px;
+  display: inline-block;
+  border: 1px solid $border-color;
+  @include border-radius(2px);
+
+  &:hover {
+    color: #ffffff;
+    background-color: $background-primary;
   }
 }

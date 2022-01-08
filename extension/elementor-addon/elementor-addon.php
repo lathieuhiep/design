@@ -18,7 +18,7 @@ function design_register_widget_elementor_addon( $widgets_manager ) {
 
 	// include add on
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/breadcrumb.php' );
-	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/about-text.php' );
+	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/text-editor.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/button-modal-form.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/post-carousel.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/post-grid.php' );
@@ -27,10 +27,14 @@ function design_register_widget_elementor_addon( $widgets_manager ) {
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/carousel-images.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/course-grid.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/student-product-grid.php' );
+	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/menu-post-type.php' );
+	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/heading-theme.php' );
+	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/course-detail-content.php' );
+	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/service-grid.php' );
 
 	// register add on
 	$widgets_manager->register( new \Design_Elementor_Addon_Breadcrumb() );
-	$widgets_manager->register( new \Design_Elementor_Addon_About_Text() );
+	$widgets_manager->register( new \Design_Elementor_Text_Editor() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Button_Modal_Form() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Post_Carousel() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Post_Grid() );
@@ -39,6 +43,10 @@ function design_register_widget_elementor_addon( $widgets_manager ) {
 	$widgets_manager->register( new \Design_Elementor_Addon_Carousel_Images() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Course_Grid() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Student_Product_Grid() );
+	$widgets_manager->register( new \Design_Elementor_Menu_Post_Type() );
+	$widgets_manager->register( new \Design_Elementor_Heading_Theme() );
+	$widgets_manager->register( new \Design_Elementor_Addon_CourseDetailContent() );
+	$widgets_manager->register( new \Design_Elementor_Addon_Service_Grid() );
 
 }
 add_action( 'elementor/widgets/register', 'design_register_widget_elementor_addon' );

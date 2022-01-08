@@ -363,7 +363,7 @@ Redux::set_section($design_opt_name, array(
     )
 ));
 
-/* Start Blog Option */
+/* Start Blog Options */
 Redux::set_section($design_opt_name, array(
     'id' => 'design_opt_blog',
     'title' => esc_html__('Blog', 'design'),
@@ -473,7 +473,77 @@ Redux::set_section($design_opt_name, array(
 
     )
 ));
-/* End Blog Option */
+/* End Blog Options */
+
+/* Start Course Options */
+Redux::set_section($design_opt_name, array(
+	'id' => 'design_opt_course',
+	'title' => esc_html__('Course', 'design'),
+	'customizer_width' => '400px',
+	'icon' => 'el el-book',
+));
+
+// Rule
+Redux::set_section($design_opt_name, array(
+	'title' => esc_html__('Rule', 'design'),
+	'id' => 'design_opt_course_rule',
+	'desc' => esc_html__('', 'design'),
+	'subsection' => true,
+	'fields' => array(
+		array(
+			'id' => 'design_opt_course_rule_editor',
+			'title' => esc_html__('Note', 'design'),
+			'type' => 'editor',
+			'default' => '',
+			'args' => array(
+				'wpautop' => false,
+				'media_buttons' => false,
+				'textarea_rows' => 15,
+				'teeny' => false,
+				'quicktags' => true,
+			)
+		),
+	)
+));
+
+// Bank account
+Redux::set_section($design_opt_name, array(
+	'title' => esc_html__('Bank Account', 'design'),
+	'id' => 'design_opt_course_bank_account',
+	'desc' => esc_html__('', 'design'),
+	'subsection' => true,
+	'fields' => array(
+		array(
+			'id' => 'design_opt_course_bank_account_1',
+			'title' => esc_html__('Bank 1', 'design'),
+			'type' => 'editor',
+			'default' => '',
+			'args' => array(
+				'wpautop' => false,
+				'media_buttons' => false,
+				'textarea_rows' => 15,
+				'teeny' => false,
+				'quicktags' => true,
+			)
+		),
+
+		array(
+			'id' => 'design_opt_course_bank_account_2',
+			'title' => esc_html__('Bank 2', 'design'),
+			'type' => 'editor',
+			'default' => '',
+			'args' => array(
+				'wpautop' => false,
+				'media_buttons' => false,
+				'textarea_rows' => 15,
+				'teeny' => false,
+				'quicktags' => true,
+			)
+		),
+	)
+));
+
+/* End Course Options */
 
 /* Start Social Network */
 Redux::set_section($design_opt_name, array(
