@@ -25,6 +25,7 @@ Text Domain: design
   ## Single
   ## Pagination
   ## Comment
+# Single Service
 # Elementor
   ## Slider
   ## Posts Grid
@@ -39,6 +40,7 @@ Text Domain: design
   ## Text Editor
   ## Course Detail Content
   ## Element Service Grid
+  ## Student Product Detail
 # Woocommerce
   ## Archive shop
   ## Single Shop
@@ -81,6 +83,11 @@ Text Domain: design
 # Blog
 -----------------------------------------------------------------------------*/
 @import "blog/blog";
+
+/**
+# Single Service
+-----------------------------------------------------------------------------*/
+@import "service/single-service";
 
 /**
 # Elementor

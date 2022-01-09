@@ -400,3 +400,88 @@ pre {
     background-color: $background-primary;
   }
 }
+
+/* Custom Modal */
+.modal {
+  &.modal-theme {
+    .modal-content {
+      padding: 28px 40px;
+    }
+
+    .modal-header {
+      margin-bottom: 16px;
+      padding: 0;
+      border-bottom-width: 0;
+      @include align-items(flex-start);
+
+      .modal-title {
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .btn-close {
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .note {
+        &__text {
+          color: $color-primary;
+        }
+      }
+    }
+
+    .modal-body {
+      padding: 0;
+
+      .action-btn {
+        position: relative;
+
+        .wpcf7-submit {
+          display: block;
+          width: 100%;
+        }
+
+        .wpcf7-spinner {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: 0;
+          @include transform(translateX(-50%) translateY(-50%));
+        }
+      }
+    }
+
+    .modal-footer {
+      text-align: center;
+      border-top-width: 0;
+      @include justify-content(center);
+
+      a {
+        color: $color-second;
+
+        &:hover {
+          color: $color-title;
+        }
+      }
+    }
+  }
+}
+
+.btn-theme {
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1em;
+  padding: 14px 26px;
+  @include border-radius();
+  background-color: $background-primary;
+  @include transition();
+
+  &:hover {
+    color: #ffffff;
+    background-color: $background-hover;
+  }
+}

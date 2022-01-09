@@ -35,6 +35,11 @@ function design_register_front_end() {
 	wp_enqueue_style( 'design-library', get_theme_file_uri( '/assets/css/library.min.css' ), array(), '' );
 	/* End main Css */
 
+	if ( is_singular('student_product') ) {
+		wp_enqueue_style( 'jquery-scrollbar', get_theme_file_uri( '/assets/css/jquery.scrollbar.css' ), array(), '' );
+		wp_enqueue_script( 'jquery-scrollbar', get_theme_file_uri( '/assets/js/jquery.scrollbar.min.js' ), array('jquery'), '', true );
+	}
+
     /* Start main Css */
     wp_enqueue_style( 'fontawesome-5', get_theme_file_uri( '/fonts/fontawesome/css/all.min.css' ), array(), '5.12.1' );
     /* End main Css */

@@ -205,7 +205,7 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 
             <?php if ( $settings['show_modal'] ) :?>
 
-            <div class="modal fade" id="<?php echo esc_attr( $id_modal ); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade modal-theme" id="<?php echo esc_attr( $id_modal ); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">

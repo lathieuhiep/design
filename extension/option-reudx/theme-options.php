@@ -545,6 +545,33 @@ Redux::set_section($design_opt_name, array(
 
 /* End Course Options */
 
+/* Start Service Options */
+Redux::set_section($design_opt_name, array(
+	'id' => 'design_opt_service',
+	'title' => esc_html__('Service', 'design'),
+	'customizer_width' => '400px',
+	'icon' => 'el el-book',
+));
+
+Redux::set_section($design_opt_name, array(
+	'title' => esc_html__('Single', 'design'),
+	'id' => 'design_opt_service_single',
+	'desc' => esc_html__('', 'design'),
+	'subsection' => true,
+	'fields' => array(
+
+		array(
+			'id' => 'design_opt_service_single_select_contact',
+			'type' => 'select',
+			'title' => esc_html__('Select Contact Form', 'design'),
+			'default' => 1,
+			'options' => design_get_form_cf7()
+		),
+
+	)
+));
+/* End Service Options */
+
 /* Start Social Network */
 Redux::set_section($design_opt_name, array(
     'title' => esc_html__('Social Network', 'design'),

@@ -1,3 +1,13 @@
+@media ( min-width: 1200px ) {
+
+  .site-single-course {
+    .container {
+      max-width: 1000px;
+    }
+  }
+
+}
+
 @media (max-width: 1199px) {
 
   .container {
@@ -58,7 +68,7 @@
   .active-sticky-nav {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 12;
   }
 
   .admin-bar {

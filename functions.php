@@ -114,6 +114,7 @@ foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $d
  */
 require get_parent_theme_file_path( '/extension/post-type/course.php' );
 require get_parent_theme_file_path( '/extension/post-type/student-product.php' );
+require get_parent_theme_file_path( '/extension/post-type/my-product.php' );
 require get_parent_theme_file_path( '/extension/post-type/service.php' );
 require get_parent_theme_file_path( '/extension/post-type/testimonial.php' );
 
@@ -126,6 +127,11 @@ require get_parent_theme_file_path( '/includes/register-sidebar.php' );
  * Required: Theme Scripts
  */
 require get_parent_theme_file_path( '/includes/theme-scripts.php' );
+
+/**
+ * Required: Call ajax function
+ */
+require get_parent_theme_file_path( '/includes/call-ajax.php' );
 
 /*
 *
@@ -504,4 +510,20 @@ function design_include_custom_post_types_in_search_results( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'design_include_custom_post_types_in_search_results' );
+
+/* Get Contact Form */
+function design_get_form_cf7(): array {
+	$design_contact_forms = array();
+	$design_cf7           = get_posts( 'post_type="wpcf7_contact_form"&numberposts=-1' );
+
+	if ( $design_cf7 ) :
+		foreach ( $design_cf7 as $item ) :
+			$design_contact_forms[ $item->ID ] = $item->post_title;
+		endforeach;
+	else :
+		$design_contact_forms[ esc_html__( "No contact forms found", "design" ) ] = 0;
+	endif;
+
+	return $design_contact_forms;
+}
 

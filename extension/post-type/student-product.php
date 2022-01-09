@@ -11,7 +11,7 @@ function design_create_student_product() {
 
 	/* Start post type template */
 	$labels = array(
-		'name'                  =>  _x( 'Student Product', 'post type general name', 'design' ),
+		'name'                  =>  _x( 'Sản phẩm học viên', 'post type general name', 'design' ),
 		'singular_name'         =>  _x( 'Student Product', 'post type singular name', 'design' ),
 		'menu_name'             =>  _x( 'Student Products', 'admin menu', 'design' ),
 		'name_admin_bar'        =>  _x( 'Student Product', 'add new on admin bar', 'design' ),
