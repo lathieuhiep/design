@@ -77,19 +77,20 @@
       }
 
       .sub-menu {
-        min-width: 160px;
-        border-top: 1px solid $color-hover;
-        background-color: $border-color;
         position: absolute;
         top: 120%;
         left: 0;
+        width: 274px;
+        opacity: 0;
         z-index: -1;
         visibility: hidden;
-        opacity: 0;
+        padding: 16px 20px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 7px rgba(0, 0, 0, 0.11);
         @include transition();
 
         li {
-          padding: 6px 8px;
+          padding: 0 0 14px;
           display: block;
 
           a {
@@ -105,6 +106,10 @@
             > .sub-menu {
               left: 100%;
             }
+          }
+
+          &:last-child {
+            padding-bottom: 0;
           }
         }
       }

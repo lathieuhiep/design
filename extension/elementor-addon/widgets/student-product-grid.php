@@ -25,6 +25,10 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		return 'eicon-posts-grid';
 	}
 
+	public function get_script_depends() {
+		return ['load-product'];
+	}
+
 	protected function register_controls() {
 
 		// Content query
@@ -33,6 +37,19 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 			[
 				'label' => esc_html__( 'Query', 'design' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'custom_post_type',
+			[
+				'label'   => esc_html__( 'Select Custom Post Type', 'design' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'student_product',
+				'options' => [
+					'student_product'  => esc_html__( 'Student Product', 'design' ),
+					'my_product' => esc_html__( 'My Product', 'design' ),
+				],
 			]
 		);
 
@@ -88,6 +105,18 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		);
 
 		$this->add_control(
+			'user_ajax',
+			[
+				'label'         =>  esc_html__('User Ajax', 'design'),
+				'type'          =>  Controls_Manager::SWITCHER,
+				'label_on'      =>  esc_html__('Yes', 'design'),
+				'label_off'     =>  esc_html__('No', 'design'),
+				'return_value'  =>  'yes',
+				'default'       =>  'no',
+			]
+		);
+
+		$this->add_control(
 			'text_link',
 			[
 				'label'         =>  esc_html__( 'Text', 'design' ),
@@ -108,6 +137,14 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 					'is_external' => false,
 					'nofollow' => true,
 					'custom_attributes' => '',
+				],
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'user_ajax',
+							'value' => '',
+						],
+					],
 				],
 			]
 		);
@@ -145,13 +182,21 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 	protected function render() {
 
 		$settings      = $this->get_settings_for_display();
+		$post_type     = $settings['custom_post_type'];
 		$limit_post    = $settings['limit'];
 		$order_by_post = $settings['order_by'];
 		$order_post    = $settings['order'];
 
+		$setting_args = [
+            'post_type' => $post_type,
+			'limit' => $limit_post,
+			'orderby' => $order_by_post,
+			'order' => $order_post,
+		];
+
 		// Query
 		$args = array(
-			'post_type'      => 'student_product',
+			'post_type'      => $post_type,
 			'posts_per_page' => $limit_post,
 			'orderby'        => $order_by_post,
 			'order'          => $order_post,
@@ -169,23 +214,39 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 					while ( $query->have_posts() ):
 						$query->the_post();
 
-						design_item_student_product ();
+						design_item_student_product( $post_type );
 
                     endwhile;
 					wp_reset_postdata();
                     ?>
                 </div>
 
-                <?php
-                if ( ! empty( $settings['link']['url'] ) ) :
-	                $this->add_link_attributes( 'link', $settings['link'] );
-                ?>
+
                 <div class="btn-link">
-                    <a <?php echo $this->get_render_attribute_string( 'link' ); ?>>
-                        <?php echo esc_html( $settings['text_link'] ); ?>
-                    </a>
+	                <?php
+	                if ( ! empty( $settings['link']['url'] ) ) :
+		                $this->add_link_attributes( 'link', $settings['link'] );
+                    ?>
+
+                        <a <?php echo $this->get_render_attribute_string( 'link' ); ?>>
+                            <?php echo esc_html( $settings['text_link'] ); ?>
+                        </a>
+
+                    <?php else: ?>
+
+                        <div class="spinner-box">
+                            <div class="spinner-border text-danger" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="load-my-product" data-settings='<?php echo wp_json_encode( $setting_args ); ?>'>
+                            <?php echo esc_html( $settings['text_link'] ); ?>
+                        </a>
+
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
+
             </div>
 
 		<?php

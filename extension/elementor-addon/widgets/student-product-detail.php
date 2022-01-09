@@ -303,21 +303,38 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
                 </div>
 
                 <div class="student-info d-flex align-items-end justify-content-between">
-                    <div class="name">
-                        <strong>
-                            <?php esc_html_e('Học viên', 'design'); ?>
-                        </strong>
+                    <?php if ( is_singular('student_product') ) : ?>
 
-                        <h4 class="name__student">
-                            <?php the_title(); ?>
-                        </h4>
-                    </div>
+                        <div class="name">
+                            <strong>
+			                    <?php esc_html_e('Học viên', 'design'); ?>
+                            </strong>
 
-                    <div class="course">
-                        <a href="<?php echo esc_url( get_post_permalink( $link_course ) ); ?>">
-	                        <?php esc_html_e('Học Khóa ', 'design'); echo esc_html( $name_course ); ?>
-                        </a>
-                    </div>
+                            <h4 class="name__student">
+			                    <?php the_title(); ?>
+                            </h4>
+                        </div>
+
+                        <div class="course">
+                            <a href="<?php echo esc_url( get_post_permalink( $link_course ) ); ?>">
+			                    <?php esc_html_e('Học Khóa ', 'design'); echo esc_html( $name_course ); ?>
+                            </a>
+                        </div>
+
+                    <?php else: ?>
+
+                        <div class="name">
+                            <strong>
+			                    <?php esc_html_e('Sản Phẩm', 'design'); ?>
+                            </strong>
+
+                            <h4 class="name__student">
+			                    <?php the_title(); ?>
+                            </h4>
+                        </div>
+
+                    <?php endif; ?>
+
                 </div>
             </div>
 
@@ -330,8 +347,15 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 
                     <a class="link-post prev-post" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ) ?>" title="<?php echo esc_attr( $prev_title ); ?>">
                         <i class="fas fa-long-arrow-alt-left"></i>
+
                         <span>
-                            <?php esc_html_e( 'Xem bài học viên trước' ); ?>
+                            <?php
+                            if ( is_singular('student_product') ) :
+	                            esc_html_e( 'Xem bài học viên trước', 'design' );
+                            else:
+	                            esc_html_e( 'Xem Sản phẩm trước', 'design' );
+                            endif;
+                            ?>
                         </span>
                     </a>
 
@@ -354,8 +378,15 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 
                         <a class="link-post next-post" href="<?php echo esc_url( get_permalink( $next_post->ID ) ) ?>" title="<?php echo esc_attr( $next_title ); ?>">
                             <i class="fas fa-long-arrow-alt-right"></i>
+
                             <span>
-                                <?php esc_html_e( 'Xem bài học viên kế tiếp' ); ?>
+                                <?php
+                                if ( is_singular('student_product') ) :
+                                    esc_html_e( 'Xem bài học viên kế tiếp', 'design' );
+                                else:
+                                    esc_html_e( 'Xem Sản phẩm kế tiếp', 'design' );
+                                endif;
+                                ?>
                             </span>
                         </a>
 

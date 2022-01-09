@@ -4,7 +4,7 @@ get_header();
 get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
 ?>
 
-	<div class="site-single-course">
+	<div class="site-single-my-product">
 		<?php
 		while ( have_posts() ) :
 

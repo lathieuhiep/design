@@ -214,15 +214,19 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 		                            <?php echo esc_html( $settings['text'] ); ?>
                                 </h5>
 
-                                <div class="note">
-                                    <span class="note__label">
-                                        <?php esc_html_e('Lưu ý:', 'design'); ?>
-                                    </span>
+                                <?php if ( $settings['note'] ) : ?>
 
-                                    <span class="note__text">
-                                        <?php echo esc_html( $settings['note'] ); ?>
-                                    </span>
-                                </div>
+                                    <div class="note">
+                                        <span class="note__label">
+                                            <?php esc_html_e('Lưu ý:', 'design'); ?>
+                                        </span>
+
+                                        <span class="note__text">
+                                            <?php echo esc_html( $settings['note'] ); ?>
+                                        </span>
+                                    </div>
+
+                                <?php endif; ?>
                             </div>
 
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
