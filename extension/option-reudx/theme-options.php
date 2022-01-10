@@ -282,7 +282,7 @@ Redux::set_section($design_opt_name, array(
 	)
 ));
 
-//Logo Config
+// Logo Config
 Redux::set_section($design_opt_name, array(
     'id' => 'design_opt_logo',
     'title' => esc_html__('Logo', 'design'),
@@ -327,6 +327,26 @@ Redux::set_section($design_opt_name, array(
 
     )
 ));
+
+// Support
+Redux::set_section($design_opt_name, array(
+	'id' => 'design_opt_support',
+	'title' => esc_html__('Support', 'design'),
+	'desc' => esc_html__('', 'design'),
+	'subsection' => true,
+	'fields' => array(
+
+		array(
+			'id' => 'design_opt_support_select_contact',
+			'type' => 'select',
+			'title' => esc_html__('Select Contact Form', 'design'),
+			'default' => '',
+			'options' => design_get_form_cf7()
+		),
+
+	)
+));
+
 /* End Header Options */
 
 // Contact us options

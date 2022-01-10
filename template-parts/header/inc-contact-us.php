@@ -8,7 +8,7 @@ $link = $design_options['design_opt_contact_us_fanpage'] ?? '';
 $phones = $design_options['design_opt_contact_us_phone'] ?? '';
 
 ?>
-<div class="contact-us">
+<div class="contact-us d-none d-md-block">
     <div class="container d-flex justify-content-between">
         <?php if ( $phones ) : ?>
 

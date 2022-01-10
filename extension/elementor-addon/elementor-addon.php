@@ -32,6 +32,7 @@ function design_register_widget_elementor_addon( $widgets_manager ) {
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/course-detail-content.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/service-grid.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/student-product-detail.php' );
+	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/list-editor.php' );
 
 	// register add on
 	$widgets_manager->register( new \Design_Elementor_Addon_Breadcrumb() );
@@ -49,6 +50,7 @@ function design_register_widget_elementor_addon( $widgets_manager ) {
 	$widgets_manager->register( new \Design_Elementor_Addon_CourseDetailContent() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Service_Grid() );
 	$widgets_manager->register( new \Design_Elementor_Addon_Student_Product_Detail() );
+	$widgets_manager->register( new \Design_Elementor_List_Editor() );
 
 }
 add_action( 'elementor/widgets/register', 'design_register_widget_elementor_addon' );

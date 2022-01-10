@@ -1,3 +1,17 @@
+@media ( min-width: 1400px ) {
+  .btn-advice {
+    margin-left: 7.75rem;
+  }
+}
+
+@media ( min-width: 1200px ) and ( max-width: 1399px ) {
+
+  .btn-advice {
+    margin-left: 2rem;
+  }
+
+}
+
 @media (max-width: 1199px) {
 
   .container {
@@ -45,7 +59,8 @@
     ul {
       li {
         a {
-          padding: 0 7px;
+          padding: 0 8px;
+          font-size: 12px;
         }
       }
     }
@@ -84,6 +99,16 @@
       li {
         .sub-menu {
           display: block !important;
+          position: absolute;
+          top: 120%;
+          left: 0;
+          width: 274px;
+          opacity: 0;
+          z-index: -1;
+          visibility: hidden;
+          background-color: #ffffff;
+          box-shadow: 0 2px 7px rgba(0, 0, 0, 0.11);
+          @include transition();
 
           li {
             display: flex;
@@ -143,7 +168,8 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: #eeeeee;
+    background-color: #ffffff;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.11);
     z-index: 99;
 
     .collapse {
@@ -224,6 +250,19 @@
     }
   }
 }
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  .btn-advice {
+    margin-left: 1rem;
+
+    &__box {
+      padding: 8px 12px;
+    }
+  }
+
+}
+
 
 @media (min-width: 768px) and (max-width: 991px) {
 

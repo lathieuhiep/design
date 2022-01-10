@@ -18,7 +18,7 @@ if( is_active_sidebar( 'design_sidebar_footer_multi_column_1' ) || is_active_sid
                     if( is_active_sidebar( 'design_sidebar_footer_multi_column_'.$j ) ):
                 ?>
 
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-<?php echo esc_attr( $design_col ); ?>">
+                    <div class="col-12 col-sm-6 col-lg-<?php echo esc_attr( $design_col ); ?>">
 
                         <?php dynamic_sidebar( 'design_sidebar_footer_multi_column_'.$j ); ?>
 

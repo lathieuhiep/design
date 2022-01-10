@@ -156,6 +156,206 @@ class Design_Elementor_Addon_Carousel_Images extends Widget_Base {
 
 		$this->end_controls_section();
 
+		// Content additional options
+		$this->start_controls_section(
+			'content_additional_options',
+			[
+				'label' => esc_html__( 'Additional Options', 'design' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'loop',
+			[
+				'type'         => Controls_Manager::SWITCHER,
+				'label'        => esc_html__( 'Loop Slider ?', 'design' ),
+				'label_off'    => esc_html__( 'No', 'design' ),
+				'label_on'     => esc_html__( 'Yes', 'design' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'autoplay',
+			[
+				'label'        => esc_html__( 'Autoplay?', 'design' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_off'    => esc_html__( 'No', 'design' ),
+				'label_on'     => esc_html__( 'Yes', 'design' ),
+				'return_value' => 'yes',
+				'default'      => 'no',
+			]
+		);
+
+		$this->add_control(
+			'nav',
+			[
+				'label'        => esc_html__( 'Nav Slider', 'design' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Yes', 'design' ),
+				'label_off'    => esc_html__( 'No', 'design' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'dots',
+			[
+				'label'        => esc_html__( 'Dots Slider', 'design' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Yes', 'design' ),
+				'label_off'    => esc_html__( 'No', 'design' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'margin_item',
+			[
+				'label'   => esc_html__( 'Space Between Item', 'design' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 20,
+				'min'     => 0,
+				'max'     => 100,
+				'step'    => 1,
+			]
+		);
+
+		$this->add_control(
+			'min_width_1200',
+			[
+				'label'     => esc_html__( 'Min Width 1200px', 'design' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'item',
+			[
+				'label'   => esc_html__( 'Number of Item', 'design' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 4,
+				'min'     => 1,
+				'max'     => 100,
+				'step'    => 1,
+			]
+		);
+
+		$this->add_control(
+			'min_width_992',
+			[
+				'label'     => esc_html__( 'Min Width 992px', 'design' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'item_992',
+			[
+				'label'   => esc_html__( 'Number of Item', 'design' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 2,
+				'min'     => 1,
+				'max'     => 100,
+				'step'    => 1,
+			]
+		);
+
+		$this->add_control(
+			'min_width_768',
+			[
+				'label'     => esc_html__( 'Min Width 768px', 'design' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'item_768',
+			[
+				'label'   => esc_html__( 'Number of Item', 'design' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 2,
+				'min'     => 1,
+				'max'     => 100,
+				'step'    => 1,
+			]
+		);
+
+		$this->add_control(
+			'min_width_568',
+			[
+				'label'     => esc_html__( 'Min Width 568px', 'design' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'item_568',
+			[
+				'label'   => esc_html__( 'Number of Item', 'design' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 2,
+				'min'     => 1,
+				'max'     => 100,
+				'step'    => 1,
+			]
+		);
+
+		$this->add_control(
+			'margin_item_568',
+			[
+				'label'   => esc_html__( 'Space Between Item', 'design' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 15,
+				'min'     => 0,
+				'max'     => 100,
+				'step'    => 1,
+			]
+		);
+
+		$this->add_control(
+			'max_width_567',
+			[
+				'label'     => esc_html__( 'Max Width 567px', 'design' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'item_567',
+			[
+				'label'   => esc_html__( 'Number of Item', 'design' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 1,
+				'min'     => 1,
+				'max'     => 100,
+				'step'    => 1,
+			]
+		);
+
+		$this->add_control(
+			'margin_item_567',
+			[
+				'label'   => esc_html__( 'Space Between Item', 'design' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 0,
+				'min'     => 0,
+				'max'     => 100,
+				'step'    => 1,
+			]
+		);
+
+		$this->end_controls_section();
+
 		// Section style
 		$this->start_controls_section(
 			'section_style',
@@ -211,12 +411,34 @@ class Design_Elementor_Addon_Carousel_Images extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
 		$data_settings_owl = [
-			'loop' => ('yes' === $settings['loop']),
-			'nav' => ('yes' === $settings['nav']),
-			'dots' => ('yes' === $settings['dots']),
-			'margin' => $settings['margin_item'],
-			'autoplay' => ('yes' === $settings['autoplay']),
-			'items' => 1
+			'loop'       => ( 'yes' === $settings['loop'] ),
+			'nav'        => ( 'yes' === $settings['nav'] ),
+			'dots'       => ( 'yes' === $settings['dots'] ),
+			'margin'     => $settings['margin_item'],
+			'autoplay'   => ( 'yes' === $settings['autoplay'] ),
+			'responsive' => [
+				'0' => array(
+					'items'  => $settings['item_567'],
+					'margin' => $settings['margin_item_567']
+				),
+
+				'576' => array(
+					'items'  => $settings['item_568'],
+					'margin' => $settings['margin_item_568']
+				),
+
+				'768' => array(
+					'items' => $settings['item_768']
+				),
+
+				'992' => array(
+					'items' => $settings['item_992']
+				),
+
+				'1200' => array(
+					'items' => $settings['item']
+				),
+			],
 		];
 		?>
 

@@ -128,7 +128,7 @@ class Design_Elementor_Addon_Service_Grid extends Widget_Base {
 			?>
 
             <div class="element-service-grid">
-                <div class="row row-cols-<?php echo esc_attr( $settings['column_number'] ); ?>">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-<?php echo esc_attr( $settings['column_number'] ); ?>">
 					<?php
 					while ( $query->have_posts() ):
 						$query->the_post();

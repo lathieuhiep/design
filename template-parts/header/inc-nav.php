@@ -1,8 +1,9 @@
 <?php
 global $design_options;
 
-$nav_top_sticky   =   $design_options['design_opt_nav_sticky'] ?? 1;
-$design_opt_logo_image_id    =   $design_options['design_opt_logo_image']['id'];
+$nav_top_sticky = $design_options['design_opt_nav_sticky'] ?? 1;
+$design_opt_logo_image_id = $design_options['design_opt_logo_image']['id'];
+$shortcode_contact = $design_options['design_opt_support_select_contact'];
 ?>
 
 <nav id="site-navigation" class="main-navigation<?php echo esc_attr( $nav_top_sticky == 1 ? ' active-sticky-nav' : '' ); ?>">
@@ -19,11 +20,11 @@ $design_opt_logo_image_id    =   $design_options['design_opt_logo_image']['id'];
                             endif;
                         ?>
                     </a>
-
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-menu" aria-controls="site-menu" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-                    </button>
                 </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-menu">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
 
                 <div id="site-menu" class="site-menu collapse navbar-collapse d-lg-flex justify-content-lg-end">
                     <?php
@@ -47,7 +48,7 @@ $design_opt_logo_image_id    =   $design_options['design_opt_logo_image']['id'];
                     <?php endif; ?>
                 </div>
 
-                <div class="btn-advice d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modal-advice">
+                <div class="btn-advice d-none d-md-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modal-advice">
                     <div class="btn-advice__box">
                         <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/icon-phone.png' ) ); ?>" alt="advice">
 
@@ -60,19 +61,19 @@ $design_opt_logo_image_id    =   $design_options['design_opt_logo_image']['id'];
 </nav>
 
 <!-- Modal Advice-->
-<div class="modal fade" id="modal-advice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade modal-theme" id="modal-advice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">
+                    <?php esc_html_e('Tôi cần tư vấn', 'design'); ?>
+                </h5>
+
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <?php echo do_shortcode('[contact-form-7 id="'. $shortcode_contact .'"]') ?>
             </div>
         </div>
     </div>
