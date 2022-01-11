@@ -36,7 +36,7 @@ function design_create_course() {
 		'menu_icon'          => 'dashicons-welcome-learn-more',
 		'capability_type'    => 'post',
 		'rewrite'            => array('slug' => 'khoa-hoc' ),
-		'has_archive'        => true,
+		'has_archive'        => false,
 		'hierarchical'       => true,
 		'menu_position'      => null,
 		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),

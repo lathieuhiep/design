@@ -36,7 +36,7 @@ function design_create_service() {
 		'menu_icon'          => 'dashicons-store',
 		'capability_type'    => 'post',
 		'rewrite'            => array('slug' => 'dich-vu' ),
-		'has_archive'        => true,
+		'has_archive'        => false,
 		'hierarchical'       => true,
 		'menu_position'      => null,
 		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),

@@ -5,8 +5,6 @@
     margin-bottom: 30px;
 
     .scrollbar-inner {
-      padding: 0 24px;
-      height: 700px;
       overflow: hidden;
 
       > .scroll-element {
@@ -24,41 +22,78 @@
           border-radius: 0;
         }
       }
+
+      @media ( min-width: 992px ) {
+        height: 700px;
+      }
+
+      @media ( min-width: 476px ) {
+        padding: 0 24px;
+      }
+
+      @media ( max-width: 475px ) {
+        margin-bottom: 16px;
+      }
     }
 
     .student-info {
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      bottom: 0;
-      height: 125px;
-      padding: 0 27px 24px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #000000 100%);
-
       .name {
         font-size: 18px;
 
         strong {
           display: block;
-          margin-bottom: 6px;
-          color: #ffffff;
         }
 
         &__student {
           text-transform: uppercase;
-          color: yellow;
           margin-bottom: 0;
         }
       }
 
       .course {
         a {
-          color: #ffffff;
           font-size: 16px;
           font-weight: 500;
+        }
+      }
 
-          &:hover {
-            color: $color-hover;
+      @media ( min-width: 476px ) {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 0;
+        height: 125px;
+        padding: 0 27px 24px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #000000 100%);
+
+        .name {
+          strong {
+            margin-bottom: 6px;
+            color: #ffffff;
+          }
+
+          &__student {
+            color: yellow;
+          }
+        }
+
+        .course {
+          a {
+            color: #ffffff;
+
+            &:hover {
+              color: $color-hover;
+            }
+          }
+        }
+      }
+
+      @media ( max-width: 485px ) {
+        .name {
+          margin-bottom: 12px;
+
+          strong {
+            margin-bottom: 12px;
           }
         }
       }
@@ -70,8 +105,16 @@
 
     &__slider {
       position: relative;
-      max-width: 575px;
-      margin: 0 auto;
+
+      &:after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      @media ( min-width: 768px ) {
+        width: 575px;
+        margin: 0 auto;
+      }
 
       .item {
         cursor: pointer;
@@ -90,10 +133,6 @@
       }
 
       .link-post {
-        position: absolute;
-        top: 50%;
-        @include transform(translateY(-50%));
-
         i {
           font-size: 20px;
           color: $color-second;
@@ -103,13 +142,32 @@
           display: block;
         }
 
-        &.prev-post {
-          left: -160px;
-          text-align: right;
+        @media ( min-width: 992px ) {
+          position: absolute;
+          top: 50%;
+          @include transform(translateY(-50%));
+
+          &.prev-post {
+            left: -160px;
+            text-align: right;
+          }
+
+          &.next-post {
+            right: -160px;
+          }
         }
 
-        &.next-post {
-          right: -160px;
+        @media ( max-width: 991px ) {
+          margin-top: 10px;
+
+          &.prev-post {
+            float: left;
+          }
+
+          &.next-post {
+            text-align: right;
+            float: right;
+          }
         }
       }
     }

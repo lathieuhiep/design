@@ -36,7 +36,7 @@ function design_create_testimonial() {
 		'menu_icon'          => 'dashicons-testimonial',
 		'capability_type'    => 'post',
 		'rewrite'            => array('slug' => 'testimonial' ),
-		'has_archive'        => true,
+		'has_archive'        => false,
 		'hierarchical'       => true,
 		'menu_position'      => null,
 		'supports'           => array( 'title', 'editor', 'thumbnail' ),
