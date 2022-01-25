@@ -1,30 +1,35 @@
 @font-face {
   font-family: SFProDisplay;
   font-weight: 300;
+  font-display: fallback;
   src: url('fonts/SFProDisplay/SF-Pro-Display-Thin.otf');
 }
 
 @font-face {
   font-family: SFProDisplay;
   font-weight: 400;
+  font-display: fallback;
   src: url('fonts/SFProDisplay/SF-Pro-Display-Regular.otf');
 }
 
 @font-face {
   font-family: SFProDisplay;
   font-weight: 500;
+  font-display: fallback;
   src: url('fonts/SFProDisplay/SF-Pro-Display-Medium.otf');
 }
 
 @font-face {
   font-family: SFProDisplay;
   font-weight: 600;
+  font-display: fallback;
   src: url('fonts/SFProDisplay/SF-Pro-Display-Semibold.otf');
 }
 
 @font-face {
   font-family: SFProDisplay;
   font-weight: 700;
+  font-display: fallback;
   src: url('fonts/SFProDisplay/SF-Pro-Display-Bold.otf');
 }
 
@@ -483,5 +488,25 @@ pre {
   &:hover {
     color: #ffffff;
     background-color: $background-hover;
+  }
+}
+
+/* Chat */
+.chat-zalo {
+  position: fixed;
+  right: 16px;
+  bottom: 166px;
+  z-index: 2;
+
+  a {
+    display: block;
+  }
+}
+
+.fb_reset {
+  .fb_dialog_content {
+    iframe {
+      right: -5px !important;
+    }
   }
 }

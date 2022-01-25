@@ -383,6 +383,30 @@ Redux::set_section($design_opt_name, array(
     )
 ));
 
+// Chat
+Redux::set_section($design_opt_name, array(
+	'id' => 'design_opt_chat',
+	'title' => esc_html__('Chat', 'design'),
+	'icon' => 'el el-inbox',
+	'fields' => array(
+
+		array(
+			'id' => 'design_opt_chat_zalo',
+			'type' => 'text',
+			'title' => esc_html__('Phone Zalo', 'design'),
+			'default' => '0911 321 300',
+		),
+
+		array(
+			'id' => 'design_opt_chat_facebook',
+			'type' => 'textarea',
+			'title' => esc_html__('Api Chat Facebook', 'design'),
+			'rows' => 10
+		),
+
+	)
+));
+
 /* Start Blog Options */
 Redux::set_section($design_opt_name, array(
     'id' => 'design_opt_blog',

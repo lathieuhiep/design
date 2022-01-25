@@ -527,3 +527,14 @@ function design_get_form_cf7(): array {
 	return $design_contact_forms;
 }
 
+// chat facebook
+add_action('wp_footer', 'design_chat_facebook');
+function design_chat_facebook () {
+	global $design_options;
+	$facebook = $design_options ['design_opt_chat_facebook'];
+
+	if ( $facebook ) {
+		echo force_balance_tags( $facebook );
+	}
+}
+
