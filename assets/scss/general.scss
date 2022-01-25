@@ -178,7 +178,7 @@ pre {
   bottom: 0;
   cursor: pointer;
   position: fixed;
-  right: 15px;
+  right: 30px;
   z-index: 1000;
   @include transition();
 
@@ -494,19 +494,11 @@ pre {
 /* Chat */
 .chat-zalo {
   position: fixed;
-  right: 16px;
+  right: 36px;
   bottom: 166px;
   z-index: 2;
 
   a {
     display: block;
-  }
-}
-
-.fb_reset {
-  .fb_dialog_content {
-    iframe {
-      right: -5px !important;
-    }
   }
 }
