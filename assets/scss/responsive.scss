@@ -303,15 +303,10 @@
   .site-sidebar {
     padding-top: 50px;
   }
-  /* woocommerce */
-  .woocommerce,
-  .woocommerce-page {
-    .col2-set {
-      .col-1,
-      .col-2 {
-        @include flex(0 0 100%);
-        max-width: 100%;
-      }
+
+  .element-menu-post-type {
+    .col {
+      margin-bottom: 12px;
     }
   }
 
