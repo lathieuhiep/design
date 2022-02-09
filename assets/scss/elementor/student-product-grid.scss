@@ -13,8 +13,19 @@
     &__thumbnail {
       margin-bottom: 12px;
 
+      a {
+        position: relative;
+        display: block;
+        height: 277px;
+        overflow: hidden;
+      }
+
       img {
+        top: 0;
         width: 100%;
+        height: auto;
+        transform: translateY(0px);
+        @include transition(all 4s);
       }
     }
 
@@ -51,6 +62,14 @@
           font-size: 11px;
           width: 17px;
           margin-right: 4px;
+        }
+      }
+    }
+
+    &:hover {
+      .item__thumbnail {
+        img {
+          transform: translateY(calc(-100% + 277px));
         }
       }
     }

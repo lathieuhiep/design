@@ -6,7 +6,7 @@ function design_item_student_product ( $post_type, $class = '' ) {
 		<div class="item <?php echo esc_attr( $class ); ?>">
 			<div class="item__thumbnail">
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail( 'large' ); ?>
+					<?php the_post_thumbnail( 'full' ); ?>
 				</a>
 			</div>
 
