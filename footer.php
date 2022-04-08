@@ -1,9 +1,7 @@
 </div><!--End Sticky Footer-->
 
 <?php
-global $design_options;
-
-$zalo = $design_options ['design_opt_chat_zalo'];
+$zalo = get_theme_mod('design_opt_chat_zalo', '0911321300');
 
 if ( $zalo ) :
 ?>

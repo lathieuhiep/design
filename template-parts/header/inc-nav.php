@@ -1,24 +1,24 @@
 <?php
-global $design_options;
-
-$nav_top_sticky = $design_options['design_opt_nav_sticky'] ?? 1;
-$design_opt_logo_image_id = $design_options['design_opt_logo_image']['id'];
-$shortcode_contact = $design_options['design_opt_support_select_contact'];
+$sticky_menu = get_theme_mod( 'design_opt_sticky_menu', 'on' );
+$logo = get_theme_mod( 'design_opt_image_logo', '' );
+$shortcode_contact = get_theme_mod('design_opt_support', '0');
 ?>
 
-<nav id="site-navigation" class="main-navigation<?php echo esc_attr( $nav_top_sticky == 1 ? ' active-sticky-nav' : '' ); ?>">
+<nav id="site-navigation" class="main-navigation<?php echo esc_attr( $sticky_menu == 'on' ? ' active-sticky-nav' : '' ); ?>">
     <div class="site-navbar navbar-expand-lg">
         <div class="container">
             <div class="site-navigation_warp d-flex justify-content-lg-end">
                 <div class="site-logo d-flex align-items-center">
                     <a href="<?php echo esc_url( get_home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
                         <?php
-                            if ( !empty( $design_opt_logo_image_id ) ) :
-                                echo wp_get_attachment_image( $design_opt_logo_image_id, 'full' );
-                            else :
-                                echo'<img class="logo-default" src="'.esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ).'" alt="'.get_bloginfo('title').'" />';
-                            endif;
-                        ?>
+                        if ( !empty( $logo ) ) :
+                            echo wp_get_attachment_image( $logo, 'full' );
+                        else :
+                            ?>
+
+                            <img class="logo-default" src="<?php echo esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo('title') ); ?>" width="64" height="64" />
+
+                        <?php endif; ?>
                     </a>
                 </div>
 

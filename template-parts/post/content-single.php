@@ -1,8 +1,7 @@
 <?php
-global $design_options;
+$share_post = get_theme_mod('design_opt_share_single_post', 'show');
+$show_related = get_theme_mod('land_opt_related_single_post', 'show');
 
-$design_opt_single_post_share = $design_options['design_opt_single_post_share'] ?? true;
-$design_opt_single_related_show = $design_options['design_opt_single_related_show'] ?? true;
 $type_image = rwmb_meta( 'design_meta_box_post_select_image' );
 ?>
 
@@ -63,7 +62,7 @@ $type_image = rwmb_meta( 'design_meta_box_post_select_image' );
 
     <?php
 
-    if ( $design_opt_single_post_share ) :
+    if ( $share_post == 'show' ) :
         design_post_share();
     endif;
 
@@ -73,7 +72,7 @@ $type_image = rwmb_meta( 'design_meta_box_post_select_image' );
 <?php
 design_comment_form();
 
-if ( $design_opt_single_related_show ) :
+if ( $show_related == 'show' ) :
     get_template_part( 'template-parts/post/inc','related-post' );
 endif;
 

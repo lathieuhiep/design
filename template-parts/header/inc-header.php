@@ -1,7 +1,5 @@
 <?php
-global $design_options;
-
-$alert = $design_options['design_opt_alert_text'] ?? '';
+$alert = get_theme_mod( 'design_opt_alert_text', esc_html__( 'Giảm 5% khi đăng ký học 2 người  -  Giảm 5% khi đăng ký 2 khóa học', 'design' ) );
 ?>
 
 <header id="home" class="site-header">

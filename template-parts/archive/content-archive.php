@@ -1,23 +1,21 @@
 <?php
-global $design_options;
+$sidebar = get_theme_mod('design_opt_sidebar_blog_post', 'right');
+$per_row = get_theme_mod('design_opt_per_row_blog_post', '3');
 
-$design_opt_blog_sidebar_archive = $design_options['design_opt_blog_sidebar_archive'] ?? 'right';
-$design_class_col_content = design_col_use_sidebar($design_opt_blog_sidebar_archive, 'design_sidebar_main');
-$design_opt_blog_per_row = $design_options['design_opt_blog_per_row'] ?? 3;
+$class_col_content = design_col_use_sidebar($sidebar, 'design_sidebar_main');
 ?>
 
 <div class="site-container site-blog">
     <div class="container">
         <div class="row">
-            <div class="<?php echo esc_attr($design_class_col_content); ?>">
+            <div class="<?php echo esc_attr($class_col_content); ?>">
                 <div class="site-post-content">
-                    <?php if (have_posts()) : ?>
-                        <div class="row">
+                    <?php if ( have_posts() ) : ?>
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-<?php echo esc_attr( $per_row ); ?>">
 
                             <?php while (have_posts()) : the_post(); ?>
 
-                                <div id="post-<?php the_ID(); ?>"
-                                     class="site-post-item col-12 col-md-6 col-lg-<?php echo esc_attr(12 / $design_opt_blog_per_row); ?>">
+                                <div id="post-<?php the_ID(); ?>" class="col site-post-item">
                                     <div class="site-post-content">
                                         <h2 class="site-post-title">
                                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
@@ -76,7 +74,7 @@ $design_opt_blog_per_row = $design_options['design_opt_blog_per_row'] ?? 3;
             </div>
 
             <?php
-            if ($design_opt_blog_sidebar_archive !== 'hide') :
+            if ($sidebar !== 'hide') :
                 get_sidebar();
             endif;
             ?>

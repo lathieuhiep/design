@@ -1,12 +1,9 @@
 <?php
 get_header();
 
-global $design_options;
-
-$design_title = $design_options['design_opt_404_title'];
-$design_content = $design_options['design_opt_404_editor'];
-$design_background = $design_options['design_opt_404_background']['id'];
-
+$title = get_theme_mod('land_opt_title_404', '');
+$content = get_theme_mod('land_opt_content_404', '');
+$image = get_theme_mod('land_opt_image_404', '');
 ?>
 
 <div class="site-error text-center">
@@ -15,8 +12,8 @@ $design_background = $design_options['design_opt_404_background']['id'];
             <div class="col-md-6">
                 <figure class="site-error__image404">
                     <?php
-                    if( !empty( $design_background ) ):
-                        echo wp_get_attachment_image( $design_background, 'full' );
+                    if( !empty( $image ) ):
+                        echo wp_get_attachment_image( $image, 'full' );
                     else:
                         echo'<img src="'.esc_url( get_theme_file_uri( '/assets/images/404.jpg' ) ).'" alt="'.get_bloginfo('title').'" />';
                     endif;
@@ -27,8 +24,8 @@ $design_background = $design_options['design_opt_404_background']['id'];
             <div class="col-md-6">
                 <h1 class="site-title-404">
                     <?php
-                    if ( $design_title != '' ):
-                        echo esc_html( $design_title );
+                    if ( $title != '' ):
+                        echo esc_html( $title );
                     else:
                         esc_html_e( 'Awww...Do Not Cry', 'design' );
                     endif;
@@ -37,8 +34,8 @@ $design_background = $design_options['design_opt_404_background']['id'];
 
                 <div id="site-error-content">
                     <?php
-                    if ( $design_content != '' ) :
-                        echo wp_kses_post( $design_content );
+                    if ( $content != '' ) :
+                        echo wp_kses_post( $content );
                     else:
                     ?>
                         <p>
