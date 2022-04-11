@@ -1,11 +1,8 @@
 <?php
 get_header();
 
-global $design_options;
-
-$design_opt_single_post_sidebar = $design_options['design_opt_single_post_sidebar'] ?? 'right';
-
-$design_class_col_content = design_col_use_sidebar( $design_opt_single_post_sidebar, 'design_sidebar_main' );
+$sidebar = get_theme_mod('design_opt_sidebar_single_post', 'right');
+$class_col_content = design_col_use_sidebar( $sidebar, 'design_sidebar_main' );
 
 get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
 ?>
@@ -13,7 +10,7 @@ get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
 <div class="site-container site-single">
     <div class="container">
         <div class="row">
-            <div class="<?php echo esc_attr( $design_class_col_content ); ?>">
+            <div class="<?php echo esc_attr( $class_col_content ); ?>">
 
                 <?php
                 if ( have_posts() ) : while (have_posts()) : the_post();
@@ -27,7 +24,7 @@ get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
             </div>
 
             <?php
-            if ( $design_opt_single_post_sidebar !== 'hide' ) :
+            if ( $sidebar !== 'hide' ) :
 	            get_sidebar();
             endif;
             ?>

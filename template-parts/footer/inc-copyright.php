@@ -1,11 +1,9 @@
 <?php
-global $design_options;
-
-$design_copyright = $design_options ['design_opt_footer_copyright_editor'] ?? 'Copyright &amp; DiepLK';
+$copyright = get_theme_mod('design_opt_content_copyright', 'Copyright &amp; DiepLK');
 ?>
 
 <div class="site-footer__copyright text-center">
     <div class="container">
-	    <?php echo wp_kses_post( $design_copyright ); ?>
+	    <?php echo wp_kses_post( $copyright ); ?>
     </div>
 </div>

@@ -1,13 +1,23 @@
 <?php
-global $design_options;
+$contact_us_show_hide = get_theme_mod( 'design_opt_show_contact_us', 'show' );
 
-$contact_us_show_hide = $design_options['design_opt_contact_us_show'] ?? true;
+if ( $contact_us_show_hide == 'show' ) :
 
-if ( $contact_us_show_hide ) :
-$link = $design_options['design_opt_contact_us_fanpage'] ?? '';
-$phones = $design_options['design_opt_contact_us_phone'] ?? '';
+    $link = get_theme_mod( 'design_opt_contact_us_fanpage', 'https://www.facebook.com/khoahocuxui' );
 
+    $default_phone = [
+        [
+            'text' => 'Phone 1',
+            'phone' => '0911321300',
+        ],
+        [
+            'text' => 'Phone 2',
+            'phone' => '0975458209',
+        ],
+    ];
+    $phones = get_theme_mod('design_opt_contact_us_phone', $default_phone);
 ?>
+
 <div class="contact-us d-none d-md-block">
     <div class="container d-flex justify-content-between">
         <?php if ( $phones ) : ?>
@@ -18,8 +28,8 @@ $phones = $design_options['design_opt_contact_us_phone'] ?? '';
             <ul class="d-flex">
                 <?php foreach ( $phones as $phone ) : ?>
                 <li>
-                    <a href="tel:<?php echo esc_attr( $phone ); ?>">
-	                    <?php echo esc_html( $phone ); ?>
+                    <a href="tel:<?php echo esc_attr( $phone['phone'] ); ?>">
+	                    <?php echo esc_html( $phone['phone'] ); ?>
                     </a>
                 </li>
                 <?php endforeach; ?>

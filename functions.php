@@ -64,16 +64,19 @@ endif;
 require get_parent_theme_file_path( '/includes/class-tgm-plugin-activation.php' );
 require get_parent_theme_file_path( '/includes/plugin-activation.php' );
 
-/**
- * Required: include plugin theme scripts
- */
-require get_parent_theme_file_path( '/extension/process-option.php' );
+// Required: theme add_action
+require get_parent_theme_file_path( '/includes/theme-add-action.php' );
 
 if ( class_exists( 'ReduxFramework' ) ) {
 	/*
 	 * Required: Redux Framework
 	 */
 	require get_parent_theme_file_path( '/extension/option-reudx/theme-options.php' );
+}
+
+// Required: Kirki customizer
+if ( class_exists('Kirki') ) {
+    require get_theme_file_path( 'extension/theme-option/customizer.php' );
 }
 
 if ( class_exists( 'RW_Meta_Box' ) ) {
@@ -254,41 +257,56 @@ if ( ! function_exists( 'design_comment_nav' ) ) :
 
 endif;
 
-/* Start Social Network */
+// Social Network
 function design_get_social_url() {
+    $defaults = design_get_social_defaults();
 
-	global $design_options;
-	$design_opt_social_networks = design_get_social_network();
+    $social_networks = get_theme_mod('design_opt_social_list', $defaults);
 
-	foreach ( $design_opt_social_networks as $design_social ) :
-		$design_social_url = $design_options[ 'design_opt_social_network_' . $design_social['id'] ] ?? '#';
+    foreach ( $social_networks as $item ) :
+        $social_url = $item['url'];
 
-		if ( $design_social_url ) :
-			?>
-
-            <div class="social-network-item item-<?php echo esc_attr( $design_social['id'] ); ?>">
-                <a href="<?php echo esc_url( $design_social_url ); ?>">
-                    <i class="<?php echo esc_attr( $design_social['icon'] ); ?>" aria-hidden="true"></i>
+        if ( $social_url ) :
+    ?>
+            <div class="social-network-item">
+                <a href="<?php echo esc_url( $social_url ); ?>" target="<?php echo esc_attr( $item['target'] ); ?>">
+                    <i class="<?php echo $item['icon']; ?>"></i>
                 </a>
             </div>
-
-		<?php
-		endif;
-
-	endforeach;
+    <?php
+        endif;
+    endforeach;
 }
 
-function design_get_social_network(): array
+function design_get_social_defaults(): array
 {
-	return array(
-		array( 'id' => 'facebook', 'icon' => 'fab fa-facebook-f' ),
-		array( 'id' => 'youtube', 'icon' => 'fab fa-youtube' ),
-		array( 'id' => 'twitter', 'icon' => 'fab fa-twitter' ),
-		array( 'id' => 'instagram', 'icon' => 'fab fa-instagram' ),
-	);
+    return [
+        [
+            'title' => 'Facebook',
+            'icon' => 'fab fa-facebook-f',
+            'url' => '#',
+            'target' => '_blank'
+        ],
+        [
+            'title' => 'Youtube',
+            'icon' => 'fab fa-youtube',
+            'url' => '#',
+            'target' => '_blank'
+        ],
+        [
+            'title' => 'Twitter',
+            'icon' => 'fab fa-twitter',
+            'url' => '#',
+            'target' => '_blank'
+        ],
+        [
+            'title' => 'Instagram',
+            'icon' => 'fab fa-instagram',
+            'url' => '#',
+            'target' => '_blank'
+        ],
+    ];
 }
-
-/* End Social Network */
 
 /* Start pagination */
 function design_pagination() {
@@ -530,8 +548,7 @@ function design_get_form_cf7(): array {
 // chat facebook
 add_action('wp_footer', 'design_chat_facebook');
 function design_chat_facebook () {
-	global $design_options;
-	$facebook = $design_options ['design_opt_chat_facebook'];
+	$facebook = get_theme_mod('design_opt_chat_facebook', '');
 
 	if ( $facebook ) {
 		echo force_balance_tags( $facebook );

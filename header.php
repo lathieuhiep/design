@@ -11,23 +11,24 @@
 
 <!--Include Loading Template-->
 <?php
-global $design_options;
-$backtotop = $design_options ['design_opt_backtotop_show'] ?? true;
-
 get_template_part('template-parts/inc','loading');
 get_template_part('template-parts/header/inc','header');
 ?>
 <!--End Loading Template-->
 
-<?php if ( $backtotop ) :?>
+<!--Start back top top-->
+<?php
+$show_back_to_top = get_theme_mod( 'design_opt_back_to_top', 'on' );
+
+if ( $show_back_to_top == 'on' ) :
+?>
     <div id="back-top">
         <a href="#">
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-    <!--End back top top-->
 <?php endif; ?>
-<!--Start back top top-->
+<!--End back top top-->
 
 
 <!--Start Sticky Footer-->

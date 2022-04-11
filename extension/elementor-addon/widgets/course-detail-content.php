@@ -53,10 +53,9 @@ class Design_Elementor_Addon_CourseDetailContent extends Widget_Base {
 	}
 
 	protected function render() {
-		global $design_options;
-		$opt_rule = $design_options['design_opt_course_rule_editor'];
-		$opt_bank_1 = $design_options['design_opt_course_bank_account_1'];
-		$opt_bank_2 = $design_options['design_opt_course_bank_account_2'];
+		$opt_rule = get_theme_mod('design_opt_course_rule_editor', '');
+		$opt_bank_1 = get_theme_mod('design_opt_course_bank_account_1', '');
+		$opt_bank_2 = get_theme_mod('design_opt_course_bank_account_2', '');
 
 		$settings = $this->get_settings_for_display();
     ?>
