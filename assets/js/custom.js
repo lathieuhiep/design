@@ -45,6 +45,10 @@
         $( document ).general_owlCarousel_custom( '.site-post-slides' );
         /* End Gallery Single */
 
+        /* Start nav course slider */
+        $( document ).general_owlCarousel_custom( '.nav-course-slider' );
+        /* End nav course slider */
+
     });
 
     // loading
@@ -97,7 +101,7 @@
                     };
 
                     let config = $.extend( defaults, slider.data( 'settings-owl') );
-
+console.log(config);
                     slider.owlCarousel( config ).addClass( 'owl-carousel-init' );
 
                 }
