@@ -1,21 +1,10 @@
 <?php
 get_header();
 
-$design_check_elementor = get_post_meta( get_the_ID(), '_elementor_edit_mode', true );
 $contact_from = get_theme_mod('design_opt_course_select_contact', '');
 ?>
 
 <div class="site-single-course">
-    <?php
-    if ( $design_check_elementor ) :
-        while ( have_posts() ) :
-            the_post() ;
-            the_content();
-            design_link_page();
-        endwhile;
-    else:
-    ?>
-
     <div class="element-has-background">
         <?php get_template_part('template-parts/breadcrumbs/inc','breadcrumbs'); ?>
 
@@ -65,11 +54,7 @@ $contact_from = get_theme_mod('design_opt_course_select_contact', '');
         </div>
     </div>
 
-    <?php
-    endif;
-
-    get_template_part('template-parts/course/inc','detail');
-    ?>
+    <?php get_template_part('template-parts/course/inc','detail'); ?>
 
     <div class="element-has-background element-section">
         <div class="container">
@@ -89,7 +74,6 @@ $contact_from = get_theme_mod('design_opt_course_select_contact', '');
             </div>
         </div>
     </div>
-
 </div>
 
 <?php if ( $contact_from ) :?>
