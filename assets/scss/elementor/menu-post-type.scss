@@ -43,13 +43,14 @@
       font-size: 12px;
       line-height: 1.35em;
       text-transform: uppercase;
+      @include flex(1);
 
       a {
         color: $color-title;
       }
     }
 
-    &.active,
+    &.current,
     &:hover {
       border-color: $color-hover;
 

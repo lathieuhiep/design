@@ -69,6 +69,49 @@ require get_parent_theme_file_path( '/includes/theme-add-action.php' );
 
 // Required: Kirki customizer
 if ( class_exists('Kirki') ) {
+    function design_default_customizer_repeater($key) {
+        $default = [];
+
+        $default['testimonial'] = [
+            [
+                'name'  => esc_html__( 'Lê Minh Anh', 'design' ),
+                'course'   => esc_html__('Học khóa Web & App', 'design'),
+                'avatar'    => '',
+                'description' => '',
+            ],
+
+            [
+                'name'  => esc_html__( 'Phạm Văn Sỹ', 'design' ),
+                'course'   => esc_html__('Học khóa Web', 'design'),
+                'avatar'    => '',
+                'description' => '',
+            ],
+
+            [
+                'name'  => esc_html__( 'Hà Thanh Tùng', 'design' ),
+                'course'   => esc_html__('Học khóa App Mobile', 'design'),
+                'avatar'    => '',
+                'description' => '',
+            ],
+
+            [
+                'name'  => esc_html__( 'Phạm Hồng Nhung', 'design' ),
+                'course'   => esc_html__('Học khóa App Mobile', 'design'),
+                'avatar'    => '',
+                'description' => '',
+            ],
+
+            [
+                'name'  => esc_html__( 'Mạc Linh Thư', 'design' ),
+                'course'   => esc_html__('Học khóa Web', 'design'),
+                'avatar'    => '',
+                'description' => '',
+            ],
+        ];
+
+        return $default[$key];
+    }
+
     require get_theme_file_path( 'extension/theme-option/customizer.php' );
 }
 

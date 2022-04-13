@@ -58,6 +58,16 @@ function design_register_front_end() {
 
 	wp_enqueue_script( 'design-custom', get_theme_file_uri( '/assets/js/custom.js' ), array(), '1.0.0', true );
 
+    // load product ajax
+    wp_register_script( 'load-product', get_theme_file_uri( '/assets/js/load-product.js' ), array('jquery'), '', true );
+    $design_load_product_admin_url = admin_url( 'admin-ajax.php' );
+    $design_get_product = array( 'url' => $design_load_product_admin_url );
+    wp_localize_script( 'load-product', 'design_get_product', $design_get_product );
+
+    if ( is_singular('design_course') ) {
+        wp_enqueue_script( 'load-product' );
+    }
+
 	/*
    * End Get Js Front End
    * */

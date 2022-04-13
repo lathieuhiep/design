@@ -46,8 +46,54 @@
         /* End Gallery Single */
 
         /* Start nav course slider */
-        $( document ).general_owlCarousel_custom( '.nav-course-slider' );
+        const navCourseSlider = $('.nav-course-slider');
+
+        if ( navCourseSlider.length ) {
+            const navCourseOwl = navCourseSlider.owlCarousel({
+                loop: true,
+                nav: false,
+                dots: false,
+                autoplay: true,
+                autoplaySpeed: 800,
+                navSpeed: 800,
+                dotsSpeed: 800,
+                responsive:{
+                    0: {
+                        items: 1
+                    },
+                    479: {
+                        items: 2,
+                        center: true,
+                    },
+                    768: {
+                        items: 3
+                    }
+                }
+            })
+
+            const indexNavCourse = navCourseSlider.find('.owl-item:not(.cloned) .current').data('index');
+            navCourseOwl.trigger('to.owl.carousel', [indexNavCourse, 800]);
+        }
         /* End nav course slider */
+
+        // show content post
+        $('.show-full-content').on('click', function (event) {
+            event.preventDefault();
+
+            const heightContent = $(this).closest('.element-course-detail-content').find('.content-box');
+            const getHeightContent = heightContent.prop("scrollHeight");
+
+            heightContent.animate({
+                'height': getHeightContent
+            }, 400, function () {
+                heightContent.css('height','auto');
+            });
+
+            $(this).closest('.read-more-content').remove();
+        })
+
+        /* Start testimonial */
+        $( document ).general_owlCarousel_custom( '.testimonial-owl' );
 
     });
 
@@ -101,7 +147,6 @@
                     };
 
                     let config = $.extend( defaults, slider.data( 'settings-owl') );
-console.log(config);
                     slider.owlCarousel( config ).addClass( 'owl-carousel-init' );
 
                 }

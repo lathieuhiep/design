@@ -335,6 +335,14 @@
 
 @media (max-width: 575px) {
 
+  .site-single-course {
+    .info-list {
+      .content-lesson {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
   .comment-form {
     .comment-fields-row {
       margin-bottom: 0;
@@ -342,22 +350,6 @@
 
     .form-comment-item {
       margin-bottom: 15px;
-    }
-  }
-  .woocommerce {
-    ul {
-      &.products {
-        &.columns-3,
-        &.columns-4,
-        &.columns-5 {
-          li {
-            &.product {
-              @include flex(0 0 50%);
-              width: 50%;
-            }
-          }
-        }
-      }
     }
   }
 

@@ -1,6 +1,7 @@
 .site-single-course {
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: 20px;
+    font-weight: 700;
   }
 
   .entry-content {
@@ -9,12 +10,135 @@
 
   .breadcrumbs {
     .breadcrumbs-col {
-      padding-bottom: 35px;
+      padding: 0;
     }
   }
 
   .element-menu-post-type {
-    max-width: 780px;
+    margin: 40px auto 0;
+    max-width: 788px;
+
+    .owl-stage {
+      @include flexbox();
+
+      .owl-item {
+        padding-left: 4px;
+        padding-right: 4px;
+        @include flex(1);
+
+        .item {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .content-info {
     margin: 0 auto;
+    padding-top: 30px;
+    max-width: 800px;
+
+    .title-post {
+      font-size: 22px;
+      text-transform: uppercase;
+    }
+
+    .sub-text {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: $color-second;
+    }
+  }
+
+  .info-list {
+    margin-bottom: 30px;
+
+    &__title {
+      position: relative;
+      margin-bottom: 16px;
+      padding-left: 26px;
+      font-size: 16px;
+      text-transform: uppercase;
+
+      &:before {
+        position: absolute;
+        content: "";
+        width: 18px;
+        height: 18px;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        border: 2px solid $background-primary;
+        background-color: #fff
+      }
+
+      &:after {
+        position: absolute;
+        content: "";
+        width: 8px;
+        height: 8px;
+        top: 5px;
+        left: 5px;
+        border-radius: 50%;
+        background-color: $background-primary;
+      }
+    }
+
+    &__content {
+      ul {
+        margin-bottom: 16px;
+        padding-left: 20px;
+      }
+    }
+
+    .content-border {
+      padding: 24px 32px 8px;
+      background-color: #fff;
+      border: 1px dashed #a6a6a6;
+    }
+
+    .content-lesson {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+    }
+  }
+
+  .element-btn-modal-form {
+    .btn-box {
+      button {
+        text-transform: uppercase;
+        display: inline-flex;
+        @include align-items(center);
+      }
+    }
+  }
+
+  .element-course-detail-content {
+    margin: 0 auto;
+    max-width: 860px;
+  }
+
+  .box-top {
+    margin-bottom: 40px;
+
+    .text {
+      margin-bottom: 12px;
+      color: $color-second;
+      font-weight: 500;
+    }
+
+    .title {
+      margin-bottom: 0;
+      font-size: 22px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.modal-course {
+  .note__label {
+    font-size: 16px;
+    color: #ff4f41;
   }
 }
