@@ -112,6 +112,12 @@ if ( class_exists('Kirki') ) {
         return $default[$key];
     }
 
+    function design_content_modal_contact_footer() {
+        $contact_content_footer = get_theme_mod('design_opt_content_modal_footer_contact', '');
+
+        echo wpautop( $contact_content_footer );
+    }
+
     require get_theme_file_path( 'extension/theme-option/customizer.php' );
 }
 
@@ -121,8 +127,6 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
 	 */
 	require get_parent_theme_file_path( '/extension/meta-box/meta-box-post.php' );
 	require get_parent_theme_file_path( '/extension/meta-box/meta-box-student-product.php' );
-	require get_parent_theme_file_path( '/extension/meta-box/meta-box-testimonial.php' );
-
 }
 
 // Required: CMB2
@@ -160,7 +164,6 @@ require get_parent_theme_file_path( '/extension/post-type/course.php' );
 require get_parent_theme_file_path( '/extension/post-type/student-product.php' );
 require get_parent_theme_file_path( '/extension/post-type/my-product.php' );
 require get_parent_theme_file_path( '/extension/post-type/service.php' );
-require get_parent_theme_file_path( '/extension/post-type/testimonial.php' );
 
 /**
  * Required: Register Sidebar

@@ -133,6 +133,16 @@ new Radio_Buttonset(
 	]
 );
 
+// Field content modal footer contact
+new Editor(
+    [
+        'settings'    => 'design_opt_content_modal_footer_contact',
+        'label'       => esc_html__( 'Content Modal Footer Contact', 'design' ),
+        'section'     => 'design_opt_section_general',
+        'default'     => '',
+    ]
+);
+
 /*
  * Section Header
  * */

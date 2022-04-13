@@ -120,16 +120,6 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'description',
-			[
-				'label' => esc_html__( 'Description', 'design' ),
-				'type' => Controls_Manager::WYSIWYG,
-				'default' => esc_html__( 'Default description', 'design' ),
-				'placeholder' => esc_html__( 'Type your description here', 'design' ),
-			]
-		);
-
 		$this->end_controls_section();
 
 		// Style
@@ -237,7 +227,7 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
                         </div>
 
                         <div class="modal-footer">
-	                        <?php echo wp_kses_post( $settings['description'] ); ?>
+                            <?php design_content_modal_contact_footer(); ?>
                         </div>
                     </div>
                 </div>

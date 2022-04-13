@@ -1,6 +1,5 @@
 <?php
 
-use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
@@ -31,57 +30,6 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 	}
 
 	protected function register_controls() {
-
-		// Content query
-		$this->start_controls_section(
-			'section_query',
-			[
-				'label' => esc_html__( 'Query', 'design' ),
-				'tab'   => Controls_Manager::TAB_CONTENT,
-			]
-		);
-
-		$this->add_control(
-			'limit',
-			[
-				'label'   => esc_html__( 'Number of Posts', 'design' ),
-				'type'    => Controls_Manager::NUMBER,
-				'default' => 6,
-				'min'     => 1,
-				'max'     => 100,
-				'step'    => 1,
-			]
-		);
-
-		$this->add_control(
-			'order_by',
-			[
-				'label'   => esc_html__( 'Order By', 'design' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'id',
-				'options' => [
-					'id'    => esc_html__( 'ID', 'design' ),
-					'title' => esc_html__( 'Title', 'design' ),
-					'date'  => esc_html__( 'Date', 'design' ),
-					'rand'  => esc_html__( 'Random', 'design' ),
-				],
-			]
-		);
-
-		$this->add_control(
-			'order',
-			[
-				'label'   => esc_html__( 'Order', 'design' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'ASC',
-				'options' => [
-					'ASC'  => esc_html__( 'Ascending', 'design' ),
-					'DESC' => esc_html__( 'Descending', 'design' ),
-				],
-			]
-		);
-
-		$this->end_controls_section();
 
 		// Content additional options
 		$this->start_controls_section(
@@ -286,12 +234,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 	}
 
 	protected function render() {
-
-		$settings      = $this->get_settings_for_display();
-		$limit_post    = $settings['limit'];
-		$order_by_post = $settings['order_by'];
-		$order_post    = $settings['order'];
-
+		$settings = $this->get_settings_for_display();
 		$data_settings_owl = [
 			'loop'       => ( 'yes' === $settings['loop'] ),
 			'nav'        => ( 'yes' === $settings['nav'] ),
@@ -323,57 +266,46 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 			],
 		];
 
-		// Query
-		$args = array(
-			'post_type'      => 'design_testimonial',
-			'posts_per_page' => $limit_post,
-			'orderby'        => $order_by_post,
-			'order'          => $order_post,
-		);
+        $testimonial = get_theme_mod( 'design_opt_section_testimonial_list', design_default_customizer_repeater('testimonial') );
 
-		$query = new WP_Query( $args );
+		if ( $testimonial ) :
+    ?>
 
-		if ( $query->have_posts() ) :
-
-			?>
-            <div class="element-testimonial-carousel">
-                <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme"
-                     data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ); ?>'>
-					<?php
-                    while ( $query->have_posts() ):
-                        $query->the_post();
-
-	                    $name_course = rwmb_meta( 'design_meta_box_testimonial_name_course' );
-                    ?>
-
-                        <div class="item">
-                            <div class="item__info">
-                                <div class="avatar">
-                                    <?php the_post_thumbnail( 'full' ); ?>
-                                </div>
-
-                                <div class="student">
-                                    <h4 class="name">
-                                        <?php the_title(); ?>
-                                    </h4>
-
-                                    <p class="course">
-                                        <?php echo esc_html( $name_course ); ?>
-                                    </p>
-                                </div>
+        <div class="element-testimonial-carousel">
+            <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ); ?>'>
+                <?php foreach ( $testimonial as $item ) : ?>
+                    <div class="item">
+                        <div class="item__info">
+                            <div class="avatar">
+                                <?php
+                                if ( $item['avatar'] ) :
+                                    echo wp_get_attachment_image( $item['avatar'], 'full' );
+                                else:
+                                    ?>
+                                    <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/user-avatar.png' ) ) ?>" alt="avatar" width="80" height="80" />
+                                <?php endif; ?>
                             </div>
 
-                            <div class="item__desc">
-                                <?php the_content(); ?>
+                            <div class="student">
+                                <h4 class="name">
+                                    <?php echo esc_html( $item['name'] ); ?>
+                                </h4>
+
+                                <p class="course">
+                                    <?php echo esc_html( $item['course'] ); ?>
+                                </p>
                             </div>
                         </div>
 
-					<?php endwhile;
-					wp_reset_postdata(); ?>
-                </div>
+                        <div class="item__desc">
+                            <?php echo wpautop( $item['description'] ); ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-		<?php
+        </div>
 
+    <?php
 		endif;
 	}
 

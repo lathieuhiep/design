@@ -76,8 +76,7 @@ $contact_from = get_theme_mod('design_opt_course_select_contact', '');
     </div>
 </div>
 
-<?php if ( $contact_from ) :?>
-
+<?php if ( $contact_from ) : ?>
     <div class="modal fade modal-theme modal-course" id="register-course" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -102,20 +101,11 @@ $contact_from = get_theme_mod('design_opt_course_select_contact', '');
                 </div>
 
                 <div class="modal-footer">
-                    <p>
-                        Hoặc liên hệ với Hotline
-                        <br>
-                        <a href="tel:0911321300">0911 321 300</a>
-                        <span style="color: #ff4f41">/</span>
-                        <a href="tel:0975458209">0975 458 209</a>
-                        <br>
-                        để được tư vấn khóa học phù hợp với bạn
-                    </p>
+                    <?php design_content_modal_contact_footer(); ?>
                 </div>
             </div>
         </div>
     </div>
-
 <?php endif; ?>
 
 <?php
