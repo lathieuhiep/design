@@ -124,7 +124,7 @@ function design_post_metaboxes()
         'show_names' => true,
     ));
 
-    $cmb_course_time_tuition->add_field( array(
+    $cmb_course_detail->add_field( array(
         'name'    => esc_html__('Mô tả', 'design'),
         'id'      => 'design_cmb_course_detail_content',
         'type'    => 'wysiwyg',
