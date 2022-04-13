@@ -133,12 +133,11 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 					while ( $query->have_posts() ):
 						$query->the_post();
 
-						$study_time = rwmb_meta( 'design_meta_box_course_study_time' );
-						$study_form = rwmb_meta( 'design_meta_box_course_study_form' );
-						$number_lessons = rwmb_meta( 'design_meta_box_course_number_lessons' );
-						$tuition = rwmb_meta( 'design_meta_box_course_tuition' );
-
-						?>
+						$study_time = get_post_meta( get_the_ID(),'design_meta_box_course_study_time', true );
+						$study_form = get_post_meta(  get_the_ID(),'design_meta_box_course_study_form', true );
+						$number_lessons = get_post_meta(  get_the_ID(),'design_meta_box_course_number_lessons', true );
+						$tuition = get_post_meta(  get_the_ID(),'design_meta_box_course_tuition', true );
+                    ?>
 
                         <div class="col">
                             <div class="item">

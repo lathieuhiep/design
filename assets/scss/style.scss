@@ -25,7 +25,8 @@ Text Domain: design
   ## Single
   ## Pagination
   ## Comment
-# Single Service
+# Post Type
+  ## Course
 # Elementor
   ## Slider
   ## Posts Grid
@@ -86,9 +87,9 @@ Text Domain: design
 @import "blog/blog";
 
 /**
-# Single Service
+# Post Type
 -----------------------------------------------------------------------------*/
-@import "service/single-service";
+@import "post-type/post-type";
 
 /**
 # Elementor

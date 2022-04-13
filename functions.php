@@ -67,15 +67,51 @@ require get_parent_theme_file_path( '/includes/plugin-activation.php' );
 // Required: theme add_action
 require get_parent_theme_file_path( '/includes/theme-add-action.php' );
 
-if ( class_exists( 'ReduxFramework' ) ) {
-	/*
-	 * Required: Redux Framework
-	 */
-	require get_parent_theme_file_path( '/extension/option-reudx/theme-options.php' );
-}
-
 // Required: Kirki customizer
 if ( class_exists('Kirki') ) {
+    function design_default_customizer_repeater($key) {
+        $default = [];
+
+        $default['testimonial'] = [
+            [
+                'name'  => esc_html__( 'Lê Minh Anh', 'design' ),
+                'course'   => esc_html__('Học khóa Web & App', 'design'),
+                'avatar'    => '',
+                'description' => '',
+            ],
+
+            [
+                'name'  => esc_html__( 'Phạm Văn Sỹ', 'design' ),
+                'course'   => esc_html__('Học khóa Web', 'design'),
+                'avatar'    => '',
+                'description' => '',
+            ],
+
+            [
+                'name'  => esc_html__( 'Hà Thanh Tùng', 'design' ),
+                'course'   => esc_html__('Học khóa App Mobile', 'design'),
+                'avatar'    => '',
+                'description' => '',
+            ],
+
+            [
+                'name'  => esc_html__( 'Phạm Hồng Nhung', 'design' ),
+                'course'   => esc_html__('Học khóa App Mobile', 'design'),
+                'avatar'    => '',
+                'description' => '',
+            ],
+
+            [
+                'name'  => esc_html__( 'Mạc Linh Thư', 'design' ),
+                'course'   => esc_html__('Học khóa Web', 'design'),
+                'avatar'    => '',
+                'description' => '',
+            ],
+        ];
+
+        return $default[$key];
+    }
+
     require get_theme_file_path( 'extension/theme-option/customizer.php' );
 }
 
@@ -84,10 +120,15 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
 	 * Required: Meta Box Framework
 	 */
 	require get_parent_theme_file_path( '/extension/meta-box/meta-box-post.php' );
-	require get_parent_theme_file_path( '/extension/meta-box/meta-box-course.php' );
 	require get_parent_theme_file_path( '/extension/meta-box/meta-box-student-product.php' );
 	require get_parent_theme_file_path( '/extension/meta-box/meta-box-testimonial.php' );
 
+}
+
+// Required: CMB2
+if ( !class_exists('CMB2') ) {
+    require get_parent_theme_file_path( '/extension/meta-box/cmb_add_field.php' );
+    require get_parent_theme_file_path( '/extension/meta-box/cmb_course.php' );
 }
 
 if ( ! function_exists( 'rwmb_meta' ) ) {

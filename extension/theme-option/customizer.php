@@ -304,6 +304,62 @@ new Code(
 );
 
 /*
+ * Section Testimonial
+ * */
+new Section(
+    'design_opt_section_testimonial',
+    [
+        'title'       => esc_html__( 'Testimonial', 'design' ),
+        'panel'       => 'design_opt_panel',
+        'priority'    => 10,
+    ]
+);
+
+// Field Testimonial List
+new Repeater(
+    [
+        'settings'  => 'design_opt_section_testimonial_list',
+        'label'     => esc_html__( 'Create Testimonial', 'design' ),
+        'section'   => 'design_opt_section_testimonial',
+        'row_label' => array(
+            'type'  => 'field',
+            'value' => esc_html__( 'testimonial', 'design' ),
+            'field' => 'name',
+        ),
+        'default'   => design_default_customizer_repeater('testimonial'),
+        'fields'    => [
+            'name'  => [
+                'type'        => 'text',
+                'label'       => esc_html__( 'Name', 'design' ),
+                'default'     => '',
+            ],
+
+            'course'  => [
+                'type'        => 'text',
+                'label'       => esc_html__( 'Course', 'design' ),
+                'default'     => '',
+            ],
+
+            'avatar'       => [
+                'type'    => 'image',
+                'label'   => esc_html__( 'Avatar', 'design' ),
+                'default' => '',
+                'choices' => [
+                    'save_as' => 'id',
+                ],
+            ],
+
+            'description' => [
+                'type'    => 'textarea',
+                'label'   => esc_html__( 'Comment', 'design' ),
+                'default' => '',
+            ],
+        ],
+    ]
+);
+
+
+/*
  * Section Blog Post
  * */
 new Section(
@@ -425,6 +481,17 @@ new Section(
         'title'    => esc_html__( 'Course', 'design' ),
         'panel'    => 'design_opt_panel',
         'priority' => 10,
+    ]
+);
+
+// Field course select contact form
+new Select(
+    [
+        'settings'    => 'design_opt_course_select_contact',
+        'label'       => esc_html__( 'Select Contact Form', 'design' ),
+        'section'     => 'design_opt_course',
+        'default'     => '',
+        'choices'     => design_get_form_cf7(),
     ]
 );
 

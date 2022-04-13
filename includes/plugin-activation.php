@@ -12,13 +12,6 @@ function design_register_required_plugins() {
 	 */
 	$design_plugins = array(
 
-		// This is an example of how to include a plugin from the WordPress Plugin Repository
-		array(
-			'name'      =>  'Redux Framework',
-			'slug'      =>  'redux-framework',
-			'required'  =>  true,
-		),
-
         // This is an example of how to include a plugin from the WordPress Plugin Repository
 		array(
 			'name'      =>  'Kirki Customizer',
@@ -32,6 +25,13 @@ function design_register_required_plugins() {
 			'slug'      =>  'meta-box',
 			'required'  =>  true,
 		),
+
+        // This is an example of how to include a plugin from the WordPress Plugin Repository
+        array(
+            'name'      =>  'CMB2',
+            'slug'      =>  'cmb2',
+            'required'  =>  true,
+        ),
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository
 		array(

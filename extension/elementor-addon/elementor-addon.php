@@ -60,10 +60,4 @@ add_action( 'elementor/frontend/after_enqueue_styles', 'design_register_script_e
 
 function design_register_script_elementor_addon() {
 	wp_register_script( 'design-elementor-custom', get_theme_file_uri( '/assets/js/elementor-custom.js' ), array(), '1.0.0', true );
-
-	// load product ajax
-	wp_register_script( 'load-product', get_theme_file_uri( '/assets/js/load-product.js' ), array('jquery'), '', true );
-	$design_load_product_admin_url = admin_url( 'admin-ajax.php' );
-	$design_get_product = array( 'url' => $design_load_product_admin_url );
-	wp_localize_script( 'load-product', 'design_get_product', $design_get_product );
 }

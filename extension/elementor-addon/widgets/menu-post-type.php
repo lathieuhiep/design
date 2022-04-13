@@ -138,7 +138,7 @@ class Design_Elementor_Menu_Post_Type extends Widget_Base {
 					?>
 
 						<div class="col">
-							<div class="item <?php echo esc_attr( $post_id == $id_post_type ? 'active' : '' ) ?>">
+							<div class="item <?php echo esc_attr( $post_id == $id_post_type ? 'current' : '' ) ?>">
 								<div class="item__thumbnail">
 									<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 										<?php the_post_thumbnail( 'medium' ); ?>
