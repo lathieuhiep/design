@@ -61,15 +61,7 @@ get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
                 </div>
 
                 <div class="modal-footer">
-                    <p>
-                        Hoặc liên hệ với Hotline
-                        <br>
-                        <a href="tel:0911321300">0911 321 300</a>
-                        <span style="color: #ff4f41">/</span>
-                        <a href="tel:0975458209">0975 458 209</a>
-                        <br>
-                        để được tư vấn khóa học phù hợp với bạn
-                    </p>
+                    <?php design_content_modal_contact_footer(); ?>
                 </div>
             </div>
         </div>
