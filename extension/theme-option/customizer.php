@@ -608,6 +608,29 @@ new Select(
 );
 
 /*
+ * Section Single My Product
+ * */
+new Section(
+    'design_opt_single_my_product',
+    [
+        'title'    => esc_html__( 'Single My Product', 'design' ),
+        'panel'    => 'design_opt_panel',
+        'priority' => 10,
+    ]
+);
+
+// Field select contact form
+new Select(
+    [
+        'settings'    => 'design_opt_single_my_product_contact',
+        'label'       => esc_html__( 'Select Contact Form', 'design' ),
+        'section'     => 'design_opt_single_my_product',
+        'default'     => '',
+        'choices'     => design_get_form_cf7(),
+    ]
+);
+
+/*
  * Section Single Service
  * */
 new Section(

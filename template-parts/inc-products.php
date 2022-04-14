@@ -18,6 +18,10 @@ $query = new WP_Query( $args );
 if ( $query->have_posts() ) :
     ?>
     <div class="box-top text-center">
+        <p class="text">
+            <?php esc_html_e('Tham khảo sản phẩm', 'design'); ?>
+        </p>
+
         <h4 class="title">
             <?php esc_html_e('Sản phẩm của chúng tôi', 'design'); ?>
         </h4>

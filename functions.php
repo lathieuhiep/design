@@ -121,18 +121,12 @@ if ( class_exists('Kirki') ) {
     require get_theme_file_path( 'extension/theme-option/customizer.php' );
 }
 
-if ( class_exists( 'RW_Meta_Box' ) ) {
-	/*
-	 * Required: Meta Box Framework
-	 */
-	require get_parent_theme_file_path( '/extension/meta-box/meta-box-post.php' );
-}
-
 // Required: CMB2
 if ( !class_exists('CMB2') ) {
     require get_parent_theme_file_path( '/extension/meta-box/cmb_add_field.php' );
     require get_parent_theme_file_path( '/extension/meta-box/cmb_course.php' );
     require get_parent_theme_file_path( '/extension/meta-box/cmb_student_product.php' );
+    require get_parent_theme_file_path( '/extension/meta-box/cmb_my_product.php' );
 }
 
 if ( ! function_exists( 'rwmb_meta' ) ) {

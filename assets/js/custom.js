@@ -112,7 +112,7 @@
         // Get attr src gallery product
         const itemStudent = $('.item-student');
 
-        if ( itemStudent.length ) {
+        if ( itemStudent.length ) {console.log(itemStudent);
             itemStudent.on('click', function () {
                 const src = $(this).data('src');
                 const hasClassView = $(this).hasClass('view-product');
