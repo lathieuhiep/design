@@ -12,6 +12,15 @@
 
 }
 
+@media (min-width: 1200px) {
+
+  .custom-container {
+    margin: 0 auto;
+    max-width: 1120px;
+  }
+
+}
+
 @media (max-width: 1199px) {
 
   .container {

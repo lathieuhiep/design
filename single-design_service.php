@@ -12,24 +12,22 @@ get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
                 <div class="box">
                     <div class="box__content">
                         <?php
-                        while ( have_posts() ) :
-
-                            the_post() ;
+                        while ( have_posts() ) : the_post() ;
                             the_content();
-                            design_link_page();
-
                         endwhile;
                         ?>
                     </div>
 
-                    <div class="element-btn-modal-form mt-5">
-                        <div class="btn-box">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#register-course">
-                                <span><?php esc_html_e('Đăng kí nhận báo giá', 'design'); ?></span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
+                    <?php if ( $contact_from ) : ?>
+                        <div class="element-btn-modal-form mt-5">
+                            <div class="btn-box">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#register-course">
+                                    <span><?php esc_html_e('Đăng kí nhận báo giá', 'design'); ?></span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

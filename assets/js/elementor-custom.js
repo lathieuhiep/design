@@ -19,39 +19,6 @@
         });
     }
 
-    // Scrollbar
-    const ElementScroll = function ( $scope, $ ) {
-        const scrollbar = $scope.find( '.scrollbar-inner' );
-
-        scrollbar.scrollbar({
-            autoScrollSize: false
-        });
-    }
-
-    // Get attr src
-    const ElementGetAttrSrc = function ( $scope, $ ) {
-        const itemStudent = $scope.find( '.item-student' );
-
-        itemStudent.on('click', function () {
-            const src = $(this).data('src');
-            const hasClassView = $(this).hasClass('view-product');
-            const imageProduct =  $(this).closest('.element-student-product-detail').find('.product-featured-image img');
-
-            if ( !hasClassView ) {
-                $(this).closest('.product-gallery__slider').find('.item').removeClass('view-product');
-                $(this).addClass('view-product');
-
-                imageProduct.fadeOut();
-
-                setTimeout( function() {
-
-                    imageProduct.attr('src', src).fadeIn();
-
-                }, 400 );
-            }
-        })
-    }
-
     $( window ).on( 'elementor/frontend/init', function() {
 
         /* Element slider */
@@ -71,12 +38,6 @@
 
         /* Element course detail content */
         elementorFrontend.hooks.addAction( 'frontend/element_ready/design-course-detail-content.default', ElementCourseDetailContent );
-
-        /* Element scrollbar */
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/design-student-product-detail.default', ElementScroll );
-
-        /* Element attr src */
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/design-student-product-detail.default', ElementGetAttrSrc );
 
     } );
 

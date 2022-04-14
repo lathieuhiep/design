@@ -279,6 +279,51 @@ new Repeater(
 );
 
 /*
+ * Section Rule
+ * */
+new Section(
+    'design_opt_section_rule',
+    [
+        'title'    => esc_html__( 'Rule', 'design' ),
+        'panel'    => 'design_opt_panel',
+        'priority' => 10,
+    ]
+);
+
+// Field Upload Image
+new Image(
+    [
+        'settings' => 'design_opt_rule_image',
+        'label'    => esc_html__( 'Upload Image', 'design' ),
+        'section'  => 'design_opt_section_rule',
+        'default'  => '',
+        'choices'  => [
+            'save_as' => 'id',
+        ],
+    ]
+);
+
+// Field Content
+new Editor(
+    [
+        'settings'    => 'design_opt_rule_content',
+        'label'       => esc_html__( 'Content', 'design' ),
+        'section'     => 'design_opt_section_rule',
+        'default'     => '',
+    ]
+);
+
+// Field Contact
+new Editor(
+    [
+        'settings'    => 'design_opt_rule_contact',
+        'label'       => esc_html__( 'Contact', 'design' ),
+        'section'     => 'design_opt_section_rule',
+        'default'     => '',
+    ]
+);
+
+/*
  * Section Chat
  * */
 new Section(
@@ -540,12 +585,58 @@ new Code(
 );
 
 /*
- * Section Service Single
+ * Section Single Student Product
+ * */
+new Section(
+    'design_opt_single_student_product',
+    [
+        'title'    => esc_html__( 'Single Student Product', 'design' ),
+        'panel'    => 'design_opt_panel',
+        'priority' => 10,
+    ]
+);
+
+// Field select contact form
+new Select(
+    [
+        'settings'    => 'design_opt_single_student_product_contact',
+        'label'       => esc_html__( 'Select Contact Form', 'design' ),
+        'section'     => 'design_opt_single_student_product',
+        'default'     => '',
+        'choices'     => design_get_form_cf7(),
+    ]
+);
+
+/*
+ * Section Single My Product
+ * */
+new Section(
+    'design_opt_single_my_product',
+    [
+        'title'    => esc_html__( 'Single My Product', 'design' ),
+        'panel'    => 'design_opt_panel',
+        'priority' => 10,
+    ]
+);
+
+// Field select contact form
+new Select(
+    [
+        'settings'    => 'design_opt_single_my_product_contact',
+        'label'       => esc_html__( 'Select Contact Form', 'design' ),
+        'section'     => 'design_opt_single_my_product',
+        'default'     => '',
+        'choices'     => design_get_form_cf7(),
+    ]
+);
+
+/*
+ * Section Single Service
  * */
 new Section(
     'design_opt_service_single',
     [
-        'title'    => esc_html__( 'Service Single', 'design' ),
+        'title'    => esc_html__( 'Single Service', 'design' ),
         'panel'    => 'design_opt_panel',
         'priority' => 10,
     ]

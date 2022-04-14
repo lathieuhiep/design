@@ -121,18 +121,12 @@ if ( class_exists('Kirki') ) {
     require get_theme_file_path( 'extension/theme-option/customizer.php' );
 }
 
-if ( class_exists( 'RW_Meta_Box' ) ) {
-	/*
-	 * Required: Meta Box Framework
-	 */
-	require get_parent_theme_file_path( '/extension/meta-box/meta-box-post.php' );
-	require get_parent_theme_file_path( '/extension/meta-box/meta-box-student-product.php' );
-}
-
 // Required: CMB2
 if ( !class_exists('CMB2') ) {
     require get_parent_theme_file_path( '/extension/meta-box/cmb_add_field.php' );
     require get_parent_theme_file_path( '/extension/meta-box/cmb_course.php' );
+    require get_parent_theme_file_path( '/extension/meta-box/cmb_student_product.php' );
+    require get_parent_theme_file_path( '/extension/meta-box/cmb_my_product.php' );
 }
 
 if ( ! function_exists( 'rwmb_meta' ) ) {
@@ -599,3 +593,23 @@ function design_chat_facebook () {
 	}
 }
 
+// get post type
+function design_get_post ( $post_type = 'post' ) {
+    $args = array(
+        'post_type' => $post_type,
+        'numberposts' => -1
+    );
+
+    $post = get_posts( $args, 'objects' );
+    $list_post = array();
+
+    if ( $post ) :
+        foreach ( $post as $item ):
+            $list_post[ $item->ID ] = $item->post_title;
+        endforeach;
+    else:
+        $list_post[0] = esc_html__( "No course found", "design" );
+    endif;
+
+    return $list_post;
+}

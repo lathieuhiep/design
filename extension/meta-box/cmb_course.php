@@ -1,7 +1,7 @@
 <?php
-add_action('cmb2_admin_init', 'design_post_metaboxes');
+add_action('cmb2_admin_init', 'design_course_metaboxes');
 
-function design_post_metaboxes()
+function design_course_metaboxes()
 {
     // Course information meta box
     $cmb_course_information = new_cmb2_box(array(
