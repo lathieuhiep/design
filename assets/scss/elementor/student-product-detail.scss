@@ -5,7 +5,12 @@
     margin-bottom: 30px;
 
     .scrollbar-inner {
+      text-align: center;
       overflow: hidden;
+
+      img {
+        display: inline-block;
+      }
 
       > .scroll-element {
         &.scroll-y {

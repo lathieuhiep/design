@@ -64,7 +64,7 @@ function design_register_front_end() {
     $design_get_product = array( 'url' => $design_load_product_admin_url );
     wp_localize_script( 'load-product', 'design_get_product', $design_get_product );
 
-    if ( is_singular('design_course') || is_singular('design_service') ) {
+    if ( is_singular('design_course') || is_singular('design_service') || is_singular( 'student_product' ) ) {
         wp_enqueue_script( 'load-product' );
     }
 

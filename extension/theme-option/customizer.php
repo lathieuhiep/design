@@ -279,6 +279,51 @@ new Repeater(
 );
 
 /*
+ * Section Rule
+ * */
+new Section(
+    'design_opt_section_rule',
+    [
+        'title'    => esc_html__( 'Rule', 'design' ),
+        'panel'    => 'design_opt_panel',
+        'priority' => 10,
+    ]
+);
+
+// Field Upload Image
+new Image(
+    [
+        'settings' => 'design_opt_rule_image',
+        'label'    => esc_html__( 'Upload Image', 'design' ),
+        'section'  => 'design_opt_section_rule',
+        'default'  => '',
+        'choices'  => [
+            'save_as' => 'id',
+        ],
+    ]
+);
+
+// Field Content
+new Editor(
+    [
+        'settings'    => 'design_opt_rule_content',
+        'label'       => esc_html__( 'Content', 'design' ),
+        'section'     => 'design_opt_section_rule',
+        'default'     => '',
+    ]
+);
+
+// Field Contact
+new Editor(
+    [
+        'settings'    => 'design_opt_rule_contact',
+        'label'       => esc_html__( 'Contact', 'design' ),
+        'section'     => 'design_opt_section_rule',
+        'default'     => '',
+    ]
+);
+
+/*
  * Section Chat
  * */
 new Section(
