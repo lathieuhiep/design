@@ -15,11 +15,9 @@ $type_image = rwmb_meta( 'design_meta_box_post_select_image' );
      ?>
 
     <div class="site-post-content">
-        <h2 class="site-post-title">
+        <h1 class="site-post-title">
             <?php the_title(); ?>
-        </h2>
-
-        <?php design_post_meta(); ?>
+        </h1>
 
         <div class="site-post-excerpt">
             <?php
@@ -35,7 +33,7 @@ $type_image = rwmb_meta( 'design_meta_box_post_select_image' );
 
                 <p class="site-post-category">
                     <?php
-                    esc_html_e('Category: ','design');
+                    esc_html_e('Danh mục: ','design');
                     the_category( ' ' );
                     ?>
                 </p>
@@ -50,7 +48,7 @@ $type_image = rwmb_meta( 'design_meta_box_post_select_image' );
 
                 <p class="site-post-tag">
                     <?php
-                    esc_html_e( 'Tag: ','design' );
+                    esc_html_e( 'Từ khoá: ','design' );
                     the_tags('',' ');
                     ?>
                 </p>

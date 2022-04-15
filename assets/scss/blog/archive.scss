@@ -4,9 +4,20 @@
   @include flex-direction(column);
 
   .site-post-content {
-    padding: 25px 15px 15px;
-    border: 1px solid #eee;
+    overflow: hidden;
+    border: 1px solid #f0f8ff;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.08);
     @include flex(1 auto);
+    @include transition();
+
+    .box-content {
+      padding: 12px 24px;
+    }
+
+    &:hover {
+      box-shadow: 0 4px 60px 0 rgba(0,0,0,0.2);
+    }
   }
 
   .site-post-image {
@@ -16,7 +27,7 @@
 
 .site-post-title {
   margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 18px;
 
   a {
     color: $color-title;

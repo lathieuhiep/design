@@ -8,7 +8,7 @@ get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
 ?>
 
 <div class="site-container site-single">
-    <div class="container custom-container">
+    <div class="container">
         <div class="row">
             <div class="<?php echo esc_attr( $class_col_content ); ?>">
 
