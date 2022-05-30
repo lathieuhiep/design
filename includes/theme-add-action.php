@@ -10,3 +10,6 @@ function design_favicon() {
 
     echo '<link rel="shortcut icon" href="' . esc_url( $favicon ) . '" type="image/x-icon" sizes="16x16" />';
 }
+
+// disable gutenberg post
+add_filter('use_block_editor_for_post', '__return_false', 10);
