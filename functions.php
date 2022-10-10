@@ -59,6 +59,11 @@ if ( ! function_exists( 'design_setup' ) ):
 endif;
 
 /**
+ * Required: API
+ */
+require get_parent_theme_file_path( '/api/api.php' );
+
+/**
  * Required: Plugin Activation
  */
 require get_parent_theme_file_path( '/includes/class-tgm-plugin-activation.php' );
