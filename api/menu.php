@@ -7,7 +7,7 @@ function get_navigation_menu( WP_REST_Request $request ) {
 }
 
 add_action('rest_api_init', function () {
-	register_rest_route('wp/v2', 'menu', array(
+	register_rest_route(apiNamespace, 'menu', array(
 		'methods' => 'GET',
 		'callback' => 'get_navigation_menu'
 	));

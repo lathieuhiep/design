@@ -132,6 +132,7 @@ if ( !class_exists('CMB2') ) {
     require get_parent_theme_file_path( '/extension/meta-box/cmb_course.php' );
     require get_parent_theme_file_path( '/extension/meta-box/cmb_student_product.php' );
     require get_parent_theme_file_path( '/extension/meta-box/cmb_my_product.php' );
+	require get_parent_theme_file_path( '/extension/meta-box/cmb_testimonial.php' );
 }
 
 if ( ! function_exists( 'rwmb_meta' ) ) {
@@ -163,6 +164,7 @@ require get_parent_theme_file_path( '/extension/post-type/course.php' );
 require get_parent_theme_file_path( '/extension/post-type/student-product.php' );
 require get_parent_theme_file_path( '/extension/post-type/my-product.php' );
 require get_parent_theme_file_path( '/extension/post-type/service.php' );
+require get_parent_theme_file_path( '/extension/post-type/testimonial.php' );
 
 /**
  * Required: Register Sidebar

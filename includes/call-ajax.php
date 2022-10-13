@@ -12,7 +12,7 @@ function design_item_student_product ( $post_type, $class = '' ) {
 
 			<?php
             if ( $post_type == 'student_product' ) :
-	            $name_course = rwmb_meta( 'design_meta_box_student_product_name_course' );
+	            $name_course = get_post_meta( get_the_ID(), 'design_meta_box_student_product_name_course', true );
             ?>
 
                 <h2 class="item__title">
