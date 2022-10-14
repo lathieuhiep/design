@@ -18,7 +18,7 @@ function design_item_student_product ( $post_type, $class = '' ) {
                 <h2 class="item__title">
                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                         <strong>
-							<?php esc_html_e('Học Viên:', 'design'); ?>
+							<?php esc_html_e('Học Viên:', Text_Domain); ?>
                         </strong>
 
                         <span><?php the_title(); ?></span>

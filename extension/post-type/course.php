@@ -11,19 +11,19 @@ function design_create_course() {
 
 	/* Start post type template */
 	$labels = array(
-		'name'                  =>  _x( 'Khóa học', 'post type general name', 'design' ),
-		'singular_name'         =>  _x( 'Course', 'post type singular name', 'design' ),
-		'menu_name'             =>  _x( 'Courses', 'admin menu', 'design' ),
-		'name_admin_bar'        =>  _x( 'Course', 'add new on admin bar', 'design' ),
-		'add_new'               =>  _x( 'Add new', 'Course', 'design' ),
-		'add_new_item'          =>  esc_html__( 'Add new', 'design' ),
-		'edit_item'             =>  esc_html__( 'Edit', 'design' ),
-		'new_item'              =>  esc_html__( 'New', 'design' ),
-		'view_item'             =>  esc_html__( 'View', 'design' ),
-		'all_items'             =>  esc_html__( 'All Courses', 'design' ),
-		'search_items'          =>  esc_html__( 'Search Courses', 'design' ),
-		'not_found'             =>  esc_html__( 'Not Found', 'design' ),
-		'not_found_in_trash'    =>  esc_html__( 'Not Found In Trash', 'design' ),
+		'name'                  =>  _x( 'Khóa học', 'post type general name', Text_Domain ),
+		'singular_name'         =>  _x( 'Course', 'post type singular name', Text_Domain ),
+		'menu_name'             =>  _x( 'Courses', 'admin menu', Text_Domain ),
+		'name_admin_bar'        =>  _x( 'Course', 'add new on admin bar', Text_Domain ),
+		'add_new'               =>  _x( 'Add new', 'Course', Text_Domain ),
+		'add_new_item'          =>  esc_html__( 'Add new', Text_Domain ),
+		'edit_item'             =>  esc_html__( 'Edit', Text_Domain ),
+		'new_item'              =>  esc_html__( 'New', Text_Domain ),
+		'view_item'             =>  esc_html__( 'View', Text_Domain ),
+		'all_items'             =>  esc_html__( 'All Courses', Text_Domain ),
+		'search_items'          =>  esc_html__( 'Search Courses', Text_Domain ),
+		'not_found'             =>  esc_html__( 'Not Found', Text_Domain ),
+		'not_found_in_trash'    =>  esc_html__( 'Not Found In Trash', Text_Domain ),
 		'parent_item_colon'     =>  ''
 	);
 

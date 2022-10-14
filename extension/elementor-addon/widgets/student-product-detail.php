@@ -19,7 +19,7 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 	}
 
 	public function get_title(): string {
-		return esc_html__( 'Student Product Detail', 'design' );
+		return esc_html__( 'Student Product Detail', Text_Domain );
 	}
 
 	public function get_icon() {
@@ -36,7 +36,7 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 		$this->start_controls_section(
 			'section_gallery',
 			[
-				'label' => esc_html__( 'Gallery', 'design' ),
+				'label' => esc_html__( 'Gallery', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -44,7 +44,7 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 		$this->add_control(
 			'gallery',
 			[
-				'label' => esc_html__( 'Add Images', 'design' ),
+				'label' => esc_html__( 'Add Images', Text_Domain ),
 				'type' => Controls_Manager::GALLERY,
 				'default' => [],
 			]
@@ -56,7 +56,7 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 		$this->start_controls_section(
 			'section_carousel_options',
 			[
-				'label' => esc_html__( 'Additional Options', 'design' ),
+				'label' => esc_html__( 'Additional Options', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -65,9 +65,9 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 			'loop',
 			[
 				'type'         => Controls_Manager::SWITCHER,
-				'label'        => esc_html__( 'Loop Slider ?', 'design' ),
-				'label_off'    => esc_html__( 'No', 'design' ),
-				'label_on'     => esc_html__( 'Yes', 'design' ),
+				'label'        => esc_html__( 'Loop Slider ?', Text_Domain ),
+				'label_off'    => esc_html__( 'No', Text_Domain ),
+				'label_on'     => esc_html__( 'Yes', Text_Domain ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -76,10 +76,10 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 		$this->add_control(
 			'autoplay',
 			[
-				'label'        => esc_html__( 'Autoplay?', 'design' ),
+				'label'        => esc_html__( 'Autoplay?', Text_Domain ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_off'    => esc_html__( 'No', 'design' ),
-				'label_on'     => esc_html__( 'Yes', 'design' ),
+				'label_off'    => esc_html__( 'No', Text_Domain ),
+				'label_on'     => esc_html__( 'Yes', Text_Domain ),
 				'return_value' => 'yes',
 				'default'      => 'no',
 			]
@@ -88,10 +88,10 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 		$this->add_control(
 			'nav',
 			[
-				'label'        => esc_html__( 'Nav Slider', 'design' ),
+				'label'        => esc_html__( 'Nav Slider', Text_Domain ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'design' ),
-				'label_off'    => esc_html__( 'No', 'design' ),
+				'label_on'     => esc_html__( 'Yes', Text_Domain ),
+				'label_off'    => esc_html__( 'No', Text_Domain ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -100,10 +100,10 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 		$this->add_control(
 			'dots',
 			[
-				'label'        => esc_html__( 'Dots Slider', 'design' ),
+				'label'        => esc_html__( 'Dots Slider', Text_Domain ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'design' ),
-				'label_off'    => esc_html__( 'No', 'design' ),
+				'label_on'     => esc_html__( 'Yes', Text_Domain ),
+				'label_off'    => esc_html__( 'No', Text_Domain ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -156,7 +156,7 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 
                         <div class="name">
                             <strong>
-			                    <?php esc_html_e('Học viên', 'design'); ?>
+			                    <?php esc_html_e('Học viên', Text_Domain); ?>
                             </strong>
 
                             <h4 class="name__student">
@@ -166,7 +166,7 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 
                         <div class="course">
                             <a href="<?php echo esc_url( get_post_permalink( $link_course ) ); ?>">
-			                    <?php esc_html_e('Học Khóa ', 'design'); echo esc_html( $name_course ); ?>
+			                    <?php esc_html_e('Học Khóa ', Text_Domain); echo esc_html( $name_course ); ?>
                             </a>
                         </div>
 
@@ -174,7 +174,7 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 
                         <div class="name">
                             <strong>
-			                    <?php esc_html_e('Sản Phẩm', 'design'); ?>
+			                    <?php esc_html_e('Sản Phẩm', Text_Domain); ?>
                             </strong>
 
                             <h4 class="name__student">
@@ -210,9 +210,9 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
                             <span>
                             <?php
                             if ( is_singular('student_product') ) :
-	                            esc_html_e( 'Xem bài học viên trước', 'design' );
+	                            esc_html_e( 'Xem bài học viên trước', Text_Domain );
                             else:
-	                            esc_html_e( 'Xem Sản phẩm trước', 'design' );
+	                            esc_html_e( 'Xem Sản phẩm trước', Text_Domain );
                             endif;
                             ?>
                         </span>
@@ -231,9 +231,9 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
                             <span>
                                 <?php
                                 if ( is_singular('student_product') ) :
-                                    esc_html_e( 'Xem bài học viên kế tiếp', 'design' );
+                                    esc_html_e( 'Xem bài học viên kế tiếp', Text_Domain );
                                 else:
-                                    esc_html_e( 'Xem Sản phẩm kế tiếp', 'design' );
+                                    esc_html_e( 'Xem Sản phẩm kế tiếp', Text_Domain );
                                 endif;
                                 ?>
                             </span>

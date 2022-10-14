@@ -11,19 +11,19 @@ function design_create_testimonial() {
 
 	/* Start post type template */
 	$labels = array(
-		'name'                  =>  _x( 'Ý Kiến Khách Hàng', 'post type general name', 'design' ),
-		'singular_name'         =>  _x( 'Ý Kiến Khách Hàng', 'post type singular name', 'design' ),
-		'menu_name'             =>  _x( 'Ý Kiến Khách Hàng', 'admin menu', 'design' ),
-		'name_admin_bar'        =>  _x( 'Ý Kiến Khách Hàng', 'add new on admin bar', 'design' ),
-		'add_new'               =>  _x( 'Thêm Mới', 'Testimonial', 'design' ),
-		'add_new_item'          =>  esc_html__( 'Thêm Mới', 'design' ),
-		'edit_item'             =>  esc_html__( 'Sửa', 'design' ),
-		'new_item'              =>  esc_html__( 'Mới', 'design' ),
-		'view_item'             =>  esc_html__( 'Xem', 'design' ),
-		'all_items'             =>  esc_html__( 'Danh Sách', 'design' ),
-		'search_items'          =>  esc_html__( 'Tìm kiếm', 'design' ),
-		'not_found'             =>  esc_html__( 'Không tìm thấy', 'design' ),
-		'not_found_in_trash'    =>  esc_html__( 'Không tìm thấy trong thùng rác', 'design' ),
+		'name'                  =>  _x( 'Ý Kiến Khách Hàng', 'post type general name', Text_Domain ),
+		'singular_name'         =>  _x( 'Ý Kiến Khách Hàng', 'post type singular name', Text_Domain ),
+		'menu_name'             =>  _x( 'Ý Kiến Khách Hàng', 'admin menu', Text_Domain ),
+		'name_admin_bar'        =>  _x( 'Ý Kiến Khách Hàng', 'add new on admin bar', Text_Domain ),
+		'add_new'               =>  _x( 'Thêm Mới', 'Testimonial', Text_Domain ),
+		'add_new_item'          =>  esc_html__( 'Thêm Mới', Text_Domain ),
+		'edit_item'             =>  esc_html__( 'Sửa', Text_Domain ),
+		'new_item'              =>  esc_html__( 'Mới', Text_Domain ),
+		'view_item'             =>  esc_html__( 'Xem', Text_Domain ),
+		'all_items'             =>  esc_html__( 'Danh Sách', Text_Domain ),
+		'search_items'          =>  esc_html__( 'Tìm kiếm', Text_Domain ),
+		'not_found'             =>  esc_html__( 'Không tìm thấy', Text_Domain ),
+		'not_found_in_trash'    =>  esc_html__( 'Không tìm thấy trong thùng rác', Text_Domain ),
 		'parent_item_colon'     =>  ''
 	);
 

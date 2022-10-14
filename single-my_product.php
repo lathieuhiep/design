@@ -18,7 +18,7 @@ $contact_from = get_theme_mod('design_opt_single_my_product_contact', '');
                     <div class="element-btn-modal-form mt-5">
                         <div class="btn-box text-center">
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#register-course">
-                                <span><?php esc_html_e('Đăng kí thiết kế', 'design'); ?></span>
+                                <span><?php esc_html_e('Đăng kí thiết kế', Text_Domain); ?></span>
                                 <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
@@ -49,7 +49,7 @@ $contact_from = get_theme_mod('design_opt_single_my_product_contact', '');
                 <div class="modal-header">
                     <div class="modal-header__left">
                         <h5 class="modal-title">
-                            <?php esc_html_e('Đăng kí thiết kế', 'design'); ?>
+                            <?php esc_html_e('Đăng kí thiết kế', Text_Domain); ?>
                         </h5>
                     </div>
 

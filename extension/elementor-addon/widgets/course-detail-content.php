@@ -18,7 +18,7 @@ class Design_Elementor_Addon_CourseDetailContent extends Widget_Base {
 	}
 
 	public function get_title(): string {
-		return esc_html__( 'Course Detail Content', 'design' );
+		return esc_html__( 'Course Detail Content', Text_Domain );
 	}
 
 	public function get_icon() {
@@ -35,7 +35,7 @@ class Design_Elementor_Addon_CourseDetailContent extends Widget_Base {
 		$this->start_controls_section(
 			'section_editor',
 			[
-				'label' => esc_html__( 'Text Editor', 'design' ),
+				'label' => esc_html__( 'Text Editor', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -69,7 +69,7 @@ class Design_Elementor_Addon_CourseDetailContent extends Widget_Base {
                 <div class="content-box__note">
                     <div class="opt-rule">
                         <h4>
-                            <?php esc_html_e('Lưu ý:', 'design'); ?>
+                            <?php esc_html_e('Lưu ý:', Text_Domain); ?>
                         </h4>
 
 	                    <?php echo wp_kses_post( $opt_rule ); ?>
@@ -77,7 +77,7 @@ class Design_Elementor_Addon_CourseDetailContent extends Widget_Base {
 
                     <div class="opt-bank">
                         <h5 class="opt-bank__title">
-                            <?php esc_html_e('Thông tin tài khoản:', 'design'); ?>
+                            <?php esc_html_e('Thông tin tài khoản:', Text_Domain); ?>
                         </h5>
 
                         <div class="opt-bank__list">
@@ -97,7 +97,7 @@ class Design_Elementor_Addon_CourseDetailContent extends Widget_Base {
 
             <div class="read-more-content">
                 <p>
-			        <span><?php esc_html_e('Xem thêm bài viết', 'design'); ?></span>
+			        <span><?php esc_html_e('Xem thêm bài viết', Text_Domain); ?></span>
                     <i class="fas fa-angle-down"></i>
                 </p>
             </div>

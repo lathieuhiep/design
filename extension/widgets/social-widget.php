@@ -65,14 +65,14 @@ class design_social_widget extends WP_Widget {
 		<!-- Widget Title: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>">
-                <?php esc_html_e( 'Title:', 'design' ); ?>
+                <?php esc_html_e( 'Title:', Text_Domain ); ?>
             </label>
 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:90%;" />
 		</p>
 		
 		<p>
-            <?php esc_html_e( 'Note: Set your social links in the design Options', 'design' ); ?>
+            <?php esc_html_e( 'Note: Set your social links in the design Options', Text_Domain ); ?>
         </p>
 
 	<?php

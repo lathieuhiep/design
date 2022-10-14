@@ -1,6 +1,6 @@
 <?php
 add_action('rest_api_init', function () {
-	register_rest_route(apiNamespace, 'post-type/courses', array(
+	register_rest_route(API_Namespace, 'post-type/courses', array(
 		'methods' => 'GET',
 		'callback' => 'design_api_query_course'
 	));
@@ -8,9 +8,16 @@ add_action('rest_api_init', function () {
 
 function design_api_query_course(WP_REST_Request $request) {
 	$get_params = $request->get_params();
-	$posts_per_page = $get_params['posts_per_page'] ?? 3;
-	$order = $get_params['order'] ?? 'DESC';
-	$orderBy = $get_params['order_by'] ?? 'id';
+
+	if ( $get_params ) {
+		$posts_per_page = $get_params['posts_per_page'] ?? 3;
+		$order = $get_params['order'] ?? 'DESC';
+		$orderBy = $get_params['order_by'] ?? 'id';
+	} else {
+		$posts_per_page = design_prefix_get_option('course_limit', 3);
+		$order = design_prefix_get_option('course_order', 'DESC');
+		$orderBy = design_prefix_get_option('course_order_by', 'id');
+	}
 
 	$args = array(
 		'post_type' => 'design_course',

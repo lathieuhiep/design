@@ -19,7 +19,7 @@ class Design_Elementor_Heading_Theme extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Heading Theme', 'design' );
+		return esc_html__( 'Heading Theme', Text_Domain );
 	}
 
 	public function get_icon() {
@@ -32,7 +32,7 @@ class Design_Elementor_Heading_Theme extends Widget_Base {
 		$this->start_controls_section(
 			'section_heading',
 			[
-				'label' => esc_html__( 'Heading', 'design' ),
+				'label' => esc_html__( 'Heading', Text_Domain ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -40,9 +40,9 @@ class Design_Elementor_Heading_Theme extends Widget_Base {
 		$this->add_control(
 			'heading',
 			[
-				'label'         =>  esc_html__( 'Heading', 'design' ),
+				'label'         =>  esc_html__( 'Heading', Text_Domain ),
 				'type'          =>  Controls_Manager::TEXT,
-				'default'       =>  esc_html__( 'Heading Theme', 'design' ),
+				'default'       =>  esc_html__( 'Heading Theme', Text_Domain ),
 				'label_block'   =>  true
 			]
 		);

@@ -17,7 +17,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
     }
 
     public function get_title() {
-        return esc_html__( 'Posts Carousel', 'design' );
+        return esc_html__( 'Posts Carousel', Text_Domain );
     }
 
     public function get_icon() {
@@ -34,7 +34,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->start_controls_section(
             'content_query',
             [
-                'label' => esc_html__( 'Query', 'design' ),
+                'label' => esc_html__( 'Query', Text_Domain ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -42,7 +42,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->add_control(
             'select_cat',
             [
-                'label'         =>  esc_html__( 'Select Category', 'design' ),
+                'label'         =>  esc_html__( 'Select Category', Text_Domain ),
                 'type'          =>  Controls_Manager::SELECT2,
                 'options'       =>  design_check_get_cat( 'category' ),
                 'multiple'      =>  true,
@@ -53,7 +53,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->add_control(
             'limit',
             [
-                'label'     =>  esc_html__( 'Number of Posts', 'design' ),
+                'label'     =>  esc_html__( 'Number of Posts', Text_Domain ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  6,
                 'min'       =>  1,
@@ -65,14 +65,14 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->add_control(
             'order_by',
             [
-                'label'     =>  esc_html__( 'Order By', 'design' ),
+                'label'     =>  esc_html__( 'Order By', Text_Domain ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'id',
                 'options'   =>  [
-                    'id'    =>  esc_html__( 'Post ID', 'design' ),
-                    'title' =>  esc_html__( 'Title', 'design' ),
-                    'date'  =>  esc_html__( 'Date', 'design' ),
-                    'rand'  =>  esc_html__( 'Random', 'design' ),
+                    'id'    =>  esc_html__( 'Post ID', Text_Domain ),
+                    'title' =>  esc_html__( 'Title', Text_Domain ),
+                    'date'  =>  esc_html__( 'Date', Text_Domain ),
+                    'rand'  =>  esc_html__( 'Random', Text_Domain ),
                 ],
             ]
         );
@@ -80,12 +80,12 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->add_control(
             'order',
             [
-                'label'     =>  esc_html__( 'Order', 'design' ),
+                'label'     =>  esc_html__( 'Order', Text_Domain ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'ASC',
                 'options'   =>  [
-                    'ASC'   =>  esc_html__( 'Ascending', 'design' ),
-                    'DESC'  =>  esc_html__( 'Descending', 'design' ),
+                    'ASC'   =>  esc_html__( 'Ascending', Text_Domain ),
+                    'DESC'  =>  esc_html__( 'Descending', Text_Domain ),
                 ],
             ]
         );
@@ -93,16 +93,16 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->add_control(
             'show_excerpt',
             [
-                'label'     =>  esc_html__( 'Show excerpt', 'design' ),
+                'label'     =>  esc_html__( 'Show excerpt', Text_Domain ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'show' => [
-                        'title' =>  esc_html__( 'Yes', 'design' ),
+                        'title' =>  esc_html__( 'Yes', Text_Domain ),
                         'icon'  =>  'eicon-check',
                     ],
 
                     'hide' => [
-                        'title' =>  esc_html__( 'No', 'design' ),
+                        'title' =>  esc_html__( 'No', Text_Domain ),
                         'icon'  =>  'eicon-ban',
                     ],
                 ],
@@ -113,7 +113,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->add_control(
             'excerpt_length',
             [
-                'label'     =>  esc_html__( 'Excerpt Words', 'design' ),
+                'label'     =>  esc_html__( 'Excerpt Words', Text_Domain ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  '10',
                 'condition' =>  [
@@ -128,7 +128,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->start_controls_section(
             'content_additional_options',
             [
-                'label' => esc_html__( 'Additional Options', 'design' ),
+                'label' => esc_html__( 'Additional Options', Text_Domain ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -137,9 +137,9 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 		    'loop',
 		    [
 			    'type'          =>  Controls_Manager::SWITCHER,
-			    'label'         =>  esc_html__('Loop Slider ?', 'design'),
-			    'label_off'     =>  esc_html__('No', 'design'),
-			    'label_on'      =>  esc_html__('Yes', 'design'),
+			    'label'         =>  esc_html__('Loop Slider ?', Text_Domain),
+			    'label_off'     =>  esc_html__('No', Text_Domain),
+			    'label_on'      =>  esc_html__('Yes', Text_Domain),
 			    'return_value'  =>  'yes',
 			    'default'       =>  'yes',
 		    ]
@@ -148,10 +148,10 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'autoplay',
 		    [
-			    'label'         =>  esc_html__('Autoplay?', 'design'),
+			    'label'         =>  esc_html__('Autoplay?', Text_Domain),
 			    'type'          =>  Controls_Manager::SWITCHER,
-			    'label_off'     =>  esc_html__('No', 'design'),
-			    'label_on'      =>  esc_html__('Yes', 'design'),
+			    'label_off'     =>  esc_html__('No', Text_Domain),
+			    'label_on'      =>  esc_html__('Yes', Text_Domain),
 			    'return_value'  =>  'yes',
 			    'default'       =>  'no',
 		    ]
@@ -160,10 +160,10 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'nav',
 		    [
-			    'label'         =>  esc_html__('Nav Slider', 'design'),
+			    'label'         =>  esc_html__('Nav Slider', Text_Domain),
 			    'type'          =>  Controls_Manager::SWITCHER,
-			    'label_on'      =>  esc_html__('Yes', 'design'),
-			    'label_off'     =>  esc_html__('No', 'design'),
+			    'label_on'      =>  esc_html__('Yes', Text_Domain),
+			    'label_off'     =>  esc_html__('No', Text_Domain),
 			    'return_value'  =>  'yes',
 			    'default'       =>  'yes',
 		    ]
@@ -172,10 +172,10 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'dots',
 		    [
-			    'label'         =>  esc_html__('Dots Slider', 'design'),
+			    'label'         =>  esc_html__('Dots Slider', Text_Domain),
 			    'type'          =>  Controls_Manager::SWITCHER,
-			    'label_on'      =>  esc_html__('Yes', 'design'),
-			    'label_off'     =>  esc_html__('No', 'design'),
+			    'label_on'      =>  esc_html__('Yes', Text_Domain),
+			    'label_off'     =>  esc_html__('No', Text_Domain),
 			    'return_value'  =>  'yes',
 			    'default'       =>  'yes',
 		    ]
@@ -184,7 +184,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'margin_item',
 		    [
-			    'label'     =>  esc_html__( 'Space Between Item', 'design' ),
+			    'label'     =>  esc_html__( 'Space Between Item', Text_Domain ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  30,
 			    'min'       =>  0,
@@ -196,7 +196,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'min_width_1200',
 		    [
-			    'label'     =>  esc_html__( 'Min Width 1200px', 'design' ),
+			    'label'     =>  esc_html__( 'Min Width 1200px', Text_Domain ),
 			    'type'      =>  Controls_Manager::HEADING,
 			    'separator' =>  'before',
 		    ]
@@ -205,7 +205,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'item',
 		    [
-			    'label'     =>  esc_html__( 'Number of Item', 'design' ),
+			    'label'     =>  esc_html__( 'Number of Item', Text_Domain ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  3,
 			    'min'       =>  1,
@@ -217,7 +217,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'min_width_992',
 		    [
-			    'label'     =>  esc_html__( 'Min Width 992px', 'design' ),
+			    'label'     =>  esc_html__( 'Min Width 992px', Text_Domain ),
 			    'type'      =>  Controls_Manager::HEADING,
 			    'separator' =>  'before',
 		    ]
@@ -226,7 +226,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'item_992',
 		    [
-			    'label'     =>  esc_html__( 'Number of Item', 'design' ),
+			    'label'     =>  esc_html__( 'Number of Item', Text_Domain ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  2,
 			    'min'       =>  1,
@@ -238,7 +238,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'min_width_768',
 		    [
-			    'label'     =>  esc_html__( 'Min Width 768px', 'design' ),
+			    'label'     =>  esc_html__( 'Min Width 768px', Text_Domain ),
 			    'type'      =>  Controls_Manager::HEADING,
 			    'separator' =>  'before',
 		    ]
@@ -247,7 +247,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'item_768',
 		    [
-			    'label'     =>  esc_html__( 'Number of Item', 'design' ),
+			    'label'     =>  esc_html__( 'Number of Item', Text_Domain ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  2,
 			    'min'       =>  1,
@@ -259,7 +259,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'min_width_568',
 		    [
-			    'label'     =>  esc_html__( 'Min Width 568px', 'design' ),
+			    'label'     =>  esc_html__( 'Min Width 568px', Text_Domain ),
 			    'type'      =>  Controls_Manager::HEADING,
 			    'separator' =>  'before',
 		    ]
@@ -268,7 +268,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'item_568',
 		    [
-			    'label'     =>  esc_html__( 'Number of Item', 'design' ),
+			    'label'     =>  esc_html__( 'Number of Item', Text_Domain ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  2,
 			    'min'       =>  1,
@@ -280,7 +280,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'margin_item_568',
 		    [
-			    'label'     =>  esc_html__( 'Space Between Item', 'design' ),
+			    'label'     =>  esc_html__( 'Space Between Item', Text_Domain ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  15,
 			    'min'       =>  0,
@@ -292,7 +292,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'max_width_567',
 		    [
-			    'label'     =>  esc_html__( 'Max Width 567px', 'design' ),
+			    'label'     =>  esc_html__( 'Max Width 567px', Text_Domain ),
 			    'type'      =>  Controls_Manager::HEADING,
 			    'separator' =>  'before',
 		    ]
@@ -301,7 +301,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'item_567',
 		    [
-			    'label'     =>  esc_html__( 'Number of Item', 'design' ),
+			    'label'     =>  esc_html__( 'Number of Item', Text_Domain ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  1,
 			    'min'       =>  1,
@@ -313,7 +313,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
 	    $this->add_control(
 		    'margin_item_567',
 		    [
-			    'label'     =>  esc_html__( 'Space Between Item', 'design' ),
+			    'label'     =>  esc_html__( 'Space Between Item', Text_Domain ),
 			    'type'      =>  Controls_Manager::NUMBER,
 			    'default'   =>  0,
 			    'min'       =>  0,
@@ -328,7 +328,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->start_controls_section(
             'style_title',
             [
-                'label' => esc_html__( 'Title', 'design' ),
+                'label' => esc_html__( 'Title', Text_Domain ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -336,7 +336,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->add_control(
             'title_color',
             [
-                'label'     =>  esc_html__( 'Color', 'design' ),
+                'label'     =>  esc_html__( 'Color', Text_Domain ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -348,7 +348,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->add_control(
             'title_color_hover',
             [
-                'label'     =>  esc_html__( 'Color Hover', 'design' ),
+                'label'     =>  esc_html__( 'Color Hover', Text_Domain ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -368,26 +368,26 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->add_control(
             'title_alignment',
             [
-                'label'     =>  esc_html__( 'Title Alignment', 'design' ),
+                'label'     =>  esc_html__( 'Title Alignment', Text_Domain ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'design' ),
+                        'title' =>  esc_html__( 'Left', Text_Domain ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
 
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'design' ),
+                        'title' =>  esc_html__( 'Center', Text_Domain ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
 
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'design' ),
+                        'title' =>  esc_html__( 'Right', Text_Domain ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
 
                     'justify'=> [
-                        'title' =>  esc_html__( 'Justified', 'design' ),
+                        'title' =>  esc_html__( 'Justified', Text_Domain ),
                         'icon'  =>  'eicon-text-align-justify',
                     ],
                 ],
@@ -404,7 +404,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->start_controls_section(
             'style_excerpt',
             [
-                'label' => esc_html__( 'Excerpt', 'design' ),
+                'label' => esc_html__( 'Excerpt', Text_Domain ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' =>  [
                     'show_excerpt' => 'show',
@@ -415,7 +415,7 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->add_control(
             'excerpt_color',
             [
-                'label'     =>  esc_html__( 'Color', 'design' ),
+                'label'     =>  esc_html__( 'Color', Text_Domain ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -435,26 +435,26 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         $this->add_control(
             'excerpt_alignment',
             [
-                'label'     =>  esc_html__( 'Excerpt Alignment', 'design' ),
+                'label'     =>  esc_html__( 'Excerpt Alignment', Text_Domain ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'design' ),
+                        'title' =>  esc_html__( 'Left', Text_Domain ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
 
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'design' ),
+                        'title' =>  esc_html__( 'Center', Text_Domain ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
 
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'design' ),
+                        'title' =>  esc_html__( 'Right', Text_Domain ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
 
                     'justify'=> [
-                        'title' =>  esc_html__( 'Justified', 'design' ),
+                        'title' =>  esc_html__( 'Justified', Text_Domain ),
                         'icon'  =>  'eicon-text-align-justify',
                     ],
                 ],

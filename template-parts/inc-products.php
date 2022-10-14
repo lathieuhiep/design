@@ -19,11 +19,11 @@ if ( $query->have_posts() ) :
     ?>
     <div class="box-top text-center">
         <p class="text">
-            <?php esc_html_e('Tham khảo sản phẩm', 'design'); ?>
+            <?php esc_html_e('Tham khảo sản phẩm', Text_Domain); ?>
         </p>
 
         <h4 class="title">
-            <?php esc_html_e('Sản phẩm của chúng tôi', 'design'); ?>
+            <?php esc_html_e('Sản phẩm của chúng tôi', Text_Domain); ?>
         </h4>
     </div>
 
@@ -48,7 +48,7 @@ if ( $query->have_posts() ) :
             </div>
 
             <a href="#" class="load-my-product" data-settings='<?php echo wp_json_encode( $setting_args ); ?>'>
-                <?php esc_html_e('Xem thêm sản phẩm khác', 'design'); ?>
+                <?php esc_html_e('Xem thêm sản phẩm khác', Text_Domain); ?>
             </a>
         </div>
 

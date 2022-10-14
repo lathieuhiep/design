@@ -41,7 +41,7 @@ $shortcode_contact = get_theme_mod('design_opt_support', '0');
                         <ul class="main-menu">
                             <li>
                                 <a href="<?php echo get_admin_url().'/nav-menus.php'; ?>">
-                                    <?php esc_html_e( 'ADD TO MENU','design' ); ?>
+                                    <?php esc_html_e( 'ADD TO MENU',Text_Domain ); ?>
                                 </a>
                             </li>
                         </ul>
@@ -52,7 +52,7 @@ $shortcode_contact = get_theme_mod('design_opt_support', '0');
                     <div class="btn-advice__box">
                         <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/icon-phone.png' ) ); ?>" alt="advice">
 
-                        <span><?php esc_html_e('Tôi cần tư vấn', 'design'); ?></span>
+                        <span><?php esc_html_e('Tôi cần tư vấn', Text_Domain); ?></span>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@ $shortcode_contact = get_theme_mod('design_opt_support', '0');
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
-                    <?php esc_html_e('Tôi cần tư vấn', 'design'); ?>
+                    <?php esc_html_e('Tôi cần tư vấn', Text_Domain); ?>
                 </h5>
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

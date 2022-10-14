@@ -23,7 +23,7 @@ if ( $contact_us_show_hide == 'show' ) :
         <?php if ( $phones ) : ?>
 
         <div class="phone d-flex">
-            <span><?php esc_html_e('Gọi Ngay:', 'design'); ?>&nbsp;</span>
+            <span><?php esc_html_e('Gọi Ngay:', Text_Domain); ?>&nbsp;</span>
 
             <ul class="d-flex">
                 <?php foreach ( $phones as $phone ) : ?>
@@ -47,7 +47,7 @@ if ( $contact_us_show_hide == 'show' ) :
 
             <a href="<?php echo esc_url( $link ); ?>" target="_blank">
                 <i class="fab fa-facebook-f"></i>
-                <span><?php esc_html_e('Fanpage', 'design'); ?></span>
+                <span><?php esc_html_e('Fanpage', Text_Domain); ?></span>
             </a>
         </div>
 

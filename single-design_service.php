@@ -22,7 +22,7 @@ get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
                         <div class="element-btn-modal-form mt-5">
                             <div class="btn-box">
                                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#register-course">
-                                    <span><?php esc_html_e('Đăng kí nhận báo giá', 'design'); ?></span>
+                                    <span><?php esc_html_e('Đăng kí nhận báo giá', Text_Domain); ?></span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
                             </div>
@@ -47,7 +47,7 @@ get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
                 <div class="modal-header">
                     <div class="modal-header__left">
                         <h5 class="modal-title">
-                            <?php esc_html_e('Đăng kí nhận báo giá', 'design'); ?>
+                            <?php esc_html_e('Đăng kí nhận báo giá', Text_Domain); ?>
                         </h5>
                     </div>
 

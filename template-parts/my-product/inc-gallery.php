@@ -36,7 +36,7 @@ if ( $gallery ) :
             <div class="student-info d-sm-flex align-items-sm-end justify-content-sm-between">
                 <div class="name">
                     <strong>
-                        <?php esc_html_e('Sản Phẩm', 'design'); ?>
+                        <?php esc_html_e('Sản Phẩm', Text_Domain); ?>
                     </strong>
 
                     <h4 class="name__student">
@@ -65,7 +65,7 @@ if ( $gallery ) :
 
                     <a class="link-post prev-post" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ) ?>" title="<?php echo esc_attr( $prev_title ); ?>">
                         <i class="fas fa-long-arrow-alt-left"></i>
-                        <span><?php esc_html_e( 'Xem Sản phẩm trước', 'design' ); ?></span>
+                        <span><?php esc_html_e( 'Xem Sản phẩm trước', Text_Domain ); ?></span>
                     </a>
 
                 <?php
@@ -77,7 +77,7 @@ if ( $gallery ) :
 
                     <a class="link-post next-post" href="<?php echo esc_url( get_permalink( $next_post->ID ) ) ?>" title="<?php echo esc_attr( $next_title ); ?>">
                         <i class="fas fa-long-arrow-alt-right"></i>
-                        <span><?php esc_html_e( 'Xem Sản phẩm kế tiếp', 'design' ); ?></span>
+                        <span><?php esc_html_e( 'Xem Sản phẩm kế tiếp', Text_Domain ); ?></span>
                     </a>
 
                 <?php endif; ?>

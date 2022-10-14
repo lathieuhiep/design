@@ -18,7 +18,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Testimonial Carousel', 'design' );
+		return esc_html__( 'Testimonial Carousel', Text_Domain );
 	}
 
 	public function get_icon() {
@@ -35,7 +35,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'content_additional_options',
 			[
-				'label' => esc_html__( 'Additional Options', 'design' ),
+				'label' => esc_html__( 'Additional Options', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -44,9 +44,9 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 			'loop',
 			[
 				'type'         => Controls_Manager::SWITCHER,
-				'label'        => esc_html__( 'Loop Slider ?', 'design' ),
-				'label_off'    => esc_html__( 'No', 'design' ),
-				'label_on'     => esc_html__( 'Yes', 'design' ),
+				'label'        => esc_html__( 'Loop Slider ?', Text_Domain ),
+				'label_off'    => esc_html__( 'No', Text_Domain ),
+				'label_on'     => esc_html__( 'Yes', Text_Domain ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -55,10 +55,10 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'autoplay',
 			[
-				'label'        => esc_html__( 'Autoplay?', 'design' ),
+				'label'        => esc_html__( 'Autoplay?', Text_Domain ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_off'    => esc_html__( 'No', 'design' ),
-				'label_on'     => esc_html__( 'Yes', 'design' ),
+				'label_off'    => esc_html__( 'No', Text_Domain ),
+				'label_on'     => esc_html__( 'Yes', Text_Domain ),
 				'return_value' => 'yes',
 				'default'      => 'no',
 			]
@@ -67,10 +67,10 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'nav',
 			[
-				'label'        => esc_html__( 'Nav Slider', 'design' ),
+				'label'        => esc_html__( 'Nav Slider', Text_Domain ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'design' ),
-				'label_off'    => esc_html__( 'No', 'design' ),
+				'label_on'     => esc_html__( 'Yes', Text_Domain ),
+				'label_off'    => esc_html__( 'No', Text_Domain ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -79,10 +79,10 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots',
 			[
-				'label'        => esc_html__( 'Dots Slider', 'design' ),
+				'label'        => esc_html__( 'Dots Slider', Text_Domain ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'design' ),
-				'label_off'    => esc_html__( 'No', 'design' ),
+				'label_on'     => esc_html__( 'Yes', Text_Domain ),
+				'label_off'    => esc_html__( 'No', Text_Domain ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -91,7 +91,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'margin_item',
 			[
-				'label'   => esc_html__( 'Space Between Item', 'design' ),
+				'label'   => esc_html__( 'Space Between Item', Text_Domain ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 20,
 				'min'     => 0,
@@ -103,7 +103,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'min_width_1200',
 			[
-				'label'     => esc_html__( 'Min Width 1200px', 'design' ),
+				'label'     => esc_html__( 'Min Width 1200px', Text_Domain ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -112,7 +112,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'item',
 			[
-				'label'   => esc_html__( 'Number of Item', 'design' ),
+				'label'   => esc_html__( 'Number of Item', Text_Domain ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 4,
 				'min'     => 1,
@@ -124,7 +124,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'min_width_992',
 			[
-				'label'     => esc_html__( 'Min Width 992px', 'design' ),
+				'label'     => esc_html__( 'Min Width 992px', Text_Domain ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -133,7 +133,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'item_992',
 			[
-				'label'   => esc_html__( 'Number of Item', 'design' ),
+				'label'   => esc_html__( 'Number of Item', Text_Domain ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 2,
 				'min'     => 1,
@@ -145,7 +145,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'min_width_768',
 			[
-				'label'     => esc_html__( 'Min Width 768px', 'design' ),
+				'label'     => esc_html__( 'Min Width 768px', Text_Domain ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -154,7 +154,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'item_768',
 			[
-				'label'   => esc_html__( 'Number of Item', 'design' ),
+				'label'   => esc_html__( 'Number of Item', Text_Domain ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 2,
 				'min'     => 1,
@@ -166,7 +166,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'min_width_568',
 			[
-				'label'     => esc_html__( 'Min Width 568px', 'design' ),
+				'label'     => esc_html__( 'Min Width 568px', Text_Domain ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -175,7 +175,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'item_568',
 			[
-				'label'   => esc_html__( 'Number of Item', 'design' ),
+				'label'   => esc_html__( 'Number of Item', Text_Domain ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 2,
 				'min'     => 1,
@@ -187,7 +187,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'margin_item_568',
 			[
-				'label'   => esc_html__( 'Space Between Item', 'design' ),
+				'label'   => esc_html__( 'Space Between Item', Text_Domain ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 15,
 				'min'     => 0,
@@ -199,7 +199,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'max_width_567',
 			[
-				'label'     => esc_html__( 'Max Width 567px', 'design' ),
+				'label'     => esc_html__( 'Max Width 567px', Text_Domain ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -208,7 +208,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'item_567',
 			[
-				'label'   => esc_html__( 'Number of Item', 'design' ),
+				'label'   => esc_html__( 'Number of Item', Text_Domain ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 1,
 				'min'     => 1,
@@ -220,7 +220,7 @@ class Design_Elementor_Addon_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'margin_item_567',
 			[
-				'label'   => esc_html__( 'Space Between Item', 'design' ),
+				'label'   => esc_html__( 'Space Between Item', Text_Domain ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 0,
 				'min'     => 0,

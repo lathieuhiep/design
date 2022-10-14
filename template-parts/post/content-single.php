@@ -33,7 +33,7 @@ $type_image = rwmb_meta( 'design_meta_box_post_select_image' );
 
                 <p class="site-post-category">
                     <?php
-                    esc_html_e('Danh mục: ','design');
+                    esc_html_e('Danh mục: ',Text_Domain);
                     the_category( ' ' );
                     ?>
                 </p>
@@ -48,7 +48,7 @@ $type_image = rwmb_meta( 'design_meta_box_post_select_image' );
 
                 <p class="site-post-tag">
                     <?php
-                    esc_html_e( 'Từ khoá: ','design' );
+                    esc_html_e( 'Từ khoá: ',Text_Domain );
                     the_tags('',' ');
                     ?>
                 </p>

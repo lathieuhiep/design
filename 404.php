@@ -27,7 +27,7 @@ $image = get_theme_mod('land_opt_image_404', '');
                     if ( $title != '' ):
                         echo esc_html( $title );
                     else:
-                        esc_html_e( 'Awww...Do Not Cry', 'design' );
+                        esc_html_e( 'Awww...Do Not Cry', Text_Domain );
                     endif;
                     ?>
                 </h1>
@@ -39,18 +39,18 @@ $image = get_theme_mod('land_opt_image_404', '');
                     else:
                     ?>
                         <p>
-                            <?php esc_html_e( 'It is just a 404 Error!', 'design' ); ?>
+                            <?php esc_html_e( 'It is just a 404 Error!', Text_Domain ); ?>
                             <br />
-                            <?php esc_html_e( 'What you are looking for may have been misplaced', 'design' ); ?>
+                            <?php esc_html_e( 'What you are looking for may have been misplaced', Text_Domain ); ?>
                             <br />
-                            <?php esc_html_e( 'in Long Term Memory.', 'design' ); ?>
+                            <?php esc_html_e( 'in Long Term Memory.', Text_Domain ); ?>
                         </p>
                     <?php endif; ?>
                 </div>
 
                 <div id="site-error-back-home">
-                    <a href="<?php echo esc_url( get_home_url('/') ); ?>" title="<?php echo esc_html__('Go to the Home Page', 'design'); ?>">
-                        <?php esc_html_e('Go to the Home Page', 'design'); ?>
+                    <a href="<?php echo esc_url( get_home_url('/') ); ?>" title="<?php echo esc_html__('Go to the Home Page', Text_Domain); ?>">
+                        <?php esc_html_e('Go to the Home Page', Text_Domain); ?>
                     </a>
                 </div>
             </div>

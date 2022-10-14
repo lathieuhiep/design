@@ -6,9 +6,9 @@ if(  $show_loading == 'on' ) :
     ?>
     <div id="site-loadding" class="d-flex align-items-center justify-content-center">
         <?php  if( $image_url != '' ): ?>
-            <img class="loading_img" src="<?php echo esc_url( $image_url ); ?>" alt="<?php esc_attr_e('loading...','design') ?>"  >
+            <img class="loading_img" src="<?php echo esc_url( $image_url ); ?>" alt="<?php esc_attr_e('loading...',Text_Domain) ?>"  >
         <?php else: ?>
-            <img class="loading_img" src="<?php echo esc_url(get_theme_file_uri( '/assets/images/loading.gif' )); ?>" alt="<?php esc_attr_e('loading...','design') ?>">
+            <img class="loading_img" src="<?php echo esc_url(get_theme_file_uri( '/assets/images/loading.gif' )); ?>" alt="<?php esc_attr_e('loading...',Text_Domain) ?>">
         <?php endif; ?>
     </div>
 <?php endif; ?>

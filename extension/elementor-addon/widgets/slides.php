@@ -19,7 +19,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
     }
 
     public function get_title() {
-        return esc_html__( 'Slides Theme', 'design' );
+        return esc_html__( 'Slides Theme', Text_Domain );
     }
 
     public function get_icon() {
@@ -34,7 +34,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Slides', 'design' ),
+                'label' => esc_html__( 'Slides', Text_Domain ),
             ]
         );
 
@@ -42,12 +42,12 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
 
         $repeater->start_controls_tabs( 'slides_repeater' );
 
-        $repeater->start_controls_tab( 'background', [ 'label' => esc_html__( 'Background', 'design' ) ] );
+        $repeater->start_controls_tab( 'background', [ 'label' => esc_html__( 'Background', Text_Domain ) ] );
 
         $repeater->add_control(
             'slides_image',
             [
-                'label'     =>  esc_html__( 'Image', 'design' ),
+                'label'     =>  esc_html__( 'Image', Text_Domain ),
                 'type'      =>  Controls_Manager::MEDIA,
                 'default'   =>  [
                     'url'   =>  Utils::get_placeholder_image_src(),
@@ -61,13 +61,13 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $repeater->add_control(
             'background_size',
             [
-                'label'     =>  esc_html__( 'Size', 'design' ),
+                'label'     =>  esc_html__( 'Size', Text_Domain ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'cover',
                 'options'   =>  [
-                    'cover'     =>  esc_html__( 'Cover', 'design' ),
-                    'contain'   =>  esc_html__( 'Contain', 'design' ),
-                    'auto'      =>  esc_html__( 'Auto', 'design' ),
+                    'cover'     =>  esc_html__( 'Cover', Text_Domain ),
+                    'contain'   =>  esc_html__( 'Contain', Text_Domain ),
+                    'auto'      =>  esc_html__( 'Auto', Text_Domain ),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} .element-slides__item--bg' => 'background-size: {{VALUE}}',
@@ -87,7 +87,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $repeater->add_control(
             'background_overlay',
             [
-                'label' => esc_html__( 'Background Overlay', 'design' ),
+                'label' => esc_html__( 'Background Overlay', Text_Domain ),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
                 'separator' => 'before',
@@ -106,7 +106,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $repeater->add_control(
             'background_overlay_color',
             [
-                'label' => esc_html__( 'Color', 'design' ),
+                'label' => esc_html__( 'Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(0,0,0,0.5)',
                 'conditions' => [
@@ -125,14 +125,14 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
 
         $repeater->end_controls_tab();
 
-        $repeater->start_controls_tab( 'content', [ 'label' => esc_html__( 'Content', 'design' ) ] );
+        $repeater->start_controls_tab( 'content', [ 'label' => esc_html__( 'Content', Text_Domain ) ] );
 
         $repeater->add_control(
             'heading',
             [
-                'label' => esc_html__( 'Title & Description', 'design' ),
+                'label' => esc_html__( 'Title & Description', Text_Domain ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Slide Heading', 'design' ),
+                'default' => esc_html__( 'Slide Heading', Text_Domain ),
                 'label_block' => true,
             ]
         );
@@ -140,9 +140,9 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $repeater->add_control(
             'description',
             [
-                'label' => esc_html__( 'Description', 'design' ),
+                'label' => esc_html__( 'Description', Text_Domain ),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'design' ),
+                'default' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', Text_Domain ),
                 'show_label' => false,
             ]
         );
@@ -150,32 +150,32 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $repeater->add_control(
             'button_text',
             [
-                'label' => esc_html__( 'Button Text', 'design' ),
+                'label' => esc_html__( 'Button Text', Text_Domain ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Click Here', 'design' ),
+                'default' => esc_html__( 'Click Here', Text_Domain ),
             ]
         );
 
         $repeater->add_control(
             'link',
             [
-                'label'         =>  esc_html__( 'Link', 'design' ),
+                'label'         =>  esc_html__( 'Link', Text_Domain ),
                 'type'          =>  Controls_Manager::URL,
                 'label_block'   =>  true,
                 'default'       =>  [
                     'is_external'   =>  'true',
                 ],
-                'placeholder'   =>  esc_html__( 'https://your-link.com', 'design' ),
+                'placeholder'   =>  esc_html__( 'https://your-link.com', Text_Domain ),
             ]
         );
 
 	    $repeater->add_control(
 		    'show_content',
 		    [
-			    'label'         => esc_html__( 'Show Content', 'design' ),
+			    'label'         => esc_html__( 'Show Content', Text_Domain ),
 			    'type'          => Controls_Manager::SWITCHER,
-			    'label_on'      => esc_html__( 'Show', 'design' ),
-			    'label_off'     => esc_html__( 'Hide', 'design' ),
+			    'label_on'      => esc_html__( 'Show', Text_Domain ),
+			    'label_off'     => esc_html__( 'Hide', Text_Domain ),
 			    'return_value'  => 'yes',
 			    'default'       => 'yes',
 		    ]
@@ -183,34 +183,34 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
 
         $repeater->end_controls_tab();
 
-        $repeater->start_controls_tab( 'style', [ 'label' => esc_html__( 'Style', 'design' ) ] );
+        $repeater->start_controls_tab( 'style', [ 'label' => esc_html__( 'Style', Text_Domain ) ] );
 
         $repeater->add_control(
             'custom_style',
             [
-                'label' => esc_html__( 'Custom', 'design' ),
+                'label' => esc_html__( 'Custom', Text_Domain ),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => esc_html__( 'Set custom style that will only affect this specific slide.', 'design' ),
+                'description' => esc_html__( 'Set custom style that will only affect this specific slide.', Text_Domain ),
             ]
         );
 
         $repeater->add_control(
             'horizontal_position',
             [
-                'label' => esc_html__( 'Horizontal Position', 'design' ),
+                'label' => esc_html__( 'Horizontal Position', Text_Domain ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'design' ),
+                        'title' => esc_html__( 'Left', Text_Domain ),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'design' ),
+                        'title' => esc_html__( 'Center', Text_Domain ),
                         'icon' => 'eicon-h-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'design' ),
+                        'title' => esc_html__( 'Right', Text_Domain ),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -236,20 +236,20 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $repeater->add_control(
             'vertical_position',
             [
-                'label' => esc_html__( 'Vertical Position', 'design' ),
+                'label' => esc_html__( 'Vertical Position', Text_Domain ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'top' => [
-                        'title' => esc_html__( 'Top', 'design' ),
+                        'title' => esc_html__( 'Top', Text_Domain ),
                         'icon' => 'eicon-v-align-top',
                     ],
                     'middle' => [
-                        'title' => esc_html__( 'Middle', 'design' ),
+                        'title' => esc_html__( 'Middle', Text_Domain ),
                         'icon' => 'eicon-v-align-middle',
                     ],
                     'bottom' => [
-                        'title' => esc_html__( 'Bottom', 'design' ),
+                        'title' => esc_html__( 'Bottom', Text_Domain ),
                         'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
@@ -275,20 +275,20 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $repeater->add_control(
             'text_align',
             [
-                'label' => esc_html__( 'Text Align', 'design' ),
+                'label' => esc_html__( 'Text Align', Text_Domain ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'design' ),
+                        'title' =>  esc_html__( 'Left', Text_Domain ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'design' ),
+                        'title' =>  esc_html__( 'Center', Text_Domain ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'design' ),
+                        'title' =>  esc_html__( 'Right', Text_Domain ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
                 ],
@@ -313,20 +313,20 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'slides_list',
             [
-                'label'     =>  esc_html__( 'Slides', 'design' ),
+                'label'     =>  esc_html__( 'Slides', Text_Domain ),
                 'type'      =>  Controls_Manager::REPEATER,
                 'fields'    => $repeater->get_controls(),
                 'default'   =>  [
                     [
-                        'heading' => esc_html__( 'Slider 1 Heading', 'design' ),
-                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'design' ),
-                        'button_text' => esc_html__( 'Click Here', 'design' ),
+                        'heading' => esc_html__( 'Slider 1 Heading', Text_Domain ),
+                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', Text_Domain ),
+                        'button_text' => esc_html__( 'Click Here', Text_Domain ),
                         'link' => '#'
                     ],
                     [
-                        'heading' => esc_html__( 'Slider 2 Heading', 'design' ),
-                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'design' ),
-                        'button_text' => esc_html__( 'Click Here', 'design' ),
+                        'heading' => esc_html__( 'Slider 2 Heading', Text_Domain ),
+                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', Text_Domain ),
+                        'button_text' => esc_html__( 'Click Here', Text_Domain ),
                         'link' => '#'
                     ],
                 ],
@@ -337,7 +337,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_responsive_control(
             'slides_height',
             [
-                'label' => esc_html__( 'Height', 'design' ),
+                'label' => esc_html__( 'Height', Text_Domain ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -365,7 +365,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->start_controls_section(
             'section_slider_options',
             [
-                'label' => esc_html__( 'Slider Options', 'design' ),
+                'label' => esc_html__( 'Slider Options', Text_Domain ),
                 'tab' => Controls_Manager::SECTION
             ]
         );
@@ -374,9 +374,9 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
             'loop',
             [
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label'         =>  esc_html__('Loop Slider ?', 'design'),
-                'label_off'     =>  esc_html__('No', 'design'),
-                'label_on'      =>  esc_html__('Yes', 'design'),
+                'label'         =>  esc_html__('Loop Slider ?', Text_Domain),
+                'label_off'     =>  esc_html__('No', Text_Domain),
+                'label_on'      =>  esc_html__('Yes', Text_Domain),
                 'return_value'  =>  'yes',
                 'default'       =>  'yes',
             ]
@@ -385,10 +385,10 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'autoplay',
             [
-                'label'         => esc_html__('Autoplay?', 'design'),
+                'label'         => esc_html__('Autoplay?', Text_Domain),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_off'     => esc_html__('No', 'design'),
-                'label_on'      => esc_html__('Yes', 'design'),
+                'label_off'     => esc_html__('No', Text_Domain),
+                'label_on'      => esc_html__('Yes', Text_Domain),
                 'return_value'  => 'yes',
                 'default'       => 'no',
             ]
@@ -397,10 +397,10 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'nav',
             [
-                'label'         => esc_html__('nav Slider', 'design'),
+                'label'         => esc_html__('nav Slider', Text_Domain),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_on'      => esc_html__('Yes', 'design'),
-                'label_off'     => esc_html__('No', 'design'),
+                'label_on'      => esc_html__('Yes', Text_Domain),
+                'label_off'     => esc_html__('No', Text_Domain),
                 'return_value'  => 'yes',
                 'default'       => 'yes',
             ]
@@ -409,10 +409,10 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'dots',
             [
-                'label'         => esc_html__('Dots Slider', 'design'),
+                'label'         => esc_html__('Dots Slider', Text_Domain),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_on'      => esc_html__('Yes', 'design'),
-                'label_off'     => esc_html__('No', 'design'),
+                'label_on'      => esc_html__('Yes', Text_Domain),
+                'label_off'     => esc_html__('No', Text_Domain),
                 'return_value'  => 'yes',
                 'default'       => 'no',
             ]
@@ -423,7 +423,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_slides',
             [
-                'label' => esc_html__( 'Slides', 'design' ),
+                'label' => esc_html__( 'Slides', Text_Domain ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -431,7 +431,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_responsive_control(
             'content_max_width',
             [
-                'label' => esc_html__( 'Content Width', 'design' ),
+                'label' => esc_html__( 'Content Width', Text_Domain ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -463,7 +463,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_responsive_control(
             'slides_padding',
             [
-                'label' => esc_html__( 'Padding', 'design' ),
+                'label' => esc_html__( 'Padding', Text_Domain ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -475,21 +475,21 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'slides_horizontal_position',
             [
-                'label' => esc_html__( 'Horizontal Position', 'design' ),
+                'label' => esc_html__( 'Horizontal Position', Text_Domain ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'default' => 'center',
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'design' ),
+                        'title' => esc_html__( 'Left', Text_Domain ),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'design' ),
+                        'title' => esc_html__( 'Center', Text_Domain ),
                         'icon' => 'eicon-h-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'design' ),
+                        'title' => esc_html__( 'Right', Text_Domain ),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -500,21 +500,21 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'slides_vertical_position',
             [
-                'label' => esc_html__( 'Vertical Position', 'design' ),
+                'label' => esc_html__( 'Vertical Position', Text_Domain ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'default' => 'middle',
                 'options' => [
                     'top' => [
-                        'title' => esc_html__( 'Top', 'design' ),
+                        'title' => esc_html__( 'Top', Text_Domain ),
                         'icon' => 'eicon-v-align-top',
                     ],
                     'middle' => [
-                        'title' => esc_html__( 'Middle', 'design' ),
+                        'title' => esc_html__( 'Middle', Text_Domain ),
                         'icon' => 'eicon-v-align-middle',
                     ],
                     'bottom' => [
-                        'title' => esc_html__( 'Bottom', 'design' ),
+                        'title' => esc_html__( 'Bottom', Text_Domain ),
                         'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
@@ -525,22 +525,22 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'slides_text_align',
             [
-                'label' => esc_html__( 'Text Align', 'design' ),
+                'label' => esc_html__( 'Text Align', Text_Domain ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'design' ),
+                        'title' =>  esc_html__( 'Left', Text_Domain ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
 
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'design' ),
+                        'title' =>  esc_html__( 'Center', Text_Domain ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
 
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'design' ),
+                        'title' =>  esc_html__( 'Right', Text_Domain ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
                 ],
@@ -556,7 +556,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_title',
             [
-                'label' => esc_html__( 'Title', 'design' ),
+                'label' => esc_html__( 'Title', Text_Domain ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -564,7 +564,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'heading_spacing',
             [
-                'label' => esc_html__( 'Spacing', 'design' ),
+                'label' => esc_html__( 'Spacing', Text_Domain ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -581,7 +581,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'heading_color',
             [
-                'label' => esc_html__( 'Text Color', 'design' ),
+                'label' => esc_html__( 'Text Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--heading' => 'color: {{VALUE}}',
@@ -603,7 +603,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_description',
             [
-                'label' => esc_html__( 'Description', 'design' ),
+                'label' => esc_html__( 'Description', Text_Domain ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -611,7 +611,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'description_spacing',
             [
-                'label' => esc_html__( 'Spacing', 'design' ),
+                'label' => esc_html__( 'Spacing', Text_Domain ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -628,7 +628,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'description_color',
             [
-                'label' => esc_html__( 'Text Color', 'design' ),
+                'label' => esc_html__( 'Text Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--description' => 'color: {{VALUE}}',
@@ -650,14 +650,14 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_button',
             [
-                'label' => esc_html__( 'Button', 'design' ),
+                'label' => esc_html__( 'Button', Text_Domain ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control( 'button_color',
             [
-                'label' => esc_html__( 'Text Color', 'design' ),
+                'label' => esc_html__( 'Text Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link, {{WRAPPER}} .element-slides__item .element-slides__item--link a' => 'color: {{VALUE}}; border-color: {{VALUE}}',
@@ -676,7 +676,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'button_border_width',
             [
-                'label' => esc_html__( 'Border Width', 'design' ),
+                'label' => esc_html__( 'Border Width', Text_Domain ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -693,7 +693,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'button_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'design' ),
+                'label' => esc_html__( 'Border Radius', Text_Domain ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -710,12 +710,12 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
 
         $this->start_controls_tabs( 'button_tabs' );
 
-        $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'design' ) ] );
+        $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', Text_Domain ) ] );
 
         $this->add_control(
             'button_text_color',
             [
-                'label' => esc_html__( 'Text Color', 'design' ),
+                'label' => esc_html__( 'Text Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link, {{WRAPPER}} .element-slides__item .element-slides__item--link a' => 'color: {{VALUE}};',
@@ -726,7 +726,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'button_background_color',
             [
-                'label' => esc_html__( 'Background Color', 'design' ),
+                'label' => esc_html__( 'Background Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link' => 'background-color: {{VALUE}};',
@@ -737,7 +737,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'button_border_color',
             [
-                'label' => esc_html__( 'Border Color', 'design' ),
+                'label' => esc_html__( 'Border Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link' => 'border-color: {{VALUE}};',
@@ -747,12 +747,12 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
 
         $this->end_controls_tab();
 
-        $this->start_controls_tab( 'hover', [ 'label' => esc_html__( 'Hover', 'design' ) ] );
+        $this->start_controls_tab( 'hover', [ 'label' => esc_html__( 'Hover', Text_Domain ) ] );
 
         $this->add_control(
             'button_hover_text_color',
             [
-                'label' => esc_html__( 'Text Color', 'design' ),
+                'label' => esc_html__( 'Text Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover, {{WRAPPER}} .element-slides__item .element-slides__item--link a:hover' => 'color: {{VALUE}};',
@@ -763,7 +763,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'button_hover_background_color',
             [
-                'label' => esc_html__( 'Background Color', 'design' ),
+                'label' => esc_html__( 'Background Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover' => 'background-color: {{VALUE}};',
@@ -774,7 +774,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'button_hover_border_color',
             [
-                'label' => esc_html__( 'Border Color', 'design' ),
+                'label' => esc_html__( 'Border Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover' => 'border-color: {{VALUE}};',
@@ -791,7 +791,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_navigation',
             [
-                'label' => esc_html__( 'Navigation', 'design' ),
+                'label' => esc_html__( 'Navigation', Text_Domain ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'conditions' => [
                     'relation' => 'or',
@@ -812,7 +812,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'heading_style_arrows',
             [
-                'label' => esc_html__( 'Arrows', 'design' ),
+                'label' => esc_html__( 'Arrows', Text_Domain ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'conditions' => [
@@ -829,7 +829,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'arrows_size',
             [
-                'label' => esc_html__( 'Arrows Size', 'design' ),
+                'label' => esc_html__( 'Arrows Size', Text_Domain ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -854,7 +854,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'arrows_color',
             [
-                'label' => esc_html__( 'Arrows Color', 'design' ),
+                'label' => esc_html__( 'Arrows Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-nav button i.fa' => 'color: {{VALUE}};',
@@ -873,7 +873,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'arrows_color_hover',
             [
-                'label' => esc_html__( 'Arrows Color Hover', 'design' ),
+                'label' => esc_html__( 'Arrows Color Hover', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-nav button i.fa:hover' => 'color: {{VALUE}};',
@@ -892,7 +892,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'heading_style_dots',
             [
-                'label' => esc_html__( 'Dots', 'design' ),
+                'label' => esc_html__( 'Dots', Text_Domain ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'conditions' => [
@@ -909,7 +909,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'dots_size',
             [
-                'label' => esc_html__( 'Dots Size', 'design' ),
+                'label' => esc_html__( 'Dots Size', Text_Domain ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -934,7 +934,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'dots_color',
             [
-                'label' => esc_html__( 'Dots Color', 'design' ),
+                'label' => esc_html__( 'Dots Color', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}};',
@@ -953,7 +953,7 @@ class Design_Elementor_Addon_Slides extends Widget_Base {
         $this->add_control(
             'dots_color_hover',
             [
-                'label' => esc_html__( 'Dots Color Hover', 'design' ),
+                'label' => esc_html__( 'Dots Color Hover', Text_Domain ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot.active span, {{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}};',

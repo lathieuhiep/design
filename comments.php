@@ -16,7 +16,7 @@ if ( post_password_required() ) {
             if ( '1' === $design_comments_number ) :
 
                 /* translators: %s: post title */
-                printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'design' ), get_the_title() );
+                printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', Text_Domain ), get_the_title() );
 
             else :
 
@@ -27,7 +27,7 @@ if ( post_password_required() ) {
                         '%1$s Replies to &ldquo;%2$s&rdquo;',
                         $design_comments_number,
                         'comments title',
-                        'design'
+                        Text_Domain
                     ),
                     number_format_i18n( $design_comments_number ),
                     get_the_title()
@@ -70,7 +70,7 @@ if ( post_password_required() ) {
     ?>
 
         <p class="no-comments">
-            <?php esc_html_e( 'Comments are closed.', 'design' ); ?>
+            <?php esc_html_e( 'Comments are closed.', Text_Domain ); ?>
         </p>
 
     <?php endif; ?>
@@ -81,16 +81,16 @@ if ( post_password_required() ) {
     $design_comments_args    =   ( $design_req ? " aria-required='true'" : '' );
 
     $design_comments_args = array(
-        'title_reply'       => '<span>'.esc_html__( 'Để lại bình luận','design' ).'</span>',
+        'title_reply'       => '<span>'.esc_html__( 'Để lại bình luận',Text_Domain ).'</span>',
         'fields' => apply_filters( 'comment_form_default_fields',
             array(
                 'comment_notes_before' => '<div class="comment-fields-row order-1"><div class="row">',
-                'author' => '<div class="col-12 col-sm-6 col-md-6"><div class="form-comment-item"><input id="author" placeholder="'.esc_html__('Full Name','design').'" class="form-control" name="author" type="text" value="' . esc_attr( $design_commenter['comment_author'] ) . '" size="30" ' . $design_comments_args . ' /></div></div>',
-                'email' => '<div class="col-12 col-sm-6 col-md-6"><div class="form-comment-item"><input id="email" placeholder="'.esc_html__('Your Email','design').'" class="form-control" name="email" type="text" value="' . esc_attr( $design_commenter['comment_author_email'] ) . '" size="30" ' . $design_comments_args . ' /></div></div>',
+                'author' => '<div class="col-12 col-sm-6 col-md-6"><div class="form-comment-item"><input id="author" placeholder="'.esc_html__('Full Name',Text_Domain).'" class="form-control" name="author" type="text" value="' . esc_attr( $design_commenter['comment_author'] ) . '" size="30" ' . $design_comments_args . ' /></div></div>',
+                'email' => '<div class="col-12 col-sm-6 col-md-6"><div class="form-comment-item"><input id="email" placeholder="'.esc_html__('Your Email',Text_Domain).'" class="form-control" name="email" type="text" value="' . esc_attr( $design_commenter['comment_author_email'] ) . '" size="30" ' . $design_comments_args . ' /></div></div>',
                 'comment_notes_after' => '</div></div>',
             )
         ),
-        'comment_field' => '<div class="form-comment-item form-comment-field order-3"><textarea rows="7" id="comment" placeholder="'.esc_html__('Bình luận','design').'" name="comment" class="form-control"></textarea></div>',
+        'comment_field' => '<div class="form-comment-item form-comment-field order-3"><textarea rows="7" id="comment" placeholder="'.esc_html__('Bình luận',Text_Domain).'" name="comment" class="form-control"></textarea></div>',
     );
 
     comment_form( $design_comments_args );

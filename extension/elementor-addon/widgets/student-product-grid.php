@@ -18,7 +18,7 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Student Product Grid', 'design' );
+		return esc_html__( 'Student Product Grid', Text_Domain );
 	}
 
 	public function get_icon() {
@@ -35,7 +35,7 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_query',
 			[
-				'label' => esc_html__( 'Query', 'design' ),
+				'label' => esc_html__( 'Query', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -43,12 +43,12 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		$this->add_control(
 			'custom_post_type',
 			[
-				'label'   => esc_html__( 'Select Custom Post Type', 'design' ),
+				'label'   => esc_html__( 'Select Custom Post Type', Text_Domain ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'student_product',
 				'options' => [
-					'student_product'  => esc_html__( 'Student Product', 'design' ),
-					'my_product' => esc_html__( 'My Product', 'design' ),
+					'student_product'  => esc_html__( 'Student Product', Text_Domain ),
+					'my_product' => esc_html__( 'My Product', Text_Domain ),
 				],
 			]
 		);
@@ -56,7 +56,7 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		$this->add_control(
 			'limit',
 			[
-				'label'   => esc_html__( 'Number of Courses', 'design' ),
+				'label'   => esc_html__( 'Number of Courses', Text_Domain ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 8,
 				'min'     => 1,
@@ -68,14 +68,14 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		$this->add_control(
 			'order_by',
 			[
-				'label'   => esc_html__( 'Order By', 'design' ),
+				'label'   => esc_html__( 'Order By', Text_Domain ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'id',
 				'options' => [
-					'id'    => esc_html__( 'ID', 'design' ),
-					'title' => esc_html__( 'Title', 'design' ),
-					'date'  => esc_html__( 'Date', 'design' ),
-					'rand'  => esc_html__( 'Random', 'design' ),
+					'id'    => esc_html__( 'ID', Text_Domain ),
+					'title' => esc_html__( 'Title', Text_Domain ),
+					'date'  => esc_html__( 'Date', Text_Domain ),
+					'rand'  => esc_html__( 'Random', Text_Domain ),
 				],
 			]
 		);
@@ -83,12 +83,12 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'design' ),
+				'label'   => esc_html__( 'Order', Text_Domain ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'DESC',
 				'options' => [
-					'ASC'  => esc_html__( 'Ascending', 'design' ),
-					'DESC' => esc_html__( 'Descending', 'design' ),
+					'ASC'  => esc_html__( 'Ascending', Text_Domain ),
+					'DESC' => esc_html__( 'Descending', Text_Domain ),
 				],
 			]
 		);
@@ -99,7 +99,7 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_link',
 			[
-				'label' => esc_html__( 'Link', 'design' ),
+				'label' => esc_html__( 'Link', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -107,10 +107,10 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		$this->add_control(
 			'user_ajax',
 			[
-				'label'         =>  esc_html__('User Ajax', 'design'),
+				'label'         =>  esc_html__('User Ajax', Text_Domain),
 				'type'          =>  Controls_Manager::SWITCHER,
-				'label_on'      =>  esc_html__('Yes', 'design'),
-				'label_off'     =>  esc_html__('No', 'design'),
+				'label_on'      =>  esc_html__('Yes', Text_Domain),
+				'label_off'     =>  esc_html__('No', Text_Domain),
 				'return_value'  =>  'yes',
 				'default'       =>  'no',
 			]
@@ -119,9 +119,9 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		$this->add_control(
 			'text_link',
 			[
-				'label'         =>  esc_html__( 'Text', 'design' ),
+				'label'         =>  esc_html__( 'Text', Text_Domain ),
 				'type'          =>  Controls_Manager::TEXT,
-				'default'       =>  esc_html__( 'Xem thêm sản phẩm khác', 'design' ),
+				'default'       =>  esc_html__( 'Xem thêm sản phẩm khác', Text_Domain ),
 				'label_block'   =>  true
 			]
 		);
@@ -129,9 +129,9 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		$this->add_control(
 			'link',
 			[
-				'label' => esc_html__( 'Link', 'design' ),
+				'label' => esc_html__( 'Link', Text_Domain ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://your-link.com', 'design' ),
+				'placeholder' => esc_html__( 'https://your-link.com', Text_Domain ),
 				'default' => [
 					'url' => '#',
 					'is_external' => false,
@@ -155,7 +155,7 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'content_layout',
 			[
-				'label' => esc_html__( 'Layout Settings', 'design' ),
+				'label' => esc_html__( 'Layout Settings', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -163,14 +163,14 @@ class Design_Elementor_Addon_Student_Product_Grid extends Widget_Base {
 		$this->add_control(
 			'column_number',
 			[
-				'label'   => esc_html__( 'Column', 'design' ),
+				'label'   => esc_html__( 'Column', Text_Domain ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 4,
 				'options' => [
-					1 => esc_html__( '1 Column', 'design' ),
-					2 => esc_html__( '2 Column', 'design' ),
-					3 => esc_html__( '3 Column', 'design' ),
-					4 => esc_html__( '4 Column', 'design' ),
+					1 => esc_html__( '1 Column', Text_Domain ),
+					2 => esc_html__( '2 Column', Text_Domain ),
+					3 => esc_html__( '3 Column', Text_Domain ),
+					4 => esc_html__( '4 Column', Text_Domain ),
 				],
 			]
 		);

@@ -44,7 +44,7 @@ $class_col_content = design_col_use_sidebar($sidebar, 'design_sidebar_main');
                                                 </p>
 
                                                 <a href="<?php the_permalink(); ?>" class="text-read-more">
-                                                    <?php esc_html_e('Xem thêm', 'design'); ?>
+                                                    <?php esc_html_e('Xem thêm', Text_Domain); ?>
                                                 </a>
 
                                                 <?php design_link_page(); ?>

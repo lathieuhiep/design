@@ -9,28 +9,28 @@ function design_widgets_init() {
 	$design_widgets_arr  =   array(
 
 		'design_sidebar_main'    =>  array(
-			'name'              =>  esc_html__( 'Sidebar Main', 'design' ),
-			'description'       =>  esc_html__( 'Display sidebar right or left on all page.', 'design' )
+			'name'              =>  esc_html__( 'Sidebar Main', Text_Domain ),
+			'description'       =>  esc_html__( 'Display sidebar right or left on all page.', Text_Domain )
 		),
 
 		'design_sidebar_footer_multi_column_1'   =>  array(
-			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 1', 'design' ),
-			'description'       =>  esc_html__('Display footer column 1 on all page.', 'design' )
+			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 1', Text_Domain ),
+			'description'       =>  esc_html__('Display footer column 1 on all page.', Text_Domain )
 		),
 
 		'design_sidebar_footer_multi_column_2'   =>  array(
-			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 2', 'design' ),
-			'description'       =>  esc_html__('Display footer column 2 on all page.', 'design' )
+			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 2', Text_Domain ),
+			'description'       =>  esc_html__('Display footer column 2 on all page.', Text_Domain )
 		),
 
 		'design_sidebar_footer_multi_column_3'   =>  array(
-			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 3', 'design' ),
-			'description'       =>  esc_html__('Display footer column 3 on all page.', 'design' )
+			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 3', Text_Domain ),
+			'description'       =>  esc_html__('Display footer column 3 on all page.', Text_Domain )
 		),
 
 		'design_sidebar_footer_multi_column_4'   =>  array(
-			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 4', 'design' ),
-			'description'       =>  esc_html__('Display footer column 4 on all page.', 'design' )
+			'name'              =>  esc_html__( 'Sidebar Footer Multi Column 4', Text_Domain ),
+			'description'       =>  esc_html__('Display footer column 4 on all page.', Text_Domain )
 		)
 
 	);

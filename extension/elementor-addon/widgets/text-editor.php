@@ -18,7 +18,7 @@ class Design_Elementor_Text_Editor extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Design Text Editor', 'design' );
+		return esc_html__( 'Design Text Editor', Text_Domain );
 	}
 
 	public function get_icon() {
@@ -31,7 +31,7 @@ class Design_Elementor_Text_Editor extends Widget_Base {
 		$this->start_controls_section(
 			'section_editor',
 			[
-				'label' => esc_html__( 'Text Editor', 'design' ),
+				'label' => esc_html__( 'Text Editor', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);

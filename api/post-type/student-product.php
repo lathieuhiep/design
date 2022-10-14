@@ -36,7 +36,7 @@ function design_api_query_student_product(WP_REST_Request $request) {
 }
 
 add_action('rest_api_init', function () {
-	register_rest_route(apiNamespace, 'post-type/student-product', array(
+	register_rest_route(API_Namespace, 'post-type/student-product', array(
 		'methods' => 'GET',
 		'callback' => 'design_api_query_student_product'
 	));

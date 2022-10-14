@@ -18,7 +18,7 @@ class Design_Elementor_Addon_Breadcrumb extends Widget_Base {
 	}
 
 	public function get_title(): string {
-		return esc_html__( 'Breadcrumb', 'design' );
+		return esc_html__( 'Breadcrumb', Text_Domain );
 	}
 
 	public function get_icon() {
@@ -31,7 +31,7 @@ class Design_Elementor_Addon_Breadcrumb extends Widget_Base {
 		$this->start_controls_section(
 			'style',
 			[
-				'label' => esc_html__( 'Breadcrumbs', 'design' ),
+				'label' => esc_html__( 'Breadcrumbs', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -39,7 +39,7 @@ class Design_Elementor_Addon_Breadcrumb extends Widget_Base {
 		$this->add_control(
 			'breadcrumbs_color',
 			[
-				'label'     => __( 'Color', 'design' ),
+				'label'     => __( 'Color', Text_Domain ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .element-breadcrumbs .breadcrumbs-col, .element-breadcrumbs .breadcrumbs-col span a' => 'color: {{VALUE}}',

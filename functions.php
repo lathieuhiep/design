@@ -4,6 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// config theme
+require get_parent_theme_file_path( '/config/constant.php' );
+
 /**
  *constants
  */
@@ -23,7 +26,7 @@ if ( ! function_exists( 'design_setup' ) ):
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 */
-		load_theme_textdomain( 'design', get_parent_theme_file_path( '/languages' ) );
+		load_theme_textdomain( Text_Domain, get_parent_theme_file_path( '/languages' ) );
 
 		/**
 		 * Set up theme defaults and registers support for various WordPress features.
@@ -79,36 +82,36 @@ if ( class_exists('Kirki') ) {
 
         $default['testimonial'] = [
             [
-                'name'  => esc_html__( 'Lê Minh Anh', 'design' ),
-                'course'   => esc_html__('Học khóa Web & App', 'design'),
+                'name'  => esc_html__( 'Lê Minh Anh', Text_Domain ),
+                'course'   => esc_html__('Học khóa Web & App', Text_Domain),
                 'avatar'    => '',
                 'description' => '',
             ],
 
             [
-                'name'  => esc_html__( 'Phạm Văn Sỹ', 'design' ),
-                'course'   => esc_html__('Học khóa Web', 'design'),
+                'name'  => esc_html__( 'Phạm Văn Sỹ', Text_Domain ),
+                'course'   => esc_html__('Học khóa Web', Text_Domain),
                 'avatar'    => '',
                 'description' => '',
             ],
 
             [
-                'name'  => esc_html__( 'Hà Thanh Tùng', 'design' ),
-                'course'   => esc_html__('Học khóa App Mobile', 'design'),
+                'name'  => esc_html__( 'Hà Thanh Tùng', Text_Domain ),
+                'course'   => esc_html__('Học khóa App Mobile', Text_Domain),
                 'avatar'    => '',
                 'description' => '',
             ],
 
             [
-                'name'  => esc_html__( 'Phạm Hồng Nhung', 'design' ),
-                'course'   => esc_html__('Học khóa App Mobile', 'design'),
+                'name'  => esc_html__( 'Phạm Hồng Nhung', Text_Domain ),
+                'course'   => esc_html__('Học khóa App Mobile', Text_Domain),
                 'avatar'    => '',
                 'description' => '',
             ],
 
             [
-                'name'  => esc_html__( 'Mạc Linh Thư', 'design' ),
-                'course'   => esc_html__('Học khóa Web', 'design'),
+                'name'  => esc_html__( 'Mạc Linh Thư', Text_Domain ),
+                'course'   => esc_html__('Học khóa Web', Text_Domain),
                 'avatar'    => '',
                 'description' => '',
             ],
@@ -125,6 +128,9 @@ if ( class_exists('Kirki') ) {
 
     require get_theme_file_path( 'extension/theme-option/customizer.php' );
 }
+
+// Required: options theme
+require get_theme_file_path( 'extension/theme-option/options.php' );
 
 // Required: CMB2
 if ( !class_exists('CMB2') ) {
@@ -230,7 +236,7 @@ function design_comments( $design_comment, $design_comment_args, $design_comment
 
 	<?php if ( $design_comment->comment_approved == '0' ) : ?>
         <em class="comment-awaiting-moderation">
-			<?php esc_html_e( 'Your comment is awaiting moderation.', 'design' ); ?>
+			<?php esc_html_e( 'Your comment is awaiting moderation.', Text_Domain ); ?>
         </em>
 	<?php endif; ?>
 
@@ -243,7 +249,7 @@ function design_comments( $design_comment, $design_comment_args, $design_comment
                 <?php comment_date(); ?>
             </span>
 
-			<?php edit_comment_link( esc_html__( 'Edit ', 'design' ) ); ?>
+			<?php edit_comment_link( esc_html__( 'Edit ', Text_Domain ) ); ?>
 
 			<?php comment_reply_link( array_merge( $design_comment_args, array(
 				'add_below' => $design_comment_add_below,
@@ -280,16 +286,16 @@ if ( ! function_exists( 'design_comment_nav' ) ) :
 			?>
             <nav class="navigation comment-navigation">
                 <h2 class="screen-reader-text">
-					<?php esc_html_e( 'Comment navigation', 'design' ); ?>
+					<?php esc_html_e( 'Comment navigation', Text_Domain ); ?>
                 </h2>
 
                 <div class="nav-links">
 					<?php
-					if ( $prev_link = get_previous_comments_link( esc_html__( 'Older Comments', 'design' ) ) ) :
+					if ( $prev_link = get_previous_comments_link( esc_html__( 'Older Comments', Text_Domain ) ) ) :
 						printf( '<div class="nav-previous">%s</div>', $prev_link );
 					endif;
 
-					if ( $next_link = get_next_comments_link( esc_html__( 'Newer Comments', 'design' ) ) ) :
+					if ( $next_link = get_next_comments_link( esc_html__( 'Newer Comments', Text_Domain ) ) ) :
 						printf( '<div class="nav-next">%s</div>', $next_link );
 					endif;
 					?>
@@ -359,8 +365,8 @@ function design_pagination() {
 	the_posts_pagination( array(
 		'type'               => 'list',
 		'mid_size'           => 2,
-		'prev_text'          => esc_html__( 'Previous', 'design' ),
-		'next_text'          => esc_html__( 'Next', 'design' ),
+		'prev_text'          => esc_html__( 'Previous', Text_Domain ),
+		'next_text'          => esc_html__( 'Next', Text_Domain ),
 		'screen_reader_text' => '&nbsp;',
 	) );
 
@@ -371,8 +377,8 @@ function design_paging_nav_query( $design_querry ) {
 
 	$design_pagination_args = array(
 
-		'prev_text' => '<i class="fa fa-angle-double-left"></i>' . esc_html__( ' Previous', 'design' ),
-		'next_text' => esc_html__( 'Next', 'design' ) . '<i class="fa fa-angle-double-right"></i>',
+		'prev_text' => '<i class="fa fa-angle-double-left"></i>' . esc_html__( ' Previous', Text_Domain ),
+		'next_text' => esc_html__( 'Next', Text_Domain ) . '<i class="fa fa-angle-double-right"></i>',
 		'current'   => max( 1, get_query_var( 'paged' ) ),
 		'total'     => $design_querry->max_num_pages,
 		'type'      => 'list',
@@ -438,7 +444,7 @@ function design_post_meta() {
 
     <div class="site-post-meta">
         <span class="site-post-author">
-            <?php esc_html_e( 'Author:', 'design' ); ?>
+            <?php esc_html_e( 'Author:', Text_Domain ); ?>
 
             <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
                 <?php the_author(); ?>
@@ -446,13 +452,13 @@ function design_post_meta() {
         </span>
 
         <span class="site-post-date">
-            <?php esc_html_e( 'Post date: ', 'design' );
+            <?php esc_html_e( 'Post date: ', Text_Domain );
             the_date(); ?>
         </span>
 
         <span class="site-post-comments">
             <?php
-            comments_popup_link( '0 ' . esc_html__( 'Comment', 'design' ), '1 ' . esc_html__( 'Comment', 'design' ), '% ' . esc_html__( 'Comments', 'design' ) );
+            comments_popup_link( '0 ' . esc_html__( 'Comment', Text_Domain ), '1 ' . esc_html__( 'Comment', Text_Domain ), '% ' . esc_html__( 'Comments', Text_Domain ) );
             ?>
         </span>
     </div>
@@ -466,7 +472,7 @@ function design_post_meta() {
 function design_link_page() {
 
 	wp_link_pages( array(
-		'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'design' ),
+		'before'      => '<div class="page-links">' . esc_html__( 'Pages:', Text_Domain ),
 		'after'       => '</div>',
 		'link_before' => '<span class="page-number">',
 		'link_after'  => '</span>',

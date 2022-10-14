@@ -32,7 +32,7 @@ if ( $testimonial ) :
 
     <div class="box-top text-center">
         <h4 class="title">
-            <?php esc_html_e('Ý kiến học viên sau khoá học', 'design'); ?>
+            <?php esc_html_e('Ý kiến học viên sau khoá học', Text_Domain); ?>
         </h4>
     </div>
 

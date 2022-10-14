@@ -19,7 +19,7 @@ class Design_Elementor_List_Editor extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Design List Editor', 'design' );
+		return esc_html__( 'Design List Editor', Text_Domain );
 	}
 
 	public function get_icon() {
@@ -32,7 +32,7 @@ class Design_Elementor_List_Editor extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => esc_html__( 'Content', 'design' ),
+				'label' => esc_html__( 'Content', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -40,14 +40,14 @@ class Design_Elementor_List_Editor extends Widget_Base {
 		$this->add_control(
 			'column_number',
 			[
-				'label'     =>  esc_html__( 'Column', 'design' ),
+				'label'     =>  esc_html__( 'Column', Text_Domain ),
 				'type'      =>  Controls_Manager::SELECT,
 				'default'   =>  3,
 				'options'   =>  [
-					1   =>  esc_html__( '1 Column', 'design' ),
-					2   =>  esc_html__( '2 Column', 'design' ),
-					3   =>  esc_html__( '3 Column', 'design' ),
-					4   =>  esc_html__( '4 Column', 'design' ),
+					1   =>  esc_html__( '1 Column', Text_Domain ),
+					2   =>  esc_html__( '2 Column', Text_Domain ),
+					3   =>  esc_html__( '3 Column', Text_Domain ),
+					4   =>  esc_html__( '4 Column', Text_Domain ),
 				],
 			]
 		);

@@ -6,7 +6,7 @@ function design_my_product_metaboxes()
     // My product meta box
     $cmb_my_product = new_cmb2_box(array(
         'id' => 'design_cmb_my_product',
-        'title' => esc_html__('Thông tin sản phẩm', 'design'),
+        'title' => esc_html__('Thông tin sản phẩm', Text_Domain),
         'object_types' => array('my_product'),
         'context' => 'normal',
         'priority' => 'high',
@@ -14,7 +14,7 @@ function design_my_product_metaboxes()
     ));
 
     $cmb_my_product->add_field( array(
-        'name' => esc_html__( 'Ảnh sản phẩm', 'design' ),
+        'name' => esc_html__( 'Ảnh sản phẩm', Text_Domain ),
         'id'   => 'design_meta_box_my_product_gallery',
         'type' => 'file_list',
     ) );

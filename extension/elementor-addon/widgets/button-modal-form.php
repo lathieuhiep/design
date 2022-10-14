@@ -14,7 +14,7 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Button Modal Form', 'design' );
+		return esc_html__( 'Button Modal Form', Text_Domain );
 	}
 
 	public function get_icon() {
@@ -31,7 +31,7 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 		$this->start_controls_section(
 			'button_section',
 			[
-				'label' => esc_html__( 'Button', 'design' ),
+				'label' => esc_html__( 'Button', Text_Domain ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -39,21 +39,21 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 		$this->add_control(
 			'text',
 			[
-				'label' => esc_html__( 'Text', 'design' ),
+				'label' => esc_html__( 'Text', Text_Domain ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => esc_html__( 'ĐĂNG KÍ HỌC NGAY', 'design' ),
-				'placeholder' => esc_html__( 'Type your title here', 'design' ),
+				'default' => esc_html__( 'ĐĂNG KÍ HỌC NGAY', Text_Domain ),
+				'placeholder' => esc_html__( 'Type your title here', Text_Domain ),
 			]
 		);
 
 		$this->add_control(
 			'show_modal',
 			[
-				'label'         =>  esc_html__('Show Modal', 'design'),
+				'label'         =>  esc_html__('Show Modal', Text_Domain),
 				'type'          =>  Controls_Manager::SWITCHER,
-				'label_on'      =>  esc_html__('Yes', 'design'),
-				'label_off'     =>  esc_html__('No', 'design'),
+				'label_on'      =>  esc_html__('Yes', Text_Domain),
+				'label_off'     =>  esc_html__('No', Text_Domain),
 				'return_value'  =>  'yes',
 				'default'       =>  'yes',
 			]
@@ -62,10 +62,10 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
         $this->add_control(
 			'multimodal',
 			[
-				'label'         =>  esc_html__('Multimodal', 'design'),
+				'label'         =>  esc_html__('Multimodal', Text_Domain),
 				'type'          =>  Controls_Manager::SWITCHER,
-				'label_on'      =>  esc_html__('Yes', 'design'),
-				'label_off'     =>  esc_html__('No', 'design'),
+				'label_on'      =>  esc_html__('Yes', Text_Domain),
+				'label_off'     =>  esc_html__('No', Text_Domain),
 				'return_value'  =>  'yes',
 				'default'       =>  'yes',
 				'conditions' => [
@@ -82,7 +82,7 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 		$this->add_control(
 			'shortcode',
 			[
-				'label' => esc_html__( 'Enter your shortcode', 'design' ),
+				'label' => esc_html__( 'Enter your shortcode', Text_Domain ),
 				'type' => Controls_Manager::TEXTAREA,
 				'rows' => 5,
 				'placeholder' => '[contact-form-7 id="123" title="Sign up for school"]',
@@ -100,10 +100,10 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 		$this->add_control(
 			'show_note',
 			[
-				'label'         =>  esc_html__('Show Note', 'design'),
+				'label'         =>  esc_html__('Show Note', Text_Domain),
 				'type'          =>  Controls_Manager::SWITCHER,
-				'label_on'      =>  esc_html__('Yes', 'design'),
-				'label_off'     =>  esc_html__('No', 'design'),
+				'label_on'      =>  esc_html__('Yes', Text_Domain),
+				'label_off'     =>  esc_html__('No', Text_Domain),
 				'return_value'  =>  'yes',
 				'default'       =>  'yes',
 			]
@@ -112,11 +112,11 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 		$this->add_control(
 			'note',
 			[
-				'label' => esc_html__( 'Note', 'design' ),
+				'label' => esc_html__( 'Note', Text_Domain ),
 				'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-				'default' => esc_html__( 'Tất cả các lịch học đều được học vào buổi tối', 'design' ),
-				'placeholder' => esc_html__( 'Type your note here', 'design' ),
+				'default' => esc_html__( 'Tất cả các lịch học đều được học vào buổi tối', Text_Domain ),
+				'placeholder' => esc_html__( 'Type your note here', Text_Domain ),
 			]
 		);
 
@@ -126,7 +126,7 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 		$this->start_controls_section(
 			'section_style',
 			[
-				'label' => esc_html__( 'Style', 'design' ),
+				'label' => esc_html__( 'Style', Text_Domain ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -134,21 +134,21 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 		$this->add_control(
 			'align',
 			[
-				'label'     =>  esc_html__( 'Alignment', 'design' ),
+				'label'     =>  esc_html__( 'Alignment', Text_Domain ),
 				'type'      =>  Controls_Manager::CHOOSE,
 				'options'   =>  [
 					'left'  =>  [
-						'title' =>  esc_html__( 'Left', 'design' ),
+						'title' =>  esc_html__( 'Left', Text_Domain ),
 						'icon'  =>  'eicon-text-align-left',
 					],
 
 					'center' => [
-						'title' =>  esc_html__( 'Center', 'design' ),
+						'title' =>  esc_html__( 'Center', Text_Domain ),
 						'icon'  =>  'eicon-text-align-center',
 					],
 
 					'right' => [
-						'title' =>  esc_html__( 'Right', 'design' ),
+						'title' =>  esc_html__( 'Right', Text_Domain ),
 						'icon'  =>  'eicon-text-align-right',
 					],
 				],
@@ -183,7 +183,7 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 		        <?php if ( $settings['show_note'] ) : ?>
                     <div class="note">
                     <span class="note__label">
-                        <?php esc_html_e('Lưu ý:', 'design'); ?>
+                        <?php esc_html_e('Lưu ý:', Text_Domain); ?>
                     </span>
 
                         <span class="note__text">
@@ -208,7 +208,7 @@ class Design_Elementor_Addon_Button_Modal_Form extends Widget_Base {
 
                                     <div class="note">
                                         <span class="note__label">
-                                            <?php esc_html_e('Lưu ý:', 'design'); ?>
+                                            <?php esc_html_e('Lưu ý:', Text_Domain); ?>
                                         </span>
 
                                         <span class="note__text">

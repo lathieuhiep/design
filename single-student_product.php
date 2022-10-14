@@ -18,7 +18,7 @@ $contact_from = get_theme_mod('design_opt_single_student_product_contact', '');
                     <div class="element-btn-modal-form mt-5">
                         <div class="btn-box text-center">
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#register-course">
-                                <span><?php esc_html_e('Đăng kí học ngay', 'design'); ?></span>
+                                <span><?php esc_html_e('Đăng kí học ngay', Text_Domain); ?></span>
                                 <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
@@ -49,13 +49,13 @@ $contact_from = get_theme_mod('design_opt_single_student_product_contact', '');
                 <div class="modal-header">
                     <div class="modal-header__left">
                         <h5 class="modal-title">
-                            <?php esc_html_e('Đăng kí học ngay', 'design'); ?>
+                            <?php esc_html_e('Đăng kí học ngay', Text_Domain); ?>
                         </h5>
 
                         <div class="note">
-                            <span class="note__label"><?php esc_html_e('Lưu ý:', 'design'); ?></span>
+                            <span class="note__label"><?php esc_html_e('Lưu ý:', Text_Domain); ?></span>
 
-                            <span class="note__text"><?php esc_html_e('Tất cả các lịch học đều được học vào buổi tối', 'design'); ?></span>
+                            <span class="note__text"><?php esc_html_e('Tất cả các lịch học đều được học vào buổi tối', Text_Domain); ?></span>
                         </div>
                     </div>
 

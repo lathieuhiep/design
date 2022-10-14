@@ -4,7 +4,7 @@ $content = get_post_meta( get_the_ID(), 'design_cmb_course_participants_content'
 
 <div class="info-list">
     <h4 class="info-list__title">
-        <?php esc_html_e('Đối tượng tham gia khoá học', 'design'); ?>
+        <?php esc_html_e('Đối tượng tham gia khoá học', Text_Domain); ?>
     </h4>
 
     <div class="info-list__content content-border">

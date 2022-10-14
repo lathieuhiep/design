@@ -18,7 +18,7 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Courses Grid', 'design' );
+		return esc_html__( 'Courses Grid', Text_Domain );
 	}
 
 	public function get_icon() {
@@ -31,7 +31,7 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_query',
 			[
-				'label' => esc_html__( 'Query', 'design' ),
+				'label' => esc_html__( 'Query', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -39,7 +39,7 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 		$this->add_control(
 			'limit',
 			[
-				'label'   => esc_html__( 'Limit', 'design' ),
+				'label'   => esc_html__( 'Limit', Text_Domain ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 4,
 				'min'     => 1,
@@ -51,14 +51,14 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 		$this->add_control(
 			'order_by',
 			[
-				'label'   => esc_html__( 'Order By', 'design' ),
+				'label'   => esc_html__( 'Order By', Text_Domain ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'id',
 				'options' => [
-					'id'    => esc_html__( 'ID', 'design' ),
-					'title' => esc_html__( 'Title', 'design' ),
-					'date'  => esc_html__( 'Date', 'design' ),
-					'rand'  => esc_html__( 'Random', 'design' ),
+					'id'    => esc_html__( 'ID', Text_Domain ),
+					'title' => esc_html__( 'Title', Text_Domain ),
+					'date'  => esc_html__( 'Date', Text_Domain ),
+					'rand'  => esc_html__( 'Random', Text_Domain ),
 				],
 			]
 		);
@@ -66,12 +66,12 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'design' ),
+				'label'   => esc_html__( 'Order', Text_Domain ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'ASC',
 				'options' => [
-					'ASC'  => esc_html__( 'Ascending', 'design' ),
-					'DESC' => esc_html__( 'Descending', 'design' ),
+					'ASC'  => esc_html__( 'Ascending', Text_Domain ),
+					'DESC' => esc_html__( 'Descending', Text_Domain ),
 				],
 			]
 		);
@@ -82,7 +82,7 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_layout',
 			[
-				'label' => esc_html__( 'Layout Settings', 'design' ),
+				'label' => esc_html__( 'Layout Settings', Text_Domain ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -90,14 +90,14 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 		$this->add_control(
 			'column_number',
 			[
-				'label'   => esc_html__( 'Column', 'design' ),
+				'label'   => esc_html__( 'Column', Text_Domain ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 4,
 				'options' => [
-					1 => esc_html__( '1 Column', 'design' ),
-					2 => esc_html__( '2 Column', 'design' ),
-					3 => esc_html__( '3 Column', 'design' ),
-					4 => esc_html__( '4 Column', 'design' ),
+					1 => esc_html__( '1 Column', Text_Domain ),
+					2 => esc_html__( '2 Column', Text_Domain ),
+					3 => esc_html__( '3 Column', Text_Domain ),
+					4 => esc_html__( '4 Column', Text_Domain ),
 				],
 			]
 		);
@@ -181,7 +181,7 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
                                 </ul>
 
                                 <a class="item__link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-		                            <?php esc_html_e('Xem chi tiết', 'design'); ?>
+		                            <?php esc_html_e('Xem chi tiết', Text_Domain); ?>
                                 </a>
                             </div>
                         </div>

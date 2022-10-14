@@ -6,7 +6,7 @@ function design_course_metaboxes()
     // Course information meta box
     $cmb_course_information = new_cmb2_box(array(
         'id' => 'design_cmb_course',
-        'title' => esc_html__('Thông tin khoá học', 'design'),
+        'title' => esc_html__('Thông tin khoá học', Text_Domain),
         'object_types' => array('design_course'),
         'context' => 'normal',
         'priority' => 'high',
@@ -14,35 +14,35 @@ function design_course_metaboxes()
     ));
 
     $cmb_course_information->add_field( array(
-        'name' => esc_html__('Thời gian học', 'design'),
+        'name' => esc_html__('Thời gian học', Text_Domain),
         'id' => 'design_meta_box_course_study_time',
         'default' => 12,
         'type' => 'text_number',
     ) );
 
     $cmb_course_information->add_field( array(
-        'name'    => esc_html__('Hình thức học', 'design'),
+        'name'    => esc_html__('Hình thức học', Text_Domain),
         'id'      => 'design_meta_box_course_study_form',
-        'default' => esc_html__('Học online trực tiếp', 'design'),
+        'default' => esc_html__('Học online trực tiếp', Text_Domain),
         'type'    => 'text',
     ) );
 
     $cmb_course_information->add_field( array(
-        'name' => esc_html__('Số buổi học trong tuần', 'design'),
+        'name' => esc_html__('Số buổi học trong tuần', Text_Domain),
         'id' => 'design_meta_box_course_number_lessons',
         'default' => 2,
         'type' => 'text_number',
     ) );
 
     $cmb_course_information->add_field( array(
-        'name' => esc_html__('Số buổi học trong tuần', 'design'),
+        'name' => esc_html__('Số buổi học trong tuần', Text_Domain),
         'id' => 'design_meta_box_course_number_lessons',
         'default' => 2,
         'type' => 'text_number',
     ) );
 
     $cmb_course_information->add_field( array(
-        'name' => esc_html__('Học phí (VND)', 'design'),
+        'name' => esc_html__('Học phí (VND)', Text_Domain),
         'id' => 'design_meta_box_course_tuition',
         'default' => '',
         'type' => 'text_number',
@@ -51,7 +51,7 @@ function design_course_metaboxes()
     // Course participants meta box
     $cmb_course_participants = new_cmb2_box(array(
         'id' => 'design_cmb_course_participants',
-        'title' => esc_html__('Đối tượng tham gia khoá học', 'design'),
+        'title' => esc_html__('Đối tượng tham gia khoá học', Text_Domain),
         'object_types' => array('design_course'),
         'context' => 'normal',
         'priority' => 'high',
@@ -59,7 +59,7 @@ function design_course_metaboxes()
     ));
 
     $cmb_course_participants->add_field( array(
-        'name'    => esc_html__('Mô tả', 'design'),
+        'name'    => esc_html__('Mô tả', Text_Domain),
         'id'      => 'design_cmb_course_participants_content',
         'type'    => 'wysiwyg',
         'options' => array(
@@ -70,7 +70,7 @@ function design_course_metaboxes()
     // Course lesson meta box
     $cmb_course_lesson = new_cmb2_box(array(
         'id' => 'design_cmb_course_lesson',
-        'title' => esc_html__('Khung kiến thức bài giảng', 'design'),
+        'title' => esc_html__('Khung kiến thức bài giảng', Text_Domain),
         'object_types' => array('design_course'),
         'context' => 'normal',
         'priority' => 'high',
@@ -78,7 +78,7 @@ function design_course_metaboxes()
     ));
 
     $cmb_course_lesson->add_field( array(
-        'name'    => esc_html__('Mô tả 1', 'design'),
+        'name'    => esc_html__('Mô tả 1', Text_Domain),
         'id'      => 'design_cmb_course_lesson_first',
         'type'    => 'wysiwyg',
         'options' => array(
@@ -87,7 +87,7 @@ function design_course_metaboxes()
     ) );
 
     $cmb_course_lesson->add_field( array(
-        'name'    => esc_html__('Mô tả 2', 'design'),
+        'name'    => esc_html__('Mô tả 2', Text_Domain),
         'id'      => 'design_cmb_course_lesson_last',
         'type'    => 'wysiwyg',
         'options' => array(
@@ -98,7 +98,7 @@ function design_course_metaboxes()
     // Course time and tuition meta box
     $cmb_course_time_tuition = new_cmb2_box(array(
         'id' => 'design_cmb_course_time_tuition',
-        'title' => esc_html__('Thời gian học và thông tin học phí', 'design'),
+        'title' => esc_html__('Thời gian học và thông tin học phí', Text_Domain),
         'object_types' => array('design_course'),
         'context' => 'normal',
         'priority' => 'high',
@@ -106,7 +106,7 @@ function design_course_metaboxes()
     ));
 
     $cmb_course_time_tuition->add_field( array(
-        'name'    => esc_html__('Mô tả', 'design'),
+        'name'    => esc_html__('Mô tả', Text_Domain),
         'id'      => 'design_cmb_course_time_tuition_content',
         'type'    => 'wysiwyg',
         'options' => array(
@@ -117,7 +117,7 @@ function design_course_metaboxes()
     // Course detail
     $cmb_course_detail = new_cmb2_box(array(
         'id' => 'design_cmb_course_detail',
-        'title' => esc_html__('Chi tiết khoá học', 'design'),
+        'title' => esc_html__('Chi tiết khoá học', Text_Domain),
         'object_types' => array('design_course'),
         'context' => 'normal',
         'priority' => 'high',
@@ -125,7 +125,7 @@ function design_course_metaboxes()
     ));
 
     $cmb_course_detail->add_field( array(
-        'name'    => esc_html__('Mô tả', 'design'),
+        'name'    => esc_html__('Mô tả', Text_Domain),
         'id'      => 'design_cmb_course_detail_content',
         'type'    => 'wysiwyg',
         'options' => array(
