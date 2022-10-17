@@ -6,6 +6,8 @@ require get_parent_theme_file_path( '/api/menu.php' );
 require get_parent_theme_file_path( '/api/components/banner.php' );
 require get_parent_theme_file_path( '/api/components/abouts.php' );
 require get_parent_theme_file_path( '/api/components/science-participants.php' );
+require get_parent_theme_file_path( '/api/components/regulations.php' );
+require get_parent_theme_file_path( '/api/components/benefits.php' );
 
 // api query post type
 require get_parent_theme_file_path( '/api/post-type/course.php' );

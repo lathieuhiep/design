@@ -177,6 +177,82 @@ if( class_exists( 'CSF' ) ) {
 		)
 	) );
 
+	// Section components regulations
+	CSF::createSection( $prefix, array(
+		'parent' => 'primary_components',
+		'title'  => 'Regulations',
+		'fields' => array(
+			array(
+				'id'    => 'regulations_media',
+				'type'  => 'media',
+				'title' => 'Media',
+				'url' => false
+			),
+
+			array(
+				'id'    => 'regulations_title',
+				'type'  => 'text',
+				'title' => esc_html__('Title', Text_Domain),
+				'default' => esc_html__('GET DESIGN', Text_Domain),
+			),
+
+			array(
+				'id'    => 'regulations_content',
+				'type'  => 'wp_editor',
+				'title' =>  esc_html__('Content', Text_Domain),
+				'media_buttons' => false
+			),
+
+			array(
+				'id'    => 'regulations_title_contact',
+				'type'  => 'text',
+				'title' => esc_html__('Title Contact', Text_Domain),
+				'default' => esc_html__('Liên hệ với Hotline', Text_Domain),
+			),
+
+			array(
+				'id'    => 'regulations_content_contact',
+				'type'  => 'wp_editor',
+				'title' =>  esc_html__('Content', Text_Domain),
+				'media_buttons' => false
+			),
+		)
+	) );
+
+	// Section benefits
+	CSF::createSection( $prefix, array(
+		'parent' => 'primary_components',
+		'title'  => 'Benefits',
+		'fields' => array(
+			array(
+				'id'    => 'benefits_heading',
+				'type'  => 'text',
+				'title' => esc_html__('Heading', Text_Domain),
+				'default' => esc_html__('LỢI ÍCH KHI THAM GIA KHÓA HỌC', Text_Domain),
+			),
+
+			array(
+				'id'     => 'benefits_list',
+				'type'   => 'repeater',
+				'title'  => 'Benefits',
+				'fields' => array(
+					array(
+						'id'    => 'image',
+						'type'  => 'media',
+						'title' => 'Image',
+						'url' => false
+					),
+
+					array(
+						'id'    => 'title',
+						'type'  => 'text',
+						'title' => 'Text'
+					),
+				),
+			),
+		)
+	) );
+
 	//
 	// Create a section
 	CSF::createSection( $prefix, array(
