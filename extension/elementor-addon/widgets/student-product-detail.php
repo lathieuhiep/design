@@ -26,6 +26,10 @@ class Design_Elementor_Addon_Student_Product_Detail extends Widget_Base {
 		return 'eicon-post-content';
 	}
 
+	public function get_style_depends() {
+		return [ 'owl.carousel.min' ];
+	}
+
 	public function get_script_depends() {
 		return ['design-elementor-custom'];
 	}

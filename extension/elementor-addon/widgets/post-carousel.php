@@ -24,6 +24,10 @@ class Design_Elementor_Addon_Post_Carousel extends Widget_Base {
         return 'eicon-slider-push';
     }
 
+	public function get_style_depends() {
+		return [ 'owl.carousel.min' ];
+	}
+
     public function get_script_depends() {
         return ['design-elementor-custom'];
     }

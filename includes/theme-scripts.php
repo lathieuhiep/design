@@ -26,18 +26,20 @@ add_action('wp_enqueue_scripts', 'design_register_front_end');
 
 function design_register_front_end() {
 
-	/* Start main Css */
-	wp_enqueue_style( 'design-library', get_theme_file_uri( '/assets/css/library.min.css' ), array(), '' );
+	// bootstrap css
+	wp_enqueue_style( 'bootstrap.min', get_theme_file_uri( '/assets/libs/css/bootstrap.min.css' ), array(), '5.2.3' );
+
+	// fontawesome css
+	wp_enqueue_style( 'fontawesome', get_theme_file_uri( '/assets/libs/css/fontawesome.min.css' ), array(), '6.3.0' );
 	/* End main Css */
 
-	if ( is_singular('student_product') || is_singular('my_product') ) {
-		wp_enqueue_style( 'jquery-scrollbar', get_theme_file_uri( '/assets/css/jquery.scrollbar.css' ), array(), '' );
-		wp_enqueue_script( 'jquery-scrollbar', get_theme_file_uri( '/assets/js/jquery.scrollbar.min.js' ), array('jquery'), '', true );
-	}
+	// register style owl carousel
+	wp_register_style( 'owl.carousel.min', get_theme_file_uri( '/assets/libs/css/owl.carousel.min.css' ), array(), '2.3.4' );
 
-    /* Start main Css */
-    wp_enqueue_style( 'fontawesome-5', get_theme_file_uri( '/fonts/fontawesome/css/all.min.css' ), array(), '5.12.1' );
-    /* End main Css */
+	if ( is_singular('student_product') || is_singular('my_product') ) {
+		wp_enqueue_style( 'jquery.scrollbar.min', get_theme_file_uri( '/assets/libs/css/jquery.scrollbar.min.css' ), array(), '0.2.11' );
+		wp_enqueue_script( 'jquery.scrollbar.min', get_theme_file_uri( '/assets/js/jquery.scrollbar.min.js' ), array('jquery'), '', true );
+	}
 
 	/*  Start Style Css   */
 	wp_enqueue_style( 'design-style', get_stylesheet_uri() );

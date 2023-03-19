@@ -586,9 +586,10 @@ function design_get_form_cf7(): array {
 // chat facebook
 add_action('wp_footer', 'design_chat_facebook');
 function design_chat_facebook () {
+	$show = get_theme_mod('design_opt_chat_show_api_facebook', 'on');
 	$facebook = get_theme_mod('design_opt_chat_facebook', '');
 
-	if ( $facebook ) {
+	if ( $show == 'on' && $facebook ) {
 		echo force_balance_tags( $facebook );
 	}
 }

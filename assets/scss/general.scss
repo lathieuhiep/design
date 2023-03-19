@@ -44,16 +44,12 @@
 
 html {
   min-height: 100%;
+  font-size: 62.5%;
 }
 
 body {
   min-height: 100vh;
-  line-height: 1.4em;
   overflow-x: hidden;
-  font-size: 15px;
-  font-weight: 400;
-  color: $color-primary;
-  font-family: $font-family;
   word-break: break-word;
   @include flexbox();
   @include flex-direction(column);
@@ -67,43 +63,11 @@ h1, h2, h3, h4, h5, h6 {
   color: $color-title;
 }
 
-h1 {
-  font-size: 36px;
-}
-
-h2 {
-  font-size: 28px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-h4 {
-  font-size: 18px;
-}
-
-h5 {
-  font-size: 16px;
-}
-
-h6 {
-  font-size: 14px;
-}
-
 a {
-  color: $color-primary;
-  text-decoration: none;
   @include transition();
-
-  &:hover {
-    color: $color-hover;
-  }
 }
 
 p {
-  margin: 0 0 15px;
-
   &:last-child {
     margin-bottom: 0;
   }

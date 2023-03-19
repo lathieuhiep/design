@@ -345,6 +345,20 @@ new Text(
     ]
 );
 
+// Field show chat API
+new Radio_Buttonset(
+	[
+		'settings' => 'design_opt_chat_show_api_facebook',
+		'label'    => esc_html__( 'Show Chat API Facebook', 'design' ),
+		'section'  => 'design_opt_chat',
+		'default'  => 'on',
+		'choices'  => [
+			'on'  => esc_html__( 'Yes', 'design' ),
+			'off' => esc_html__( 'No', 'design' ),
+		],
+	]
+);
+
 // Field Api Chat Facebook
 new Code(
     [
