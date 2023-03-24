@@ -21,35 +21,6 @@ Text Domain: design
   ## Nav
 # Page
 # Sidebar
-# Blog
-  ## Single
-  ## Pagination
-  ## Comment
-# Post Type
-  ## Course
-  ## Service
-# Elementor
-  ## Slider
-  ## Posts Grid
-  ## Posts Carousel
-  ## Testimonial Carousel
-  ## Button Modal Form
-  ## Carousel Images
-  ## Course Grid
-  ## Student Product Grid
-  ## Menu Post Type
-  ## Heading Theme
-  ## Text Editor
-  ## Course Detail Content
-  ## Element Service Grid
-  ## Student Product Detail
-  ## List Editor
-# Woocommerce
-  ## Archive shop
-  ## Single Shop
-  ## Other Page Shop
-  ## Sidebar Shop
-  ## Quick View Product
 # Contact Form 7
 # Footer
 # Responsive
@@ -81,26 +52,6 @@ Text Domain: design
 # Sidebar
 -----------------------------------------------------------------------------*/
 @import "sidebar";
-
-/**
-# Blog
------------------------------------------------------------------------------*/
-@import "blog/blog";
-
-/**
-# Post Type
------------------------------------------------------------------------------*/
-@import "post-type/post-type";
-
-/**
-# Elementor
------------------------------------------------------------------------------*/
-@import "elementor/elementor";
-
-/**
-# Woocommerce
------------------------------------------------------------------------------*/
-@import "shop/shop";
 
 /**
 # Contact Form 7

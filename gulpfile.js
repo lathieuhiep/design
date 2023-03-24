@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
-const { src, dest, watch } = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const sourcemaps = require('gulp-sourcemaps');
-const browserSync = require('browser-sync');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const minifyCss = require('gulp-clean-css');
-const concatCss = require('gulp-concat-css');
-const rename = require("gulp-rename");
+const { src, dest, watch } = require('gulp')
+const sass = require('gulp-sass')(require('sass'))
+const sourcemaps = require('gulp-sourcemaps')
+const browserSync = require('browser-sync')
+const concat = require('gulp-concat')
+const uglify = require('gulp-uglify')
+const minifyCss = require('gulp-clean-css')
+const concatCss = require('gulp-concat-css')
+const rename = require("gulp-rename")
 
-const pathRoot = './';
+const pathRoot = './'
 
 // server
 function server() {
@@ -21,13 +21,13 @@ function server() {
     })
 }
 
-// build style libs
-async function buildStyleLibs() {
-    return await src([
-        `${pathRoot}assets/scss/libs/*.scss`,
-        'node_modules/owl.carousel/src/scss/owl.carousel.scss',
-        'node_modules/jquery.scrollbar/sass/jquery.scrollbar.scss'
-    ])
+/**
+ * Build libs
+ **/
+
+// css
+async function buildCssLibs() {
+    return await src(`${pathRoot}assets/scss/libs/*.scss`)
         .pipe(sass().on('error', sass.logError))
         .pipe(minifyCss({
             compatibility: 'ie8',
@@ -35,27 +35,9 @@ async function buildStyleLibs() {
         }))
         .pipe(rename( {suffix: '.min'} ))
         .pipe(dest(`${pathRoot}assets/libs/css`))
-        .pipe(browserSync.stream());
-}
-exports.buildStyleLibs = buildStyleLibs
-
-// Task build fontawesome
-async function buildFontawesomeStyle() {
-    return await src([
-        'node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss',
-        'node_modules/@fortawesome/fontawesome-free/scss/brands.scss',
-        'node_modules/@fortawesome/fontawesome-free/scss/solid.scss',
-    ])
-        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-        .pipe(concatCss('fontawesome.css'))
-        .pipe(minifyCss({
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(dest(`${pathRoot}assets/libs/css`))
         .pipe(browserSync.stream())
 }
-async function buildFontawesomeWebFonts() {
+async function buildWebFontsAwesome() {
     return await src([
         'node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf',
         'node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2',
@@ -63,56 +45,91 @@ async function buildFontawesomeWebFonts() {
         'node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2'
     ])
         .pipe(dest(`${pathRoot}assets/libs/webfonts`))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream())
 }
-async function buildFontawesome() {
-    await buildFontawesomeStyle();
-    await buildFontawesomeWebFonts();
-}
-exports.buildFontawesome = buildFontawesome
 
-// Task build style
+// js
+async function buildJsLibs() {
+    return await src([
+        'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+        'node_modules/owl.carousel/dist/owl.carousel.js',
+        'node_modules/jquery.scrollbar/jquery.scrollbar.js',
+    ], {allowEmpty: true})
+        .pipe(uglify())
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathRoot}assets/libs/js`))
+        .pipe(browserSync.stream())
+}
+
+async function buildLibs() {
+    await buildCssLibs()
+    await buildWebFontsAwesome()
+    await buildJsLibs()
+}
+exports.buildLibs = buildLibs
+
+/**
+ * Build Theme
+ **/
+
+// css
 async function buildStyles() {
     return await src(`${pathRoot}assets/scss/style.scss`)
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(dest('./'))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream())
 }
-exports.buildStyles = buildStyles;
-
-// Task build style elementor
 async function buildStylesElementor() {
     return await src(`${pathRoot}assets/scss/elementor-addon/elementor-addon.scss`)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(minifyCss({
-            compatibility: 'ie8',
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(rename( {suffix: '.min'} ))
-        .pipe(dest(`${pathRoot}extension/elementor-addon/css/`))
-        .pipe(browserSync.stream());
-}
-exports.buildStylesElementor = buildStylesElementor;
-
-// Task build style post
-async function buildStylePost() {
-    return await src(`${pathRoot}assets/scss/post/post.scss`)
         .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
         .pipe(minifyCss({
-            compatibility: 'ie8',
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename( {suffix: '.min'} ))
         .pipe(sourcemaps.write())
-        .pipe(dest(`${pathRoot}assets/css/post/`))
-        .pipe(browserSync.stream());
+        .pipe(dest(`${pathRoot}assets/css`))
+        .pipe(browserSync.stream())
 }
-exports.buildStylePost = buildStylePost;
+async function buildCssPost() {
+    return await src(`${pathRoot}assets/scss/post/post.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathRoot}assets/css/post`))
+        .pipe(browserSync.stream())
+}
+async function buildCssPostTypeCourses() {
+    return await src(`${pathRoot}assets/scss/post-type-courses/courses.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathRoot}assets/css/post-type-courses`))
+        .pipe(browserSync.stream())
+}
+async function buildCssPostTypeService() {
+    return await src(`${pathRoot}assets/scss/post-type-service/service.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathRoot}assets/css/post-type-service`))
+        .pipe(browserSync.stream())
+}
 
-// Task build style page templates
 async function buildStylePageTemplates() {
     return await src(`${pathRoot}assets/scss/page-templates/*.scss`)
         .pipe(sass().on('error', sass.logError))
@@ -122,25 +139,10 @@ async function buildStylePageTemplates() {
         }))
         .pipe(rename( {suffix: '.min'} ))
         .pipe(dest(`${pathRoot}assets/css/page-templates/`))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream())
 }
-exports.buildStylePageTemplates = buildStylePageTemplates
 
-// Task build style shop
-async function buildStyleShop() {
-    return await src(`${pathRoot}assets/scss/shop/shop.scss`)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(minifyCss({
-            compatibility: 'ie8',
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(rename( {suffix: '.min'} ))
-        .pipe(dest(`${pathRoot}extension/woocommerce/assets/css/`))
-        .pipe(browserSync.stream());
-}
-exports.buildStyleShop = buildStyleShop;
-
-// buildJSTheme
+// js
 async function buildJSTheme() {
     return await src([
         `${pathRoot}assets/js/*.js`,
@@ -149,37 +151,19 @@ async function buildJSTheme() {
         .pipe(uglify())
         .pipe(rename( {suffix: '.min'} ))
         .pipe(dest(`${pathRoot}assets/js/`))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream())
 }
-exports.buildJSTheme = buildJSTheme
 
-// Task compress mini library css theme
-async function compressLibraryCssMin() {
-    return await src([
-        './node_modules/bootstrap/dist/css/bootstrap.css',
-        './node_modules/owl.carousel/dist/assets/owl.carousel.css',
-    ]).pipe(concatCss("library.min.css"))
-        .pipe(minifyCss({
-            compatibility: 'ie8',
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(dest(`${pathRoot}assets/css/`))
-        .pipe(browserSync.stream());
-}
-exports.compressLibraryCssMin = compressLibraryCssMin
+async function buildTheme() {
+    await buildStyles()
+    await buildStylesElementor()
+    await buildCssPost()
+    await buildCssPostTypeCourses()
+    await buildCssPostTypeService()
 
-// Task compress lib js & mini file
-async function compressLibraryJsMin() {
-    return await src([
-        './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-        './node_modules/owl.carousel/dist/owl.carousel.js',
-    ], {allowEmpty: true})
-        .pipe(concat('library.min.js'))
-        .pipe(uglify())
-        .pipe(dest(`${pathRoot}assets/js/`))
-        .pipe(browserSync.stream());
+    await buildJSTheme()
 }
-exports.compressLibraryJsMin = compressLibraryJsMin
+exports.buildTheme = buildTheme
 
 // Task watch
 function watchTask() {

@@ -26,11 +26,11 @@ class Design_Elementor_Addon_Carousel_Images extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'owl.carousel.min' ];
+		return ['owl.carousel'];
 	}
 
 	public function get_script_depends() {
-		return ['design-elementor-custom'];
+		return ['owl.carousel', 'design-elementor-custom'];
 	}
 
 	protected function _register_controls() {

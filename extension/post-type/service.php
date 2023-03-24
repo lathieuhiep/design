@@ -7,8 +7,8 @@
 
 add_action('init', 'design_create_service', 10);
 
-function design_create_service() {
-
+function design_create_service(): void
+{
 	/* Start post type template */
 	$labels = array(
 		'name'                  =>  _x( 'Dịch vụ', 'post type general name', 'design' ),

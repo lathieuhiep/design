@@ -41,41 +41,6 @@
         }
         /* btn mobile End */
 
-        /* Start Gallery Single */
-        $( document ).general_owlCarousel_custom( '.site-post-slides' );
-        /* End Gallery Single */
-
-        /* Start nav course slider */
-        const navCourseSlider = $('.nav-course-slider');
-
-        if ( navCourseSlider.length ) {
-            const navCourseOwl = navCourseSlider.owlCarousel({
-                loop: true,
-                nav: false,
-                dots: false,
-                autoplay: true,
-                autoplaySpeed: 800,
-                navSpeed: 800,
-                dotsSpeed: 800,
-                responsive:{
-                    0: {
-                        items: 1
-                    },
-                    479: {
-                        items: 2,
-                        center: true,
-                    },
-                    768: {
-                        items: 3
-                    }
-                }
-            })
-
-            const indexNavCourse = navCourseSlider.find('.owl-item:not(.cloned) .current').data('index');
-            navCourseOwl.trigger('to.owl.carousel', [indexNavCourse, 800]);
-        }
-        /* End nav course slider */
-
         // show content post
         $('.show-full-content').on('click', function (event) {
             event.preventDefault();
@@ -91,9 +56,6 @@
 
             $(this).closest('.read-more-content').remove();
         })
-
-        // testimonial
-        $( document ).general_owlCarousel_custom( '.testimonial-owl' );
 
         // product carousel
         $( document ).general_owlCarousel_custom( '.product-owl-carousel' );
