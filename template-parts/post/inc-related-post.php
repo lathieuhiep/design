@@ -34,7 +34,7 @@ if ( !empty( $list_cate ) ):
                 <div class="col-12 col-sm-6 col-md-4 item">
                     <div class="related-post-item">
                         <?php if (has_post_thumbnail()) : ?>
-                            <figure class="post-image mb-2">
+                            <figure class="post-image mb-3">
                                 <?php the_post_thumbnail('large'); ?>
                             </figure>
                         <?php endif; ?>

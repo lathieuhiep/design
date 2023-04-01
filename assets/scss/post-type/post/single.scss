@@ -1,3 +1,5 @@
+@import "../../variables-site/variables";
+
 .site-single {
   padding-top: 30px;
 
@@ -113,9 +115,5 @@
       height: 1px;
       background-color: $background-hover;
     }
-  }
-
-  .item {
-    margin-bottom: 15px;
   }
 }

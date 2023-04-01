@@ -25,6 +25,14 @@ function design_register_back_end_scripts(){
 add_action('wp_enqueue_scripts', 'design_register_front_end');
 
 function design_register_front_end() {
+	// remove style gutenberg
+	wp_dequeue_style('wp-block-library');
+	wp_dequeue_style('wp-block-library-theme');
+	wp_dequeue_style( 'classic-theme-styles' );
+
+	wp_dequeue_style('wc-blocks-style');
+	wp_dequeue_style('storefront-gutenberg-blocks'); // disable storefront frontend block styles
+
 	/**
 	 * Register css and js
 	**/
@@ -32,6 +40,10 @@ function design_register_front_end() {
 	// register owl carousel
 	wp_register_style( 'owl.carousel', get_theme_file_uri( '/assets/libs/css/owl.carousel.min.css' ), array(), '2.3.4' );
 	wp_register_script( 'owl.carousel', get_theme_file_uri( '/assets/libs/js/owl.carousel.min.js' ), array('jquery'), '2.3.4', true );
+
+	// register scrollbar
+	wp_register_style( 'scrollbar', get_theme_file_uri( '/assets/libs/css/scrollbar.min.css' ), array(), '0.2.11' );
+	wp_register_script( 'jquery.scrollbar', get_theme_file_uri( '/assets/libs/js/jquery.scrollbar.min.js' ), array('jquery'), '', true );
 
 	/**
 	 * Get css
@@ -43,23 +55,33 @@ function design_register_front_end() {
 	// fontawesome css
 	wp_enqueue_style( 'fontawesome', get_theme_file_uri( '/assets/libs/css/fontawesome.min.css' ), array(), '6.3.0' );
 
-	if ( is_singular('student_product') || is_singular('my_product') ) {
-		wp_enqueue_style( 'scrollbar', get_theme_file_uri( '/assets/libs/css/scrollbar.min.css' ), array(), '0.2.11' );
-		wp_enqueue_script( 'jquery.scrollbar', get_theme_file_uri( '/assets/libs/js/jquery.scrollbar.min.js' ), array('jquery'), '', true );
-	}
-
 	// Style theme
 	wp_enqueue_style( 'design-style', get_stylesheet_uri() );
+
+	// post type post
+	if ( is_archive() ) {
+		wp_enqueue_style( 'archive-post', get_theme_file_uri( '/assets/post-type/post/archive.min.css' ), array(), '' );
+	}
+	if ( is_singular( 'post' ) ) {
+		wp_enqueue_style( 'post-detail', get_theme_file_uri( '/assets/post-type/post/single.min.css' ), array(), '' );
+	}
 
 	// post type courses css
 	if ( is_singular('design_course') ) {
 		wp_enqueue_style('owl.carousel');
-		wp_enqueue_style( 'courses', get_theme_file_uri( '/assets/css/post-type-courses/courses.min.css' ), array(), '' );
+		wp_enqueue_style( 'courses', get_theme_file_uri( '/assets/post-type/courses/courses.min.css' ), array(), '' );
 	}
 
 	// post type service
 	if ( is_singular('design_service') ) {
-		wp_enqueue_style( 'service', get_theme_file_uri( '/assets/css/post-type-service/service.min.css' ), array(), '' );
+		wp_enqueue_style( 'service', get_theme_file_uri( '/assets/post-type/service/service.min.css' ), array(), '' );
+	}
+
+	// post type my product & student product
+	if ( is_singular('my_product') || is_singular('student_product') ) {
+		wp_enqueue_style('owl.carousel');
+		wp_enqueue_style('scrollbar');
+		wp_enqueue_style( 'my-product-detail', get_theme_file_uri( '/assets/post-type/my-product/detail.min.css' ), array(), '' );
 	}
 
 	/*
@@ -72,7 +94,7 @@ function design_register_front_end() {
 	// bootstrap js
     wp_enqueue_script( 'bootstrap', get_theme_file_uri( '/assets/libs/js/bootstrap.bundle.min.js' ), array('jquery'), '', true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	if ( is_singular('post') && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
@@ -81,7 +103,7 @@ function design_register_front_end() {
 	// post type courses
 	if ( is_singular('design_course') ) {
 		wp_enqueue_script('owl.carousel');
-		wp_enqueue_script( 'design_course', get_theme_file_uri( '/assets/js/course.min.js' ), array('jquery'), '', true );
+		wp_enqueue_script( 'design_course', get_theme_file_uri( '/assets/post-type/courses/course.min.js' ), array('jquery'), '', true );
 	}
 
     // load product ajax
@@ -91,6 +113,13 @@ function design_register_front_end() {
     if ( is_singular('design_course') || is_singular('design_service') || is_singular( 'student_product' ) || is_singular('my_product') ) {
         wp_enqueue_script( 'load-product' );
     }
+
+	// post type student product
+	if ( is_singular('my_product') || is_singular('student_product') ) {
+		wp_enqueue_script('owl.carousel');
+		wp_enqueue_script( 'jquery.scrollbar' );
+		wp_enqueue_script( 'my-product', get_theme_file_uri( '/assets/post-type/my-product/my-product.min.js' ), array('jquery'), '', true );
+	}
 
 	/*
    * End Get Js Front End

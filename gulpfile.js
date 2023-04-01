@@ -11,11 +11,13 @@ const concatCss = require('gulp-concat-css')
 const rename = require("gulp-rename")
 
 const pathRoot = './'
+const pathServer = 'localhost/getdesign/'
 
 // server
 function server() {
     browserSync.init({
-        server: pathRoot,
+        proxy: pathServer,
+        open: 'local',
         cors: true,
         ghostMode: false
     })
@@ -72,7 +74,7 @@ exports.buildLibs = buildLibs
  * Build Theme
  **/
 
-// css
+// main
 async function buildStyles() {
     return await src(`${pathRoot}assets/scss/style.scss`)
         .pipe(sourcemaps.init())
@@ -81,69 +83,7 @@ async function buildStyles() {
         .pipe(dest('./'))
         .pipe(browserSync.stream())
 }
-async function buildStylesElementor() {
-    return await src(`${pathRoot}assets/scss/elementor-addon/elementor-addon.scss`)
-        .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-        .pipe(minifyCss({
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(rename( {suffix: '.min'} ))
-        .pipe(sourcemaps.write())
-        .pipe(dest(`${pathRoot}assets/css`))
-        .pipe(browserSync.stream())
-}
-async function buildCssPost() {
-    return await src(`${pathRoot}assets/scss/post/post.scss`)
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(minifyCss({
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(rename( {suffix: '.min'} ))
-        .pipe(sourcemaps.write())
-        .pipe(dest(`${pathRoot}assets/css/post`))
-        .pipe(browserSync.stream())
-}
-async function buildCssPostTypeCourses() {
-    return await src(`${pathRoot}assets/scss/post-type-courses/courses.scss`)
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(minifyCss({
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(rename( {suffix: '.min'} ))
-        .pipe(sourcemaps.write())
-        .pipe(dest(`${pathRoot}assets/css/post-type-courses`))
-        .pipe(browserSync.stream())
-}
-async function buildCssPostTypeService() {
-    return await src(`${pathRoot}assets/scss/post-type-service/service.scss`)
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(minifyCss({
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(rename( {suffix: '.min'} ))
-        .pipe(sourcemaps.write())
-        .pipe(dest(`${pathRoot}assets/css/post-type-service`))
-        .pipe(browserSync.stream())
-}
-
-async function buildStylePageTemplates() {
-    return await src(`${pathRoot}assets/scss/page-templates/*.scss`)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(minifyCss({
-            compatibility: 'ie8',
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(rename( {suffix: '.min'} ))
-        .pipe(dest(`${pathRoot}assets/css/page-templates/`))
-        .pipe(browserSync.stream())
-}
-
-// js
-async function buildJSTheme() {
+async function buildJSMain() {
     return await src([
         `${pathRoot}assets/js/*.js`,
         `!${pathRoot}assets/js/*.min.js`
@@ -154,33 +94,171 @@ async function buildJSTheme() {
         .pipe(browserSync.stream())
 }
 
+// elementor add on
+async function buildStylesElementor() {
+    return await src(`${pathRoot}assets/scss/elementor-addon/elementor-addon.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathRoot}assets/elementor-addon`))
+        .pipe(browserSync.stream())
+}
+async function buildJSElementor() {
+    return await src([`${pathRoot}assets/elementor-addon/elementor-addon.js`], {allowEmpty: true})
+        .pipe(uglify())
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathRoot}assets/elementor-addon`))
+        .pipe(browserSync.stream())
+}
+
+// post type post
+async function buildCssPost() {
+    return await src(`${pathRoot}assets/scss/post-type/post/*.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathRoot}assets/post-type/post`))
+        .pipe(browserSync.stream())
+}
+
+// post type courses
+async function buildCssPostTypeCourses() {
+    return await src(`${pathRoot}assets/scss/post-type/courses/*.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathRoot}assets/post-type/courses`))
+        .pipe(browserSync.stream())
+}
+async function buildJsPostTypeCourses() {
+    return await src([`${pathRoot}assets/assets/post-type/course.js`], {allowEmpty: true})
+        .pipe(uglify())
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathRoot}assets/post-type/courses`))
+        .pipe(browserSync.stream())
+}
+
+// post type service
+async function buildCssPostTypeService() {
+    return await src(`${pathRoot}assets/scss/post-type/service/*.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathRoot}assets/post-type/service`))
+        .pipe(browserSync.stream())
+}
+
+// post type my product
+async function buildCssPostTypeMyProduct() {
+    return await src(`${pathRoot}assets/scss/post-type/my-product/*.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathRoot}assets/post-type/my-product`))
+        .pipe(browserSync.stream())
+}
+async function buildJsPostTypeMyProduct() {
+    return await src([`${pathRoot}assets/assets/post-type/my-product/my-product.js`], {allowEmpty: true})
+        .pipe(uglify())
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathRoot}assets/post-type/my-product`))
+        .pipe(browserSync.stream())
+}
+
 async function buildTheme() {
     await buildStyles()
+    await buildJSMain()
+
     await buildStylesElementor()
+    await buildJSElementor()
+
     await buildCssPost()
+
     await buildCssPostTypeCourses()
+
+    await buildJsPostTypeCourses()
     await buildCssPostTypeService()
 
-    await buildJSTheme()
+    await buildCssPostTypeMyProduct()
+    await buildJsPostTypeMyProduct()
 }
 exports.buildTheme = buildTheme
 
 // Task watch
 function watchTask() {
     server()
-    watch(`${pathRoot}assets/scss/bootstrap.scss`, buildStylesBootstrap)
+
+    // watch build libs
+    watch(`${pathRoot}assets/scss/libs/*.scss`, buildCssLibs)
+
+    // watch build style css
     watch([
         `${pathRoot}assets/scss/**/*.scss`,
-        `!${pathRoot}assets/scss/bootstrap.scss`,
+        `!${pathRoot}assets/scss/libs/*.scss`,
         `!${pathRoot}assets/scss/elementor-addon/*.scss`,
         `!${pathRoot}assets/scss/post/*.scss`,
-        `!${pathRoot}assets/scss/page-templates/*.scss`,
-        `!${pathRoot}assets/scss/shop/*.scss`
+        `!${pathRoot}assets/scss/post-type-courses/*.scss`,
+        `!${pathRoot}assets/scss/post-type-service/*.scss`,
     ], buildStyles)
+
+    watch([
+        `${pathRoot}assets/js/*.js`,
+        `!${pathRoot}assets/js/*.min.js`
+    ], buildJSMain)
+
+    // watch build element
     watch(`${pathRoot}assets/scss/elementor-addon/*.scss`, buildStylesElementor)
-    watch(`${pathRoot}assets/scss/post/*.scss`, buildStylePost)
-    watch(`${pathRoot}assets/scss/page-templates/*.scss`, buildStylePageTemplates)
-    watch(`${pathRoot}assets/scss/shop/*.scss`, buildStyleShop)
-    watch([`${pathRoot}assets/js/*.js`, `!${pathRoot}assets/js/*.min.js`], buildJSTheme)
+    watch([
+        `${pathRoot}assets/elementor-addon/*.js`,
+        `!${pathRoot}assets/elementor-addon/*.min.js`
+    ], buildJSElementor)
+
+    // watch build post type post
+    watch(`${pathRoot}assets/scss/post-type/post/*.scss`, buildCssPost)
+
+    // watch build post type courses
+    watch(`${pathRoot}assets/scss/post-type/courses/*.scss`, buildCssPostTypeCourses)
+    watch([
+        `${pathRoot}assets/post-type/courses/*.js`,
+        `!${pathRoot}assets/post-type/courses/*.min.js`
+    ], buildJsPostTypeCourses)
+
+    // watch build post type service
+    watch(`${pathRoot}assets/scss/post-type/service/*.scss`, buildCssPostTypeService)
+
+    // watch build post type my product
+    watch(`${pathRoot}assets/scss/post-type/my-product/*.scss`, buildCssPostTypeMyProduct)
+    watch([
+        `${pathRoot}assets/post-type/my-product/*.js`,
+        `!${pathRoot}assets/post-type/my-product/*.min.js`
+    ], buildJsPostTypeMyProduct)
+
+    // watch liveReload
+    watch([
+        `${pathRoot}assets/css/**/*.css`,
+        `${pathRoot}assets/js/**/*.min.js`,
+        `${pathRoot}assets/libs/**/*`,
+        `${pathRoot}**/*.php`,
+    ], browserSync.reload)
 }
 exports.watchTask = watchTask

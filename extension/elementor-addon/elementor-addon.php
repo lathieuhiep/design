@@ -63,8 +63,8 @@ function design_register_script_elementor_addon(): void
 	$check_elementor = get_post_meta( get_the_ID(), '_elementor_edit_mode', true );
 
 	if ( $check_elementor == 'builder' ) {
-		wp_enqueue_style( 'elementor-addon', get_theme_file_uri( '/assets/css/elementor-addon.min.css' ), array(), '' );
+		wp_enqueue_style( 'elementor-addon', get_theme_file_uri( '/assets/elementor-addon/elementor-addon.min.css' ), array(), '' );
 	}
 
-	wp_register_script( 'design-elementor-custom', get_theme_file_uri( '/assets/js/elementor-custom.min.js' ), array(), '1.0.0', true );
+	wp_register_script( 'design-elementor-custom', get_theme_file_uri( '/assets/elementor-addon/elementor-addon.min.js' ), array(), '1.0.0', true );
 }
