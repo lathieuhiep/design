@@ -17,7 +17,7 @@ function design_course_metaboxes()
         'name' => esc_html__('Thời gian học', 'design'),
         'id' => 'design_meta_box_course_study_time',
         'default' => 12,
-        'type' => 'text_number',
+        'type' => 'text',
     ) );
 
     $cmb_course_information->add_field( array(
@@ -31,21 +31,21 @@ function design_course_metaboxes()
         'name' => esc_html__('Số buổi học trong tuần', 'design'),
         'id' => 'design_meta_box_course_number_lessons',
         'default' => 2,
-        'type' => 'text_number',
+        'type' => 'text',
     ) );
 
     $cmb_course_information->add_field( array(
         'name' => esc_html__('Số buổi học trong tuần', 'design'),
         'id' => 'design_meta_box_course_number_lessons',
         'default' => 2,
-        'type' => 'text_number',
+        'type' => 'text',
     ) );
 
     $cmb_course_information->add_field( array(
         'name' => esc_html__('Học phí (VND)', 'design'),
         'id' => 'design_meta_box_course_tuition',
         'default' => '',
-        'type' => 'text_number',
+        'type' => 'text',
     ) );
 
     // Course participants meta box
