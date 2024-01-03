@@ -26,6 +26,7 @@ function design_register_widget_elementor_addon( $widgets_manager ): void
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/testimonial-carousel.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/carousel-images.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/course-grid.php' );
+    require get_parent_theme_file_path( '/extension/elementor-addon/widgets/course-list.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/student-product-grid.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/menu-post-type.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/heading-theme.php' );
@@ -44,6 +45,7 @@ function design_register_widget_elementor_addon( $widgets_manager ): void
 	$widgets_manager->register( new Design_Elementor_Addon_Testimonial_Carousel() );
 	$widgets_manager->register( new Design_Elementor_Addon_Carousel_Images() );
 	$widgets_manager->register( new Design_Elementor_Addon_Course_Grid() );
+	$widgets_manager->register( new Design_Elementor_Addon_Course_List() );
 	$widgets_manager->register( new Design_Elementor_Addon_Student_Product_Grid() );
 	$widgets_manager->register( new Design_Elementor_Menu_Post_Type() );
 	$widgets_manager->register( new Design_Elementor_Heading_Theme() );

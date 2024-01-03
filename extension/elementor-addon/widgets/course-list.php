@@ -1,5 +1,4 @@
 <?php
-
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
@@ -7,26 +6,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Design_Elementor_Addon_Course_Grid extends Widget_Base {
-
+class Design_Elementor_Addon_Course_List extends Widget_Base {
 	public function get_categories() {
 		return array( 'design_widgets' );
 	}
 
 	public function get_name() {
-		return 'design-post-grid';
+		return 'design-post-list';
 	}
 
 	public function get_title() {
-		return esc_html__( 'Courses Grid', 'design' );
+		return esc_html__( 'Courses List', 'design' );
 	}
 
 	public function get_icon() {
-		return 'eicon-posts-grid';
+		return 'eicon-post-list';
 	}
 
 	protected function register_controls() {
-
 		// Section query
 		$this->start_controls_section(
 			'section_query',
@@ -68,36 +65,10 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Order', 'design' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'ASC',
+				'default' => 'DESC',
 				'options' => [
 					'ASC'  => esc_html__( 'Ascending', 'design' ),
 					'DESC' => esc_html__( 'Descending', 'design' ),
-				],
-			]
-		);
-
-		$this->end_controls_section();
-
-		// Section layout
-		$this->start_controls_section(
-			'section_layout',
-			[
-				'label' => esc_html__( 'Layout Settings', 'design' ),
-				'tab'   => Controls_Manager::TAB_CONTENT,
-			]
-		);
-
-		$this->add_control(
-			'column_number',
-			[
-				'label'   => esc_html__( 'Column', 'design' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 4,
-				'options' => [
-					1 => esc_html__( '1 Column', 'design' ),
-					2 => esc_html__( '2 Column', 'design' ),
-					3 => esc_html__( '3 Column', 'design' ),
-					4 => esc_html__( '4 Column', 'design' ),
 				],
 			]
 		);
@@ -123,8 +94,8 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
 
 		if ( $query->have_posts() ) :
     ?>
-        <div class="element-course-grid element-course-style">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-<?php echo esc_attr( $settings['column_number'] ); ?>">
+        <div class="element-course-list element-course-style">
+            <div class="element-course-list__warp">
                 <?php
                 while ( $query->have_posts() ):
                     $query->the_post();
@@ -135,14 +106,14 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
                     $tuition = get_post_meta(  get_the_ID(),'design_meta_box_course_tuition', true );
                 ?>
 
-                    <div class="col">
-                        <div class="item">
-                            <div class="item__thumbnail">
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                    <?php the_post_thumbnail( 'large' ); ?>
-                                </a>
-                            </div>
+                    <div class="item">
+                        <div class="item__thumbnail">
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                <?php the_post_thumbnail( 'large' ); ?>
+                            </a>
+                        </div>
 
+                        <div class="content">
                             <h2 class="item__title">
                                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                     <?php the_title(); ?>
@@ -169,9 +140,9 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
                                     <strong><?php esc_html_e( 'Học phí' ); ?>:</strong>
 
                                     <?php if ( $tuition ) : ?>
-                                    <span class="price">
-                                        <?php echo esc_html( number_format( $tuition, 0, '', '.' ) ); ?>&nbsp;vnd
-                                    </span>
+                                        <span class="price">
+                                    <?php echo esc_html( number_format( $tuition, 0, '', '.' ) ); ?>&nbsp;vnd
+                                </span>
                                     <?php endif; ?>
                                 </li>
                             </ul>
@@ -182,12 +153,13 @@ class Design_Elementor_Addon_Course_Grid extends Widget_Base {
                         </div>
                     </div>
 
-                <?php endwhile;
-                wp_reset_postdata(); ?>
+                <?php
+                endwhile;
+                wp_reset_postdata();
+                ?>
             </div>
         </div>
     <?php
 		endif;
 	}
-
 }
